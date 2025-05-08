@@ -15,6 +15,7 @@ public class CharacterData : ScriptableObject
 	public string characterDesires;
 	public string characterQuirks;
 	public string characterFears;
+	public Sprite characterAvatar;
     public DialogData[] characterDialogs;
 
     [HideInInspector] public string id = Guid.NewGuid().ToString();

@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 	public ResourceValueUI trustValue;
 	public ResourceValueUI populationValue;
 	public ResourceValueUI scienceValue;
+	public CharacterAvatarUI[] characterAvatars;
 
 	public void SetValues (GameResources resources)
 	{
@@ -44,7 +45,21 @@ public class UIManager : MonoBehaviour
 
 	public void SetCharacters (CharacterData[] characters)
 	{
-		// TODO
+		for (int i = 0; i < characterAvatars.Length; i++)
+		{
+			CharacterAvatarUI avatar = characterAvatars[i];
+
+			if (i >= characters.Length)
+			{
+				avatar.gameObject.SetActive(false);
+				continue;
+			}
+
+			CharacterData data = characters[i];
+
+			avatar.gameObject.SetActive(true);
+			avatar.SetAvatarSprite(data.characterAvatar);
+		}
 	}
 
 }

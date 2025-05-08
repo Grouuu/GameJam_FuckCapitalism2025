@@ -22,6 +22,7 @@ MonoBehaviour:
   characterDesires: Trust
   characterQuirks: Philosophical
   characterFears: The AI will betray and kill them (again).
+  characterAvatar: {fileID: 21300000, guid: e941f9a2db7bdfb4b9e16fb7676e442c, type: 3}
   characterDialogs:
   - {fileID: 11400000, guid: 0c2c893ccdd00d142a3d9a22798e6b80, type: 2}
   - {fileID: 11400000, guid: 1e421c500ebb79e44a4e3403e8158b3f, type: 2}
