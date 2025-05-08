@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 [Serializable]
-public struct Resources
+public struct GameResources
 {
 	public int scraps;
 	public int energy;
@@ -14,7 +14,7 @@ public struct Resources
 
 public class ResourcesManager : MonoBehaviour
 {
-	[HideInInspector] public Resources resources;
+	[HideInInspector] public GameResources resources;
 
 	public void Log ()
 	{

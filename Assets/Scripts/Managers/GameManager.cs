@@ -6,10 +6,11 @@ public class GameManager : MonoBehaviour
 	public static GameManager Instance;
 
 	public int startAmountCharacters;
-	public Resources startResources;
+	public GameResources startResources;
 
 	[HideInInspector] public CharactersManager charactersManager;
 	[HideInInspector] public ResourcesManager resourcesManager;
+	[HideInInspector] public UIManager uiManager;
 
 	private void Awake ()
 	{
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
 
 		charactersManager = GetComponentInChildren<CharactersManager>();
 		resourcesManager = GetComponentInChildren<ResourcesManager>();
+		uiManager = GetComponentInChildren<UIManager>();
 	}
 
 	private void Start ()
@@ -25,10 +27,10 @@ public class GameManager : MonoBehaviour
 		InitResources();
 		InitCharacters();
 
-#if UNITY_EDITOR
-		resourcesManager.Log();
-		charactersManager.Log();
-# endif
+//#if UNITY_EDITOR
+//		resourcesManager.Log();
+//		charactersManager.Log();
+//# endif
 	}
 
 	private void InitResources ()
@@ -36,6 +38,7 @@ public class GameManager : MonoBehaviour
 		// TODO get data from save if available
 
 		resourcesManager.resources = startResources;
+		uiManager.SetValues(resourcesManager.resources);
 	}
 
 	private void InitCharacters ()
