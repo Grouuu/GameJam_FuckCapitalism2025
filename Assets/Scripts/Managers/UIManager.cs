@@ -42,4 +42,9 @@ public class UIManager : MonoBehaviour
 		scienceValue.SetValue(value);
 	}
 
+	public void SetCharacters (CharacterData[] characters)
+	{
+		// TODO
+	}
+
 }
