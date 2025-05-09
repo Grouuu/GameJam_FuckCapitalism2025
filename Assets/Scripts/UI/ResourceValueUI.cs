@@ -4,11 +4,14 @@ using UnityEngine.UI;
 
 public class ResourceValueUI : MonoBehaviour
 {
+	public ResourceId id = ResourceId.None;
+	public string title;
+
+	[Space(10)]
 	public Image imgBackground;
 	public Image imgIcon;
 	public TextMeshProUGUI txtValue;
 	public TextMeshProUGUI txtTitle;
-	public string title;
 
 	public void SetBackground (string sourceImagePath)
 	{
@@ -32,12 +35,12 @@ public class ResourceValueUI : MonoBehaviour
 
 	public void SetValue (int value)
 	{
-		SetValue($"{value}");
+		txtValue.text = $"{value}";
 	}
 
-	public void SetValue (string value)
+	public void SetVisibible (bool visible)
 	{
-		txtValue.text = value;
+		gameObject.SetActive(visible);
 	}
 
 	private void OnValidate ()

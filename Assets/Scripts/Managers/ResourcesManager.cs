@@ -1,28 +1,42 @@
 using System;
 using UnityEngine;
 
+public enum ResourceId
+{
+	None,
+	Days,
+	Population,
+	Morale,
+	Trust,
+	Food,
+	Scraps,
+	Power,
+	Science,
+	Fleet,
+	Weapons,
+	StationHP,
+	Modules,
+}
 
 [Serializable]
-public struct GameResources
+public class ResourceData
 {
-	public int scraps;
-	public int energy;
-	public int trust;
-	public int population;
-	public int science;
+	public ResourceId id = ResourceId.None;
+	public int value = -1;
+
+	[HideInInspector] public bool isShow = true;
 }
 
 public class ResourcesManager : MonoBehaviour
 {
-	[HideInInspector] public GameResources resources;
+	[HideInInspector] public ResourceData[] resources;
 
 	public void Log ()
 	{
-		Debug.Log($"scraps: {resources.scraps}");
-		Debug.Log($"energy: {resources.energy}");
-		Debug.Log($"trust: {resources.trust}");
-		Debug.Log($"population: {resources.population}");
-		Debug.Log($"science: {resources.science}");
+# if UNITY_EDITOR
+		foreach (ResourceData data in resources)
+			Debug.Log($"{data.id}: {data.value}");
+# endif
 	}
 
 }

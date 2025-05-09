@@ -19,7 +19,6 @@ public class CharacterData : ScriptableObject
     public DialogData[] characterDialogs;
 
     [HideInInspector] public string id = Guid.NewGuid().ToString();
-	[HideInInspector] public bool isUsed;
 
 	public bool isAvailable ()
 	{

@@ -8,7 +8,7 @@ public class RequirementData : ScriptableObject
 
     public bool IsOK ()
 	{
-		GameResources resources = GameManager.Instance.resourcesManager.resources;
+		ResourceData[] resources = GameManager.Instance.resourcesManager.resources;
 
 		return true; // TODO
 	}

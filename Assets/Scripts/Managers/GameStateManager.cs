@@ -4,7 +4,6 @@ using UnityEngine;
 public enum GameState
 {
 	None,
-	StartGame,
 	SelectCharacters,
 	PlayCharacters,
 	Logs,

@@ -7,42 +7,8 @@ public class CharactersManager : MonoBehaviour
 	public CharacterData[] characters;
 
 	private List<CharacterData> _charactersAvailable = new();
-	private List<CharacterData> _charactersSelected = new();
+	private CharacterData _selectedCharacter;
 
-	/**
-	 * Update the selected characters
-	 */
-	public void SetPickedCharacters (string[] charactersId)
-	{
-		_charactersSelected = new();
-
-		foreach (string characterId in charactersId)
-		{
-			CharacterData characterData = FindCharacterById(characterId);
-
-			if (characterData != null)
-				_charactersSelected.Add(characterData);
-			else
-				Debug.LogWarning($"Character not found (id: {charactersId})");
-		}
-	}
-
-	public void FlagUsedCharacters (string[] charactersId)
-	{
-		foreach (string characterId in charactersId)
-		{
-			CharacterData characterData = FindCharacterById(characterId);
-
-			if (characterData != null)
-				characterData.isUsed = true;
-			else
-				Debug.LogWarning($"Character not found (id: {charactersId})");
-		}
-	}
-
-	/**
-	 * Update the available characters, and only keep ones with available dialogs
-	 */
 	public CharacterData[] UpdateAvailableCharacters ()
 	{
 		_charactersAvailable = new List<CharacterData>();
@@ -59,41 +25,18 @@ public class CharactersManager : MonoBehaviour
 		return _charactersAvailable.ToArray();
 	}
 
-	/**
-	 * Pick a certain amount of available characters
-	 */
-	public CharacterData[] PickRandomAvailableCharacters (int amountOfCharacters)
+	public CharacterData SelectRandomCharacter ()
 	{
-		if (_charactersAvailable.Count <= amountOfCharacters)
-			return _charactersAvailable.ToArray();
-
-		List<CharacterData> pickedCharacters = new();
-		HashSet<int> selectedCharactersIndex = new();
-
-		while (selectedCharactersIndex.Count < amountOfCharacters)
-		{
-			// TODO use a seed to prevent a different selection after a reload
-			int randomIndex = UnityEngine.Random.Range(0, _charactersAvailable.Count);
-
-			if (selectedCharactersIndex.Add(randomIndex))
-				pickedCharacters.Add(_charactersAvailable[randomIndex]);
-		}
-
-		return pickedCharacters.ToArray();
+		int randomIndex = UnityEngine.Random.Range(0, _charactersAvailable.Count);
+		CharacterData character = _charactersAvailable[randomIndex];
+		_selectedCharacter = character;
+		return _selectedCharacter;
 	}
 
 	public void Log ()
 	{
-		if (_charactersSelected == null || _charactersSelected.Count == 0)
-		{
-			Debug.Log("No selected character");
-			return;
-		}
-
-		foreach (CharacterData character in _charactersSelected)
-		{
-			Debug.Log($"selected character: {character.characterName}");
-		}
+		if (_selectedCharacter != null)
+			Debug.Log($"selected character: {_selectedCharacter.characterName}");
 	}
 
 	private CharacterData FindCharacterById (string characterId)
