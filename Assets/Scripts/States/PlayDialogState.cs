@@ -1,5 +1,6 @@
+using UnityEngine;
 
-public class SelectCharactersState : StateCommand
+public class PlayDialogState : StateCommand
 {
 	public override void StartCommand ()
 	{
@@ -8,7 +9,7 @@ public class SelectCharactersState : StateCommand
 
 	protected override void Reset () {}
 
-	private void OnEnable () =>  state = GameState.SelectCharacters;
+	private void OnEnable () =>  state = GameState.PlayDialog;
 
 	private void PickCharacter ()
 	{
@@ -17,6 +18,8 @@ public class SelectCharactersState : StateCommand
 		CharacterData character = gm.charactersManager.SelectRandomCharacter();
 
 		gm.charactersManager.Log();
+
+		EndCommand(); // DEBUG
 	}
 
 }

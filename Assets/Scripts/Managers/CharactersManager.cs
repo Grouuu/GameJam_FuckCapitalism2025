@@ -9,24 +9,25 @@ public class CharactersManager : MonoBehaviour
 	private List<CharacterData> _charactersAvailable = new();
 	private CharacterData _selectedCharacter;
 
-	public CharacterData[] UpdateAvailableCharacters ()
+	public void UpdateAvailableCharacters ()
 	{
+		if (characters == null)
+			return;
+
 		_charactersAvailable = new List<CharacterData>();
 
-		if (characters == null)
-			return _charactersAvailable.ToArray();
-
-		foreach(CharacterData character in characters)
+		foreach (CharacterData character in characters)
 		{
 			if (character.isAvailable())
 				_charactersAvailable.Add(character);
 		}
-
-		return _charactersAvailable.ToArray();
 	}
 
 	public CharacterData SelectRandomCharacter ()
 	{
+		if (_charactersAvailable.Count == 0)
+			return null;
+
 		int randomIndex = UnityEngine.Random.Range(0, _charactersAvailable.Count);
 		CharacterData character = _charactersAvailable[randomIndex];
 		_selectedCharacter = character;
@@ -39,9 +40,9 @@ public class CharactersManager : MonoBehaviour
 			Debug.Log($"selected character: {_selectedCharacter.characterName}");
 	}
 
-	private CharacterData FindCharacterById (string characterId)
+	private CharacterData FindCharacterById (string id)
 	{
-		return Array.Find(characters, character => character.id == characterId);
+		return Array.Find(characters, character => character.id == id);
 	}
 
 }

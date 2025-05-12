@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: Twik_01
   m_EditorClassIdentifier: 
   request: Trick question, I know the answer. Are you awake?
-  isRepetable: 0
+  isRepeateable: 0
   priority: 0
   requirements: []
-  yesResult: {fileID: 0}
-  noResult: {fileID: 0}
+  yesResult:
+    resetDialogsUsed: []
+    resetEventsUsed: []
+    resourceChanges: []
+    eventsDay: []
+  noResult:
+    resetDialogsUsed: []
+    resetEventsUsed: []
+    resourceChanges: []
+    eventsDay: []
   id: 001e57d0-c823-424b-993d-0c5aef9ef8ba
-  isUsed: 0

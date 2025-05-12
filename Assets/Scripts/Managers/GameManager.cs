@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
 	[HideInInspector] public CharactersManager charactersManager;
 	[HideInInspector] public ResourcesManager resourcesManager;
+	[HideInInspector] public EventsManager eventsManager;
 	[HideInInspector] public UIManager uiManager;
 	[HideInInspector] public GameStateManager gameStateManager;
 
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
 
 		charactersManager = GetComponentInChildren<CharactersManager>();
 		resourcesManager = GetComponentInChildren<ResourcesManager>();
+		eventsManager = GetComponentInChildren<EventsManager>();
 		uiManager = GetComponentInChildren<UIManager>();
 		gameStateManager = GetComponentInChildren<GameStateManager>();
 	}
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
 	{
 		InitResources();
 		InitCharacters();
+
+		// Start game loop
 		InitState();
 	}
 
@@ -34,8 +38,7 @@ public class GameManager : MonoBehaviour
 	{
 		// TODO get data from save if available
 
-		resourcesManager.resources = startResources;
-		uiManager.SetValues(resourcesManager.resources);
+		resourcesManager.SetResourcesValue(startResources);
 	}
 
 	private void InitCharacters ()

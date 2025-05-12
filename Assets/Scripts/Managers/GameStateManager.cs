@@ -4,12 +4,11 @@ using UnityEngine;
 public enum GameState
 {
 	None,
-	SelectCharacters,
-	PlayCharacters,
-	Logs,
-	CheckVictory,
-	NewDay,
-	Event,
+	PlayDialog,
+	CheckWinLose,
+	DailyReport,
+	PlayEvent,
+	WinGame,
 	EndGame,
 }
 
@@ -48,12 +47,6 @@ public class GameStateManager : MonoBehaviour
 		if (nextState == null)
 		{
 			Debug.LogWarning($"No state available");
-			return;
-		}
-
-		if (nextState.state == currentState.state)
-		{
-			Debug.LogWarning($"Next state found is the same as the current one");
 			return;
 		}
 

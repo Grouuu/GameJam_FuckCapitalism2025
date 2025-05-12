@@ -6,21 +6,21 @@ public class DialogData : ScriptableObject
 {
     [TextArea(3, 10)]
     public string request;
-    public bool isRepetable;
+    public bool isRepeateable;
     public int priority;
     public RequirementData[] requirements;
     public ResultData yesResult;
     public ResultData noResult;
 
     [HideInInspector] public string id = Guid.NewGuid().ToString();
-    [HideInInspector] public bool isUsed;
+    [HideInInspector] [NonSerialized] public bool isUsed;
 
     public bool isAvailable ()
 	{
         if (!IsRespectRequirements())
             return false;
 
-        if (isUsed && !isRepetable)
+        if (isUsed && !isRepeateable)
             return false;
 
         return true;
