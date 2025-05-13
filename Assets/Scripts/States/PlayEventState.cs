@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class PlayEventState : StateCommand
 {
@@ -42,6 +43,7 @@ public class PlayEventState : StateCommand
 		if (selectedEvent)
 		{
 			_todayPlayedEventsId.Add(selectedEvent.id);
+
 			selectedEvent.isUsed = true;
 
 			PlayEvent(selectedEvent);
@@ -54,6 +56,9 @@ public class PlayEventState : StateCommand
 
 	private void PlayEvent (EventData eventData)
 	{
+		// Generate random values
+		eventData.result.UpdateResult();
+
 		GameManager gm = GameManager.Instance;
 		PanelUIData data = FormatEventPanelTexts(eventData);
 
@@ -81,11 +86,11 @@ public class PlayEventState : StateCommand
 
 		content += $"{eventData.description}";
 
-		if (eventData.result.resourceChanges != null && eventData.result.resourceChanges.Length > 0)
+		if (eventData.result.resourcesChanged != null && eventData.result.resourcesChanged.Length > 0)
 		{
 			content += "\n\n";
 
-			foreach (ResourceData resourceChange in eventData.result.resourceChanges)
+			foreach (ResourceData resourceChange in eventData.result.resourcesChanged)
 			{
 				content += $"{resourceChange.id} : {resourceChange.value}\n";
 			}

@@ -1326,18 +1326,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcf7df6030174a48ad196a3dbd90ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tests:
+  - {fileID: 11400000, guid: b4cdcacbcbbedc44086f6e6d9e2fa41a, type: 2}
   startState: 1
   startResources:
   - id: 1
     value: 0
   - id: 2
-    value: 10
+    value: 20
   - id: 3
     value: 0
   - id: 4
     value: 0
   - id: 5
-    value: 20
+    value: 50
   - id: 6
     value: 0
   - id: 7
@@ -1345,13 +1347,11 @@ MonoBehaviour:
   - id: 8
     value: 0
   - id: 9
-    value: 0
-  - id: 9
-    value: 0
+    value: 1
   - id: 10
     value: 0
   - id: 11
-    value: 0
+    value: 100
   - id: 12
     value: 0
   charactersManager: {fileID: 0}

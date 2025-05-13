@@ -25,7 +25,42 @@ public class ResourceData
 	public ResourceId id = ResourceId.None;
 	public int value = -1;
 
-	public ResourceData Clone () => new () { id = id, value = value };
+	public ResourceData (ResourceId id, int value)
+	{
+		this.id = id;
+		this.value = value;
+	}
+
+	public ResourceData Clone () => new(id, value);
+}
+
+[Serializable]
+public class ResourceDataGenerator
+{
+	public ResourceId resourceId;
+	public int fixedValue;
+	public int randomMin;
+	public int randomMax;
+	public AnimationCurve distribution;
+
+	public ResourceData GetResourceData ()
+	{
+		if (randomMin == 0 && randomMax == 0)
+			return new ResourceData(resourceId, fixedValue);
+
+		if (distribution.length == 0)
+		{
+			Debug.LogWarning($"ResourceDataGenerator is missing a valid distribution ({resourceId}), fallback to fixed value");
+			return new ResourceData(resourceId, fixedValue);
+		}
+
+		float rng = UnityEngine.Random.Range(0f, 1f);
+		float evaluate = distribution.Evaluate(rng);
+		float value = Mathf.Lerp(randomMin, randomMax, evaluate);
+		int roundedValue = Mathf.RoundToInt(value);
+
+		return new ResourceData(resourceId, roundedValue);
+	}
 }
 
 public class ResourcesManager : MonoBehaviour
@@ -83,7 +118,7 @@ public class ResourcesManager : MonoBehaviour
 
 		if (resourceData == null)
 		{
-			resourceData = new ResourceData() { id = id };
+			resourceData = new ResourceData(id, -1);
 			resources.Add(resourceData);
 		}
 

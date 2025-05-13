@@ -21,6 +21,9 @@ MonoBehaviour:
   requirements:
   - usedEvents: []
     usedDialogs: []
+    resourceChecks: []
+  - usedEvents: []
+    usedDialogs: []
     resourceChecks:
     - resourceType: 0
       checkType: 0
@@ -28,13 +31,12 @@ MonoBehaviour:
   result:
     resetDialogsUsed: []
     resetEventsUsed: []
-    resourceChanges: []
-    eventsDay:
-    - targetEvent: {fileID: 0}
-      setDay: 0
-      addDays: 0
-      addMinDays: 0
-      addMaxDays: 0
+    eventsDay: []
+    resourcesChanges:
+    - _resourceId: 2
+      _fixedValue: 67
+      _randomMin: 0
+      _randomMax: 0
   art: 0
   postFX: 0
   soundFX: 0

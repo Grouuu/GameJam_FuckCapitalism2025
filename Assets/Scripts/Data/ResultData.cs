@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class EditEventDay
@@ -43,8 +44,28 @@ public class ResultData
 {
     public DialogData[] resetDialogsUsed;
     public EventData[] resetEventsUsed;
-    public ResourceData[] resourceChanges;
     public EditEventDay[] eventsDay;
+    public ResourceDataGenerator[] resourcesChanges;
+
+    // only available after called UpdateResult and cleared after called ApplyResult
+    [HideInInspector] public ResourceData[] resourcesChanged => _resourcesChanged;
+
+    [NonSerialized] private ResourceData[] _resourcesChanged;
+
+    public void UpdateResult ()
+    {
+        _resourcesChanged = new ResourceData[resourcesChanges.Length];
+
+        for (int i = 0; i < resourcesChanges.Length; i++)
+        {
+            ResourceData data = resourcesChanges[i].GetResourceData();
+
+            Debug.Log($"Data {data.id} {data.value}");
+
+            if (data.id != ResourceId.None)
+                _resourcesChanged[i] = data;
+        }
+    }
 
     public void ApplyResult ()
     {
@@ -52,6 +73,8 @@ public class ResultData
         UnlockEvents();
         UpdateResources();
         UpdateEventsDay();
+
+        _resourcesChanged = null;
     }
 
     private void UnlockDialogs ()
@@ -70,7 +93,7 @@ public class ResultData
     {
         ResourcesManager rm = GameManager.Instance.resourcesManager;
 
-        foreach (ResourceData resourceData in resourceChanges)
+        foreach (ResourceData resourceData in _resourcesChanged)
         {
             rm.AddResourceValue(resourceData);
         }
