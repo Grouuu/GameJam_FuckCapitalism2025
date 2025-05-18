@@ -13,15 +13,9 @@ public class StateCommand : MonoBehaviour
 		Debug.LogWarning($"StartCommand not implemented");
 	}
 
-	protected virtual void Reset ()
-	{
-		Debug.LogWarning($"Reset not implemented");
-	}
-
 	protected void EndCommand ()
 	{
 		OnStateEnd?.Invoke();
-		Reset();
 	}
 
 }

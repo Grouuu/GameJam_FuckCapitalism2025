@@ -11,13 +11,13 @@ public enum PanelButtonId
 	Continue,
 }
 
-public class PanelUIData
+public class CentralPanelUIData
 {
 	public string title;
 	public string content;
 }
 
-public class PanelUI : MonoBehaviour
+public class CentralPanelUI : MonoBehaviour
 {
 	public TextMeshProUGUI titleUI;
 	public TextMeshProUGUI contentUI;
@@ -25,14 +25,8 @@ public class PanelUI : MonoBehaviour
 
 	[HideInInspector] public Action onceClickCallback;
 
-	public void Show (PanelUIData panelContent)
+	public void Show (CentralPanelUIData panelContent)
 	{
-		if (contentUI == null)
-		{
-			Debug.LogWarning($"Missing data for the panel");
-			return;
-		}
-
 		titleUI.text = panelContent.title;
 		contentUI.text = panelContent.content;
 

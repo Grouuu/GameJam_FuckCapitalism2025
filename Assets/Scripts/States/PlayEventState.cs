@@ -1,7 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
 public class PlayEventState : StateCommand
 {
@@ -14,44 +11,21 @@ public class PlayEventState : StateCommand
 		NextEvent();
 	}
 
-	protected override void Reset () {}
-
 	private void OnEnable () => state = GameState.PlayEvent;
 
 	private void NextEvent ()
 	{
-		GameManager gm = GameManager.Instance;
-
-		gm.eventsManager.UpdateAvailableEvents();
-
-		int currentDay = gm.resourcesManager.GetResourceValue(ResourceId.Days);
-
-		// all available events for the day not already played today
-		EventData[] dayEvents = gm.eventsManager.SelectEventsByDay(currentDay)
-			.Where(eventData => !_todayPlayedEventsId.Any(id => id == eventData.id))
-			.ToArray()
-		;
-
-		// sort events by priority
-		Array.Sort(dayEvents, delegate (EventData eventA, EventData eventB) {
-			return eventA.priority.CompareTo(eventB.priority);
-		});
-
-		// pick the prioriter
-		EventData selectedEvent = dayEvents.Length == 0 ? null : dayEvents[0];
+		EventData selectedEvent = GameManager.Instance.eventsManager.PickEvent(_todayPlayedEventsId.ToArray());
 
 		if (selectedEvent)
 		{
 			_todayPlayedEventsId.Add(selectedEvent.id);
-
 			selectedEvent.isUsed = true;
 
 			PlayEvent(selectedEvent);
 		}
 		else
-		{
 			EndCommand();
-		}
 	}
 
 	private void PlayEvent (EventData eventData)
@@ -59,26 +33,25 @@ public class PlayEventState : StateCommand
 		// Generate random values
 		eventData.result.UpdateResult();
 
-		GameManager gm = GameManager.Instance;
-		PanelUIData data = FormatEventPanelTexts(eventData);
+		CentralPanelUIData panelData = FormatEventPanelTexts(eventData);
 
-		gm.uiManager.ShowEvent(data, () => WaitForContinue(eventData));
+		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => OnContinue(eventData));
 	}
 
-	private void WaitForContinue (EventData eventData)
+	private void OnContinue (EventData eventData)
 	{
-		ApplyResult(eventData);
+		ApplyResult(eventData.result);
 		NextEvent();
 	}
 
-	private void ApplyResult (EventData eventData)
+	private void ApplyResult (ResultData resultData)
 	{
-		eventData.result.ApplyResult();
+		resultData.ApplyResult();
 	}
 
-	private PanelUIData FormatEventPanelTexts (EventData eventData)
+	private CentralPanelUIData FormatEventPanelTexts (EventData eventData)
 	{
-		PanelUIData panelData = new();
+		CentralPanelUIData panelData = new();
 
 		panelData.title = eventData.title;
 

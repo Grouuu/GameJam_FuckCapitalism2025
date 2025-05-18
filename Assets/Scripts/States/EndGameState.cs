@@ -8,7 +8,5 @@ public class EndGameState : StateCommand
 		Debug.Log("GAME OVER");
 	}
 
-	protected override void Reset () { }
-
 	private void OnEnable () => state = GameState.EndGame;
 }

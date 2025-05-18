@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Twik
   m_EditorClassIdentifier: 
   characterName: Twik
+  relatedResource: 4
   characterBackground: Rogue hacker of the pirate team. He wakes up the AI and keeps
     it in check, voluntarily forcing it to answer only by yes or no.
   characterVoice: Dubious, secret but hopeful
@@ -25,8 +26,4 @@ MonoBehaviour:
   characterAvatar: {fileID: 21300000, guid: e941f9a2db7bdfb4b9e16fb7676e442c, type: 3}
   characterDialogs:
   - {fileID: 11400000, guid: 0c2c893ccdd00d142a3d9a22798e6b80, type: 2}
-  - {fileID: 11400000, guid: 1e421c500ebb79e44a4e3403e8158b3f, type: 2}
-  - {fileID: 11400000, guid: 12b75ed4be1f41f4e813418b41b6d543, type: 2}
-  - {fileID: 11400000, guid: ee4b31d451873a44cb314bac8b99062f, type: 2}
   id: b40b653b-afd0-451e-8639-99bfda8cc3cf
-  isUsed: 0

@@ -25,7 +25,7 @@ public class EventData : ScriptableObject
     [TextArea(3, 10)] public string description;
     public int priority;
     public bool isRepeateable;
-    public int day = -1; // can be edited at runtime
+    public int initialDay = -1;
     public RequirementData[] requirements;
     public ResultData result;
 
@@ -35,6 +35,9 @@ public class EventData : ScriptableObject
     public EventSoundFX soundFX;
 
     [HideInInspector] public string id = Guid.NewGuid().ToString();
+
+    // runtime values
+    [HideInInspector] [NonSerialized] public int day = -1;
     [HideInInspector] [NonSerialized] public bool isUsed = false;
 
     public bool isAvailable ()
@@ -57,6 +60,11 @@ public class EventData : ScriptableObject
         }
 
         return true;
+    }
+
+	private void OnEnable ()
+    {
+        day = initialDay;
     }
 
 }

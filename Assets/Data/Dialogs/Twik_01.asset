@@ -12,18 +12,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0687bbd162d9a1e40beb06dd8b222702, type: 3}
   m_Name: Twik_01
   m_EditorClassIdentifier: 
-  request: Trick question, I know the answer. Are you awake?
-  isRepeateable: 0
+  dialogId: 
+  request: I'm going to run a few test, to check if you understand me. Ok?
   priority: 0
-  requirements: []
+  isRepeateable: 0
+  requirements:
+  - usedEvents: []
+    usedDialogs: []
+    resourceChecks:
+    - resourceType: 1
+      checkType: 1
+      value: 0
   yesResult:
     resetDialogsUsed: []
     resetEventsUsed: []
-    resourceChanges: []
     eventsDay: []
+    resourcesChanges:
+    - resourceId: 4
+      fixedValue: 5
+      randomMin: 0
+      randomMax: 0
+      distribution:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    response: Good, see you soon.
   noResult:
     resetDialogsUsed: []
     resetEventsUsed: []
-    resourceChanges: []
     eventsDay: []
+    resourcesChanges:
+    - resourceId: 4
+      fixedValue: -5
+      randomMin: 0
+      randomMax: 0
+      distribution:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+    response: Well, that's a start.
   id: 001e57d0-c823-424b-993d-0c5aef9ef8ba

@@ -63,13 +63,24 @@ public class ResourceDataGenerator
 	}
 }
 
+[Serializable]
+public class ResourceLimit
+{
+	public ResourceId id;
+	public int max;
+	public int min;
+	public int low;
+}
+
 public class ResourcesManager : MonoBehaviour
 {
-	public List<ResourceData> resources = new();
+	public ResourceLimit[] resourceLimits;
+
+	private List<ResourceData> _resources = new();
 
 	public int GetResourceValue (ResourceId id)
 	{
-		return GetLocalResourceData(id).value;
+		return GetResourceData(id).value;
 	}
 
 	public void AddResourceValue (ResourceData resourceData)
@@ -87,10 +98,10 @@ public class ResourcesManager : MonoBehaviour
 		if (id == ResourceId.None)
 			return;
 
-		ResourceData resourceData = GetLocalResourceData(id);
+		ResourceData resourceData = GetResourceData(id);
 		resourceData.value = value;
 
-		GameManager.Instance.uiManager.SetValue(resourceData.Clone());
+		GameManager.Instance.uiManager.SetResourceValue(resourceData.Clone());
 	}
 
 	public void SetResourcesValue (ResourceData[] resources)
@@ -101,10 +112,20 @@ public class ResourcesManager : MonoBehaviour
 		}
 	}
 
+	public bool IsResourceLow (ResourceId id)
+	{
+		ResourceLimit limits = GetResourceLimit(id);
+
+		if (limits == null)
+			return false;
+
+		return GetResourceValue(id) <= limits.low;
+	}
+
 	public void Log ()
 	{
 # if UNITY_EDITOR
-		foreach (ResourceData data in resources)
+		foreach (ResourceData data in _resources)
 			Debug.Log($"{data.id}: {data.value}");
 # endif
 	}
@@ -112,17 +133,22 @@ public class ResourcesManager : MonoBehaviour
 	/**
 	 * Get the associated data of a resource, create a default one if missing
 	 */
-	private ResourceData GetLocalResourceData (ResourceId id)
+	private ResourceData GetResourceData (ResourceId id)
 	{
-		ResourceData resourceData = resources.Find(data => data.id == id);
+		ResourceData resourceData = _resources.Find(data => data.id == id);
 
 		if (resourceData == null)
 		{
 			resourceData = new ResourceData(id, -1);
-			resources.Add(resourceData);
+			_resources.Add(resourceData);
 		}
 
 		return resourceData;
+	}
+
+	private ResourceLimit GetResourceLimit (ResourceId id)
+	{
+		return Array.Find(resourceLimits, entry => entry.id == id);
 	}
 
 }

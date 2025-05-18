@@ -4,16 +4,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DialogData", menuName = "Scriptable Objects/DialogData")]
 public class DialogData : ScriptableObject
 {
+    public string dialogId;
     [TextArea(3, 10)]
     public string request;
-    public bool isRepeateable;
     public int priority;
+    public bool isRepeateable;
     public RequirementData[] requirements;
-    public ResultData yesResult;
-    public ResultData noResult;
+    public DialogResultData yesResult;
+    public DialogResultData noResult;
 
     [HideInInspector] public string id = Guid.NewGuid().ToString();
-    [HideInInspector] [NonSerialized] public bool isUsed;
+
+    // runtime values
+    [HideInInspector] [NonSerialized] public bool isUsed = false;
 
     public bool isAvailable ()
 	{

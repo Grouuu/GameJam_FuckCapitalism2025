@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,25 +7,26 @@ public class EventsManager : MonoBehaviour
 {
 	public EventData[] events;
 
-	private List<EventData> _eventsAvailable = new();
-
-	public void UpdateAvailableEvents ()
+	public EventData PickEvent (string[] ignoredEvents)
 	{
-		_eventsAvailable = new List<EventData>();
+		int currentDay = GameManager.Instance.resourcesManager.GetResourceValue(ResourceId.Days);
 
-		if (events == null)
-			return;
+		// all available events for the day not already played today
+		EventData[] dayEvents = events
+			.Where(eventData => eventData.isAvailable() && eventData.day == currentDay)
+			.Where(eventData => !ignoredEvents.Any(id => id == eventData.id))
+			.ToArray()
+		;
 
-		foreach (EventData eventData in events)
-		{
-			if (eventData.isAvailable())
-				_eventsAvailable.Add(eventData);
-		}
-	}
+		// sort events by priority
+		Array.Sort(dayEvents, delegate (EventData eventA, EventData eventB) {
+			return eventA.priority.CompareTo(eventB.priority);
+		});
 
-	public EventData[] SelectEventsByDay (int day)
-	{
-		return _eventsAvailable.Where(e => e.day == day).ToArray();
+		// pick the prioriter
+		EventData selectedEvent = dayEvents.Length == 0 ? null : dayEvents[0];
+
+		return selectedEvent;
 	}
 
 }

@@ -40,6 +40,12 @@ public class EditEventDay
 }
 
 [Serializable]
+public class DialogResultData : ResultData
+{
+    [TextArea(3, 10)] public string response;
+}
+
+[Serializable]
 public class ResultData
 {
     public DialogData[] resetDialogsUsed;
@@ -59,8 +65,6 @@ public class ResultData
         for (int i = 0; i < resourcesChanges.Length; i++)
         {
             ResourceData data = resourcesChanges[i].GetResourceData();
-
-            Debug.Log($"Data {data.id} {data.value}");
 
             if (data.id != ResourceId.None)
                 _resourcesChanged[i] = data;

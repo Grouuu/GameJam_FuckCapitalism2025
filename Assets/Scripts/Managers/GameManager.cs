@@ -44,8 +44,6 @@ public class GameManager : MonoBehaviour
 	private void InitCharacters ()
 	{
 		// TODO get data from save if available
-
-		charactersManager.UpdateAvailableCharacters();
 	}
 
 	private void InitState ()

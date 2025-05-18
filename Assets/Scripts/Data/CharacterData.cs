@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterData : ScriptableObject
 {
     public string characterName;
+	public ResourceId relatedResource;
 	[TextArea(3, 10)]
 	public string characterBackground;
 	public string characterVoice;
@@ -22,9 +23,6 @@ public class CharacterData : ScriptableObject
 
 	public bool isAvailable ()
 	{
-		if (characterDialogs == null)
-			return false;
-
 		foreach (DialogData dialog in characterDialogs)
 		{
 			if (dialog.isAvailable())

@@ -4,37 +4,76 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
 	public GameObject resourceValueContainer;
-	public GameObject centralWindow;
+	public GameObject centralPanel;
+	public GameObject dialogPanel;
 
 	private ResourceValueUI[] _resourceValuesUI;
 
-	private PanelUI panel => centralWindow.GetComponent<PanelUI>();
+	private CentralPanelUI _centralPanel => centralPanel.GetComponent<CentralPanelUI>();
+	private DialogPanelUI _dialogPanel => dialogPanel.GetComponent<DialogPanelUI>();
 
-	public void SetValues (ResourceData[] resources)
+	public void SetResourceValues (ResourceData[] resources)
 	{
 		foreach (ResourceData data in resources)
 		{
-			SetValue(data);
+			SetResourceValue(data);
 		}
 	}
 
-	public void SetValue (ResourceData resourceData)
+	public void SetResourceValue (ResourceData resourceData)
 	{
 		if (resourceData.id == ResourceId.None)
 			return;
 
-		GetUIComponent(resourceData.id)?.SetValue(resourceData.value);
+		GetUIResourceComponent(resourceData.id)?.SetValue(resourceData.value);
 	}
 
-	public void ShowEvent (PanelUIData panelData, Action onContinue)
+	public void ShowEventPanel (CentralPanelUIData panelData, Action onContinue)
 	{
-		panel.onceClickCallback = () => {
+		_centralPanel.onceClickCallback = () => {
 			EventClosed();
 			if (onContinue != null)
 				onContinue();
 		};
 
-		panel.Show(panelData);
+		_centralPanel.Show(panelData);
+	}
+
+	public void ShowDialogPanel (DialogPanelUIData contentData, Action onContinue)
+	{
+		ShowDialogPanel(contentData, onContinue, null);
+	}
+
+	public void ShowDialogPanel (DialogPanelUIData contentData, Action onYes, Action onNo)
+	{
+		bool isYesNoContent = onNo != null;
+
+		if (isYesNoContent)
+		{
+			// request layout
+			_dialogPanel.onceYesCallback = () => {
+				DialogClosed();
+				if (onYes != null)
+					onYes();
+			};
+
+			_dialogPanel.onceNoCallback = () => {
+				DialogClosed();
+				if (onNo != null)
+					onNo();
+			};
+		}
+		else
+		{
+			// response layout
+			_dialogPanel.onceContinueCallback = () => {
+				DialogClosed();
+				if (onYes != null)
+					onYes();
+			};
+		}
+
+		_dialogPanel.Show(contentData, isYesNoContent ? DialogPanelUIButtonsLayout.YesNo : DialogPanelUIButtonsLayout.Continue);
 	}
 
 	private void Awake ()
@@ -44,10 +83,15 @@ public class UIManager : MonoBehaviour
 
 	private void EventClosed ()
 	{
-		panel.Hide();
+		_centralPanel.Hide();
 	}
 
-	private ResourceValueUI GetUIComponent (ResourceId resourceId)
+	private void DialogClosed ()
+	{
+		_dialogPanel.Hide();
+	}
+
+	private ResourceValueUI GetUIResourceComponent (ResourceId resourceId)
 	{
 		return Array.Find(_resourceValuesUI, component => component.id == resourceId);
 	}

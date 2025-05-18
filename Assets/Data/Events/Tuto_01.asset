@@ -17,26 +17,41 @@ MonoBehaviour:
   description: SECURE CANAL OPENED.
   priority: 0
   isRepeateable: 0
-  day: 0
-  requirements:
-  - usedEvents: []
-    usedDialogs: []
-    resourceChecks: []
-  - usedEvents: []
-    usedDialogs: []
-    resourceChecks:
-    - resourceType: 0
-      checkType: 0
-      value: 0
+  initialDay: 0
+  requirements: []
   result:
     resetDialogsUsed: []
     resetEventsUsed: []
     eventsDay: []
     resourcesChanges:
-    - _resourceId: 2
-      _fixedValue: 67
-      _randomMin: 0
-      _randomMax: 0
+    - resourceId: 2
+      fixedValue: 0
+      randomMin: 20
+      randomMax: 50
+      distribution:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
   art: 0
   postFX: 0
   soundFX: 0
