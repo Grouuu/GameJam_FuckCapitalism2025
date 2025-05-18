@@ -19,6 +19,7 @@ public class CentralPanelUIData
 
 public class CentralPanelUI : MonoBehaviour
 {
+	public GameObject parent;
 	public TextMeshProUGUI titleUI;
 	public TextMeshProUGUI contentUI;
 	public Button continueButton;
@@ -30,7 +31,7 @@ public class CentralPanelUI : MonoBehaviour
 		titleUI.text = panelContent.title;
 		contentUI.text = panelContent.content;
 
-		gameObject.SetActive(true);
+		parent.SetActive(true);
 	}
 
 	public void Hide ()
@@ -38,7 +39,7 @@ public class CentralPanelUI : MonoBehaviour
 		titleUI.text = "";
 		contentUI.text = "";
 
-		gameObject.SetActive(false);
+		parent.SetActive(false);
 	}
 
 	/**

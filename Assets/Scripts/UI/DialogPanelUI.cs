@@ -19,6 +19,7 @@ public class DialogPanelUIData
 
 public class DialogPanelUI : MonoBehaviour
 {
+	public GameObject parent;
 	public TextMeshProUGUI request;
 	public CharacterAvatarUI avatar;
 	public Button yesButton;
@@ -33,16 +34,17 @@ public class DialogPanelUI : MonoBehaviour
 	{
 		request.text = panelContent.content;
 		avatar.SetAvatarSprite(panelContent.character.characterAvatar);
+		avatar.SetAvatarName(panelContent.character.name);
 		UpdateButtonsVisibility(buttons);
 
-		gameObject.SetActive(true);
+		parent.SetActive(true);
 	}
 
 	public void Hide ()
 	{
 		request.text = "";
 
-		gameObject.SetActive(false);
+		parent.SetActive(false);
 	}
 
 	/**

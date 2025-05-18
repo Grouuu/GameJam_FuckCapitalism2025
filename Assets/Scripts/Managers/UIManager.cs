@@ -3,14 +3,12 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-	public GameObject resourceValueContainer;
+	public ResourceValueUI[] resourceValuesUI;
 	public GameObject centralPanel;
 	public GameObject dialogPanel;
 
-	private ResourceValueUI[] _resourceValuesUI;
-
-	private CentralPanelUI _centralPanel => centralPanel.GetComponent<CentralPanelUI>();
-	private DialogPanelUI _dialogPanel => dialogPanel.GetComponent<DialogPanelUI>();
+	private CentralPanelUI _centralPanel => GetComponent<CentralPanelUI>();
+	private DialogPanelUI _dialogPanel => GetComponent<DialogPanelUI>();
 
 	public void SetResourceValues (ResourceData[] resources)
 	{
@@ -76,11 +74,6 @@ public class UIManager : MonoBehaviour
 		_dialogPanel.Show(contentData, isYesNoContent ? DialogPanelUIButtonsLayout.YesNo : DialogPanelUIButtonsLayout.Continue);
 	}
 
-	private void Awake ()
-	{
-		_resourceValuesUI = resourceValueContainer?.GetComponentsInChildren<ResourceValueUI>();
-	}
-
 	private void EventClosed ()
 	{
 		_centralPanel.Hide();
@@ -93,7 +86,7 @@ public class UIManager : MonoBehaviour
 
 	private ResourceValueUI GetUIResourceComponent (ResourceId resourceId)
 	{
-		return Array.Find(_resourceValuesUI, component => component.id == resourceId);
+		return Array.Find(resourceValuesUI, component => component.id == resourceId);
 	}
 
 }

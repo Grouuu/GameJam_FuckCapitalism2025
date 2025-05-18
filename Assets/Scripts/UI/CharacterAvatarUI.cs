@@ -1,13 +1,20 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterAvatarUI : MonoBehaviour
 {
-	public Image avatar;
+	public Image avatarSprite;
+	public TextMeshProUGUI avatarName;
 
 	public void SetAvatarSprite (Sprite sprite)
 	{
-		avatar.sprite = sprite;
+		avatarSprite.sprite = sprite;
+	}
+
+	public void SetAvatarName (string name)
+	{
+		avatarName.text = name;
 	}
 
 }
