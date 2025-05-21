@@ -7,31 +7,52 @@ public class GameManager : MonoBehaviour
 	public GameState startState;
 	public ResourceData[] startResources;
 
-	[HideInInspector] public CharactersManager charactersManager;
-	[HideInInspector] public ResourcesManager resourcesManager;
-	[HideInInspector] public EventsManager eventsManager;
+	[HideInInspector] public DatabaseManager databaseManager;
 	[HideInInspector] public UIManager uiManager;
 	[HideInInspector] public GameStateManager gameStateManager;
+	[HideInInspector] public ResourcesManager resourcesManager;
+	[HideInInspector] public CharactersManager charactersManager;
+	[HideInInspector] public EventsManager eventsManager;
 
 	private void Awake ()
 	{
 		if (Instance == null)
 			Instance = this;
 
-		charactersManager = GetComponentInChildren<CharactersManager>();
-		resourcesManager = GetComponentInChildren<ResourcesManager>();
-		eventsManager = GetComponentInChildren<EventsManager>();
+		databaseManager = GetComponentInChildren<DatabaseManager>();
 		uiManager = GetComponentInChildren<UIManager>();
 		gameStateManager = GetComponentInChildren<GameStateManager>();
+		resourcesManager = GetComponentInChildren<ResourcesManager>();
+		charactersManager = GetComponentInChildren<CharactersManager>();
+		eventsManager = GetComponentInChildren<EventsManager>();
 	}
 
 	private void Start ()
 	{
+		InitGame();
+	}
+
+	private async void InitGame ()
+	{
+		await InitDatabase();
+		await InitSave();
+
 		InitResources();
 		InitCharacters();
 
 		// Start game loop
 		InitState();
+	}
+
+	private async Awaitable InitDatabase ()
+	{
+		await databaseManager.LoadDatabase();
+	}
+
+	private async Awaitable InitSave ()
+	{
+		// TODO
+		await Awaitable.WaitForSecondsAsync(0);
 	}
 
 	private void InitResources ()
