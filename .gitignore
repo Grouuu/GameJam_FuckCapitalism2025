@@ -2,6 +2,11 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+
+# remove google auth token
+/Assets/Scripts/Editor/Database/Google.Apis.Auth.OAuth2.Responses.TokenResponse-user
+/Assets/Scripts/Editor/Database/Google.Apis.Auth.OAuth2.Responses.TokenResponse-user.meta
+
 .utmp/
 /[Ll]ibrary/
 /[Tt]emp/
