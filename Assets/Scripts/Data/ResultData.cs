@@ -1,114 +1,82 @@
-using System;
-using UnityEngine;
 
-[Serializable]
 public class EditEventDay
 {
-    public EventData targetEvent;
-    public int setDay = -1;
-    public int addDays = -1;
-    public int addMinDays = -1;
-    public int addMaxDays = -1;
+	public string eventName;
+	public int setDay = -1;
+	public int addMinDays = -1;
+	public int addMaxDays = -1;
 
-    public void Apply ()
-    {
-        if (setDay != -1)
-            SetDay();
-        else if (addDays != -1)
-            AddDays();
-        else if (addMinDays != -1 && addMaxDays != -1 && addMaxDays > addMinDays)
-            AddDaysRange();
-	}
-
-    private void SetDay ()
+	public int GetNewDay ()
 	{
-        if (targetEvent != null)
-            targetEvent.day = setDay;
-    }
+		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);
 
-    private void AddDays ()
-    {
-        if (targetEvent != null)
-            targetEvent.day = GameManager.Instance.resourcesManager.GetResourceValue(ResourceId.Days) + addDays;
+		if (setDay != -1)
+			return setDay;
+		else if (addMinDays != -1 && addMaxDays != -1 && addMaxDays > addMinDays)
+			return currentDay + UnityEngine.Random.Range(addMinDays, addMaxDays);
+
+		return currentDay;
 	}
+}
 
-    private void AddDaysRange ()
-    {
-        if (targetEvent != null)
-            targetEvent.day = GameManager.Instance.resourcesManager.GetResourceValue(ResourceId.Days) + UnityEngine.Random.Range(addMinDays, addMaxDays);
+public class ResultVarChange
+{
+    public GameVarId varId;
+    public ChangeValueType modifierType;
+    public int modifierValueMin;
+    public int modifierValueMax;
+
+    public int currentValue;
+
+    public void GenerateRandomValue ()
+	{
+        currentValue = UnityEngine.Random.Range(modifierValueMin, modifierValueMax + 1);
     }
 }
 
-[Serializable]
-public class DialogResultData : ResultData
-{
-    [TextArea(3, 10)] public string response;
-}
-
-[Serializable]
 public class ResultData
 {
-    public DialogData[] resetDialogsUsed;
-    public EventData[] resetEventsUsed;
     public EditEventDay[] eventsDay;
-    public ResourceDataGenerator[] resourcesChanges;
-
-    // only available after called UpdateResult and cleared after called ApplyResult
-    [HideInInspector] public ResourceData[] resourcesChanged => _resourcesChanged;
-
-    [NonSerialized] private ResourceData[] _resourcesChanged;
+	public ResultVarChange[] varChanges;
 
     public void UpdateResult ()
     {
-        _resourcesChanged = new ResourceData[resourcesChanges.Length];
-
-        for (int i = 0; i < resourcesChanges.Length; i++)
-        {
-            ResourceData data = resourcesChanges[i].GetResourceData();
-
-            if (data.id != ResourceId.None)
-                _resourcesChanged[i] = data;
-        }
+        foreach (ResultVarChange modifier in varChanges)
+            modifier.GenerateRandomValue();
     }
 
     public void ApplyResult ()
     {
-        UnlockDialogs();
-        UnlockEvents();
         UpdateResources();
         UpdateEventsDay();
-
-        _resourcesChanged = null;
-    }
-
-    private void UnlockDialogs ()
-    {
-        foreach (DialogData dialogData in resetDialogsUsed)
-            dialogData.isUsed = false;
-    }
-
-    private void UnlockEvents ()
-    {
-        foreach (EventData eventData in resetEventsUsed)
-            eventData.isUsed = false;
-    }
+	}
 
     private void UpdateResources ()
-    {
-        ResourcesManager rm = GameManager.Instance.resourcesManager;
+	{
+		if (varChanges == null)
+			return;
 
-        foreach (ResourceData resourceData in _resourcesChanged)
-        {
-            rm.AddResourceValue(resourceData);
+		foreach (ResultVarChange modifier in varChanges)
+		{
+            if (modifier.modifierType == ChangeValueType.Add)
+                GameManager.Instance.varsManager.AddValueToVar(modifier.varId, modifier.currentValue);
+            else if (modifier.modifierType == ChangeValueType.Set)
+                GameManager.Instance.varsManager.SetValueToVar(modifier.varId, modifier.currentValue);
         }
     }
 
     private void UpdateEventsDay ()
-    {
-        foreach (EditEventDay editDay in eventsDay)
-        {
-            editDay.Apply();
-        }
-    }
+	{
+		if (eventsDay == null)
+			return;
+
+		foreach (EditEventDay editDay in eventsDay)
+		{
+			EventData eventData = GameManager.Instance.eventsManager.GetEventByName(editDay.eventName);
+
+			if (eventData != null)
+				eventData.day = editDay.GetNewDay();
+		}
+	}
 
 }

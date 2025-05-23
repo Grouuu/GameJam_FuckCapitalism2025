@@ -33,7 +33,7 @@ public class DialogPanelUI : MonoBehaviour
 	public void Show (DialogPanelUIData panelContent, DialogPanelUIButtonsLayout buttons)
 	{
 		request.text = panelContent.content;
-		avatar.SetAvatarSprite(panelContent.character.characterAvatar);
+		avatar.SetAvatarSprite(panelContent.character.avatarFileName);
 		avatar.SetAvatarName(panelContent.character.name);
 		UpdateButtonsVisibility(buttons);
 

@@ -5,11 +5,12 @@ public enum GameState
 {
 	None,
 	PlayDialog,
-	CheckWinLose,
-	DailyReport,
 	PlayEvent,
+	DailyReport,
 	WinGame,
 	EndGame,
+	UpdateVars,
+	Save,
 }
 
 public class GameStateManager : MonoBehaviour

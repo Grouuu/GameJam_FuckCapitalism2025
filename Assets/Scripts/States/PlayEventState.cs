@@ -17,7 +17,7 @@ public class PlayEventState : StateCommand
 	{
 		EventData selectedEvent = GameManager.Instance.eventsManager.PickEvent(_todayPlayedEventsId.ToArray());
 
-		if (selectedEvent)
+		if (selectedEvent != null)
 		{
 			_todayPlayedEventsId.Add(selectedEvent.id);
 			selectedEvent.isUsed = true;
@@ -30,11 +30,9 @@ public class PlayEventState : StateCommand
 
 	private void PlayEvent (EventData eventData)
 	{
-		// Generate random values
-		eventData.result.UpdateResult();
+		eventData.GenerateResultValue();
 
-		CentralPanelUIData panelData = FormatEventPanelTexts(eventData);
-
+		EventPanelUIData panelData = FormatEventPanelTexts(eventData);
 		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => OnContinue(eventData));
 	}
 
@@ -49,9 +47,9 @@ public class PlayEventState : StateCommand
 		resultData.ApplyResult();
 	}
 
-	private CentralPanelUIData FormatEventPanelTexts (EventData eventData)
+	private EventPanelUIData FormatEventPanelTexts (EventData eventData)
 	{
-		CentralPanelUIData panelData = new();
+		EventPanelUIData panelData = new();
 
 		panelData.title = eventData.title;
 
@@ -59,13 +57,20 @@ public class PlayEventState : StateCommand
 
 		content += $"{eventData.description}";
 
-		if (eventData.result.resourcesChanged != null && eventData.result.resourcesChanged.Length > 0)
+		ResultVarChange[] changes = eventData.result.varChanges;
+
+		if (changes != null && changes.Length > 0)
 		{
 			content += "\n\n";
 
-			foreach (ResourceData resourceChange in eventData.result.resourcesChanged)
+			foreach (ResultVarChange varChange in changes)
 			{
-				content += $"{resourceChange.id} : {resourceChange.value}\n";
+				if (varChange.currentValue == 0)
+					continue;
+
+				string name = GameManager.Instance.varsManager.GetVarDisplayName(varChange.varId);
+				string modifier = varChange.currentValue > 0 ? "+" : "";
+				content += $"{name} : {modifier}{varChange.currentValue}\n";
 			}
 		}
 

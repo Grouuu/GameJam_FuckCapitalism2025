@@ -19,6 +19,7 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 		{ "int[]",			ParseIntArray },
 		{ "float[]",		ParseFloatArray },
 		{ "bool[]",			ParseBoolArray },
+		{ "editDay",		ParseEditDay },
 	};
 
 	[MenuItem("Database/GoogleSheets to JSON")]
@@ -88,13 +89,17 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 
 				string strVal = values[rowId][columnId];
 				string type = dataTypes[columnId];
-				string propertyName = propertyNames[columnId];
-				object parsedValue = ParseEntry(type, strVal, propertyName, fileName);
 
-				if (parsedValue != null)
-					data.Add(propertyNames[columnId], parsedValue);
-				else
-					thisRowHasError = true;
+				if (type != "ignore")
+				{
+					string propertyName = propertyNames[columnId];
+					object parsedValue = ParseEntry(type, strVal, propertyName, fileName);
+
+					if (parsedValue != null)
+						data.Add(propertyNames[columnId], parsedValue);
+					else
+						thisRowHasError = true;
+				}
 			}
 
 			if (!thisRowHasError)
@@ -286,6 +291,13 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 			valueArray[i] = value;
 		}
 		return valueArray;
+	}
+
+	private static object ParseEditDay (string cellValue, string propertyName, string fileName)
+	{
+		Debug.Log(cellValue);
+
+		return null;
 	}
 
 }

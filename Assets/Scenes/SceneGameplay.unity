@@ -3508,7 +3508,7 @@ GameObject:
   - component: {fileID: 507831257}
   - component: {fileID: 507831258}
   m_Layer: 0
-  m_Name: Resources
+  m_Name: Vars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3538,50 +3538,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 507831256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8bd516376a9cff4185d69b3591f6a5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 81c7795c4415dd0479ecfd19ff5f245b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceLimits:
-  - id: 2
-    max: 9999
-    min: 0
-    low: 20
-  - id: 3
-    max: 100
-    min: 0
-    low: 20
-  - id: 4
-    max: 50
-    min: -50
-    low: -30
-  - id: 5
-    max: 9999
-    min: 0
-    low: 20
-  - id: 6
-    max: 9999
-    min: 0
-    low: 0
-  - id: 7
-    max: 9999
-    min: 0
-    low: 0
-  - id: 9
-    max: 9999
-    min: 1
-    low: 1
-  - id: 10
-    max: 9999
-    min: 0
-    low: 0
-  - id: 11
-    max: 9999
-    min: 0
-    low: 0
-  - id: 10
-    max: 9999
-    min: 0
-    low: 0
 --- !u!1 &509075181
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,6 +3553,7 @@ GameObject:
   - component: {fileID: 509075183}
   - component: {fileID: 509075184}
   - component: {fileID: 509075185}
+  - component: {fileID: 509075186}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -3629,44 +3589,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceValuesUI:
-  - id: 1
+  - id: 12
     textfield: {fileID: 612057856}
     slider: {fileID: 0}
-  - id: 2
+  - id: 1
     textfield: {fileID: 1096904403}
+    slider: {fileID: 0}
+  - id: 2
+    textfield: {fileID: 0}
+    slider: {fileID: 796882834}
+  - id: 4
+    textfield: {fileID: 1071494301}
+    slider: {fileID: 0}
+  - id: 5
+    textfield: {fileID: 2007135772}
+    slider: {fileID: 0}
+  - id: 11
+    textfield: {fileID: 47260082}
+    slider: {fileID: 0}
+  - id: 6
+    textfield: {fileID: 928451896}
+    slider: {fileID: 0}
+  - id: 7
+    textfield: {fileID: 628062663}
+    slider: {fileID: 0}
+  - id: 8
+    textfield: {fileID: 282163997}
+    slider: {fileID: 0}
+  - id: 9
+    textfield: {fileID: 499477803}
+    slider: {fileID: 0}
+  - id: 10
+    textfield: {fileID: 1175313581}
     slider: {fileID: 0}
   - id: 3
     textfield: {fileID: 0}
-    slider: {fileID: 796882834}
-  - id: 5
-    textfield: {fileID: 1071494301}
-    slider: {fileID: 0}
-  - id: 6
-    textfield: {fileID: 2007135772}
-    slider: {fileID: 0}
-  - id: 12
-    textfield: {fileID: 47260082}
-    slider: {fileID: 0}
-  - id: 7
-    textfield: {fileID: 928451896}
-    slider: {fileID: 0}
-  - id: 8
-    textfield: {fileID: 628062663}
-    slider: {fileID: 0}
-  - id: 9
-    textfield: {fileID: 282163997}
-    slider: {fileID: 0}
-  - id: 10
-    textfield: {fileID: 499477803}
-    slider: {fileID: 0}
-  - id: 9
-    textfield: {fileID: 282163997}
-    slider: {fileID: 0}
-  - id: 9
-    textfield: {fileID: 282163997}
-    slider: {fileID: 0}
-  centralPanel: {fileID: 1965866655}
-  dialogPanel: {fileID: 1814969482}
+    slider: {fileID: 1714073065}
 --- !u!114 &509075184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3695,6 +3653,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34bb5bee1cb7c9c49bb4bc64b1d099a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1452584001}
+  titleUI: {fileID: 27875117}
+  contentUI: {fileID: 548178164}
+  continueButton: {fileID: 1505901049}
+--- !u!114 &509075186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509075181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d1b53cc412dfc4193253264343450a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1965866655}
@@ -5588,8 +5562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bc7ca2f51ec6a459f98bb352bed118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  events:
-  - {fileID: 11400000, guid: 308256c8d43a6d24aabe85fae4eb827b, type: 2}
 --- !u!1 &928451893
 GameObject:
   m_ObjectHideFlags: 0
@@ -7032,9 +7004,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1152521766}
+  - {fileID: 507831257}
   - {fileID: 1530738271}
   - {fileID: 1565915108}
-  - {fileID: 507831257}
   - {fileID: 927251678}
   - {fileID: 509075182}
   - {fileID: 172065932}
@@ -7053,35 +7025,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startState: 1
-  startResources:
-  - id: 1
-    value: 0
-  - id: 2
-    value: 20
-  - id: 3
-    value: 50
-  - id: 4
-    value: 0
-  - id: 5
-    value: 50
-  - id: 6
-    value: 0
-  - id: 7
-    value: 1
-  - id: 8
-    value: 0
-  - id: 9
-    value: 1
-  - id: 10
-    value: 0
-  - id: 11
-    value: 100
-  - id: 12
-    value: 0
   databaseManager: {fileID: 0}
   uiManager: {fileID: 0}
   gameStateManager: {fileID: 0}
-  resourcesManager: {fileID: 0}
+  varsManager: {fileID: 0}
   charactersManager: {fileID: 0}
   eventsManager: {fileID: 0}
 --- !u!1 &1152521765
@@ -7094,7 +7041,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1152521766}
   - component: {fileID: 1152521767}
+  - component: {fileID: 1152521770}
   - component: {fileID: 1152521768}
+  - component: {fileID: 1152521769}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -7139,10 +7088,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 1152521765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bc3a9b9079badc47bc33b9ee48e49d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 88d99ba05a5c8d7409887cf9d8140e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  databaseFileName: TestImport
+  databaseFileName: EXPORT_CHARACTERS
+--- !u!114 &1152521769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152521765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2180dcedb1c4ae0418540e2135ae9da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseFileName: EXPORT_REQUESTS
+--- !u!114 &1152521770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152521765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70277f9e1b8b95443af8da99e9c22cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseFileName: EXPORT_VARS
 --- !u!1 &1166456052
 GameObject:
   m_ObjectHideFlags: 0
@@ -8918,7 +8893,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 204, y: 45}
+  m_SizeDelta: {x: 0, y: 45}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1319537954
 MonoBehaviour:
@@ -9003,7 +8978,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1319537957}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 509075185}
+        m_TargetAssemblyTypeName: EventPanelUI, Assembly-CSharp
+        m_MethodName: OnContinueClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1319537957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9742,7 +9729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1452584002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9752,7 +9739,7 @@ RectTransform:
   m_GameObject: {fileID: 1452584001}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1819932575}
@@ -9761,9 +9748,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 960, y: 540}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1452584003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10027,8 +10014,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 509075185}
-        m_TargetAssemblyTypeName: CentralPanelUI, Assembly-CSharp
+      - m_Target: {fileID: 509075186}
+        m_TargetAssemblyTypeName: ReportPanelUI, Assembly-CSharp
         m_MethodName: OnContinueClick
         m_Mode: 1
         m_Arguments:
@@ -10525,8 +10512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d38c594c2b2e6c40aabb5c46f06b0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters:
-  - {fileID: 11400000, guid: 3b6d51555127c7a43aed0bcdee0636ee, type: 2}
 --- !u!1 &1572060386
 GameObject:
   m_ObjectHideFlags: 0

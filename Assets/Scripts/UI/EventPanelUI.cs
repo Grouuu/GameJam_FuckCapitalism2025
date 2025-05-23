@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum PanelButtonId
+public enum EventPanelButtonId
 {
 	None,
 	Yes,
@@ -11,13 +11,13 @@ public enum PanelButtonId
 	Continue,
 }
 
-public class CentralPanelUIData
+public class EventPanelUIData
 {
 	public string title;
 	public string content;
 }
 
-public class CentralPanelUI : MonoBehaviour
+public class EventPanelUI : MonoBehaviour
 {
 	public GameObject parent;
 	public TextMeshProUGUI titleUI;
@@ -26,8 +26,9 @@ public class CentralPanelUI : MonoBehaviour
 
 	[HideInInspector] public Action onceClickCallback;
 
-	public void Show (CentralPanelUIData panelContent)
+	public void Show (EventPanelUIData panelContent)
 	{
+		Debug.Log("BAR");
 		titleUI.text = panelContent.title;
 		contentUI.text = panelContent.content;
 

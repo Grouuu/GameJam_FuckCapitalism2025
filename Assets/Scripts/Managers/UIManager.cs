@@ -4,37 +4,39 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
 	public ResourceValueUI[] resourceValuesUI;
-	public GameObject centralPanel;
-	public GameObject dialogPanel;
 
-	private CentralPanelUI _centralPanel => GetComponent<CentralPanelUI>();
 	private DialogPanelUI _dialogPanel => GetComponent<DialogPanelUI>();
+	private EventPanelUI _eventPanel => GetComponent<EventPanelUI>();
+	private ReportPanelUI _reportPanel => GetComponent<ReportPanelUI>();
 
-	public void SetResourceValues (ResourceData[] resources)
+	public void SetResourceValue (GameVarId id, int value)
 	{
-		foreach (ResourceData data in resources)
-		{
-			SetResourceValue(data);
-		}
-	}
-
-	public void SetResourceValue (ResourceData resourceData)
-	{
-		if (resourceData.id == ResourceId.None)
+		if (id == GameVarId.None)
 			return;
 
-		GetUIResourceComponent(resourceData.id)?.SetValue(resourceData.value);
+		GetUIResourceComponent(id)?.SetValue(value);
 	}
 
-	public void ShowEventPanel (CentralPanelUIData panelData, Action onContinue)
+	public void ShowEventPanel (EventPanelUIData panelData, Action onContinue)
 	{
-		_centralPanel.onceClickCallback = () => {
+		_eventPanel.onceClickCallback = () => {
 			EventClosed();
 			if (onContinue != null)
 				onContinue();
 		};
 
-		_centralPanel.Show(panelData);
+		_eventPanel.Show(panelData);
+	}
+
+	public void ShowReportPanel (ReportPanelUIData panelData, Action onContinue)
+	{
+		_reportPanel.onceClickCallback = () => {
+			ReportClosed();
+			if (onContinue != null)
+				onContinue();
+		};
+
+		_reportPanel.Show(panelData);
 	}
 
 	public void ShowDialogPanel (DialogPanelUIData contentData, Action onContinue)
@@ -76,7 +78,12 @@ public class UIManager : MonoBehaviour
 
 	private void EventClosed ()
 	{
-		_centralPanel.Hide();
+		_eventPanel.Hide();
+	}
+
+	private void ReportClosed ()
+	{
+		_reportPanel.Hide();
 	}
 
 	private void DialogClosed ()
@@ -84,7 +91,7 @@ public class UIManager : MonoBehaviour
 		_dialogPanel.Hide();
 	}
 
-	private ResourceValueUI GetUIResourceComponent (ResourceId resourceId)
+	private ResourceValueUI GetUIResourceComponent (GameVarId resourceId)
 	{
 		return Array.Find(resourceValuesUI, component => component.id == resourceId);
 	}

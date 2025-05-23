@@ -12,7 +12,7 @@ public class DatabaseParser : MonoBehaviour
 	public string GetJsonFileName () => $"{databaseFileName}.json";
 
 	public virtual Type GetDataType () => typeof(object);
-	public virtual T GetData<T> () => default;
+	public virtual T[] GetData<T> () => default;
 	public virtual void ParseData (string data) { }
 }
 
@@ -55,7 +55,7 @@ public class DatabaseManager : MonoBehaviour
 		}
 	}
 
-	public T GetData<T> ()
+	public T[] GetData<T> ()
 	{
 		var parser = Array.Find(_parsers, entry => entry.GetDataType() == typeof(T));
 

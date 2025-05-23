@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [Serializable]
 public class ResourceValueUI
 {
-	public ResourceId id = ResourceId.None;
+	public GameVarId id = GameVarId.None;
 	public TextMeshProUGUI textfield;
 	public Slider slider;
 

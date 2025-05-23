@@ -1,28 +1,19 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
 
-[CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/CharacterData")]
-public class CharacterData : ScriptableObject
+public class CharacterData
 {
-    public string characterName;
-	public ResourceId relatedResource;
-	[TextArea(3, 10)]
-	public string characterBackground;
-	public string characterVoice;
-	public string characterAge;
-	public string characterRoles;
-	public string characterNeeds;
-	public string characterDesires;
-	public string characterQuirks;
-	public string characterFears;
-	public Sprite characterAvatar;
-    public DialogData[] characterDialogs;
+	public string id;
+    public string name;
+    public string displayName;
+	public GameVarId[] relatedGameVars;
+	public string avatarFileName;
 
-    [HideInInspector] public string id = Guid.NewGuid().ToString();
+	public DialogData[] characterDialogs;
 
 	public bool isAvailable ()
 	{
+		if (characterDialogs == null)
+			return false;
+
 		foreach (DialogData dialog in characterDialogs)
 		{
 			if (dialog.isAvailable())

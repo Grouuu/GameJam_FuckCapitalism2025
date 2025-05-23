@@ -5,12 +5,11 @@ public class GameManager : MonoBehaviour
 	public static GameManager Instance;
 
 	public GameState startState;
-	public ResourceData[] startResources;
 
 	[HideInInspector] public DatabaseManager databaseManager;
 	[HideInInspector] public UIManager uiManager;
 	[HideInInspector] public GameStateManager gameStateManager;
-	[HideInInspector] public ResourcesManager resourcesManager;
+	[HideInInspector] public VarsManager varsManager;
 	[HideInInspector] public CharactersManager charactersManager;
 	[HideInInspector] public EventsManager eventsManager;
 
@@ -22,7 +21,7 @@ public class GameManager : MonoBehaviour
 		databaseManager = GetComponentInChildren<DatabaseManager>();
 		uiManager = GetComponentInChildren<UIManager>();
 		gameStateManager = GetComponentInChildren<GameStateManager>();
-		resourcesManager = GetComponentInChildren<ResourcesManager>();
+		varsManager = GetComponentInChildren<VarsManager>();
 		charactersManager = GetComponentInChildren<CharactersManager>();
 		eventsManager = GetComponentInChildren<EventsManager>();
 	}
@@ -35,10 +34,11 @@ public class GameManager : MonoBehaviour
 	private async void InitGame ()
 	{
 		await InitDatabase();
-		await InitSave();
 
-		InitResources();
+		InitVars();
 		InitCharacters();
+
+		await LoadSave();
 
 		// Start game loop
 		InitState();
@@ -49,22 +49,20 @@ public class GameManager : MonoBehaviour
 		await databaseManager.LoadDatabase();
 	}
 
-	private async Awaitable InitSave ()
+	private void InitVars ()
 	{
-		// TODO
-		await Awaitable.WaitForSecondsAsync(0);
-	}
-
-	private void InitResources ()
-	{
-		// TODO get data from save if available
-
-		resourcesManager.SetResourcesValue(startResources);
+		varsManager.InitVars(databaseManager.GetData<VarData>());
 	}
 
 	private void InitCharacters ()
 	{
-		// TODO get data from save if available
+		charactersManager.InitCharacters(databaseManager.GetData<CharacterData>(), databaseManager.GetData<DialogData>());
+	}
+
+	private async Awaitable LoadSave ()
+	{
+		// TODO
+		await Awaitable.WaitForSecondsAsync(0);
 	}
 
 	private void InitState ()

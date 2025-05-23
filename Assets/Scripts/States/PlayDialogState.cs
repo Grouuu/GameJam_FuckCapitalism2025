@@ -27,7 +27,7 @@ public class PlayDialogState : StateCommand
 
 		(CharacterData selectedCharacter, DialogData selectedDialog) = GameManager.Instance.charactersManager.PickDialog(_todayPlayedCharactersId.ToArray());
 
-		if (selectedDialog)
+		if (selectedDialog != null)
 		{
 			_todayPlayedCharactersId.Add(selectedCharacter.id);
 			_todayPlayedDialogTotal++;
@@ -41,9 +41,7 @@ public class PlayDialogState : StateCommand
 
 	private void PlayDialog (CharacterData characterData, DialogData dialogData)
 	{
-		// Generate random values
-		dialogData.yesResult.UpdateResult();
-		dialogData.noResult.UpdateResult();
+		dialogData.GenerateResultValue();
 
 		DialogPanelUIData panelData = FormatDialogPanelRequestTexts(characterData, dialogData);
 		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => OnYes(characterData, dialogData), () => OnNo(characterData, dialogData));

@@ -1,44 +1,19 @@
-using System;
-using UnityEngine;
 
-// TODO move enums to better place
-public enum EventArt
+public class EventData
 {
-    None,
-}
-
-public enum EventPostFX
-{
-    None,
-}
-
-public enum EventSoundFX
-{
-    None,
-}
-
-[CreateAssetMenu(fileName = "EventData", menuName = "Scriptable Objects/EventData")]
-public class EventData : ScriptableObject
-{
-    public string eventId;
+    public string id;
+    public string name;
     public string title;
-    [TextArea(3, 10)] public string description;
+    public string description;
     public int priority;
     public bool isRepeateable;
     public int initialDay = -1;
     public RequirementData[] requirements;
     public ResultData result;
 
-    [Space(10)]
-    public EventArt art;
-    public EventPostFX postFX;
-    public EventSoundFX soundFX;
-
-    [HideInInspector] public string id = Guid.NewGuid().ToString();
-
     // runtime values
-    [HideInInspector] [NonSerialized] public int day = -1;
-    [HideInInspector] [NonSerialized] public bool isUsed = false;
+    public int day = -1;
+    public bool isUsed = false;
 
     public bool isAvailable ()
     {
@@ -62,9 +37,9 @@ public class EventData : ScriptableObject
         return true;
     }
 
-	private void OnEnable ()
+    public void GenerateResultValue ()
     {
-        day = initialDay;
+        result.UpdateResult();
     }
 
 }
