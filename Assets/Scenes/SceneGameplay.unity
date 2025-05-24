@@ -7044,6 +7044,7 @@ GameObject:
   - component: {fileID: 1152521770}
   - component: {fileID: 1152521768}
   - component: {fileID: 1152521769}
+  - component: {fileID: 1152521771}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -7118,6 +7119,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databaseFileName: EXPORT_VARS
+--- !u!114 &1152521771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152521765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab9e4a0a619f6245b525309609a2c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseFileName: EXPORT_EVENTS
 --- !u!1 &1166456052
 GameObject:
   m_ObjectHideFlags: 0
@@ -10165,6 +10179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1530738271}
   - component: {fileID: 1530738272}
+  - component: {fileID: 1530738276}
   - component: {fileID: 1530738273}
   - component: {fileID: 1530738274}
   - component: {fileID: 1530738275}
@@ -10239,6 +10254,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 825b8e2af05649345819fc26778344f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+--- !u!114 &1530738276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530738270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e4842f668fb5a4eafda713fc8f675c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0

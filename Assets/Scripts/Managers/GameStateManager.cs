@@ -11,6 +11,7 @@ public enum GameState
 	EndGame,
 	UpdateVars,
 	Save,
+	StartDay,
 }
 
 public class GameStateManager : MonoBehaviour

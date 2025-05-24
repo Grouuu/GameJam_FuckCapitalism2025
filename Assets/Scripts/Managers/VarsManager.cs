@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -145,6 +146,30 @@ public class VarCompareValue
 public class VarsManager : MonoBehaviour
 {
 	[NonSerialized] private VarData[] _gameVars = new VarData[0];
+
+	private Dictionary<GameVarId, int> _startDayResources = new();
+
+	public void SaveStartDayResourcesValue ()
+	{
+		foreach (VarData data in _gameVars)
+		{
+			if (data.type != GameVarType.UIVar)
+				continue;
+
+			GameVarId id = data.name;
+			int value = GetVarValue(data.name);
+
+			if (_startDayResources.ContainsKey(id))
+				_startDayResources[id] = value;
+			else
+				_startDayResources.Add(id, value);
+		}
+	}
+
+	public Dictionary<GameVarId, int> GetStartDayResourcesValue ()
+	{
+		return _startDayResources;
+	}
 
 	public void InitVars (VarData[] vars)
 	{
