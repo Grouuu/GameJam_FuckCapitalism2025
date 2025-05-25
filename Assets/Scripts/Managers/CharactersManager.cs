@@ -17,7 +17,17 @@ public class CharactersManager : MonoBehaviour
 			return;
 		}
 
+		Debug.Log($"Characters loaded (total: {characters.Length})");
+
 		_characters = characters;
+
+		if (dialogs == null)
+		{
+			Debug.LogError($"No dialogs to init");
+			return;
+		}
+
+		Debug.Log($"Dialogs loaded (total: {dialogs.Length})");
 
 		Dictionary<string, List<DialogData>> mapDialogs = new();
 

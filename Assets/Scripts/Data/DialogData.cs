@@ -3,6 +3,15 @@
 public class DialogResultData : ResultData
 {
     public string response;
+
+    public static DialogResultData CreateFrom (ResultData resultData)
+    {
+        return new()
+        {
+            eventsDay = resultData.eventsDay,
+            varChanges = resultData.varChanges,
+        };
+    }
 }
 
 public class DialogData

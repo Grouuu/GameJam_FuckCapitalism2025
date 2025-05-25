@@ -6,6 +6,15 @@ public class EventDatabaseData
 {
     public string ID { get; set; }
     public string NAME { get; set; }
+    public string TITLE { get; set; }
+    public string DESCRIPTION { get; set; }
+    public int PRIORITY { get; set; }
+    public bool REPEATABLE { get; set; }
+	public int INITIAL_DAY { get; set; }
+    public string[] REQUIREMENT { get; set; }
+    public string[] RESULT_VARS { get; set; }
+    public string[] RESULT_RESOURCES { get; set; }
+    public string[] RESULT_EVENT_DAY { get; set; }
 }
 
 public class EventParser : DatabaseParser
@@ -39,6 +48,22 @@ public class EventParser : DatabaseParser
 
 		eventData.id = jsonData.ID;
 		eventData.name = jsonData.NAME;
+		eventData.title = jsonData.TITLE;
+		eventData.description = jsonData.DESCRIPTION;
+		eventData.priority = jsonData.PRIORITY;
+		eventData.isRepeateable = jsonData.REPEATABLE;
+		eventData.day = jsonData.INITIAL_DAY;
+
+		// requirements
+
+		RequirementData requirement = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
+
+		if (requirement != null)
+			eventData.requirements = new RequirementData[1] { requirement };
+
+		// results
+
+		eventData.result = ParsingUtils.ParseResultData(jsonData.RESULT_VARS, jsonData.RESULT_RESOURCES, jsonData.RESULT_EVENT_DAY);
 
 		return eventData;
 	}

@@ -47,10 +47,15 @@ public class ReportPanelUI : MonoBehaviour
 	 */
 	public void OnContinueClick ()
 	{
-		if (onceClickCallback != null)
-			onceClickCallback();
+		OnClick(onceClickCallback);
+	}
 
+	private void OnClick (Action callback)
+	{
 		onceClickCallback = null;
+
+		if (callback != null)
+			callback();
 	}
 
 	private void Awake ()

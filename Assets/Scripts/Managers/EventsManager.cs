@@ -6,14 +6,27 @@ public class EventsManager : MonoBehaviour
 {
 	[NonSerialized] private EventData[] _events = new EventData[0];
 
+	public void InitEvents(EventData[] events)
+	{
+		if (events == null)
+		{
+			Debug.LogError($"No events to init");
+			return;
+		}
+
+		Debug.Log($"Events loaded (total: {events.Length})");
+
+		_events = events;
+	}
+
 	public EventData PickEvent (string[] ignoredEvents)
 	{
 		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);
 
 		// all available events for the day not already played today
 		EventData[] dayEvents = _events
-			.Where(eventData => eventData.isAvailable() && eventData.day == currentDay)
 			.Where(eventData => !ignoredEvents.Any(id => id == eventData.id))
+			.Where(eventData => eventData.isAvailable() && eventData.day == currentDay)
 			.ToArray()
 		;
 
@@ -22,8 +35,24 @@ public class EventsManager : MonoBehaviour
 			return eventA.priority.CompareTo(eventB.priority);
 		});
 
-		// pick the prioriter
+		// all random events not already played today
+		EventData[] randomEvents = _events
+			.Where(eventData => !ignoredEvents.Any(id => id == eventData.id))
+			.Where(eventData => eventData.isAvailable() && eventData.day == -1)
+			.ToArray()
+		;
+
+		// sort events by priority
+		Array.Sort(randomEvents, delegate (EventData eventA, EventData eventB) {
+			return eventA.priority.CompareTo(eventB.priority);
+		});
+
+		// pick the prioriter from today events
 		EventData selectedEvent = dayEvents.Length == 0 ? null : dayEvents[0];
+
+		// otherwise pick the prioriter from random events
+		if (selectedEvent == null)
+			selectedEvent = randomEvents.Length == 0 ? null : randomEvents[0];
 
 		return selectedEvent;
 	}

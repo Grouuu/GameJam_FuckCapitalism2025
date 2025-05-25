@@ -90,12 +90,6 @@ public class GSpreadSheetsToJson : EditorWindow {
 	/// </summary>
 	private string progressMessage = "";
 
-	[MenuItem("Utility/GSheet to Json")]
-	private static void ShowWindow()
-	{
-		GSpreadSheetsToJson window = EditorWindow.GetWindow(typeof(GSpreadSheetsToJson)) as GSpreadSheetsToJson;
-	}
-
 	public void Init()
 	{
 		progress = 100;

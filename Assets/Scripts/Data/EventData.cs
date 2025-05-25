@@ -7,7 +7,6 @@ public class EventData
     public string description;
     public int priority;
     public bool isRepeateable;
-    public int initialDay = -1;
     public RequirementData[] requirements;
     public ResultData result;
 
@@ -28,6 +27,9 @@ public class EventData
 
     private bool IsRespectRequirements ()
     {
+        if (requirements == null)
+            return true;
+
         foreach (RequirementData requirement in requirements)
         {
             if (!requirement.IsOK())

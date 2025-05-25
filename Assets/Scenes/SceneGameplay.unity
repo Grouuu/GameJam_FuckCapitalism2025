@@ -3656,8 +3656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 1452584001}
-  titleUI: {fileID: 27875117}
-  contentUI: {fileID: 548178164}
+  titleUI: {fileID: 1386027331}
+  contentUI: {fileID: 732171214}
   continueButton: {fileID: 1505901049}
 --- !u!114 &509075186
 MonoBehaviour:
@@ -7024,7 +7024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcf7df6030174a48ad196a3dbd90ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startState: 1
+  startState: 8
   databaseManager: {fileID: 0}
   uiManager: {fileID: 0}
   gameStateManager: {fileID: 0}

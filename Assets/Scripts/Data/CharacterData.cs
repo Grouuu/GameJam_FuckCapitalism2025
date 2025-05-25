@@ -6,6 +6,7 @@ public class CharacterData
     public string displayName;
 	public GameVarId[] relatedGameVars;
 	public string avatarFileName;
+	public RequirementData[] requirements;
 
 	public DialogData[] characterDialogs;
 
@@ -13,6 +14,15 @@ public class CharacterData
 	{
 		if (characterDialogs == null)
 			return false;
+
+		if (requirements != null)
+		{
+			foreach (RequirementData requirement in requirements)
+			{
+				if (!requirement.IsOK())
+					return false;
+			}
+		}
 
 		foreach (DialogData dialog in characterDialogs)
 		{

@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
 		InitVars();
 		InitCharacters();
+		InitEvents();
 
 		await LoadSave();
 
@@ -57,6 +58,11 @@ public class GameManager : MonoBehaviour
 	private void InitCharacters ()
 	{
 		charactersManager.InitCharacters(databaseManager.GetData<CharacterData>(), databaseManager.GetData<DialogData>());
+	}
+
+	private void InitEvents ()
+	{
+		eventsManager.InitEvents(databaseManager.GetData<EventData>());
 	}
 
 	private async Awaitable LoadSave ()

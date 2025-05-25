@@ -10,6 +10,7 @@ public class CharacterDatabaseData
     public string DISPLAY_NAME { get; set; }
     public string FILE_NAME { get; set; }
     public string[] MAIN_PROD { get; set; }
+	public string[] REQUIREMENT { get; set; }
 }
 
 public class CharacterParser : DatabaseParser
@@ -39,18 +40,25 @@ public class CharacterParser : DatabaseParser
 
 	private CharacterData ParseEntry (CharacterDatabaseData jsonData)
 	{
-		CharacterData character = new();
+		CharacterData characterData = new();
 
-		character.id = jsonData.ID;
-		character.name = jsonData.NAME;
-		character.displayName = jsonData.DISPLAY_NAME;
-		character.avatarFileName = jsonData.FILE_NAME;
-		character.relatedGameVars = jsonData.MAIN_PROD
+		characterData.id = jsonData.ID;
+		characterData.name = jsonData.NAME;
+		characterData.displayName = jsonData.DISPLAY_NAME;
+		characterData.avatarFileName = jsonData.FILE_NAME;
+		characterData.relatedGameVars = jsonData.MAIN_PROD
 			.Select(entry => ParsingUtils.MapServerVarId(entry.Trim()))
 			.Where(entry => entry != GameVarId.None)
 			.ToArray()
 		;
 
-		return character;
+		// requirements
+
+		RequirementData requirement = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
+
+		if (requirement != null)
+			characterData.requirements = new RequirementData[1] { requirement };
+
+		return characterData;
 	}
 }
