@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,40 +7,57 @@ using UnityEngine.UI;
 public enum ReportPanelButtonId
 {
 	None,
-	Yes,
-	No,
 	Continue,
 }
 
 public class ReportPanelUIData
 {
-	public string title;
-	public string content;
+	public string dayLabel;
+	public int dayValue;
+	public string description;
+	public (string iconFileName, int valueDiff)[] resourcesChange;
+	public string foodChange;
+	public string populationChange;
 }
 
 public class ReportPanelUI : MonoBehaviour
 {
 	public GameObject parent;
-	public TextMeshProUGUI titleUI;
-	public TextMeshProUGUI contentUI;
+	public TextMeshProUGUI dayLabelUI;
+	public TextMeshProUGUI dayCountUI;
+	public TextMeshProUGUI descriptionUI;
+	public TextMeshProUGUI foodChange;
+	public TextMeshProUGUI populationChange;
+	public Transform resourcesParent;
+	public GameObject prefabResource;
 	public Button continueButton;
 
 	[HideInInspector] public Action onceClickCallback;
 
 	public void Show (ReportPanelUIData panelContent)
 	{
-		titleUI.text = panelContent.title;
-		contentUI.text = panelContent.content;
+		dayLabelUI.text = panelContent.dayLabel;
+		dayCountUI.text = $"{panelContent.dayValue}";
+		descriptionUI.text = panelContent.description;
+		foodChange.text = panelContent.foodChange;
+		populationChange.text = panelContent.populationChange;
+
+		AddResourceValueDiff();
 
 		parent.SetActive(true);
 	}
 
 	public void Hide ()
 	{
-		titleUI.text = "";
-		contentUI.text = "";
-
 		parent.SetActive(false);
+
+		dayLabelUI.text = "";
+		dayCountUI.text = "";
+		descriptionUI.text = "";
+		foodChange.text = "";
+		populationChange.text = "";
+
+		RemoveResourceValues();
 	}
 
 	/**
@@ -61,5 +79,42 @@ public class ReportPanelUI : MonoBehaviour
 	private void Awake ()
 	{
 		Hide();
+	}
+
+	private void AddResourceValueDiff()
+	{
+		Dictionary<GameVarId, int> startDayValues = GameManager.Instance.varsManager.GetStartDayResourcesValue();
+		VarData[] endDayValues = GameManager.Instance.varsManager.GetResourcesData();
+
+		foreach (VarData resourceData in endDayValues)
+		{
+			int diff = 0;
+
+			if (startDayValues.TryGetValue(resourceData.varId, out int oldValue))
+				diff = resourceData.currentValue - oldValue;
+
+			if (diff != 0)
+				AddResourceValue(resourceData, diff);
+		}
+	}
+
+	private void AddResourceValue (VarData varData, int diff)
+	{
+		// TODO use pool
+		GameObject item = Instantiate(prefabResource, resourcesParent);
+		ReportResourceValueUI resource = item.GetComponent<ReportResourceValueUI>();
+
+		resource.SetIcon(varData.iconFileName);
+		resource.SetValue(diff);
+	}
+
+	private void RemoveResourceValues ()
+	{
+		ReportResourceValueUI[] resources = resourcesParent.GetComponents<ReportResourceValueUI>();
+
+		foreach (ReportResourceValueUI resource in resources)
+		{
+			Destroy(resource.gameObject);
+		}
 	}
 }

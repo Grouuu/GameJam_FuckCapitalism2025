@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,9 +89,10 @@ public enum ChangeValueType
 public class VarData
 {
 	public string id;
-	public GameVarId name;
+	public GameVarId varId;
 	public GameVarType type;
 	public string displayName;
+	public string iconFileName;
 	public int startValue;
 	public int minValue;
 	public int maxValue;
@@ -116,6 +118,12 @@ public class VarData
 		int checkedValue = GameManager.Instance.varsManager.GetVarValue(lowThreshold.varId);
 
 		return lowThreshold.IsValueOK(checkedValue);
+	}
+
+	public VarData Clone ()
+	{
+		var serialized = JsonConvert.SerializeObject(this);
+		return JsonConvert.DeserializeObject<VarData>(serialized);
 	}
 }
 
@@ -150,6 +158,20 @@ public class VarsManager : MonoBehaviour
 
 	private Dictionary<GameVarId, int> _startDayResources = new();
 
+	public void InitVars (VarData[] vars)
+	{
+		if (vars == null)
+		{
+			Debug.LogError($"No vars to init");
+			return;
+		}
+
+		_gameVars = vars;
+
+		foreach (VarData varData in _gameVars)
+			UpdateUIValue(varData);
+	}
+
 	public void SaveStartDayResourcesValue ()
 	{
 		foreach (VarData data in _gameVars)
@@ -157,8 +179,8 @@ public class VarsManager : MonoBehaviour
 			if (data.type != GameVarType.UIVar)
 				continue;
 
-			GameVarId id = data.name;
-			int value = GetVarValue(data.name);
+			GameVarId id = data.varId;
+			int value = GetVarValue(data.varId);
 
 			if (_startDayResources.ContainsKey(id))
 				_startDayResources[id] = value;
@@ -172,18 +194,12 @@ public class VarsManager : MonoBehaviour
 		return _startDayResources;
 	}
 
-	public void InitVars (VarData[] vars)
+	public int GetStartDayResourceValue (GameVarId id)
 	{
-		if (vars == null)
-		{
-			Debug.LogError($"No vars to init");
-			return;
-		}
+		if (_startDayResources.TryGetValue(id, out int value))
+			return value;
 
-		_gameVars = vars;
-
-		foreach (VarData varData in _gameVars)
-			UpdateUIValue(varData);
+		return 0;
 	}
 
 	public int GetVarValue (GameVarId id)
@@ -203,7 +219,7 @@ public class VarsManager : MonoBehaviour
 		if (varData == null)
 			return;
 
-		SetValueToVar(varData.name, varData.currentValue + value);
+		SetValueToVar(varData.varId, varData.currentValue + value);
 	}
 
 	public void SetValueToVar (GameVarId id, int value)
@@ -244,15 +260,23 @@ public class VarsManager : MonoBehaviour
 		return "";
 	}
 
-	private VarData GetVarData (GameVarId id)
+	public VarData[] GetResourcesData ()
 	{
-		return _gameVars.First(data => data.name == id);
+		return _gameVars
+			.Where(entry => entry.type == GameVarType.UIVar)
+			.ToArray()
+		;
+	}
+
+	public VarData GetVarData (GameVarId id)
+	{
+		return _gameVars.First(data => data.varId == id);
 	}
 
 	private void UpdateUIValue (VarData varData)
 	{
 		if (varData.type == GameVarType.UIVar)
-			GameManager.Instance.uiManager.SetResourceValue(varData.name, varData.currentValue);
+			GameManager.Instance.uiManager.SetResourceValue(varData.varId, varData.currentValue);
 	}
 
 }

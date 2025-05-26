@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public enum EventPanelButtonId
 {
 	None,
-	Yes,
-	No,
 	Continue,
 }
 
