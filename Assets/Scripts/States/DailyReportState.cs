@@ -40,11 +40,19 @@ public class DailyReportState : StateCommand
 		if (GameManager.Instance.endingsManager.CheckWin())
 			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
 		else
-			EndCommand(GameState.StartDay);
+			End();
 	}
 
 	private void AfterWin ()
 	{
+		End();
+	}
+
+	private void End ()
+	{
+		// increment day
+		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Day, 1);
+
 		EndCommand(GameState.StartDay);
 	}
 
