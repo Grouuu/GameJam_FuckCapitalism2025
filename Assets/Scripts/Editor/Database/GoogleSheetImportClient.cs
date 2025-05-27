@@ -9,7 +9,7 @@ using UnityEngine;
 public class GoogleSheetImportClient : GSpreadSheetsToJson
 {
 	private delegate object ParseFunc (string cellValue, string propertyName, string fileName);
-	private Dictionary<string, ParseFunc> supportedDataTypes = new Dictionary<string, ParseFunc>
+	private readonly Dictionary<string, ParseFunc> supportedDataTypes = new()
 	{
 		{ "string",			ParseString },
 		{ "int",			ParseInt },
@@ -19,11 +19,11 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 		{ "int[]",			ParseIntArray },
 		{ "float[]",		ParseFloatArray },
 		{ "bool[]",			ParseBoolArray },
-		{ "editDay",		ParseEditDay },
 	};
+	private readonly string configPath = "Assets/Scripts/Database/DatabaseImporterConfig.asset";
 
 	[MenuItem("Database/GoogleSheets to JSON")]
-	private static void ShowWindow () => _ = EditorWindow.GetWindow(typeof(GoogleSheetImportClient)) as GoogleSheetImportClient;
+	private static void ShowWindow () => _ = GetWindow(typeof(GoogleSheetImportClient)) as GoogleSheetImportClient;
 
 	protected override void CreateJsonFile (string fileName, string outputDirectory, ValueRange valueRange)
 	{
@@ -125,7 +125,7 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 
 	private void OnEnable ()
 	{
-		var config = AssetDatabase.LoadAssetAtPath<GSpreadSheetsToJsonConfig>("Assets/Scripts/Database/DatabaseImporterConfig.asset");
+		var config = AssetDatabase.LoadAssetAtPath<GSpreadSheetsToJsonConfig>(configPath);
 
 		if (config != null)
 		{
@@ -133,6 +133,8 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 			wantedSheetNames = config.wantedSheetNames;
 			outputDir = config.outputDir;
 		}
+		else
+			Debug.LogError($"No config file found at path: {configPath}");
 	}
 
 	private object ParseEntry (string type, string cellValue, string propertyName, string fileName)
@@ -303,13 +305,6 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 			valueArray[i] = value;
 		}
 		return valueArray;
-	}
-
-	private static object ParseEditDay (string cellValue, string propertyName, string fileName)
-	{
-		Debug.Log(cellValue);
-
-		return null;
 	}
 
 }
