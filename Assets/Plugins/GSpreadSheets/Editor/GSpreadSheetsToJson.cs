@@ -52,13 +52,13 @@ public class GSpreadSheetsToJson : EditorWindow {
 	/// Key of the spreadsheet. Get from url of the spreadsheet.
 	/// </summary>
 	[SerializeField]
-	private string spreadSheetKey = "";
+	protected string spreadSheetKey = "";
 
 	/// <summary>
 	/// List of sheet names which want to download and convert to json file
 	/// </summary>
 	[SerializeField]
-	private List<string> wantedSheetNames = new List<string>();
+	protected List<string> wantedSheetNames = new List<string>();
 
 	/// <summary>
 	/// Name of application.
@@ -69,7 +69,7 @@ public class GSpreadSheetsToJson : EditorWindow {
 	/// The directory which contain json files.
 	/// </summary>
 	[SerializeField]
-	private string outputDir = "./Assets/Resources/JsonData/";
+	protected string outputDir = "./Assets/Resources/JsonData/";
 
 	/// <summary>
 	/// The data types which is allowed to convert from sheet to json object
