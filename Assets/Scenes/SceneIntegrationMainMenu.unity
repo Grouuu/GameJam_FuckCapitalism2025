@@ -454,7 +454,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Grouuu: programming
 
-    Ouroboros: Design, story, art & music'
+    Ouroboros: Design, story, art & music
+
+
+    100%
+    hand made without AI'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb4b868c35c41c0428a0b1f3d111cf52, type: 2}
   m_sharedMaterial: {fileID: 8021991795392894148, guid: eb4b868c35c41c0428a0b1f3d111cf52, type: 2}
