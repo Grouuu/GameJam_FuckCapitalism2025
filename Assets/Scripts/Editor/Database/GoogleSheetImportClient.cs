@@ -6,6 +6,14 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "DatabaseImporterConfig", menuName = "Editor/DatabaseImporterConfig")]
+public class GSpreadSheetsToJsonConfig : ScriptableObject
+{
+	public string spreadSheetKey;
+	public List<string> wantedSheetNames;
+	public string outputDir;
+}
+
 public class GoogleSheetImportClient : GSpreadSheetsToJson
 {
 	private delegate object ParseFunc (string cellValue, string propertyName, string fileName);
@@ -121,6 +129,18 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 		strmWriter.Close();
 
 		Debug.Log("Created: " + fileName + ".json");
+	}
+
+	private void OnEnable ()
+	{
+		var config = AssetDatabase.LoadAssetAtPath<GSpreadSheetsToJsonConfig>("Assets/Scripts/Editor/Database/DatabaseImporterConfig.asset");
+
+		if (config != null)
+		{
+			spreadSheetKey = config.spreadSheetKey;
+			wantedSheetNames = config.wantedSheetNames;
+			outputDir = config.outputDir;
+		}
 	}
 
 	private object ParseEntry (string type, string cellValue, string propertyName, string fileName)
