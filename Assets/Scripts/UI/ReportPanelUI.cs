@@ -57,6 +57,8 @@ public class ReportPanelUI : MonoBehaviour
 		foodChange.text = "";
 		populationChange.text = "";
 
+		onceClickCallback = null;
+
 		RemoveResourceValues();
 	}
 

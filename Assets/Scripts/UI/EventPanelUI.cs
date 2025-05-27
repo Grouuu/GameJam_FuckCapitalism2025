@@ -37,6 +37,8 @@ public class EventPanelUI : MonoBehaviour
 		titleUI.text = "";
 		contentUI.text = "";
 
+		onceClickCallback = null;
+
 		parent.SetActive(false);
 	}
 

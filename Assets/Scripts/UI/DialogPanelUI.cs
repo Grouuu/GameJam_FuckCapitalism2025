@@ -44,6 +44,10 @@ public class DialogPanelUI : MonoBehaviour
 	{
 		request.text = "";
 
+		onceYesCallback = null;
+		onceNoCallback = null;
+		onceContinueCallback = null;
+
 		parent.SetActive(false);
 	}
 

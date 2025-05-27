@@ -15,7 +15,7 @@ public class CharacterAvatarUI : MonoBehaviour
 
 		if (sprite == null)
 		{
-			Debug.Log($"No sprite found for {fileName}");
+			Debug.LogWarning($"No sprite found for {fileName}");
 			return;
 		}
 

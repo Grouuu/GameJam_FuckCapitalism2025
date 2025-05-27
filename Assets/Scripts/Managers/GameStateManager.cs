@@ -4,14 +4,11 @@ using UnityEngine;
 public enum GameState
 {
 	None,
+	StartDay,
 	PlayDialog,
 	PlayEvent,
 	DailyReport,
-	WinGame,
 	EndGame,
-	UpdateVars,
-	Save,
-	StartDay,
 }
 
 public class GameStateManager : MonoBehaviour
@@ -32,19 +29,29 @@ public class GameStateManager : MonoBehaviour
 
 	public void SetState (StateCommand stateCommand)
 	{
+		GameState previousState = GameState.None;
+
 		if (currentState != null)
+		{
 			currentState.OnStateEnd -= NextState;
+			previousState = currentState.state;
+		}
 
 		currentState = stateCommand;
 
 		currentState.OnStateEnd += NextState;
 
-		currentState.StartCommand();
+		currentState.StartCommand(previousState);
 	}
 
-	private void NextState ()
+	private void NextState (GameState forceState)
 	{
-		StateCommand nextState = GetNextState();
+		StateCommand nextState;
+
+		if (forceState != GameState.None)
+			nextState = GetStateCommand(forceState);
+		else
+			nextState = GetNextState();
 
 		if (nextState == null)
 		{

@@ -154,8 +154,7 @@ public class VarCompareValue
 
 public class VarsManager : MonoBehaviour
 {
-	[NonSerialized] private VarData[] _gameVars = new VarData[0];
-
+	private VarData[] _gameVars = new VarData[0];
 	private Dictionary<GameVarId, int> _startDayResources = new();
 
 	public void InitVars (VarData[] vars)
@@ -169,7 +168,10 @@ public class VarsManager : MonoBehaviour
 		_gameVars = vars;
 
 		foreach (VarData varData in _gameVars)
+		{
 			UpdateUIValue(varData);
+			UpdateCheckVars(varData);
+		}
 	}
 
 	public void SaveStartDayResourcesValue ()
@@ -232,9 +234,12 @@ public class VarsManager : MonoBehaviour
 		if (varData == null)
 			return;
 
+		Debug.Log($"{id} is now {value} (old: {varData.currentValue})");
+
 		varData.currentValue = value;
 
 		UpdateUIValue(varData);
+		UpdateCheckVars(varData);
 	}
 
 	public bool IsVarLow (GameVarId id)
@@ -277,6 +282,19 @@ public class VarsManager : MonoBehaviour
 	{
 		if (varData.type == GameVarType.UIVar)
 			GameManager.Instance.uiManager.SetResourceValue(varData.varId, varData.currentValue);
+	}
+
+	private void UpdateCheckVars(VarData varData)
+	{
+		if (varData.type == GameVarType.CheckVar)
+			return;
+
+		if (varData.varId == GameVarId.Food || varData.varId == GameVarId.Population)
+		{
+			int food = GetVarValue(GameVarId.Food);
+			int population = GetVarValue(GameVarId.Population);
+			SetValueToVar(GameVarId.FoodAfterConsumption, food - population);
+		}
 	}
 
 }

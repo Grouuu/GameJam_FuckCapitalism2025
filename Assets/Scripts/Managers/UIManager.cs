@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
 	public void ShowEventPanel (EventPanelUIData panelData, Action onContinue)
 	{
 		_eventPanel.onceClickCallback = () => {
-			EventClosed();
+			HideEventPanel();
 			if (onContinue != null)
 				onContinue();
 		};
@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
 	public void ShowReportPanel (ReportPanelUIData panelData, Action onContinue)
 	{
 		_reportPanel.onceClickCallback = () => {
-			ReportClosed();
+			HideReportPanel();
 			if (onContinue != null)
 				onContinue();
 		};
@@ -52,13 +52,13 @@ public class UIManager : MonoBehaviour
 		{
 			// request layout
 			_dialogPanel.onceYesCallback = () => {
-				DialogClosed();
+				HideDialogPanel();
 				if (onYes != null)
 					onYes();
 			};
 
 			_dialogPanel.onceNoCallback = () => {
-				DialogClosed();
+				HideDialogPanel();
 				if (onNo != null)
 					onNo();
 			};
@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour
 		{
 			// response layout
 			_dialogPanel.onceContinueCallback = () => {
-				DialogClosed();
+				HideDialogPanel();
 				if (onYes != null)
 					onYes();
 			};
@@ -76,17 +76,17 @@ public class UIManager : MonoBehaviour
 		_dialogPanel.Show(contentData, isYesNoContent ? DialogPanelUIButtonsLayout.YesNo : DialogPanelUIButtonsLayout.Continue);
 	}
 
-	private void EventClosed ()
+	public void HideEventPanel ()
 	{
 		_eventPanel.Hide();
 	}
 
-	private void ReportClosed ()
+	public void HideReportPanel ()
 	{
 		_reportPanel.Hide();
 	}
 
-	private void DialogClosed ()
+	public void HideDialogPanel ()
 	{
 		_dialogPanel.Hide();
 	}

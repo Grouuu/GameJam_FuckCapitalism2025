@@ -1,12 +1,20 @@
-using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGameState : StateCommand
 {
-	public override void StartCommand ()
+	public override void StartCommand (GameState previousState)
 	{
-		// TODO
-		Debug.Log("GAME OVER");
+		GameManager.Instance.endingsManager.ShowLose(() => OnRestart());
 	}
 
 	private void OnEnable () => state = GameState.EndGame;
+
+	private void OnRestart ()
+	{
+		// TODO go to main menu instead
+
+		string currentSceneName = SceneManager.GetActiveScene().name;
+		SceneManager.LoadScene(currentSceneName);
+	}
+
 }

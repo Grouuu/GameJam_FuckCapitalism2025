@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	[HideInInspector] public VarsManager varsManager;
 	[HideInInspector] public CharactersManager charactersManager;
 	[HideInInspector] public EventsManager eventsManager;
+	[HideInInspector] public EndingsManager endingsManager;
 
 	private void Awake ()
 	{
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
 		varsManager = GetComponentInChildren<VarsManager>();
 		charactersManager = GetComponentInChildren<CharactersManager>();
 		eventsManager = GetComponentInChildren<EventsManager>();
+		endingsManager = GetComponentInChildren<EndingsManager>();
 	}
 
 	private void Start ()
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
 		InitVars();
 		InitCharacters();
 		InitEvents();
+		InitEndings();
 
 		await LoadSave();
 
@@ -63,6 +66,11 @@ public class GameManager : MonoBehaviour
 	private void InitEvents ()
 	{
 		eventsManager.InitEvents(databaseManager.GetData<EventData>());
+	}
+
+	private void InitEndings ()
+	{
+		endingsManager.InitEndings(databaseManager.GetData<EndingData>());
 	}
 
 	private async Awaitable LoadSave ()

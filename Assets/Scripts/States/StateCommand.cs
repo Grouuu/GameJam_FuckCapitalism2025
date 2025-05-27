@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public delegate void OnStateEnd ();
+public delegate void OnStateEnd (GameState state = GameState.None);
 
 public class StateCommand : MonoBehaviour
 {
@@ -8,14 +8,14 @@ public class StateCommand : MonoBehaviour
 
 	[HideInInspector] public GameState state = GameState.None;
 
-	public virtual void StartCommand ()
+	public virtual void StartCommand (GameState previousState = GameState.None)
 	{
 		Debug.LogWarning($"StartCommand not implemented");
 	}
 
-	protected void EndCommand ()
+	public virtual void EndCommand (GameState nextState = GameState.None)
 	{
-		OnStateEnd?.Invoke();
+		OnStateEnd?.Invoke(nextState);
 	}
 
 }

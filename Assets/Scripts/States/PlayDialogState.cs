@@ -7,7 +7,7 @@ public class PlayDialogState : StateCommand
 	private List<string> _todayPlayedCharactersId;	// prevent to play twice the same character
 	private int _todayPlayedDialogTotal;			// cap the number of dialogs by day
 
-	public override void StartCommand ()
+	public override void StartCommand (GameState previousState)
 	{
 		_todayPlayedCharactersId = new();
 		_todayPlayedDialogTotal = 0;
@@ -49,23 +49,43 @@ public class PlayDialogState : StateCommand
 
 	private void OnYes (CharacterData characterData, DialogData dialogData)
 	{
+		ApplyResult(dialogData.yesResult);
 		PlayResponse(characterData, dialogData, dialogData.yesResult);
 	}
 
 	private void OnNo (CharacterData characterData, DialogData dialogData)
 	{
+		ApplyResult(dialogData.noResult);
 		PlayResponse(characterData, dialogData, dialogData.noResult);
 	}
 
 	private void PlayResponse (CharacterData characterData, DialogData dialogData, DialogResultData result)
 	{
 		DialogPanelUIData panelData = FormatDialogPanelResponseTexts(characterData, dialogData, result);
-		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => EndDialog(result));
+		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => EndDialog());
 	}
 
-	private void EndDialog (DialogResultData result)
+	private void EndDialog ()
 	{
-		ApplyResult(result);
+		if (GameManager.Instance.endingsManager.CheckLose())
+		{
+			EndCommand(GameState.EndGame);
+			return;
+		}
+
+		CheckWin();
+	}
+
+	private void CheckWin ()
+	{
+		if (GameManager.Instance.endingsManager.CheckWin())
+			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
+		else
+			NextDialog();
+	}
+
+	private void AfterWin ()
+	{
 		NextDialog();
 	}
 

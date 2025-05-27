@@ -2755,6 +2755,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289195649}
   m_CullTransparentMesh: 1
+--- !u!1 &291197899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 291197900}
+  - component: {fileID: 291197901}
+  m_Layer: 0
+  m_Name: Endings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &291197900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291197899}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1138032882}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &291197901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291197899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac97d4d0e6c9dc049acf5da6fc4fc0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &325408009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3852,7 +3896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -647.0003, y: -58}
+  m_AnchoredPosition: {x: -647.00037, y: -58}
   m_SizeDelta: {x: -1590, y: -116.00001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &435625034
@@ -4678,41 +4722,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceValuesUI:
   - id: 12
-    textfield: {fileID: 0}
+    textfield: {fileID: 644114678}
     slider: {fileID: 0}
   - id: 1
-    textfield: {fileID: 0}
+    textfield: {fileID: 1139561673}
     slider: {fileID: 0}
   - id: 2
     textfield: {fileID: 0}
-    slider: {fileID: 0}
+    slider: {fileID: 1222717184}
   - id: 4
-    textfield: {fileID: 0}
+    textfield: {fileID: 549686777}
     slider: {fileID: 0}
   - id: 5
-    textfield: {fileID: 0}
+    textfield: {fileID: 553796455}
     slider: {fileID: 0}
   - id: 11
-    textfield: {fileID: 0}
+    textfield: {fileID: 565986285}
     slider: {fileID: 0}
   - id: 6
-    textfield: {fileID: 0}
+    textfield: {fileID: 653551151}
     slider: {fileID: 0}
   - id: 7
-    textfield: {fileID: 0}
+    textfield: {fileID: 780275743}
     slider: {fileID: 0}
   - id: 8
-    textfield: {fileID: 0}
+    textfield: {fileID: 1791024814}
     slider: {fileID: 0}
   - id: 9
-    textfield: {fileID: 0}
+    textfield: {fileID: 1880577510}
     slider: {fileID: 0}
   - id: 10
-    textfield: {fileID: 0}
+    textfield: {fileID: 79385238}
     slider: {fileID: 0}
   - id: 3
     textfield: {fileID: 0}
-    slider: {fileID: 0}
+    slider: {fileID: 1162286414}
 --- !u!114 &509075184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5933,7 +5977,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -647.00006, y: -358.12762}
+  m_AnchoredPosition: {x: -647.0001, y: -358.12762}
   m_SizeDelta: {x: -1590, y: -816.2552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &617898261
@@ -6960,7 +7004,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -647.00006, y: -180.34729}
+  m_AnchoredPosition: {x: -647.0001, y: -180.34729}
   m_SizeDelta: {x: -1590, y: -1002.1907}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &754178916
@@ -7149,7 +7193,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: c22edf8307f27ac47817f60c427baf1c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: f6f0e23dd833a3a4e9b491060e319892, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f6f0e23dd833a3a4e9b491060e319892, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -8500,7 +8544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70.5, y: -12}
+  m_AnchoredPosition: {x: 70.50003, y: -12}
   m_SizeDelta: {x: 192, y: 192}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1016096557
@@ -9000,6 +9044,7 @@ Transform:
   - {fileID: 1530738271}
   - {fileID: 1565915108}
   - {fileID: 927251678}
+  - {fileID: 291197900}
   - {fileID: 509075182}
   - {fileID: 172065932}
   - {fileID: 779925623}
@@ -9017,7 +9062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcf7df6030174a48ad196a3dbd90ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startState: 8
+  startState: 1
   databaseManager: {fileID: 0}
   uiManager: {fileID: 0}
   gameStateManager: {fileID: 0}
@@ -9345,6 +9390,7 @@ GameObject:
   - component: {fileID: 1152521768}
   - component: {fileID: 1152521769}
   - component: {fileID: 1152521771}
+  - component: {fileID: 1152521772}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -9432,6 +9478,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databaseFileName: EXPORT_EVENTS
+--- !u!114 &1152521772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152521765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ee219a2b0a5ec4eb04f4eaf343da3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseFileName: EXPORT_ENDINGS
 --- !u!1 &1153672892
 GameObject:
   m_ObjectHideFlags: 0
@@ -10291,7 +10350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 72.099976, y: 1.5}
+  m_AnchoredPosition: {x: 72.100006, y: 1.5}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!1 &1278811461

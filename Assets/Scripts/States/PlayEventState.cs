@@ -4,7 +4,7 @@ public class PlayEventState : StateCommand
 {
 	private List<string> _todayPlayedEventsId;
 
-	public override void StartCommand ()
+	public override void StartCommand (GameState previousState)
 	{
 		_todayPlayedEventsId = new();
 
@@ -31,14 +31,33 @@ public class PlayEventState : StateCommand
 	private void PlayEvent (EventData eventData)
 	{
 		eventData.GenerateResultValue();
+		ApplyResult(eventData.result);
 
 		EventPanelUIData panelData = FormatEventPanelTexts(eventData);
-		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => OnContinue(eventData));
+		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => EndEvent());
 	}
 
-	private void OnContinue (EventData eventData)
+	private void EndEvent ()
 	{
-		ApplyResult(eventData.result);
+		if (GameManager.Instance.endingsManager.CheckLose())
+		{
+			EndCommand(GameState.EndGame);
+			return;
+		}
+
+		CheckWin();
+	}
+
+	private void CheckWin ()
+	{
+		if (GameManager.Instance.endingsManager.CheckWin())
+			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
+		else
+			NextEvent();
+	}
+
+	private void AfterWin ()
+	{
 		NextEvent();
 	}
 
@@ -68,7 +87,12 @@ public class PlayEventState : StateCommand
 				if (varChange.currentValue == 0)
 					continue;
 
-				string name = GameManager.Instance.varsManager.GetVarDisplayName(varChange.varId);
+				VarData varData = GameManager.Instance.varsManager.GetVarData(varChange.varId);
+
+				if (varData.type != GameVarType.UIVar)
+					continue;
+
+				string name = varData.displayName;
 				string modifier = varChange.currentValue > 0 ? "+" : "";
 				content += $"{name} : {modifier}{varChange.currentValue}\n";
 			}

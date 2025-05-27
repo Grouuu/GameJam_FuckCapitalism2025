@@ -6,7 +6,7 @@ public class DailyReportState : StateCommand
 	public int minGrowth = -20;
 	public int maxGrowth = 30;
 
-	public override void StartCommand ()
+	public override void StartCommand (GameState previousState)
 	{
 		ShowDailyReport();
 	}
@@ -15,13 +15,46 @@ public class DailyReportState : StateCommand
 
 	private void ShowDailyReport ()
 	{
+		// first generate data with old resources value
 		ReportPanelUIData panelData = FormatReportPanelTexts();
-		GameManager.Instance.uiManager.ShowReportPanel(panelData, () => OnContinue());
+
+		// then updates resources value
+		ApplyResult();
+
+		GameManager.Instance.uiManager.ShowReportPanel(panelData, () => EndReport());
 	}
 
-	private void OnContinue ()
+	private void EndReport ()
 	{
-		EndCommand();
+		if (GameManager.Instance.endingsManager.CheckLose())
+		{
+			EndCommand(GameState.EndGame);
+			return;
+		}
+
+		CheckWin();
+	}
+
+	private void CheckWin ()
+	{
+		if (GameManager.Instance.endingsManager.CheckWin())
+			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
+		else
+			EndCommand(GameState.StartDay);
+	}
+
+	private void AfterWin ()
+	{
+		EndCommand(GameState.StartDay);
+	}
+
+	private void ApplyResult ()
+	{
+		int foodConsuption = GetFoodConsuption();
+		int populationGrowth = GetPopulationGrowth() + GetPopulationLossByFood();
+
+		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Food, foodConsuption);
+		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Population, populationGrowth);
 	}
 
 	private ReportPanelUIData FormatReportPanelTexts ()
@@ -36,8 +69,6 @@ public class DailyReportState : StateCommand
 		panelData.resourcesChange = GetResourceValueDiff();
 		panelData.foodChange = GetFoodDiff();
 		panelData.populationChange = GetPopulationDiff();
-
-		// TODO update the food/population vars data
 
 		return panelData;
 	}
@@ -66,11 +97,12 @@ public class DailyReportState : StateCommand
 	{
 		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
 		int food = GameManager.Instance.varsManager.GetVarValue(GameVarId.Food);
+		int populationLoss = GetPopulationLossByFood();
 
 		if (population > food)
-			return $"Not enough food: {population - food} <sprite name=\"Pop\"> left"; // translate
+			return $"Not enough food: {populationLoss} <sprite name=\"Pop\"> left"; // translate
 		else
-			return $"Everyone is fed: +{food - population} <sprite name=\"Food\">"; // translate
+			return $"Everyone is fed: -{population} <sprite name=\"Food\">"; // translate
 	}
 
 	private string GetPopulationDiff ()
@@ -90,13 +122,30 @@ public class DailyReportState : StateCommand
 		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
 		int food = GameManager.Instance.varsManager.GetVarValue(GameVarId.Food);
 
-		return food - population;
+		if (population > food)
+			return -food;
+		else
+			return -population;
 	}
 
 	private int GetPopulationGrowth ()
 	{
-		int qol = GameManager.Instance.varsManager.GetVarValue(GameVarId.QoL);
-		return Mathf.RoundToInt(MathUtils.Remap(0, 100, minGrowth, maxGrowth, qol));
+		VarData qolData = GameManager.Instance.varsManager.GetVarData(GameVarId.QoL);
+		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
+		float percent = MathUtils.Remap(qolData.minValue, qolData.maxValue, minGrowth, maxGrowth, qolData.currentValue) * 0.01f;
+
+		return Mathf.RoundToInt(population * percent);
+	}
+
+	private int GetPopulationLossByFood ()
+	{
+		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
+		int food = GameManager.Instance.varsManager.GetVarValue(GameVarId.Food);
+
+		if (population > food)
+			return -population - food;
+
+		return 0;
 	}
 
 }

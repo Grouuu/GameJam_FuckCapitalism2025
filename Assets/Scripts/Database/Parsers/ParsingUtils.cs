@@ -125,15 +125,15 @@ public static class ParsingUtils
 
 		List<ResultVarChange> varChanges = new();
 
-		if (changeVars.Length >= 3 && changeVars[0] != "")
+		if (changeVars != null && changeVars.Length >= 3 && changeVars[0] != "")
 		{
-			GameVarId varId = ParsingUtils.MapServerVarId(changeVars[0].Trim());
+			GameVarId varId = MapServerVarId(changeVars[0].Trim());
 
 			if (varId != GameVarId.None)
 			{
 				ResultVarChange change = new();
 				change.varId = varId;
-				change.modifierType = ParsingUtils.MapServerModifierType(changeVars[1].Trim());
+				change.modifierType = MapServerModifierType(changeVars[1].Trim());
 				change.modifierValueMin = int.Parse(changeVars[2].Trim());
 
 				if (changeVars.Length == 4)
@@ -147,11 +147,11 @@ public static class ParsingUtils
 			}
 		}
 
-		if (changeResources.Length > 0 && changeResources[0] != "")
+		if (changeResources != null && changeResources.Length > 0 && changeResources[0] != "")
 		{
 			for (int i = 0; i < changeResources.Length; i += 2)
 			{
-				GameVarId varId = ParsingUtils.MapServerVarId(changeResources[i].Trim());
+				GameVarId varId = MapServerVarId(changeResources[i].Trim());
 
 				if (varId != GameVarId.None)
 				{
@@ -173,12 +173,12 @@ public static class ParsingUtils
 
 		List<EditEventDay> eventDayChanges = new();
 
-		if (editDays.Length >= 3 && editDays[0] != "")
+		if (editDays != null && editDays.Length >= 3 && editDays[0] != "")
 		{
 			EditEventDay edit = new();
 			edit.eventName = editDays[0].Trim();
 
-			ChangeValueType modifier = ParsingUtils.MapServerModifierType(editDays[1].Trim());
+			ChangeValueType modifier = MapServerModifierType(editDays[1].Trim());
 
 			if (modifier == ChangeValueType.Set)
 			{
