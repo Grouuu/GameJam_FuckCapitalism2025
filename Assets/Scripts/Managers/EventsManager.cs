@@ -108,7 +108,7 @@ public class EventsManager : MonoBehaviour
 		}
 
 		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsDay, eventsDay);
-		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsUsed, eventsDay);
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsUsed, eventsUsed);
 	}
 
 	public void ApplySave ()

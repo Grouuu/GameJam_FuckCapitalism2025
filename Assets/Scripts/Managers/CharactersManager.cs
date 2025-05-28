@@ -134,6 +134,9 @@ public class CharactersManager : MonoBehaviour
 	{
 		foreach (CharacterData character in _characters)
 		{
+			if (character.characterDialogs == null)
+				continue;
+
 			DialogData matchDialog = character.characterDialogs.FirstOrDefault(dialog => dialog.name == dialogName);
 
 			if (matchDialog != null)
@@ -147,6 +150,9 @@ public class CharactersManager : MonoBehaviour
 	{
 		foreach (CharacterData character in _characters)
 		{
+			if (character.characterDialogs == null)
+				continue;
+
 			DialogData matchDialog = character.characterDialogs.FirstOrDefault(dialog => dialog.id == dialogId);
 
 			if (matchDialog != null)

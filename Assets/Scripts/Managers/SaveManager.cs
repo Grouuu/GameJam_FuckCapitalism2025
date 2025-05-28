@@ -50,7 +50,16 @@ public class SaveManager : MonoBehaviour
 		if (item == null)
 			return default;
 
-		return JsonConvert.DeserializeObject<T>(item.json);
+		try
+		{
+			return JsonConvert.DeserializeObject<T>(item.json);
+		}
+		catch (Exception e)
+		{
+			Debug.LogError($"Incorrect save data: {e.Message}");
+		}
+
+		return default;
 	}
 
 	public bool HasSave ()
