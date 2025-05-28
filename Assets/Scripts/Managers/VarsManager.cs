@@ -67,6 +67,8 @@ public enum GameVarId
 	BuildingCountRepairDrones,
 	HasWonGame,
 	TraderStayLength,
+	Bugz_Progress,
+	AttackStatus,
 }
 
 public enum CompareValueType
