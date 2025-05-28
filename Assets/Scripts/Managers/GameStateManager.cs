@@ -29,6 +29,12 @@ public class GameStateManager : MonoBehaviour
 
 	public void SetState (StateCommand stateCommand)
 	{
+		if (stateCommand == null || stateCommand.state == GameState.None)
+		{
+			Debug.LogError($"Incorrect state set");
+			return;
+		}
+
 		GameState previousState = GameState.None;
 
 		if (currentState != null)
@@ -39,9 +45,16 @@ public class GameStateManager : MonoBehaviour
 
 		currentState = stateCommand;
 
+		UpdateSaveData();
+
 		currentState.OnStateEnd += NextState;
 
 		currentState.StartCommand(previousState);
+	}
+
+	private void UpdateSaveData ()
+	{
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.State, currentState.state);
 	}
 
 	private void NextState (GameState forceState)

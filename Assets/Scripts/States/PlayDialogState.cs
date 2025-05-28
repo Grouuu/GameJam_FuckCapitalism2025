@@ -47,15 +47,23 @@ public class PlayDialogState : StateCommand
 		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => OnYes(characterData, dialogData), () => OnNo(characterData, dialogData));
 	}
 
-	private void OnYes (CharacterData characterData, DialogData dialogData)
+	private async void OnYes (CharacterData characterData, DialogData dialogData)
 	{
 		ApplyResult(dialogData.yesResult);
+
+		GameManager.Instance.charactersManager.UpdateSaveData();
+		await GameManager.Instance.saveManager.SaveData();
+
 		PlayResponse(characterData, dialogData, dialogData.yesResult);
 	}
 
-	private void OnNo (CharacterData characterData, DialogData dialogData)
+	private async void OnNo (CharacterData characterData, DialogData dialogData)
 	{
 		ApplyResult(dialogData.noResult);
+
+		GameManager.Instance.charactersManager.UpdateSaveData();
+		await GameManager.Instance.saveManager.SaveData();
+
 		PlayResponse(characterData, dialogData, dialogData.noResult);
 	}
 

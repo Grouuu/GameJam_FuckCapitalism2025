@@ -11,8 +11,10 @@ public class EndGameState : StateCommand
 
 	private void OnRestart ()
 	{
-		// TODO go to main menu instead
+		// delete save
+		GameManager.Instance.saveManager.DeleteSave();
 
+		// TODO go to main menu instead
 		string currentSceneName = SceneManager.GetActiveScene().name;
 		SceneManager.LoadScene(currentSceneName);
 	}

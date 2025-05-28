@@ -5673,6 +5673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c7795c4415dd0479ecfd19ff5f245b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
 --- !u!1 &509075181
 GameObject:
   m_ObjectHideFlags: 0
@@ -9095,7 +9096,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 214.4003, y: -25.5}
-  m_SizeDelta: {x: 0, y: 47.7188}
+  m_SizeDelta: {x: 30.01, y: 47.7188}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &864930945
 PrefabInstance:
@@ -10974,6 +10975,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1152521766}
+  - {fileID: 1253165826}
   - {fileID: 507831257}
   - {fileID: 1530738271}
   - {fileID: 1565915108}
@@ -10996,8 +10998,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdcf7df6030174a48ad196a3dbd90ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startState: 1
+  initialState: 1
   databaseManager: {fileID: 0}
+  saveManager: {fileID: 0}
   uiManager: {fileID: 0}
   gameStateManager: {fileID: 0}
   varsManager: {fileID: 0}
@@ -12193,6 +12196,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8414866036445786273, guid: 6ebb199a11be6e04394826ce71405d33, type: 3}
   m_PrefabInstance: {fileID: 1234068772}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1253165825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253165826}
+  - component: {fileID: 1253165827}
+  m_Layer: 0
+  m_Name: Save
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1253165826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253165825}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1138032882}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1253165827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253165825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205d05b26c6d92643856f63dd322933c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 1
+  _saveFileName: hopeIsHere.json
 --- !u!224 &1267634360 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1460028981811473252, guid: d44bb8e76652f2144b140e05a3a6dae1, type: 3}

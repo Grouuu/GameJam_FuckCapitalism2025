@@ -1,12 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance;
 
-	public GameState startState;
+	public GameState initialState;
 
 	[HideInInspector] public DatabaseManager databaseManager;
+	[HideInInspector] public SaveManager saveManager;
 	[HideInInspector] public UIManager uiManager;
 	[HideInInspector] public GameStateManager gameStateManager;
 	[HideInInspector] public VarsManager varsManager;
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
 			Instance = this;
 
 		databaseManager = GetComponentInChildren<DatabaseManager>();
+		saveManager = GetComponentInChildren<SaveManager>();
 		uiManager = GetComponentInChildren<UIManager>();
 		gameStateManager = GetComponentInChildren<GameStateManager>();
 		varsManager = GetComponentInChildren<VarsManager>();
@@ -75,13 +78,20 @@ public class GameManager : MonoBehaviour
 
 	private async Awaitable LoadSave ()
 	{
-		// TODO
-		await Awaitable.WaitForSecondsAsync(0);
+		await saveManager.LoadData();
+
+		varsManager.ApplySave();
+		charactersManager.ApplySave();
+		eventsManager.ApplySave();
+		endingsManager.ApplySave();
 	}
 
 	private void InitState ()
 	{
-		// TODO get data from save if available
+		GameState startState = saveManager.GetSaveData<GameState>(SaveItemKey.State);
+
+		if (startState == GameState.None)
+			startState = initialState;
 
 		gameStateManager.SetState(startState);
 	}

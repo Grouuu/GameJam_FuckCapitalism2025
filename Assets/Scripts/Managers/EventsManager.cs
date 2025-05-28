@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class EventsManager : MonoBehaviour
 {
 	[NonSerialized] private EventData[] _events = new EventData[0];
 
-	public void InitEvents(EventData[] events)
+	public void InitEvents (EventData[] events)
 	{
 		if (events == null)
 		{
@@ -31,7 +32,8 @@ public class EventsManager : MonoBehaviour
 		;
 
 		// sort events by priority
-		Array.Sort(dayEvents, delegate (EventData eventA, EventData eventB) {
+		Array.Sort(dayEvents, delegate (EventData eventA, EventData eventB)
+		{
 			return eventA.priority.CompareTo(eventB.priority);
 		});
 
@@ -43,7 +45,8 @@ public class EventsManager : MonoBehaviour
 		;
 
 		// sort events by priority
-		Array.Sort(randomEvents, delegate (EventData eventA, EventData eventB) {
+		Array.Sort(randomEvents, delegate (EventData eventA, EventData eventB)
+		{
 			return eventA.priority.CompareTo(eventB.priority);
 		});
 
@@ -69,9 +72,9 @@ public class EventsManager : MonoBehaviour
 	{
 		foreach (EventData eventData in _events)
 		{
-			EventData matchEvent = _events.First(entry => entry.name == eventName);
+			EventData matchEvent = _events.FirstOrDefault(entry => entry.name == eventName);
 
-			if (matchEvent == null)
+			if (matchEvent != null)
 				return matchEvent;
 		}
 
@@ -82,13 +85,62 @@ public class EventsManager : MonoBehaviour
 	{
 		foreach (EventData eventData in _events)
 		{
-			EventData matchEvent = _events.First(entry => entry.id == eventId);
+			EventData matchEvent = _events.FirstOrDefault(entry => entry.id == eventId);
 
-			if (matchEvent == null)
+			if (matchEvent != null)
 				return matchEvent;
 		}
 
 		return null;
+	}
+
+	public void UpdateSaveData ()
+	{
+		List<KeyValuePair<string, int>> eventsDay = new();
+		List<string> eventsUsed = new();
+
+		foreach (EventData eventData in _events)
+		{
+			eventsDay.Add(new KeyValuePair<string, int>(eventData.name, eventData.day));
+
+			if (eventData.isUsed)
+				eventsUsed.Add(eventData.name);
+		}
+
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsDay, eventsDay);
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsUsed, eventsDay);
+	}
+
+	public void ApplySave ()
+	{
+		List<string> eventUsed = GameManager.Instance.saveManager.GetSaveData<List<string>>(SaveItemKey.EventsUsed);
+		List<KeyValuePair<string, int>> eventsDay = GameManager.Instance.saveManager.GetSaveData<List<KeyValuePair<string, int>>>(SaveItemKey.EventsDay);
+
+		if (eventUsed != null)
+		{
+			foreach (string eventName in eventUsed)
+			{
+				EventData eventData = GetEventByName(eventName);
+
+				if (eventData == null)
+					continue;
+
+				eventData.isUsed = true;
+			}
+		}
+
+		if (eventsDay != null)
+		{
+			foreach ((string eventName, int eventDay) in eventsDay)
+			{
+				EventData eventData = GetEventByName(eventName);
+
+				if (eventData == null)
+					continue;
+
+				eventData.day = eventDay;
+			}
+		}
 	}
 
 }

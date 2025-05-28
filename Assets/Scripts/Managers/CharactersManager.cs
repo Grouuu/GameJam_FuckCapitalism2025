@@ -34,7 +34,13 @@ public class CharactersManager : MonoBehaviour
 		foreach (DialogData dialogData in dialogs)
 		{
 			string characterName = dialogData.characterName;
-			CharacterData character = _characters.First(entry => entry.name == characterName);
+			CharacterData character = _characters.FirstOrDefault(entry => entry.name == characterName);
+
+			if (character == null)
+			{
+				Debug.LogWarning($"No character found from dialog (name: {characterName})");
+				continue;
+			}
 
 			if (!mapDialogs.ContainsKey(characterName))
 				mapDialogs.Add(characterName, new());
@@ -128,9 +134,9 @@ public class CharactersManager : MonoBehaviour
 	{
 		foreach (CharacterData character in _characters)
 		{
-			DialogData matchDialog = character.characterDialogs.First(dialog => dialog.name == dialogName);
+			DialogData matchDialog = character.characterDialogs.FirstOrDefault(dialog => dialog.name == dialogName);
 
-			if (matchDialog == null)
+			if (matchDialog != null)
 				return matchDialog;
 		}
 
@@ -141,13 +147,50 @@ public class CharactersManager : MonoBehaviour
 	{
 		foreach (CharacterData character in _characters)
 		{
-			DialogData matchDialog = character.characterDialogs.First(dialog => dialog.id == dialogId);
+			DialogData matchDialog = character.characterDialogs.FirstOrDefault(dialog => dialog.id == dialogId);
 
-			if (matchDialog == null)
+			if (matchDialog != null)
 				return matchDialog;
 		}
 
 		return null;
+	}
+
+	public void UpdateSaveData ()
+	{
+		List<string> dialogsUsed = new();
+
+		foreach (CharacterData charData in _characters)
+		{
+			if (charData.characterDialogs == null)
+				continue;
+
+			foreach (DialogData dialogData in charData.characterDialogs)
+			{
+				if (dialogData.isUsed)
+					dialogsUsed.Add(dialogData.name);
+			}
+		}
+
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.DialogsUsed, dialogsUsed);
+	}
+
+	public void ApplySave ()
+	{
+		List<string> dialogsUsed = GameManager.Instance.saveManager.GetSaveData<List<string>>(SaveItemKey.DialogsUsed);
+
+		if (dialogsUsed != null)
+		{
+			foreach (string dialogName in dialogsUsed)
+			{
+				DialogData dialogData = GetDialogByName(dialogName);
+
+				if (dialogData == null)
+					continue;
+
+				dialogData.isUsed = true;
+			}
+		}
 	}
 
 }

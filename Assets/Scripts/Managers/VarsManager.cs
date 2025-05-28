@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -88,74 +86,10 @@ public enum ChangeValueType
 	Add,
 }
 
-public class VarData
-{
-	public string id;
-	public GameVarId varId;
-	public GameVarType type;
-	public string displayName;
-	public string iconFileName;
-	public int startValue;
-	public int minValue;
-	public int maxValue;
-	public int prodPerCycleMin;
-	public int prodPerCycleMax;
-	public VarCompareValue lowThreshold;
-
-	public int currentValue;
-
-	public int GetRandomProductionYield ()
-	{
-		if (prodPerCycleMax == 0 || prodPerCycleMin == prodPerCycleMax)
-			return prodPerCycleMin;
-
-		return UnityEngine.Random.Range(prodPerCycleMin, prodPerCycleMax + 1);
-	}
-
-	public bool isLow ()
-	{
-		if (lowThreshold == null)
-			return false;
-
-		int checkedValue = GameManager.Instance.varsManager.GetVarValue(lowThreshold.varId);
-
-		return lowThreshold.IsValueOK(checkedValue);
-	}
-
-	public VarData Clone ()
-	{
-		var serialized = JsonConvert.SerializeObject(this);
-		return JsonConvert.DeserializeObject<VarData>(serialized);
-	}
-}
-
-public class VarCompareValue
-{
-	public GameVarId varId = GameVarId.None;
-	public CompareValueType checkType = CompareValueType.None;
-	public int compareValue;
-
-	public bool IsValueOK (int value)
-	{
-		return GetCompareFunc()(value);
-	}
-
-	private Func<int, bool> GetCompareFunc ()
-	{
-		return checkType switch
-		{
-			CompareValueType.Equal =>		valueToCheck => valueToCheck == compareValue,
-			CompareValueType.Less =>		valueToCheck => valueToCheck < compareValue,
-			CompareValueType.More =>		valueToCheck => valueToCheck > compareValue,
-			CompareValueType.LessEqual =>	valueToCheck => valueToCheck <= compareValue,
-			CompareValueType.MoreEqual =>	valueToCheck => valueToCheck >= compareValue,
-			_ =>							valueToCheck => true,
-		};
-	}
-}
-
 public class VarsManager : MonoBehaviour
 {
+	public bool debug = false;
+
 	private VarData[] _gameVars = new VarData[0];
 	private Dictionary<GameVarId, int> _startDayResources = new();
 
@@ -167,7 +101,10 @@ public class VarsManager : MonoBehaviour
 			return;
 		}
 
-		_gameVars = vars;
+		_gameVars = vars
+			.Where(entry => entry.varId != GameVarId.None)
+			.ToArray()
+		;
 
 		foreach (VarData varData in _gameVars)
 		{
@@ -186,11 +123,10 @@ public class VarsManager : MonoBehaviour
 			GameVarId id = data.varId;
 			int value = GetVarValue(data.varId);
 
-			if (_startDayResources.ContainsKey(id))
-				_startDayResources[id] = value;
-			else
-				_startDayResources.Add(id, value);
+			UpdateStartDayResource(id, value);
 		}
+
+		UpdateSaveData();
 	}
 
 	public Dictionary<GameVarId, int> GetStartDayResourcesValue ()
@@ -226,7 +162,7 @@ public class VarsManager : MonoBehaviour
 		SetValueToVar(varData.varId, varData.currentValue + value);
 	}
 
-	public void SetValueToVar (GameVarId id, int value)
+	public void SetValueToVar (GameVarId id, int value, bool ignoreSave = false)
 	{
 		if (id == GameVarId.None)
 			return;
@@ -236,12 +172,16 @@ public class VarsManager : MonoBehaviour
 		if (varData == null)
 			return;
 
-		Debug.Log($"{id} is now {value} (old: {varData.currentValue})");
+		if (debug)
+			Debug.Log($"{id} is now {value} (old: {varData.currentValue})");
 
 		varData.currentValue = value;
 
 		UpdateUIValue(varData);
 		UpdateCheckVars(varData);
+
+		if (!ignoreSave)
+			UpdateSaveData();
 	}
 
 	public bool IsVarLow (GameVarId id)
@@ -277,7 +217,48 @@ public class VarsManager : MonoBehaviour
 
 	public VarData GetVarData (GameVarId id)
 	{
-		return _gameVars.First(data => data.varId == id);
+		return _gameVars.FirstOrDefault(data => data.varId == id);
+	}
+
+	public void UpdateSaveData ()
+	{
+		List<KeyValuePair<GameVarId, int>> varsValue = new();
+		List<KeyValuePair<GameVarId, int>> startDayVarsValue = new();
+
+		foreach (VarData varData in _gameVars)
+			varsValue.Add(new KeyValuePair<GameVarId, int>(varData.varId, varData.currentValue));
+
+		foreach (KeyValuePair<GameVarId, int> varData in _startDayResources)
+			startDayVarsValue.Add(varData);
+
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.VarsValue, varsValue);
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.StartDayVarsValues, startDayVarsValue);
+	}
+
+	public void ApplySave ()
+	{
+		List<KeyValuePair<GameVarId, int>> varsValue = GameManager.Instance.saveManager.GetSaveData<List<KeyValuePair<GameVarId, int>>>(SaveItemKey.VarsValue);
+		List<KeyValuePair<GameVarId, int>> startDayVarsValue = GameManager.Instance.saveManager.GetSaveData<List<KeyValuePair<GameVarId, int>>>(SaveItemKey.StartDayVarsValues);
+
+		if (varsValue != null)
+		{
+			foreach ((GameVarId varId, int value) in varsValue)
+				SetValueToVar(varId, value, true);
+		}
+
+		if (startDayVarsValue != null)
+		{
+			foreach ((GameVarId varId, int value) in startDayVarsValue)
+				UpdateStartDayResource(varId, value);
+		}
+	}
+
+	private void UpdateStartDayResource(GameVarId id, int value)
+	{
+		if (_startDayResources.ContainsKey(id))
+			_startDayResources[id] = value;
+		else
+			_startDayResources.Add(id, value);
 	}
 
 	private void UpdateUIValue (VarData varData)

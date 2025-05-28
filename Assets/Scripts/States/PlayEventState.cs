@@ -28,10 +28,13 @@ public class PlayEventState : StateCommand
 			EndCommand();
 	}
 
-	private void PlayEvent (EventData eventData)
+	private async void PlayEvent (EventData eventData)
 	{
 		eventData.GenerateResultValue();
 		ApplyResult(eventData.result);
+
+		GameManager.Instance.eventsManager.UpdateSaveData();
+		await GameManager.Instance.saveManager.SaveData();
 
 		EventPanelUIData panelData = FormatEventPanelTexts(eventData);
 		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => EndEvent());

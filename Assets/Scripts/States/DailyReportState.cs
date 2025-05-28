@@ -13,13 +13,15 @@ public class DailyReportState : StateCommand
 
 	private void OnEnable () => state = GameState.DailyReport;
 
-	private void ShowDailyReport ()
+	private async void ShowDailyReport ()
 	{
 		// first generate data with old resources value
 		ReportPanelUIData panelData = FormatReportPanelTexts();
 
 		// then updates resources value
 		ApplyResult();
+
+		await GameManager.Instance.saveManager.SaveData();
 
 		GameManager.Instance.uiManager.ShowReportPanel(panelData, () => EndReport());
 	}
