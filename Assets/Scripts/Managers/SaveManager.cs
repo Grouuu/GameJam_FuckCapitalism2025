@@ -20,7 +20,9 @@ public enum SaveItemKey
 public class SaveManager : MonoBehaviour
 {
 	private static string VERSION = "0.1";
+#pragma warning disable CS0414
 	private static string WEB_SAVE_KEY = "HOPE_save";
+#pragma warning restore CS0414
 
 	public bool debug = false;
 
@@ -130,7 +132,6 @@ public class SaveManager : MonoBehaviour
 	{
 		try
 		{
-
 #if UNITY_WEBGL && !UNITY_EDITOR
 			PlayerPrefs.SetString(WEB_SAVE_KEY, null);
 
@@ -150,6 +151,15 @@ public class SaveManager : MonoBehaviour
 		{
 			Debug.LogError($"Failed to delete save: {e.Message}");
 		}
+	}
+
+	public bool HasSave ()
+	{
+#if UNITY_WEBGL && !UNITY_EDITOR
+		return !string.IsNullOrEmpty(PlayerPrefs.GetString(WEB_SAVE_KEY));
+#else
+		return File.Exists(_savePath);
+#endif
 	}
 
 	private void Awake ()
