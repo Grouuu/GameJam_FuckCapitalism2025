@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
 	{
 		await InitDatabase();
 
+		saveManager.Init();
+
 		InitVars();
 		InitCharacters();
 		InitEvents();

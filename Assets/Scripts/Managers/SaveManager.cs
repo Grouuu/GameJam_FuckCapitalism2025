@@ -26,11 +26,17 @@ public class SaveManager : MonoBehaviour
 
 	public bool debug = false;
 
-	[SerializeField] private string _saveFileName = "hopeIsHere.json";
-
 	[HideInInspector] public List<SaveItem> saveData { get; private set; }
 
+	private string _saveFileName = "hopeIsHere.json";
 	private string _savePath;
+
+	public void Init ()
+	{
+		_savePath = Path.Combine(Application.persistentDataPath, _saveFileName);
+		saveData = new();
+		AddToSaveData(SaveItemKey.Version, VERSION);
+	}
 
 	public void AddToSaveData (SaveItemKey key, object data)
 	{
@@ -160,13 +166,6 @@ public class SaveManager : MonoBehaviour
 #else
 		return File.Exists(_savePath);
 #endif
-	}
-
-	private void Awake ()
-	{
-		_savePath = Path.Combine(Application.persistentDataPath, _saveFileName);
-		saveData = new();
-		AddToSaveData(SaveItemKey.Version, VERSION);
 	}
 
 }

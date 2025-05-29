@@ -43,8 +43,10 @@ public class MainMenuUI : MonoBehaviour
 		// TODO
 	}
 
-	private void Awake ()
+	private void OnEnable ()
 	{
+		saveManager.Init();
+
 		// disable exit button on web
 #if UNITY_WEBGL && !UNITY_EDITOR
 		exitButton.gameObject.SetActive(false);
