@@ -20,6 +20,7 @@ public enum SaveItemKey
 public class SaveManager : MonoBehaviour
 {
 	private static string VERSION = "0.1";
+	private static string WEB_SAVE_KEY = "HOPE_save";
 
 	public bool debug = false;
 
@@ -62,15 +63,23 @@ public class SaveManager : MonoBehaviour
 		return default;
 	}
 
-	public bool HasSave ()
-	{
-		return File.Exists(_savePath);
-	}
-
 	public async Awaitable LoadData ()
 	{
 		try
 		{
+#if UNITY_WEBGL && !UNITY_EDITOR
+			string jsonData = PlayerPrefs.GetString(WEB_SAVE_KEY);
+
+			if (!string.IsNullOrEmpty(jsonData))
+			{
+				saveData = JsonConvert.DeserializeObject<List<SaveItem>>(jsonData);
+
+				if (debug)
+					Debug.Log($"Game loaded successfully");
+			}
+			else
+				Debug.Log($"No save file found.");
+#else
 			if (File.Exists(_savePath))
 			{
 				string jsonData = await File.ReadAllTextAsync(_savePath);
@@ -81,6 +90,7 @@ public class SaveManager : MonoBehaviour
 			}
 			else
 				Debug.Log($"No save file found.");
+#endif
 		}
 		catch (Exception e)
 		{
@@ -96,10 +106,19 @@ public class SaveManager : MonoBehaviour
 			AddToSaveData(SaveItemKey.Date, DateTime.Now);
 
 			string jsonData = JsonConvert.SerializeObject(saveData);
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+			PlayerPrefs.SetString(WEB_SAVE_KEY, jsonData);
+			PlayerPrefs.Save();
+
+			if (debug)
+				Debug.Log($"Game saved successfully");
+#else
 			await File.WriteAllTextAsync(_savePath, jsonData);
 
 			if (debug)
 				Debug.Log($"Game saved successfully at {_savePath}");
+#endif
 		}
 		catch (Exception e)
 		{
@@ -111,6 +130,13 @@ public class SaveManager : MonoBehaviour
 	{
 		try
 		{
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+			PlayerPrefs.SetString(WEB_SAVE_KEY, null);
+
+			if (debug)
+				Debug.Log($"Save file deleted successfully");
+#else
 			if (File.Exists(_savePath))
 			{
 				File.Delete(_savePath);
@@ -118,6 +144,7 @@ public class SaveManager : MonoBehaviour
 				if (debug)
 					Debug.Log($"Save file deleted successfully");
 			}
+#endif
 		}
 		catch (Exception e)
 		{
