@@ -19,4 +19,4 @@ MonoBehaviour:
   - EXPORT_REQUESTS
   - EXPORT_EVENTS
   - EXPORT_ENDINGS
-  outputDir: ./Assets/Data/JsonData
+  outputDir: ./Assets/Resources/Database

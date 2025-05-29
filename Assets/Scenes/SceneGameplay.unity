@@ -9096,7 +9096,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 214.4003, y: -25.5}
-  m_SizeDelta: {x: 30.01, y: 47.7188}
+  m_SizeDelta: {x: 0, y: 47.7188}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &864930945
 PrefabInstance:
@@ -11363,7 +11363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09568a28399c80344b1548bf6a1a3743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFolderPath: {fileID: 102900000, guid: 6d6a8d9374c55be4296263a0b443e065, type: 3}
 --- !u!114 &1152521768
 MonoBehaviour:
   m_ObjectHideFlags: 0

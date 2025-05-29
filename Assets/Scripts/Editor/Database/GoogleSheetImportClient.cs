@@ -21,12 +21,16 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 		{ "bool[]",			ParseBoolArray },
 	};
 	private readonly string configPath = "Assets/Scripts/Database/DatabaseImporterConfig.asset";
+	private string outputFolder;
 
 	[MenuItem("Database/GoogleSheets to JSON")]
 	private static void ShowWindow () => _ = GetWindow(typeof(GoogleSheetImportClient)) as GoogleSheetImportClient;
 
 	protected override void CreateJsonFile (string fileName, string outputDirectory, ValueRange valueRange)
 	{
+		// hack the original target
+		outputDirectory = outputFolder;
+
 		//Get properties's name, data type and sheet data
 		IDictionary<int, string> propertyNames = new Dictionary<int, string>(); //Dictionary of (column index, property name of that column)
 		IDictionary<int, string> dataTypes = new Dictionary<int, string>();     //Dictionary of (column index, data type of that column)
@@ -131,7 +135,7 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 		{
 			spreadSheetKey = config.spreadSheetKey;
 			wantedSheetNames = config.wantedSheetNames;
-			outputDir = config.outputDir;
+			outputFolder = config.outputDir;
 		}
 		else
 			Debug.LogError($"No config file found at path: {configPath}");
