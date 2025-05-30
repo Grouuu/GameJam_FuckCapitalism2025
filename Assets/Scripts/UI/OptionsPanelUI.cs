@@ -8,20 +8,49 @@ public class OptionsPanelUI : MonoBehaviour
 	public Button optionsButton;
 	public Button closeButton;
 	public Button mainMenuButton;
+	public Button muteButton;
+	public Slider soundSlider;
 
+	/**
+	 * Linked in the editor
+	 */
 	public void OnOptionsClick ()
 	{
 		parent.SetActive(true);
 	}
 
+	/**
+	 * Linked in the editor
+	 */
 	public void OnCloseClick ()
 	{
 		parent.SetActive(false);
 	}
 
-	public void onMainMenuClick ()
+	/**
+	 * Linked in the editor
+	 */
+	public void OnMainMenuClick ()
 	{
 		SceneManager.LoadScene(SceneList.MAIN);
+	}
+
+	/**
+	 * Linked in the editor
+	 */
+	public void OnMuteClick ()
+	{
+		if (PersistentManager.Instance != null)
+			PersistentManager.Instance.SetMusicMute(!PersistentManager.Instance.GetMusicMute());
+	}
+
+	/**
+	 * Linked in the editor
+	 */
+	public void OnVolumeChange ()
+	{
+		if (PersistentManager.Instance != null)
+			PersistentManager.Instance.SetMusicVolume(soundSlider.value);
 	}
 
 	private void Awake ()

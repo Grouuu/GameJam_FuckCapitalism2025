@@ -8,6 +8,7 @@ public class MainMenuUI : MonoBehaviour
 	public Button continueButton;
 	public Button newGameButton;
 	public Button exitButton;
+	public Button muteButton;
 	public Slider soundSlider;
 
 	/**
@@ -38,13 +39,25 @@ public class MainMenuUI : MonoBehaviour
 	/**
 	 * Linked in the editor
 	 */
+	public void OnMuteClick ()
+	{
+		PersistentManager.Instance.SetMusicMute(!PersistentManager.Instance.GetMusicMute());
+	}
+
+	/**
+	 * Linked in the editor
+	 */
 	public void OnVolumeChange ()
 	{
-		// TODO
+		PersistentManager.Instance.SetMusicVolume(soundSlider.value);
 	}
 
 	private void OnEnable ()
 	{
+		PersistentManager.Instance.ChangeScene();
+
+		InitSound();
+
 		saveManager.Init();
 
 		// disable exit button on web
@@ -54,6 +67,11 @@ public class MainMenuUI : MonoBehaviour
 		// disable continue button if no save
 		if (!saveManager.HasSave())
 			continueButton.gameObject.SetActive(false);
+	}
+
+	private void InitSound ()
+	{
+		soundSlider.value = PersistentManager.Instance.GetMusicVolume();
 	}
 
 }

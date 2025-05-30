@@ -5,9 +5,10 @@ public class UIManager : MonoBehaviour
 {
 	public ResourceValueUI[] resourceValuesUI;
 
-	private DialogPanelUI _dialogPanel => GetComponent<DialogPanelUI>();
-	private EventPanelUI _eventPanel => GetComponent<EventPanelUI>();
-	private ReportPanelUI _reportPanel => GetComponent<ReportPanelUI>();
+	public DialogPanelUI dialogPanel => GetComponent<DialogPanelUI>();
+	public EventPanelUI eventPanel => GetComponent<EventPanelUI>();
+	public ReportPanelUI reportPanel => GetComponent<ReportPanelUI>();
+	public OptionsPanelUI optionsPanel => GetComponent<OptionsPanelUI>();
 
 	public void SetResourceValue (GameVarId id, int value)
 	{
@@ -19,24 +20,24 @@ public class UIManager : MonoBehaviour
 
 	public void ShowEventPanel (EventPanelUIData panelData, Action onContinue)
 	{
-		_eventPanel.onceClickCallback = () => {
+		eventPanel.onceClickCallback = () => {
 			HideEventPanel();
 			if (onContinue != null)
 				onContinue();
 		};
 
-		_eventPanel.Show(panelData);
+		eventPanel.Show(panelData);
 	}
 
 	public void ShowReportPanel (ReportPanelUIData panelData, Action onContinue)
 	{
-		_reportPanel.onceClickCallback = () => {
+		reportPanel.onceClickCallback = () => {
 			HideReportPanel();
 			if (onContinue != null)
 				onContinue();
 		};
 
-		_reportPanel.Show(panelData);
+		reportPanel.Show(panelData);
 	}
 
 	public void ShowDialogPanel (DialogPanelUIData contentData, Action onContinue)
@@ -51,13 +52,13 @@ public class UIManager : MonoBehaviour
 		if (isYesNoContent)
 		{
 			// request layout
-			_dialogPanel.onceYesCallback = () => {
+			dialogPanel.onceYesCallback = () => {
 				HideDialogPanel();
 				if (onYes != null)
 					onYes();
 			};
 
-			_dialogPanel.onceNoCallback = () => {
+			dialogPanel.onceNoCallback = () => {
 				HideDialogPanel();
 				if (onNo != null)
 					onNo();
@@ -66,29 +67,29 @@ public class UIManager : MonoBehaviour
 		else
 		{
 			// response layout
-			_dialogPanel.onceContinueCallback = () => {
+			dialogPanel.onceContinueCallback = () => {
 				HideDialogPanel();
 				if (onYes != null)
 					onYes();
 			};
 		}
 
-		_dialogPanel.Show(contentData, isYesNoContent ? DialogPanelUIButtonsLayout.YesNo : DialogPanelUIButtonsLayout.Continue);
+		dialogPanel.Show(contentData, isYesNoContent ? DialogPanelUIButtonsLayout.YesNo : DialogPanelUIButtonsLayout.Continue);
 	}
 
 	public void HideEventPanel ()
 	{
-		_eventPanel.Hide();
+		eventPanel.Hide();
 	}
 
 	public void HideReportPanel ()
 	{
-		_reportPanel.Hide();
+		reportPanel.Hide();
 	}
 
 	public void HideDialogPanel ()
 	{
-		_dialogPanel.Hide();
+		dialogPanel.Hide();
 	}
 
 	private ResourceValueUI GetUIResourceComponent (GameVarId resourceId)

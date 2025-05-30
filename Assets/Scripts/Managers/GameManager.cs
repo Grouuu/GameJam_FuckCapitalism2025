@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -33,7 +32,17 @@ public class GameManager : MonoBehaviour
 
 	private void Start ()
 	{
+		if (PersistentManager.Instance != null)
+			PersistentManager.Instance.ChangeScene();
+
+		InitSounds();
 		InitGame();
+	}
+
+	private void InitSounds ()
+	{
+		if (PersistentManager.Instance != null)
+			uiManager.optionsPanel.soundSlider.value = PersistentManager.Instance.GetMusicVolume();
 	}
 
 	private async void InitGame ()
