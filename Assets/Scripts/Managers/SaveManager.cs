@@ -2,6 +2,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public static class SaveItemKey
@@ -19,6 +20,8 @@ public static class SaveItemKey
 	public static string EventsUsed = "EventsUsed";                         // List<string
 	public static string EventsPlayedToday = "EventsPlayedToday";           // List<string>
 	public static string EndingsUsed = "EndingsUsed";						// List<string>
+	public static string MusicVolume = "MusicVolume";						// float
+	public static string MusicMute = "MusicMute";							// bool
 }
 
 public class SaveManager : MonoBehaviour
@@ -161,6 +164,11 @@ public class SaveManager : MonoBehaviour
 		{
 			Debug.LogError($"Failed to delete save: {e.Message}");
 		}
+	}
+
+	public bool HasKey (string key)
+	{
+		return saveData.Any(entry => entry.key == key);
 	}
 
 	public bool HasSave ()

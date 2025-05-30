@@ -42,6 +42,9 @@ public class MainMenuUI : MonoBehaviour
 	public void OnMuteClick ()
 	{
 		PersistentManager.Instance.SetMusicMute(!PersistentManager.Instance.GetMusicMute());
+
+		saveManager.AddToSaveData(SaveItemKey.MusicMute, PersistentManager.Instance.GetMusicMute());
+		_ = saveManager.SaveData();
 	}
 
 	/**
@@ -52,13 +55,29 @@ public class MainMenuUI : MonoBehaviour
 		PersistentManager.Instance.SetMusicVolume(soundSlider.value);
 	}
 
+	/**
+	 * Linked in the editor
+	 */
+	public void OnVolumeChangeEnd ()
+	{
+		saveManager.AddToSaveData(SaveItemKey.MusicVolume, PersistentManager.Instance.GetMusicVolume());
+		_ = saveManager.SaveData();
+	}
+
 	private void OnEnable ()
 	{
-		PersistentManager.Instance.ChangeScene();
+		Init();
+	}
+
+	private async void Init ()
+	{
+		saveManager.Init();
+
+		await saveManager.LoadData();
 
 		InitSound();
 
-		saveManager.Init();
+		PersistentManager.Instance.ChangeScene();
 
 		// disable exit button on web
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -71,6 +90,12 @@ public class MainMenuUI : MonoBehaviour
 
 	private void InitSound ()
 	{
+		if (saveManager.HasKey(SaveItemKey.MusicVolume))
+			PersistentManager.Instance.SetMusicVolume(saveManager.GetSaveData<float>(SaveItemKey.MusicVolume));
+
+		if (saveManager.HasKey(SaveItemKey.MusicMute))
+			PersistentManager.Instance.SetMusicMute(saveManager.GetSaveData<bool>(SaveItemKey.MusicMute));
+
 		soundSlider.value = PersistentManager.Instance.GetMusicVolume();
 	}
 

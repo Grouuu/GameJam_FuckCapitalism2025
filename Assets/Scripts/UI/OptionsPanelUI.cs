@@ -41,7 +41,12 @@ public class OptionsPanelUI : MonoBehaviour
 	public void OnMuteClick ()
 	{
 		if (PersistentManager.Instance != null)
+		{
 			PersistentManager.Instance.SetMusicMute(!PersistentManager.Instance.GetMusicMute());
+
+			GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.MusicMute, PersistentManager.Instance.GetMusicMute());
+			_ = GameManager.Instance.saveManager.SaveData();
+		}
 	}
 
 	/**
@@ -51,6 +56,18 @@ public class OptionsPanelUI : MonoBehaviour
 	{
 		if (PersistentManager.Instance != null)
 			PersistentManager.Instance.SetMusicVolume(soundSlider.value);
+	}
+
+	/**
+	 * Linked in the editor
+	 */
+	public void OnVolumeChangeEnd ()
+	{
+		if (PersistentManager.Instance != null)
+		{
+			GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.MusicVolume, PersistentManager.Instance.GetMusicVolume());
+			_ = GameManager.Instance.saveManager.SaveData();
+		}
 	}
 
 	private void Awake ()
