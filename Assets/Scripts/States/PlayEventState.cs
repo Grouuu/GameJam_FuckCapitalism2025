@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayEventState : StateCommand
 {
 	private List<string> _todayPlayedEventsName;        // prevent to play twice the same event
-	private string forceEvent;                         // force to show the same started event at restart
 
 	public override void StartCommand (GameState previousState)
 	{
@@ -20,25 +19,14 @@ public class PlayEventState : StateCommand
 	private void ApplySave ()
 	{
 		List<string> eventsPlayedToday = GameManager.Instance.saveManager.GetSaveData<List<string>>(SaveItemKey.CharactersPlayedToday);
-		string startedEventName = GameManager.Instance.saveManager.GetSaveData<string>(SaveItemKey.EventStarted);
 
 		if (eventsPlayedToday != null && eventsPlayedToday.Count > 0)
 			_todayPlayedEventsName = eventsPlayedToday;
-
-		if (!string.IsNullOrEmpty(startedEventName))
-			forceEvent = startedEventName;
 	}
 
 	private async void NextEvent ()
 	{
-		EventData selectedEvent;
-
-		if (string.IsNullOrEmpty(forceEvent))
-			selectedEvent = GameManager.Instance.eventsManager.PickEvent(_todayPlayedEventsName.ToArray());
-		else
-			selectedEvent = GameManager.Instance.eventsManager.GetEventByName(forceEvent);
-
-		forceEvent = null;
+		EventData selectedEvent = GameManager.Instance.eventsManager.PickEvent(_todayPlayedEventsName.ToArray());
 
 		if (selectedEvent != null)
 		{
