@@ -1,23 +1,43 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayDialogState : StateCommand
 {
 	public int maxDialogsByDay;
 
-	private List<string> _todayPlayedCharactersId;	// prevent to play twice the same character
-	private int _todayPlayedDialogTotal;			// cap the number of dialogs by day
+	private List<string> _todayPlayedCharactersName;	// prevent to play twice the same character
+	private int _todayPlayedDialogTotal;				// cap the number of dialogs by day
+	private string forceDialog;							// force to show the same started dialog at restart
 
 	public override void StartCommand (GameState previousState)
 	{
-		_todayPlayedCharactersId = new();
+		_todayPlayedCharactersName = new();
 		_todayPlayedDialogTotal = 0;
+
+		ApplySave();
 
 		NextDialog();
 	}
 
 	private void OnEnable () => state = GameState.PlayDialog;
 
-	private void NextDialog ()
+	private void ApplySave ()
+	{
+		List<string> charactersPlayedToday = GameManager.Instance.saveManager.GetSaveData<List<string>>(SaveItemKey.CharactersPlayedToday);
+		int totalDialogPlayed = GameManager.Instance.saveManager.GetSaveData<int>(SaveItemKey.DialogsPlayedToday);
+		string startedDialogName = GameManager.Instance.saveManager.GetSaveData<string>(SaveItemKey.DialogStarted);
+
+		if (charactersPlayedToday != null && charactersPlayedToday.Count > 0)
+			_todayPlayedCharactersName = charactersPlayedToday;
+
+		if (totalDialogPlayed != 0)
+			_todayPlayedDialogTotal = totalDialogPlayed;
+
+		if (!string.IsNullOrEmpty(startedDialogName))
+			forceDialog = startedDialogName;
+	}
+
+	private async void NextDialog ()
 	{
 		if (_todayPlayedDialogTotal > maxDialogsByDay)
 		{
@@ -25,22 +45,48 @@ public class PlayDialogState : StateCommand
 			return;
 		}
 
-		(CharacterData selectedCharacter, DialogData selectedDialog) = GameManager.Instance.charactersManager.PickDialog(_todayPlayedCharactersId.ToArray());
+		CharacterData selectedCharacter;
+		DialogData selectedDialog;
+
+		if (string.IsNullOrEmpty(forceDialog))
+			(selectedCharacter, selectedDialog) = GameManager.Instance.charactersManager.PickDialog(_todayPlayedCharactersName.ToArray());
+		else
+		{
+			selectedDialog = GameManager.Instance.charactersManager.GetDialogByName(forceDialog);
+			selectedCharacter = GameManager.Instance.charactersManager.GetCharacterByDialogName(forceDialog);
+		}
+
+		forceDialog = null;
 
 		if (selectedDialog != null)
 		{
-			_todayPlayedCharactersId.Add(selectedCharacter.id);
+			_todayPlayedCharactersName.Add(selectedCharacter.name);
 			_todayPlayedDialogTotal++;
 			selectedDialog.isUsed = true;
 
 			PlayDialog(selectedCharacter, selectedDialog);
 		}
 		else
+		{
+			Debug.Log("No dialog found");
+
+			// clear save
+			GameManager.Instance.charactersManager.UpdateCharactersPlayedTodaySaveData(new());
+			GameManager.Instance.charactersManager.UpdateDialogStartedSaveData("");
+			GameManager.Instance.charactersManager.UpdateTotalDialogPlayedTodaySaveData(0);
+			await GameManager.Instance.saveManager.SaveData();
+
 			EndCommand();
+		}
 	}
 
-	private void PlayDialog (CharacterData characterData, DialogData dialogData)
+	private async void PlayDialog (CharacterData characterData, DialogData dialogData)
 	{
+		GameManager.Instance.charactersManager.UpdateCharactersPlayedTodaySaveData(_todayPlayedCharactersName);
+		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData(dialogData.name);
+		GameManager.Instance.charactersManager.UpdateTotalDialogPlayedTodaySaveData(_todayPlayedDialogTotal);
+		await GameManager.Instance.saveManager.SaveData();
+
 		dialogData.GenerateResultValue();
 
 		DialogPanelUIData panelData = FormatDialogPanelRequestTexts(characterData, dialogData);
@@ -51,7 +97,8 @@ public class PlayDialogState : StateCommand
 	{
 		ApplyResult(dialogData.yesResult);
 
-		GameManager.Instance.charactersManager.UpdateSaveData();
+		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData("");
+		GameManager.Instance.charactersManager.UpdateDialogsUsedSaveData();
 		await GameManager.Instance.saveManager.SaveData();
 
 		PlayResponse(characterData, dialogData, dialogData.yesResult);
@@ -61,7 +108,8 @@ public class PlayDialogState : StateCommand
 	{
 		ApplyResult(dialogData.noResult);
 
-		GameManager.Instance.charactersManager.UpdateSaveData();
+		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData("");
+		GameManager.Instance.charactersManager.UpdateDialogsUsedSaveData();
 		await GameManager.Instance.saveManager.SaveData();
 
 		PlayResponse(characterData, dialogData, dialogData.noResult);
@@ -77,6 +125,7 @@ public class PlayDialogState : StateCommand
 	{
 		if (GameManager.Instance.endingsManager.CheckLose())
 		{
+			// no need to save
 			EndCommand(GameState.EndGame);
 			return;
 		}

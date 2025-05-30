@@ -26,7 +26,7 @@ public class EventsManager : MonoBehaviour
 
 		// all available events for the day not already played today
 		EventData[] dayEvents = _events
-			.Where(eventData => !ignoredEvents.Any(id => id == eventData.id))
+			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
 			.Where(eventData => eventData.isAvailable() && eventData.day == currentDay)
 			.ToArray()
 		;
@@ -39,7 +39,7 @@ public class EventsManager : MonoBehaviour
 
 		// all random events not already played today
 		EventData[] randomEvents = _events
-			.Where(eventData => !ignoredEvents.Any(id => id == eventData.id))
+			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
 			.Where(eventData => eventData.isAvailable() && eventData.day == -1)
 			.ToArray()
 		;
@@ -81,34 +81,34 @@ public class EventsManager : MonoBehaviour
 		return null;
 	}
 
-	public EventData GetEventById (string eventId)
+	public void UpdateEventsUsedSaveData ()
 	{
-		foreach (EventData eventData in _events)
-		{
-			EventData matchEvent = _events.FirstOrDefault(entry => entry.id == eventId);
-
-			if (matchEvent != null)
-				return matchEvent;
-		}
-
-		return null;
-	}
-
-	public void UpdateSaveData ()
-	{
-		List<KeyValuePair<string, int>> eventsDay = new();
 		List<string> eventsUsed = new();
 
 		foreach (EventData eventData in _events)
 		{
-			eventsDay.Add(new KeyValuePair<string, int>(eventData.name, eventData.day));
-
 			if (eventData.isUsed)
 				eventsUsed.Add(eventData.name);
 		}
 
-		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsDay, eventsDay);
 		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsUsed, eventsUsed);
+	}
+
+	public void UpdateEventsDaySaveData ()
+	{
+		List<KeyValuePair<string, int>> eventsDay = new();
+
+		foreach (EventData eventData in _events)
+		{
+			eventsDay.Add(new KeyValuePair<string, int>(eventData.name, eventData.day));
+		}
+
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsDay, eventsDay);
+	}
+
+	public void UpdateEventsPlayedTodaySaveData (List<string> eventsName)
+	{
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsPlayedToday, eventsName);
 	}
 
 	public void ApplySave ()

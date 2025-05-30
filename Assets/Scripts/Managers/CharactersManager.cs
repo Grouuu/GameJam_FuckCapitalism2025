@@ -61,7 +61,7 @@ public class CharactersManager : MonoBehaviour
 		// all characters not played today with available dialogs
 		CharacterData[] availableCharacters = _characters
 			.Where(characterData => characterData.isAvailable())
-			.Where(characterData => !ignoredCharacters.Any(id => id == characterData.id))
+			.Where(characterData => !ignoredCharacters.Any(id => id == characterData.name))
 			.ToArray()
 		;
 
@@ -146,23 +146,24 @@ public class CharactersManager : MonoBehaviour
 		return null;
 	}
 
-	public DialogData GetDialogById (string dialogId)
+	public CharacterData GetCharacterByDialogName (string dialogName)
 	{
-		foreach (CharacterData character in _characters)
+		foreach (CharacterData characterData in _characters)
 		{
-			if (character.characterDialogs == null)
+			if (characterData.characterDialogs == null)
 				continue;
 
-			DialogData matchDialog = character.characterDialogs.FirstOrDefault(dialog => dialog.id == dialogId);
-
-			if (matchDialog != null)
-				return matchDialog;
+			foreach (DialogData dialogData in characterData.characterDialogs)
+			{
+				if (dialogData.name == dialogName)
+					return characterData;
+			}
 		}
 
 		return null;
 	}
 
-	public void UpdateSaveData ()
+	public void UpdateDialogsUsedSaveData ()
 	{
 		List<string> dialogsUsed = new();
 
@@ -179,6 +180,21 @@ public class CharactersManager : MonoBehaviour
 		}
 
 		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.DialogsUsed, dialogsUsed);
+	}
+
+	public void UpdateCharactersPlayedTodaySaveData (List<string> charactersName)
+	{
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.CharactersPlayedToday, charactersName);
+	}
+
+	public void UpdateDialogStartedSaveData (string dialogName)
+	{
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.DialogStarted, dialogName);
+	}
+
+	public void UpdateTotalDialogPlayedTodaySaveData (int total)
+	{
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.DialogsPlayedToday, total);
 	}
 
 	public void ApplySave ()

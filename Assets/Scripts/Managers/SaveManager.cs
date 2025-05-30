@@ -4,17 +4,22 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public enum SaveItemKey
+public static class SaveItemKey
 {
-	Date,					// string
-	Version,                // string
-	State,                  // GameState
-	VarsValue,              // List<KeyValuePair<GameVarId, int>>
-	StartDayVarsValues,     // List<KeyValuePair<GameVarId, int>>
-	DialogsUsed,            // List<string>
-	EventsDay,              // List<KeyValuePair<string, int>>
-	EventsUsed,				// List<string>
-	EndingsUsed,            // List<string>
+	public static string Date = "Date";										// string
+	public static string Version = "Version";								// string
+	public static string State = "State";									// GameState
+	public static string VarsValue = "VarsValue";							// List<KeyValuePair<GameVarId, int>>
+	public static string StartDayVarsValues = "StartDayVarsValues";			// List<KeyValuePair<GameVarId, int>>
+	public static string DialogsUsed = "DialogsUsed";						// List<string>
+	public static string EventsDay = "EventsDay";							// List<KeyValuePair<string, int>>
+	public static string EventsUsed = "EventsUsed";							// List<string>
+	public static string EndingsUsed = "EndingsUsed";						// List<string>
+	public static string CharactersPlayedToday = "CharactersPlayedToday";	// List<string>
+	public static string DialogsPlayedToday = "DialogsPlayedToday";			// int
+	public static string DialogStarted = "DialogStarted";					// string
+	public static string EventStarted = "EventStarted";						// string
+	public static string EventsPlayedToday = "EventsPlayedToday";			// List<string>
 }
 
 public class SaveManager : MonoBehaviour
@@ -38,7 +43,7 @@ public class SaveManager : MonoBehaviour
 		AddToSaveData(SaveItemKey.Version, VERSION);
 	}
 
-	public void AddToSaveData (SaveItemKey key, object data)
+	public void AddToSaveData (string key, object data)
 	{
 		SaveItem item = saveData.Find(entry => entry.key == key);
 
@@ -52,7 +57,7 @@ public class SaveManager : MonoBehaviour
 		item.json = JsonConvert.SerializeObject(data);
 	}
 
-	public T GetSaveData<T> (SaveItemKey key)
+	public T GetSaveData<T> (string key)
 	{
 		SaveItem item = saveData.Find(entry => entry.key == key);
 
