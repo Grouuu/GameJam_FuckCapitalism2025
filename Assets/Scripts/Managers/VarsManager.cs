@@ -67,6 +67,9 @@ public enum GameVarId
 	TraderStayLength,
 	Bugz_Progress,
 	AttackStatus,
+	Voices_Progress,
+	Tweak_Progress,
+	Mara_Progress,
 }
 
 public enum CompareValueType
