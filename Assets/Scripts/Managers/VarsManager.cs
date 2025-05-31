@@ -73,6 +73,7 @@ public enum GameVarId
 	Voices_Progress,
 	Tweak_Progress,
 	Mara_Progress,
+	RandomEventGeneratorMax,
 }
 
 public enum CompareValueType

@@ -57,6 +57,7 @@ public static class ParsingUtils
 			"Voices_Progress" => GameVarId.Voices_Progress,
 			"Tweak_Progress" => GameVarId.Tweak_Progress,
 			"Mara_Progress" => GameVarId.Mara_Progress,
+			"RandomEventGeneratorMax" => GameVarId.RandomEventGeneratorMax,
 			_ => GameVarId.None
 		};
 	}
@@ -92,6 +93,17 @@ public static class ParsingUtils
 			"Add" => ChangeValueType.Add,
 			"Set" => ChangeValueType.Set,
 			_ => ChangeValueType.None
+		};
+	}
+
+	public static EventType MapServerEventType (string serverType)
+	{
+		return serverType switch
+		{
+			"FixedDay" => EventType.FixedDay,
+			"RequireTrue" => EventType.RequireTrue,
+			"Random" => EventType.Random,
+			_ => EventType.None
 		};
 	}
 
@@ -155,7 +167,7 @@ public static class ParsingUtils
 
 		if (changeResources != null && changeResources.Length > 0 && changeResources[0] != "")
 		{
-			for (int i = 0; i < changeResources.Length; i += 2)
+			for (int i = 0; i < changeResources.Length; i++)
 			{
 				GameVarId varId = MapServerVarId(changeResources[i].Trim());
 
@@ -164,8 +176,19 @@ public static class ParsingUtils
 					ResultVarChange change = new();
 					change.varId = varId;
 					change.modifierType = ChangeValueType.Add;
+
 					change.modifierValueMin = int.Parse(changeResources[i + 1].Trim());
-					change.modifierValueMax = change.modifierValueMin;
+					i++;
+
+					// if a another int value is provided, there's a range result
+					if (i < changeResources.Length - 1 && int.TryParse(changeResources[i + 1].Trim(), out int value))
+					{
+						change.modifierValueMax = value;
+						i++;
+					}
+					else
+						change.modifierValueMax = change.modifierValueMin;
+
 					change.currentValue = change.modifierValueMin;
 
 					varChanges.Add(change);

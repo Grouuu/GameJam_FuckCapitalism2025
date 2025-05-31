@@ -4,10 +4,12 @@ using UnityEngine;
 public class PlayEventState : StateCommand
 {
 	private List<string> _todayPlayedEventsName;        // prevent to play twice the same event
+	private bool _randomEventPlayed;					// one attempt of picking a random event
 
 	public override void StartCommand (GameState previousState)
 	{
 		_todayPlayedEventsName = new();
+		_randomEventPlayed = false;
 
 		ApplySave();
 
@@ -18,20 +20,26 @@ public class PlayEventState : StateCommand
 
 	private void ApplySave ()
 	{
-		List<string> eventsPlayedToday = GameManager.Instance.saveManager.GetSaveData<List<string>>(SaveItemKey.CharactersPlayedToday);
+		List<string> eventsPlayedToday = GameManager.Instance.saveManager.GetSaveData<List<string>>(SaveItemKey.EventsPlayedToday);
 
 		if (eventsPlayedToday != null && eventsPlayedToday.Count > 0)
 			_todayPlayedEventsName = eventsPlayedToday;
+
+		if (GameManager.Instance.saveManager.HasKey(SaveItemKey.RandomEventPlayed))
+			_randomEventPlayed = GameManager.Instance.saveManager.GetSaveData<bool>(SaveItemKey.RandomEventPlayed);
 	}
 
 	private async void NextEvent ()
 	{
-		EventData selectedEvent = GameManager.Instance.eventsManager.PickEvent(_todayPlayedEventsName.ToArray());
+		EventData selectedEvent = GameManager.Instance.eventsManager.PickEvent(_todayPlayedEventsName.ToArray(), _randomEventPlayed);
 
 		if (selectedEvent != null)
 		{
 			_todayPlayedEventsName.Add(selectedEvent.name);
 			selectedEvent.isUsed = true;
+
+			if (selectedEvent.type == EventType.Random)
+				_randomEventPlayed = true;
 
 			PlayEvent(selectedEvent);
 		}
@@ -41,6 +49,7 @@ public class PlayEventState : StateCommand
 
 			// clear save
 			GameManager.Instance.eventsManager.UpdateEventsPlayedTodaySaveData(new());
+			GameManager.Instance.eventsManager.UpdateRandomEventPlayedTodaySaveData(false);
 			await GameManager.Instance.saveManager.SaveData();
 
 			EndCommand();
@@ -51,6 +60,9 @@ public class PlayEventState : StateCommand
 	{
 		eventData.GenerateResultValue();
 		ApplyResult(eventData.result);
+
+		if (eventData.type == EventType.Random)
+			GameManager.Instance.eventsManager.UpdateRandomEventPlayedTodaySaveData(true);
 
 		GameManager.Instance.eventsManager.UpdateEventsPlayedTodaySaveData(_todayPlayedEventsName);
 		GameManager.Instance.eventsManager.UpdateEventsUsedSaveData();

@@ -6,6 +6,8 @@ public class EventDatabaseData
 {
     public string ID { get; set; }
     public string NAME { get; set; }
+    public string TYPE { get; set; }
+    public int RANDOM_WEIGHT { get; set; }
     public string TITLE { get; set; }
     public string DESCRIPTION { get; set; }
     public int PRIORITY { get; set; }
@@ -48,7 +50,9 @@ public class EventParser : DatabaseParser
 
 		eventData.id = jsonData.ID;
 		eventData.name = jsonData.NAME;
+		eventData.type = ParsingUtils.MapServerEventType(jsonData.TYPE.Trim());
 		eventData.title = jsonData.TITLE;
+		eventData.randomWeight = jsonData.RANDOM_WEIGHT;
 		eventData.description = jsonData.DESCRIPTION;
 		eventData.priority = jsonData.PRIORITY;
 		eventData.isRepeateable = jsonData.REPEATABLE;

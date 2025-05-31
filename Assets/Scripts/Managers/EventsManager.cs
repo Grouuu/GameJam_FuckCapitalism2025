@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public enum EventType
+{
+	None,
+	FixedDay,
+	RequireTrue,
+	Random,
+}
+
 public class EventsManager : MonoBehaviour
 {
 	[NonSerialized] private EventData[] _events = new EventData[0];
@@ -20,44 +28,24 @@ public class EventsManager : MonoBehaviour
 		_events = events;
 	}
 
-	public EventData PickEvent (string[] ignoredEvents)
+	public EventData PickEvent (string[] ignoredEvents, bool isRandomEventPlayed)
 	{
-		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);
+		EventData selectedEvent = PickFixedDayEvent(ignoredEvents);
 
-		// all available events for the day not already played today
-		EventData[] dayEvents = _events
-			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
-			.Where(eventData => eventData.isAvailable() && eventData.day == currentDay)
-			.ToArray()
-		;
+		if (selectedEvent != null)
+			return selectedEvent;
 
-		// sort events by priority
-		Array.Sort(dayEvents, delegate (EventData eventA, EventData eventB)
-		{
-			return eventA.priority.CompareTo(eventB.priority);
-		});
+		selectedEvent = PickRequireTrueEvent(ignoredEvents);
 
-		// all random events not already played today
-		EventData[] randomEvents = _events
-			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
-			.Where(eventData => eventData.isAvailable() && eventData.day == -1)
-			.ToArray()
-		;
+		if (selectedEvent != null)
+			return selectedEvent;
 
-		// sort events by priority
-		Array.Sort(randomEvents, delegate (EventData eventA, EventData eventB)
-		{
-			return eventA.priority.CompareTo(eventB.priority);
-		});
+		selectedEvent = PickRandomEvent(ignoredEvents, isRandomEventPlayed);
 
-		// pick the prioriter from today events
-		EventData selectedEvent = dayEvents.Length == 0 ? null : dayEvents[0];
+		if (selectedEvent != null)
+			return selectedEvent;
 
-		// otherwise pick the prioriter from random events
-		if (selectedEvent == null)
-			selectedEvent = randomEvents.Length == 0 ? null : randomEvents[0];
-
-		return selectedEvent;
+		return null;
 	}
 
 	public void SetEventUsed (string eventName, bool isUsed)
@@ -111,6 +99,11 @@ public class EventsManager : MonoBehaviour
 		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsPlayedToday, eventsName);
 	}
 
+	public void UpdateRandomEventPlayedTodaySaveData(bool isPlayed)
+	{
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.RandomEventPlayed, isPlayed);
+	}
+
 	public void ApplySave ()
 	{
 		List<string> eventUsed = GameManager.Instance.saveManager.GetSaveData<List<string>>(SaveItemKey.EventsUsed);
@@ -141,6 +134,81 @@ public class EventsManager : MonoBehaviour
 				eventData.day = eventDay;
 			}
 		}
+	}
+
+	private EventData PickFixedDayEvent (string[] ignoredEvents)
+	{
+		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);
+
+		// all available events for the day not already played today
+		EventData[] dayEvents = _events
+			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
+			.Where(eventData => eventData.isAvailable() && eventData.day == currentDay)
+			.ToArray()
+		;
+
+		// sort events by priority
+		Array.Sort(dayEvents, delegate (EventData eventA, EventData eventB)
+		{
+			return eventA.priority.CompareTo(eventB.priority);
+		});
+
+		// pick the prioriter from today events
+		EventData selectedEvent = dayEvents.Length == 0 ? null : dayEvents[0];
+
+		if (selectedEvent != null)
+			return selectedEvent;
+
+		return null;
+	}
+
+	private EventData PickRequireTrueEvent (string[] ignoredEvents)
+	{
+		// all available events for the day not already played today
+		EventData[] dayEvents = _events
+			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
+			.Where(eventData => eventData.isAvailable() && eventData.type == EventType.RequireTrue)
+			.ToArray()
+		;
+
+		// sort events by priority
+		Array.Sort(dayEvents, delegate (EventData eventA, EventData eventB)
+		{
+			return eventA.priority.CompareTo(eventB.priority);
+		});
+
+		// pick the prioriter from today events
+		EventData selectedEvent = dayEvents.Length == 0 ? null : dayEvents[0];
+
+		if (selectedEvent != null)
+			return selectedEvent;
+
+		return null;
+	}
+
+	private EventData PickRandomEvent (string[] ignoredEvents, bool isRandomEventPlayed)
+	{
+		// all random events not already played today
+		EventData[] randomEvents = _events
+			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
+			.Where(eventData => eventData.isAvailable() && eventData.type == EventType.Random)
+			.ToArray()
+		;
+
+		if (!isRandomEventPlayed && randomEvents.Length > 0)
+		{
+			int randomIndex = UnityEngine.Random.Range(0, randomEvents.Length);
+			EventData randomEvent = randomEvents[randomIndex];
+
+			int maxRandom = GameManager.Instance.varsManager.GetVarValue(GameVarId.RandomEventGeneratorMax);
+			int weigth = randomEvent.randomWeight;
+			bool validated = UnityEngine.Random.Range(0, maxRandom) <= weigth;
+
+			if (validated)
+				return randomEvent;
+		}
+
+		return null;
 	}
 
 }

@@ -3,6 +3,8 @@ public class EventData
 {
     public string id;
     public string name;
+    public EventType type;
+    public int randomWeight;
     public string title;
     public string description;
     public int priority;
