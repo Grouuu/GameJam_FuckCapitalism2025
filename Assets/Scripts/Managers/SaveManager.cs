@@ -8,7 +8,8 @@ using UnityEngine;
 public static class SaveItemKey
 {
 	public static string Date = "Date";										// string
-	public static string Version = "Version";								// string
+	public static string Version = "Version";                               // string
+	public static string RunStarted = "RunStarted";                         // bool
 	public static string State = "State";									// GameState
 	public static string VarsValue = "VarsValue";							// List<KeyValuePair<GameVarId, int>>
 	public static string StartDayVarsValues = "StartDayVarsValues";         // List<KeyValuePair<GameVarId, int>>

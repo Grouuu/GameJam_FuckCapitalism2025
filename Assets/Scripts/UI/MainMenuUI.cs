@@ -84,7 +84,7 @@ public class MainMenuUI : MonoBehaviour
 		exitButton.gameObject.SetActive(false);
 #endif
 		// disable continue button if no save
-		if (!saveManager.HasSave())
+		if (!saveManager.HasKey(SaveItemKey.RunStarted))
 			continueButton.gameObject.SetActive(false);
 	}
 

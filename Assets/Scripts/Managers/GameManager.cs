@@ -95,6 +95,10 @@ public class GameManager : MonoBehaviour
 		charactersManager.ApplySave();
 		eventsManager.ApplySave();
 		endingsManager.ApplySave();
+
+		saveManager.AddToSaveData(SaveItemKey.RunStarted, true);
+
+		await saveManager.SaveData();
 	}
 
 	private void InitState ()
