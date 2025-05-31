@@ -14,9 +14,7 @@ public class EndGameState : StateCommand
 		// delete save
 		GameManager.Instance.saveManager.DeleteSave();
 
-		// TODO go to main menu instead
-		string currentSceneName = SceneManager.GetActiveScene().name;
-		SceneManager.LoadScene(currentSceneName);
+		SceneManager.LoadScene(SceneList.MAIN);
 	}
 
 }
