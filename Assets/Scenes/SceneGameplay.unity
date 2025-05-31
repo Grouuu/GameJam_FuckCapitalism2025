@@ -1795,7 +1795,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 428, y: -322.03857}
-  m_SizeDelta: {x: 0, y: 45}
+  m_SizeDelta: {x: 204, y: 45}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &145067536
 MonoBehaviour:
@@ -10265,7 +10265,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 214.4003, y: -25.5}
-  m_SizeDelta: {x: 0, y: 47.7188}
+  m_SizeDelta: {x: 30.01, y: 47.7188}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &864930945
 PrefabInstance:
@@ -15563,6 +15563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d38c594c2b2e6c40aabb5c46f06b0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
 --- !u!1 &1569362416
 GameObject:
   m_ObjectHideFlags: 0
