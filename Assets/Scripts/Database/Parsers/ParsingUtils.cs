@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public static class ParsingUtils
 {
@@ -176,7 +178,6 @@ public static class ParsingUtils
 					ResultVarChange change = new();
 					change.varId = varId;
 					change.modifierType = ChangeValueType.Add;
-
 					change.modifierValueMin = int.Parse(changeResources[i + 1].Trim());
 					i++;
 

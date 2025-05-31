@@ -7,6 +7,8 @@ public class CharactersManager : MonoBehaviour
 {
 	[NonSerialized] private CharacterData[] _characters = new CharacterData[0];
 
+	public bool debug = false;
+
 	private int _maxPriorityGrade = 20;
 
 	public void InitCharacters (CharacterData[] characters, DialogData[] dialogs)
@@ -64,6 +66,9 @@ public class CharactersManager : MonoBehaviour
 			.Where(characterData => !ignoredCharacters.Any(id => id == characterData.name))
 			.ToArray()
 		;
+
+		if (debug)
+			Debug.Log($"available chars: {availableCharacters.Length} (ignored: {ignoredCharacters.Length})");
 
 		if (availableCharacters.Length == 0)
 			return (null, null);

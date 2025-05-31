@@ -24,14 +24,13 @@ public class PlayDialogState : StateCommand
 	private void ApplySave ()
 	{
 		List<string> charactersPlayedToday = GameManager.Instance.saveManager.GetSaveData<List<string>>(SaveItemKey.CharactersPlayedToday);
-		int totalDialogPlayed = GameManager.Instance.saveManager.GetSaveData<int>(SaveItemKey.DialogsPlayedToday);
 		string startedDialogName = GameManager.Instance.saveManager.GetSaveData<string>(SaveItemKey.DialogStarted);
 
 		if (charactersPlayedToday != null && charactersPlayedToday.Count > 0)
 			_todayPlayedCharactersName = charactersPlayedToday;
 
-		if (totalDialogPlayed != 0)
-			_todayPlayedDialogTotal = totalDialogPlayed;
+		if (GameManager.Instance.saveManager.HasKey(SaveItemKey.DialogsPlayedToday))
+			_todayPlayedDialogTotal = GameManager.Instance.saveManager.GetSaveData<int>(SaveItemKey.DialogsPlayedToday);
 
 		if (!string.IsNullOrEmpty(startedDialogName))
 			forceDialog = startedDialogName;
