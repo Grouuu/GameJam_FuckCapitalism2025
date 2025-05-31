@@ -51,6 +51,12 @@ public static class ParsingUtils
 			"BuildingCountSensors" => GameVarId.BuildingCountSensors,
 			"BuildingCountRepairDrones" => GameVarId.BuildingCountRepairDrones,
 			"HasWonGame" => GameVarId.HasWonGame,
+			"TraderStayLength" => GameVarId.TraderStayLength,
+			"Bugz_Progress" => GameVarId.Bugz_Progress,
+			"AttackStatus" => GameVarId.AttackStatus,
+			"Voices_Progress" => GameVarId.Voices_Progress,
+			"Tweak_Progress" => GameVarId.Tweak_Progress,
+			"Mara_Progress" => GameVarId.Mara_Progress,
 			_ => GameVarId.None
 		};
 	}

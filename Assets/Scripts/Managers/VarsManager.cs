@@ -10,6 +10,9 @@ public enum GameVarType
 	TrackingVar,
 }
 
+/**
+ * When update this, update also ParsingUtils.MapServerVarId
+ */
 public enum GameVarId
 {
 	None,
