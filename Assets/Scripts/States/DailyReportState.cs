@@ -18,9 +18,6 @@ public class DailyReportState : StateCommand
 		// first generate data with old resources value
 		ReportPanelUIData panelData = FormatReportPanelTexts();
 
-		// then updates resources value
-		ApplyResult();
-
 		await GameManager.Instance.saveManager.SaveData();
 
 		GameManager.Instance.uiManager.ShowReportPanel(panelData, () => EndReport());
@@ -28,6 +25,9 @@ public class DailyReportState : StateCommand
 
 	private void EndReport ()
 	{
+		// then updates resources value
+		ApplyResult();
+
 		if (GameManager.Instance.endingsManager.CheckLose())
 		{
 			EndCommand(GameState.EndGame);
@@ -62,6 +62,10 @@ public class DailyReportState : StateCommand
 	{
 		int foodConsuption = GetFoodConsuption();
 		int populationGrowth = GetPopulationGrowth() + GetPopulationLossByFood();
+		
+		Debug.Log($"food {foodConsuption}");
+		Debug.Log($"population {GetPopulationGrowth()}");
+		Debug.Log($"population {GetPopulationLossByFood()}");
 
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Food, foodConsuption);
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Population, populationGrowth);
