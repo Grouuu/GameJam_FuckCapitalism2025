@@ -112,7 +112,7 @@ public class ReportPanelUI : MonoBehaviour
 
 	private void RemoveResourceValues ()
 	{
-		ReportResourceValueUI[] resources = resourcesParent.GetComponents<ReportResourceValueUI>();
+		ReportResourceValueUI[] resources = resourcesParent.GetComponentsInChildren<ReportResourceValueUI>();
 
 		foreach (ReportResourceValueUI resource in resources)
 		{

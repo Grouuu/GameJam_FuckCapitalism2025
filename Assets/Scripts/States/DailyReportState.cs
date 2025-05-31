@@ -110,7 +110,7 @@ public class DailyReportState : StateCommand
 		int populationLoss = GetPopulationLossByFood();
 
 		if (population > food)
-			return $"Not enough food: {populationLoss} <sprite name=\"Pop\"> left"; // translate
+			return $"Not enough food: {populationLoss} <sprite name=\"Population\"> left"; // translate
 		else
 			return $"Everyone is fed: -{population} <sprite name=\"Food\">"; // translate
 	}
@@ -120,11 +120,11 @@ public class DailyReportState : StateCommand
 		int populationGrowth = GetPopulationGrowth();
 
 		if (populationGrowth > 0)
-			return $"Quality of life is high: +{populationGrowth} <sprite name=\"Pop\">"; // translate
+			return $"Quality of life is high: +{populationGrowth} <sprite name=\"Population\">"; // translate
 		else if (populationGrowth == 0)
 			return $"No newcomers"; // translate
 		else
-			return $"Quality of life is low: {populationGrowth} <sprite name=\"Pop\">"; // translate
+			return $"Quality of life is low: {populationGrowth} <sprite name=\"Population\">"; // translate
 	}
 
 	private int GetFoodConsuption ()
