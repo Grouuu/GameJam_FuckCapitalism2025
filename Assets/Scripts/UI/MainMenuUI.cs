@@ -64,7 +64,7 @@ public class MainMenuUI : MonoBehaviour
 		_ = saveManager.SaveData();
 	}
 
-	private void OnEnable ()
+	private void Start ()
 	{
 		Init();
 	}

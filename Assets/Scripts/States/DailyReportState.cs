@@ -62,10 +62,6 @@ public class DailyReportState : StateCommand
 	{
 		int foodConsuption = GetFoodConsuption();
 		int populationGrowth = GetPopulationGrowth() + GetPopulationLossByFood();
-		
-		Debug.Log($"food {foodConsuption}");
-		Debug.Log($"population {GetPopulationGrowth()}");
-		Debug.Log($"population {GetPopulationLossByFood()}");
 
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Food, foodConsuption);
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Population, populationGrowth);
