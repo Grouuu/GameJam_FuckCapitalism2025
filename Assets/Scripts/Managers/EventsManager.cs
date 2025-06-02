@@ -15,6 +15,8 @@ public class EventsManager : MonoBehaviour
 {
 	[NonSerialized] private EventData[] _events = new EventData[0];
 
+	public bool debug = false;
+
 	public void InitEvents (EventData[] events)
 	{
 		if (events == null)
@@ -158,6 +160,13 @@ public class EventsManager : MonoBehaviour
 			return eventA.priority.CompareTo(eventB.priority);
 		});
 
+		if (debug)
+		{
+			Debug.Log($"---- FIXED DAY EVENTS ----------");
+			foreach (var eventData in dayEvents)
+				Debug.Log($"<color=#7FFF00>{eventData.name}</color>");
+		}
+
 		// pick the prioriter from today events
 		EventData selectedEvent = dayEvents.Length == 0 ? null : dayEvents[0];
 
@@ -170,20 +179,27 @@ public class EventsManager : MonoBehaviour
 	private EventData PickRequireTrueEvent (string[] ignoredEvents)
 	{
 		// all available events for the day not already played today
-		EventData[] dayEvents = _events
+		EventData[] availableEvents = _events
 			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
 			.Where(eventData => eventData.isAvailable() && eventData.type == EventType.RequireTrue)
 			.ToArray()
 		;
 
 		// sort events by priority
-		Array.Sort(dayEvents, delegate (EventData eventA, EventData eventB)
+		Array.Sort(availableEvents, delegate (EventData eventA, EventData eventB)
 		{
 			return eventA.priority.CompareTo(eventB.priority);
 		});
 
+		if (debug)
+		{
+			Debug.Log($"---- REQUIRE TRUE EVENTS ----------");
+			foreach (var eventData in availableEvents)
+				Debug.Log($"<color=#7FFF00>{eventData.name}</color>");
+		}
+
 		// pick the prioriter from today events
-		EventData selectedEvent = dayEvents.Length == 0 ? null : dayEvents[0];
+		EventData selectedEvent = availableEvents.Length == 0 ? null : availableEvents[0];
 
 		if (selectedEvent != null)
 			return selectedEvent;
@@ -199,6 +215,14 @@ public class EventsManager : MonoBehaviour
 			.Where(eventData => eventData.isAvailable() && eventData.type == EventType.Random)
 			.ToArray()
 		;
+
+		if (debug)
+		{
+			Debug.Log($"---- RANDOM EVENTS ----------");
+			Debug.Log($"Random event already played: {isRandomEventPlayed}");
+			foreach (var eventData in randomEvents)
+				Debug.Log($"<color=#7FFF00>{eventData.name}</color>");
+		}
 
 		if (!isRandomEventPlayed && randomEvents.Length > 0)
 		{

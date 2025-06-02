@@ -34,6 +34,8 @@ public class PlayDialogState : StateCommand
 
 		if (!string.IsNullOrEmpty(startedDialogName))
 			forceDialog = startedDialogName;
+
+		Debug.Log($"ApplySave on dialogs: played char total = {_todayPlayedCharactersName.Count}, played dialog total = {_todayPlayedDialogTotal}, force dialog = {forceDialog}");
 	}
 
 	private async void NextDialog ()
@@ -81,9 +83,7 @@ public class PlayDialogState : StateCommand
 
 	private async void PlayDialog (CharacterData characterData, DialogData dialogData)
 	{
-		GameManager.Instance.charactersManager.UpdateCharactersPlayedTodaySaveData(_todayPlayedCharactersName);
 		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData(dialogData.name);
-		GameManager.Instance.charactersManager.UpdateTotalDialogPlayedTodaySaveData(_todayPlayedDialogTotal);
 		await GameManager.Instance.saveManager.SaveData();
 
 		dialogData.GenerateResultValue();
@@ -98,6 +98,8 @@ public class PlayDialogState : StateCommand
 
 		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData("");
 		GameManager.Instance.charactersManager.UpdateDialogsUsedSaveData();
+		GameManager.Instance.charactersManager.UpdateCharactersPlayedTodaySaveData(_todayPlayedCharactersName);
+		GameManager.Instance.charactersManager.UpdateTotalDialogPlayedTodaySaveData(_todayPlayedDialogTotal);
 		await GameManager.Instance.saveManager.SaveData();
 
 		PlayResponse(characterData, dialogData, dialogData.yesResult);
@@ -109,6 +111,8 @@ public class PlayDialogState : StateCommand
 
 		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData("");
 		GameManager.Instance.charactersManager.UpdateDialogsUsedSaveData();
+		GameManager.Instance.charactersManager.UpdateCharactersPlayedTodaySaveData(_todayPlayedCharactersName);
+		GameManager.Instance.charactersManager.UpdateTotalDialogPlayedTodaySaveData(_todayPlayedDialogTotal);
 		await GameManager.Instance.saveManager.SaveData();
 
 		PlayResponse(characterData, dialogData, dialogData.noResult);

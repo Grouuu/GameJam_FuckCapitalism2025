@@ -68,7 +68,15 @@ public class CharactersManager : MonoBehaviour
 		;
 
 		if (debug)
-			Debug.Log($"available chars: {availableCharacters.Length} (ignored: {ignoredCharacters.Length})");
+		{
+			Debug.Log($"---- CHARS ----------");
+			Debug.Log($"Ignored characters:");
+			foreach (var charName in ignoredCharacters)
+				Debug.Log($"<color=#FF0000>{charName}</color>");
+			Debug.Log($"Available characters:");
+			foreach (var charData in availableCharacters)
+				Debug.Log($"<color=#7FFF00>{charData.name}</color>");
+		}
 
 		if (availableCharacters.Length == 0)
 			return (null, null);
@@ -99,6 +107,23 @@ public class CharactersManager : MonoBehaviour
 					}
 				}
 			}
+		}
+
+		if (debug)
+		{
+			Debug.Log($"---- DIALOGS ----------");
+			Debug.Log($"Dialogs by priority:");
+			for (var i = 0; i < dialogsByPriority.Length; i++)
+			{
+				var entries = dialogsByPriority[i];
+				if (entries != null)
+					foreach(var (c, d) in entries)
+						Debug.Log($"{i} <color=#FFFFFF>{d.name}</color>");
+			}
+			Debug.Log("----");
+			Debug.Log($"LowResources dialogs:");
+			foreach (var (c, d) in lowResourcesDialogs)
+				Debug.Log($"{d.priority} <color=#FFFF00>{d.name}</color>");
 		}
 
 		(CharacterData character, DialogData dialog) selected = new();
