@@ -50,4 +50,5 @@ public class DatabaseManager : MonoBehaviour
 			parser.ParseData(fileContent);
 		}
 	}
+
 }

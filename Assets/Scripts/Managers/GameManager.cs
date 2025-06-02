@@ -6,8 +6,12 @@ public class GameManager : MonoBehaviour
 
 	public GameState initialState;
 
-	[HideInInspector] public DatabaseManager databaseManager;
+	// persistent managers
 	[HideInInspector] public SaveManager saveManager;
+	[HideInInspector] public SoundManager soundManager;
+
+	// scene managers
+	[HideInInspector] public DatabaseManager databaseManager;
 	[HideInInspector] public UIManager uiManager;
 	[HideInInspector] public GameStateManager gameStateManager;
 	[HideInInspector] public VarsManager varsManager;
@@ -19,9 +23,16 @@ public class GameManager : MonoBehaviour
 	{
 		if (Instance == null)
 			Instance = this;
+		else
+		{
+			Destroy(gameObject);
+			return;
+		}
+
+		saveManager = PersistentManager.Instance.saveManager;
+		soundManager = PersistentManager.Instance.soundManager;
 
 		databaseManager = GetComponentInChildren<DatabaseManager>();
-		saveManager = GetComponentInChildren<SaveManager>();
 		uiManager = GetComponentInChildren<UIManager>();
 		gameStateManager = GetComponentInChildren<GameStateManager>();
 		varsManager = GetComponentInChildren<VarsManager>();
@@ -32,39 +43,39 @@ public class GameManager : MonoBehaviour
 
 	private void Start ()
 	{
-		if (PersistentManager.Instance != null)
-			PersistentManager.Instance.ChangeScene();
-
-		InitSounds();
 		InitGame();
-	}
-
-	private void InitSounds ()
-	{
-		if (PersistentManager.Instance != null)
-			uiManager.optionsPanel.soundSlider.value = PersistentManager.Instance.GetMusicVolume();
 	}
 
 	private async void InitGame ()
 	{
-		await InitDatabase();
+		await InitPersistentData();
 
-		saveManager.Init();
+		InitSounds();
+
+		await InitDatabase();
 
 		InitVars();
 		InitCharacters();
 		InitEvents();
 		InitEndings();
+		ApplySave();
+		StartGame();
+	}
 
-		await LoadSave();
-
-		// Start game loop
-		InitState();
+	private async Awaitable InitPersistentData ()
+	{
+		await PersistentManager.Instance.InitPersistentData();
 	}
 
 	private async Awaitable InitDatabase ()
 	{
 		await databaseManager.LoadDatabase();
+	}
+
+	private void InitSounds ()
+	{
+		soundManager.RestartMusic();
+		uiManager.optionsPanel.soundSlider.value = soundManager.GetMusicVolume();
 	}
 
 	private void InitVars ()
@@ -87,22 +98,20 @@ public class GameManager : MonoBehaviour
 		endingsManager.InitEndings(databaseManager.GetData<EndingData>());
 	}
 
-	private async Awaitable LoadSave ()
+	private void ApplySave ()
 	{
-		await saveManager.LoadData();
-
 		varsManager.ApplySave();
 		charactersManager.ApplySave();
 		eventsManager.ApplySave();
 		endingsManager.ApplySave();
+	}
 
+	private async void StartGame ()
+	{
 		saveManager.AddToSaveData(SaveItemKey.RunStarted, true);
 
 		await saveManager.SaveData();
-	}
 
-	private void InitState ()
-	{
 		GameState startState = saveManager.GetSaveData<GameState>(SaveItemKey.State);
 
 		if (startState == GameState.None)

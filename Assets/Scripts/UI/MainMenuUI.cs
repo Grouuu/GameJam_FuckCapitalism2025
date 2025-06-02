@@ -4,12 +4,14 @@ using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
-	public SaveManager saveManager;
 	public Button continueButton;
 	public Button newGameButton;
 	public Button exitButton;
 	public Button muteButton;
 	public Slider soundSlider;
+
+	private SoundManager _soundManager => PersistentManager.Instance.soundManager;
+	private SaveManager _saveManager => PersistentManager.Instance.saveManager;
 
 	/**
 	 * Linked in the editor
@@ -24,7 +26,7 @@ public class MainMenuUI : MonoBehaviour
 	 */
 	public void OnNewGameClick ()
 	{
-		saveManager.DeleteSave();
+		_ = _saveManager.DeleteGameSave();
 		SceneManager.LoadScene(SceneList.GAMEPLAY);
 	}
 
@@ -41,10 +43,10 @@ public class MainMenuUI : MonoBehaviour
 	 */
 	public void OnMuteClick ()
 	{
-		PersistentManager.Instance.SetMusicMute(!PersistentManager.Instance.GetMusicMute());
+		_soundManager.SetMusicMute(!PersistentManager.Instance.soundManager.GetMusicMute());
 
-		saveManager.AddToSaveData(SaveItemKey.MusicMute, PersistentManager.Instance.GetMusicMute());
-		_ = saveManager.SaveData();
+		_saveManager.AddToSaveData(SaveItemKey.MusicMute, PersistentManager.Instance.soundManager.GetMusicMute());
+		_ = _saveManager.SaveData();
 	}
 
 	/**
@@ -52,7 +54,7 @@ public class MainMenuUI : MonoBehaviour
 	 */
 	public void OnVolumeChange ()
 	{
-		PersistentManager.Instance.SetMusicVolume(soundSlider.value);
+		_soundManager.SetMusicVolume(soundSlider.value);
 	}
 
 	/**
@@ -60,8 +62,8 @@ public class MainMenuUI : MonoBehaviour
 	 */
 	public void OnVolumeChangeEnd ()
 	{
-		saveManager.AddToSaveData(SaveItemKey.MusicVolume, PersistentManager.Instance.GetMusicVolume());
-		_ = saveManager.SaveData();
+		_saveManager.AddToSaveData(SaveItemKey.MusicVolume, _soundManager.GetMusicVolume());
+		_ = _saveManager.SaveData();
 	}
 
 	private void Start ()
@@ -71,32 +73,34 @@ public class MainMenuUI : MonoBehaviour
 
 	private async void Init ()
 	{
-		saveManager.Init();
-
-		await saveManager.LoadData();
+		await PersistentManager.Instance.InitPersistentData();
 
 		InitSound();
+		InitMenus();
+	}
 
-		PersistentManager.Instance.ChangeScene();
+	private void InitSound ()
+	{
+		if (_saveManager.HasKey(SaveItemKey.MusicVolume))
+			_soundManager.SetMusicVolume(_saveManager.GetSaveData<float>(SaveItemKey.MusicVolume));
 
+		if (_saveManager.HasKey(SaveItemKey.MusicMute))
+			_soundManager.SetMusicMute(_saveManager.GetSaveData<bool>(SaveItemKey.MusicMute));
+
+		soundSlider.value = _soundManager.GetMusicVolume();
+
+		_soundManager.RestartMusic();
+	}
+
+	private void InitMenus ()
+	{
 		// disable exit button on web
 #if UNITY_WEBGL && !UNITY_EDITOR
 		exitButton.gameObject.SetActive(false);
 #endif
 		// disable continue button if no save
-		if (!saveManager.HasKey(SaveItemKey.RunStarted))
+		if (!_saveManager.HasKey(SaveItemKey.RunStarted))
 			continueButton.gameObject.SetActive(false);
-	}
-
-	private void InitSound ()
-	{
-		if (saveManager.HasKey(SaveItemKey.MusicVolume))
-			PersistentManager.Instance.SetMusicVolume(saveManager.GetSaveData<float>(SaveItemKey.MusicVolume));
-
-		if (saveManager.HasKey(SaveItemKey.MusicMute))
-			PersistentManager.Instance.SetMusicMute(saveManager.GetSaveData<bool>(SaveItemKey.MusicMute));
-
-		soundSlider.value = PersistentManager.Instance.GetMusicVolume();
 	}
 
 }

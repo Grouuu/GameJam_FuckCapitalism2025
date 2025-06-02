@@ -12,6 +12,7 @@ public enum GameVarType
 
 /**
  * When update this, update also ParsingUtils.MapServerVarId
+ * DO NOT CHANGE THE ORDER, otherwise it will break saves
  */
 public enum GameVarId
 {

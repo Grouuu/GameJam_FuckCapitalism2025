@@ -9,10 +9,10 @@ public class EndGameState : StateCommand
 
 	private void OnEnable () => state = GameState.EndGame;
 
-	private void OnRestart ()
+	private async void OnRestart ()
 	{
 		// delete save
-		GameManager.Instance.saveManager.DeleteSave();
+		await GameManager.Instance.saveManager.DeleteGameSave();
 
 		SceneManager.LoadScene(SceneList.MAIN);
 	}

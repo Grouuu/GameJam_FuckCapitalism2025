@@ -7,8 +7,11 @@ using UnityEngine;
 
 public static class SaveItemKey
 {
-	public static string Date = "Date";										// string
 	public static string Version = "Version";                               // string
+	public static string MusicVolume = "MusicVolume";                       // float
+	public static string MusicMute = "MusicMute";                           // bool
+
+	public static string Date = "Date";										// string
 	public static string RunStarted = "RunStarted";                         // bool
 	public static string State = "State";									// GameState
 	public static string VarsValue = "VarsValue";							// List<KeyValuePair<GameVarId, int>>
@@ -22,8 +25,13 @@ public static class SaveItemKey
 	public static string EventsPlayedToday = "EventsPlayedToday";           // List<string>
 	public static string RandomEventPlayed = "RandomEventPlayed";           // bool
 	public static string EndingsUsed = "EndingsUsed";						// List<string>
-	public static string MusicVolume = "MusicVolume";						// float
-	public static string MusicMute = "MusicMute";							// bool
+
+	public static string[] ProtectedKeys = new[]
+	{
+		Version,
+		MusicVolume,
+		MusicMute,
+	};
 }
 
 public class SaveManager : MonoBehaviour
@@ -32,17 +40,19 @@ public class SaveManager : MonoBehaviour
 #pragma warning disable CS0414
 	private static string WEB_SAVE_KEY = "HOPE_save";
 #pragma warning restore CS0414
+	private static string WINDOWS_SAVE_KEY = "hopeIsHere.json";
 
 	public bool debug = false;
 
 	[HideInInspector] public List<SaveItem> saveData { get; private set; }
 
-	private string _saveFileName = "hopeIsHere.json";
 	private string _savePath;
+	private bool _saveLoaded = false;
+	private bool _saveInProgress = false;
 
 	public void Init ()
 	{
-		_savePath = Path.Combine(Application.persistentDataPath, _saveFileName);
+		_savePath = Path.Combine(Application.persistentDataPath, WINDOWS_SAVE_KEY);
 		saveData = new();
 		AddToSaveData(SaveItemKey.Version, VERSION);
 	}
@@ -91,6 +101,8 @@ public class SaveManager : MonoBehaviour
 			{
 				saveData = JsonConvert.DeserializeObject<List<SaveItem>>(jsonData);
 
+				_saveLoaded = true;
+
 				if (debug)
 					Debug.Log($"Game loaded successfully");
 			}
@@ -101,6 +113,8 @@ public class SaveManager : MonoBehaviour
 			{
 				string jsonData = await File.ReadAllTextAsync(_savePath);
 				saveData = JsonConvert.DeserializeObject<List<SaveItem>>(jsonData);
+
+				_saveLoaded = true;
 
 				if (debug)
 					Debug.Log($"Game loaded successfully from {_savePath}");
@@ -117,6 +131,14 @@ public class SaveManager : MonoBehaviour
 
 	public async Awaitable SaveData ()
 	{
+		if (_saveInProgress)
+		{
+			Debug.LogWarning($"Save already in progress, new call ignored");
+			return;
+		}
+
+		_saveInProgress = true;
+
 		try
 		{
 			// update save date
@@ -141,6 +163,27 @@ public class SaveManager : MonoBehaviour
 		{
 			Debug.LogError($"Failed to save game: {e.Message}");
 		}
+
+		_saveInProgress = false;
+	}
+
+	public async Awaitable DeleteGameSave ()
+	{
+		try
+		{
+			List<SaveItem> protectedSaveData = saveData
+				.Where(entry => SaveItemKey.ProtectedKeys.Contains(entry.key))
+				.ToList()
+			;
+
+			saveData = protectedSaveData;
+		}
+		catch (Exception e)
+		{
+			Debug.LogError($"Error when deleting game save: {e.Message}");
+		}
+
+		await SaveData();
 	}
 
 	public void DeleteSave ()
@@ -180,6 +223,11 @@ public class SaveManager : MonoBehaviour
 #else
 		return File.Exists(_savePath);
 #endif
+	}
+
+	public bool HasSaveLoaded ()
+	{
+		return _saveLoaded;
 	}
 
 }

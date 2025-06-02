@@ -4,45 +4,13 @@ public class PersistentManager : MonoBehaviour
 {
 	public static PersistentManager Instance;
 
-    public AudioSource musicSource;
+    [HideInInspector] public SoundManager soundManager;
+    [HideInInspector] public SaveManager saveManager;
 
-    private float _musicVolume = 1;
-    private bool _musicMute = false;
-
-    public void ChangeScene ()
+    public async Awaitable InitPersistentData ()
 	{
-        SetMusicVolume(_musicVolume);
-        SetMusicMute(_musicMute);
-        RestartSound();
+        await InitSaveData();
     }
-
-    public float GetMusicVolume ()
-	{
-        return _musicVolume;
-	}
-
-    public bool GetMusicMute ()
-	{
-        return _musicMute;
-	}
-
-    public void SetMusicVolume(float volume)
-    {
-        _musicVolume = volume;
-        musicSource.volume = volume;
-    }
-
-    public void SetMusicMute (bool isMute)
-	{
-        _musicMute = isMute;
-        musicSource.mute = isMute;
-	}
-
-    public void RestartSound ()
-	{
-        musicSource.Stop();
-        musicSource.Play();
-	}
 
 	private void Awake ()
     {
@@ -50,10 +18,24 @@ public class PersistentManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
-            musicSource = GetComponent<AudioSource>();
         }
         else
             Destroy(gameObject);
     }
+
+	private void OnEnable ()
+    {
+        soundManager = GetComponent<SoundManager>();
+        saveManager = GetComponent<SaveManager>();
+    }
+
+    private async Awaitable InitSaveData ()
+    {
+        if (!saveManager.HasSaveLoaded())
+        {
+            saveManager.Init();
+            await saveManager.LoadData();
+        }
+    }
+
 }
