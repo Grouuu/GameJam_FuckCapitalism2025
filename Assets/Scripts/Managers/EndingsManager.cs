@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EndingsManager : MonoBehaviour
 {
-	private EndingData[] _endings;
+	[NonSerialized] private EndingData[] _endings;
 
 	public void InitEndings (EndingData[] endings)
 	{

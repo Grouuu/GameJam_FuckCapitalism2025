@@ -136,6 +136,11 @@ public class EventsManager : MonoBehaviour
 		}
 	}
 
+	public EventData[] GetEvents ()
+	{
+		return _events;
+	}
+
 	private EventData PickFixedDayEvent (string[] ignoredEvents)
 	{
 		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);

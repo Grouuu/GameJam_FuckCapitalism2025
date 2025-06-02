@@ -16,6 +16,11 @@ public class DatabaseManager : MonoBehaviour
 {
 	private DatabaseParser[] _parsers;
 
+	public void Init ()
+	{
+		_parsers = GetComponents<DatabaseParser>();
+	}
+
 	public async Awaitable LoadDatabase ()
 	{
 		foreach (DatabaseParser parser in _parsers)
@@ -34,7 +39,7 @@ public class DatabaseManager : MonoBehaviour
 
 	private void OnEnable ()
 	{
-		_parsers = GetComponents<DatabaseParser>();
+		Init();
 	}
 
 	private async Awaitable LoadJsonData (DatabaseParser parser)

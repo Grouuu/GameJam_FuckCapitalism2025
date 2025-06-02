@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -98,8 +99,8 @@ public class VarsManager : MonoBehaviour
 {
 	public bool debug = false;
 
-	private VarData[] _gameVars = new VarData[0];
-	private Dictionary<GameVarId, int> _startDayResources = new();
+	[NonSerialized] private VarData[] _gameVars = new VarData[0];
+	[NonSerialized] private Dictionary<GameVarId, int> _startDayResources = new();
 
 	public void InitVars (VarData[] vars)
 	{
@@ -221,6 +222,11 @@ public class VarsManager : MonoBehaviour
 			.Where(entry => entry.type == GameVarType.UIVar)
 			.ToArray()
 		;
+	}
+
+	public VarData[] GetAllVars ()
+	{
+		return _gameVars;
 	}
 
 	public VarData GetVarData (GameVarId id)

@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	public static GameManager Instance;
+	[NonSerialized] public static GameManager Instance;
 
 	public GameState initialState;
 
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour
 	[HideInInspector] public EventsManager eventsManager;
 	[HideInInspector] public EndingsManager endingsManager;
 
-	private void Awake ()
+	public void Init ()
 	{
 		if (Instance == null)
 			Instance = this;
@@ -39,6 +40,11 @@ public class GameManager : MonoBehaviour
 		charactersManager = GetComponentInChildren<CharactersManager>();
 		eventsManager = GetComponentInChildren<EventsManager>();
 		endingsManager = GetComponentInChildren<EndingsManager>();
+	}
+
+	private void Awake ()
+	{
+		Init();
 	}
 
 	private void Start ()
