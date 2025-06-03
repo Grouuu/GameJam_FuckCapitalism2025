@@ -44,7 +44,7 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _Opacity: -0.89
+    - _Opacity: -0.547
     m_Colors:
     - _Base: {r: 0.18307228, g: 0.20363082, b: 0.20754719, a: 1}
     - _Blend: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
