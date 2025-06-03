@@ -990,6 +990,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Debug",
+            "id": "32e9532d-3a51-4dba-8e18-8b1cf1a5e523",
+            "actions": [
+                {
+                    "name": "DeleteGameLocalData",
+                    "type": "Button",
+                    "id": "50f08965-3baf-4b9b-a3c9-5d980247f29a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8f6e9c3f-9270-42df-8bf3-4bb7bd8cb984",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "DeleteGameLocalData",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
