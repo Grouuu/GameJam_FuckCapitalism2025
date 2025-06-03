@@ -36,7 +36,7 @@ public static class SaveItemKey
 
 public class SaveManager : MonoBehaviour
 {
-	private static string VERSION = "0.1";
+	private static string VERSION = "0.11";
 #pragma warning disable CS0414
 	private static string WEB_SAVE_KEY = "HOPE_save";
 #pragma warning restore CS0414
@@ -54,7 +54,16 @@ public class SaveManager : MonoBehaviour
 	{
 		_savePath = Path.Combine(Application.persistentDataPath, WINDOWS_SAVE_KEY);
 		saveData = new();
+	}
+
+	public void UpdateGameVersion ()
+	{
 		AddToSaveData(SaveItemKey.Version, VERSION);
+	}
+
+	public string GetGameVersion ()
+	{
+		return VERSION;
 	}
 
 	public void AddToSaveData (string key, object data)
@@ -133,7 +142,7 @@ public class SaveManager : MonoBehaviour
 	{
 		if (_saveInProgress)
 		{
-			Debug.LogWarning($"Save already in progress, new call ignored");
+			Debug.LogWarning($"Save already in progress, call ignored");
 			return;
 		}
 

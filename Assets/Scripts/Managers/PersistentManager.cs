@@ -35,6 +35,14 @@ public class PersistentManager : MonoBehaviour
         {
             saveManager.Init();
             await saveManager.LoadData();
+
+            string gameVersion = saveManager.GetSaveData<string>(SaveItemKey.Version);
+
+            // destroy game save if outdated
+            if (!string.IsNullOrEmpty(gameVersion) && gameVersion != saveManager.GetGameVersion())
+                await saveManager.DeleteGameSave();
+
+            saveManager.UpdateGameVersion();
         }
     }
 
