@@ -1,10 +1,30 @@
+using System.Collections.Generic;
 using UnityEngine;
+
+public enum SoundFxKey
+{
+    None,
+    Click,
+    Yes,
+    No,
+}
 
 public class SoundManager : MonoBehaviour
 {
-    private AudioSource _musicSource;
+    public AudioSource musicSound;
+    public AudioSource clickSound;
+    public AudioSource yesSound;
+    public AudioSource noSound;
+
     private float _musicVolume = 1;
     private bool _musicMute = false;
+
+    private Dictionary<SoundFxKey, AudioSource> MapFxSounds => new()
+    {
+        { SoundFxKey.Click, clickSound },
+        { SoundFxKey.Yes, yesSound },
+        { SoundFxKey.No, noSound },
+    };
 
     public float GetMusicVolume ()
     {
@@ -19,24 +39,28 @@ public class SoundManager : MonoBehaviour
     public void SetMusicVolume (float volume)
     {
         _musicVolume = volume;
-        _musicSource.volume = volume;
+        musicSound.volume = volume;
     }
 
     public void SetMusicMute (bool isMute)
     {
         _musicMute = isMute;
-        _musicSource.mute = isMute;
+        musicSound.mute = isMute;
     }
 
     public void RestartMusic ()
     {
-        _musicSource.Stop();
-        _musicSource.Play();
+        musicSound.Stop();
+        musicSound.Play();
     }
 
-    private void OnEnable ()
-    {
-        _musicSource = GetComponent<AudioSource>();
-    }
+    public void PlaySoundFX (SoundFxKey soundKey)
+	{
+        if (soundKey == SoundFxKey.None)
+            return;
+
+        if (MapFxSounds.TryGetValue(soundKey, out AudioSource sound))
+            sound.Play();
+	}
 
 }

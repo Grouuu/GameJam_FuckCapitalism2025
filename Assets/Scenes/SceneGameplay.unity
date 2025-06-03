@@ -1944,8 +1944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0, g: 0, b: 0, a: 1}
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  baseTextColor: {r: 0, g: 0, b: 0, a: 1}
+  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  clickSound: 1
 --- !u!1 &145222423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,8 +3578,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0, g: 0, b: 0, a: 1}
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  baseTextColor: {r: 0, g: 0, b: 0, a: 1}
+  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  clickSound: 1
 --- !u!1 &218614906
 GameObject:
   m_ObjectHideFlags: 0
@@ -6312,8 +6314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0, g: 0, b: 0, a: 1}
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  baseTextColor: {r: 0, g: 0, b: 0, a: 1}
+  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  clickSound: 1
 --- !u!1001 &475345304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9532,8 +9535,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0, g: 0, b: 0, a: 1}
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  baseTextColor: {r: 0, g: 0, b: 0, a: 1}
+  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  clickSound: 1
 --- !u!1 &709212408
 GameObject:
   m_ObjectHideFlags: 0
@@ -9722,8 +9726,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0, g: 0, b: 0, a: 1}
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  baseTextColor: {r: 0, g: 0, b: 0, a: 1}
+  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  clickSound: 1
 --- !u!1001 &740801273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15089,8 +15094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 0, g: 0, b: 0, a: 1}
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  baseTextColor: {r: 0, g: 0, b: 0, a: 1}
+  hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
+  clickSound: 2
 --- !u!1001 &1476255055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18498,8 +18504,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseColor: {r: 1, g: 1, b: 1, a: 1}
-  hoverColor: {r: 0, g: 0, b: 0, a: 1}
+  baseTextColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverTextColor: {r: 0, g: 0, b: 0, a: 1}
+  clickSound: 3
 --- !u!1001 &1822769066
 PrefabInstance:
   m_ObjectHideFlags: 0
