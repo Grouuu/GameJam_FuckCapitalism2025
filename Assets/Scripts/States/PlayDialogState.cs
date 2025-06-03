@@ -29,6 +29,11 @@ public class PlayDialogState : StateCommand
 		if (charactersPlayedToday != null && charactersPlayedToday.Count > 0)
 			_todayPlayedCharactersName = charactersPlayedToday;
 
+		Debug.Log($"APPLY SAVE {_todayPlayedDialogTotal} {GameManager.Instance.saveManager.HasKey(SaveItemKey.DialogsPlayedToday)}");
+
+		if (GameManager.Instance.saveManager.HasKey(SaveItemKey.DialogsPlayedToday))
+			Debug.Log($"VALUE {GameManager.Instance.saveManager.GetSaveData<int>(SaveItemKey.DialogsPlayedToday)}");
+
 		if (GameManager.Instance.saveManager.HasKey(SaveItemKey.DialogsPlayedToday))
 			_todayPlayedDialogTotal = GameManager.Instance.saveManager.GetSaveData<int>(SaveItemKey.DialogsPlayedToday);
 
@@ -42,6 +47,8 @@ public class PlayDialogState : StateCommand
 	{
 		if (_todayPlayedDialogTotal > maxDialogsByDay)
 		{
+			Debug.Log("Max dialogs played");
+			await ClearSaveData();
 			EndCommand();
 			return;
 		}
@@ -70,13 +77,7 @@ public class PlayDialogState : StateCommand
 		else
 		{
 			Debug.Log("No dialog found");
-
-			// clear save
-			GameManager.Instance.charactersManager.UpdateCharactersPlayedTodaySaveData(new());
-			GameManager.Instance.charactersManager.UpdateDialogStartedSaveData("");
-			GameManager.Instance.charactersManager.UpdateTotalDialogPlayedTodaySaveData(0);
-			await GameManager.Instance.saveManager.SaveData();
-
+			await ClearSaveData();
 			EndCommand();
 		}
 	}
@@ -175,6 +176,15 @@ public class PlayDialogState : StateCommand
 		panelData.buttons = DialogPanelUIButtonsLayout.Continue;
 
 		return panelData;
+	}
+
+	private async Awaitable ClearSaveData ()
+	{
+		// clear save
+		GameManager.Instance.charactersManager.UpdateCharactersPlayedTodaySaveData(new());
+		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData("");
+		GameManager.Instance.charactersManager.UpdateTotalDialogPlayedTodaySaveData(0);
+		await GameManager.Instance.saveManager.SaveData();
 	}
 
 }
