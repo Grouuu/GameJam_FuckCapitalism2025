@@ -15,7 +15,6 @@ public class ReportPanelUIData
 	public string dayLabel;
 	public int dayValue;
 	public string description;
-	public (string iconFileName, int valueDiff)[] resourcesChange;
 	public string foodChange;
 	public string populationChange;
 }
@@ -29,7 +28,6 @@ public class ReportPanelUI : MonoBehaviour
 	public TextMeshProUGUI foodChange;
 	public TextMeshProUGUI populationChange;
 	public Transform resourcesParent;
-	public GameObject prefabResource;
 	public Button continueButton;
 
 	[HideInInspector] public Action onceClickCallback;
@@ -59,7 +57,8 @@ public class ReportPanelUI : MonoBehaviour
 
 		onceClickCallback = null;
 
-		RemoveResourceValues();
+		if (GameManager.Instance != null)
+			GameManager.Instance.uiManager.RemoveResourceValues(resourcesParent);
 	}
 
 	/**
@@ -78,7 +77,7 @@ public class ReportPanelUI : MonoBehaviour
 			callback();
 	}
 
-	private void Awake ()
+	private void OnEnable ()
 	{
 		Hide();
 	}
@@ -96,27 +95,7 @@ public class ReportPanelUI : MonoBehaviour
 				diff = resourceData.currentValue - oldValue;
 
 			if (diff != 0)
-				AddResourceValue(resourceData, diff);
-		}
-	}
-
-	private void AddResourceValue (VarData varData, int diff)
-	{
-		// TODO use pool
-		GameObject item = Instantiate(prefabResource, resourcesParent);
-		ReportResourceValueUI resource = item.GetComponent<ReportResourceValueUI>();
-
-		resource.SetIcon(varData.iconFileName);
-		resource.SetValue(diff);
-	}
-
-	private void RemoveResourceValues ()
-	{
-		ReportResourceValueUI[] resources = resourcesParent.GetComponentsInChildren<ReportResourceValueUI>();
-
-		foreach (ReportResourceValueUI resource in resources)
-		{
-			Destroy(resource.gameObject);
+				GameManager.Instance.uiManager.AddResourceValue(resourceData, diff, resourcesParent, Color.white);
 		}
 	}
 }

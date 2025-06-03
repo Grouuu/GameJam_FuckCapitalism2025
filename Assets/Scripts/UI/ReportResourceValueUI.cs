@@ -9,6 +9,12 @@ public class ReportResourceValueUI : MonoBehaviour
 
 	private Sprite _sprite;
 
+	public void SetColor(Color color)
+	{
+		iconSprite.color = color;
+		valueText.color = color;
+	}
+
 	public void SetIcon (string fileName)
 	{
 		Sprite sprite = Resources.Load<Sprite>($"VarsSprites/{fileName}");

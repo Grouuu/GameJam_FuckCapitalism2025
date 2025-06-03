@@ -170,6 +170,7 @@ public class PlayDialogState : StateCommand
 		DialogPanelUIData panelData = new();
 
 		panelData.content = result.response;
+		panelData.varChanges = result.varChanges;
 		panelData.character = characterData;
 		panelData.buttons = DialogPanelUIButtonsLayout.Continue;
 

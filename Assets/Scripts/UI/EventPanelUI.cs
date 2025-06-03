@@ -13,6 +13,7 @@ public class EventPanelUIData
 {
 	public string title;
 	public string content;
+	public ResultVarChange[] varChanges;
 }
 
 public class EventPanelUI : MonoBehaviour
@@ -20,6 +21,7 @@ public class EventPanelUI : MonoBehaviour
 	public GameObject parent;
 	public TextMeshProUGUI titleUI;
 	public TextMeshProUGUI contentUI;
+	public Transform resourcesParent;
 	public Button continueButton;
 
 	[HideInInspector] public Action onceClickCallback;
@@ -29,17 +31,22 @@ public class EventPanelUI : MonoBehaviour
 		titleUI.text = panelContent.title;
 		contentUI.text = panelContent.content;
 
+		AddResourcesValue(panelContent.varChanges);
+
 		parent.SetActive(true);
 	}
 
 	public void Hide ()
 	{
+		parent.SetActive(false);
+
 		titleUI.text = "";
 		contentUI.text = "";
 
 		onceClickCallback = null;
 
-		parent.SetActive(false);
+		if (GameManager.Instance != null)
+			GameManager.Instance.uiManager.RemoveResourceValues(resourcesParent);
 	}
 
 	/**
@@ -58,8 +65,22 @@ public class EventPanelUI : MonoBehaviour
 			callback();
 	}
 
-	private void Awake ()
+	private void OnEnable ()
 	{
 		Hide();
+	}
+
+	private void AddResourcesValue (ResultVarChange[] resourceChanges)
+	{
+		if (resourceChanges == null || resourceChanges.Length == 0)
+			return;
+
+		foreach (ResultVarChange change in resourceChanges)
+		{
+			VarData varData = GameManager.Instance.varsManager.GetVarData(change.varId);
+
+			if (varData != null && varData.varId != GameVarId.None)
+				GameManager.Instance.uiManager.AddResourceValue(varData, change.currentValue, resourcesParent, Color.black);
+		}
 	}
 }

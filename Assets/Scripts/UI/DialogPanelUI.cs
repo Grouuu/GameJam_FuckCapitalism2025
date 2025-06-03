@@ -15,6 +15,7 @@ public class DialogPanelUIData
 	public string content;
 	public CharacterData character;
 	public DialogPanelUIButtonsLayout buttons;
+	public ResultVarChange[] varChanges;
 }
 
 public class DialogPanelUI : MonoBehaviour
@@ -22,6 +23,7 @@ public class DialogPanelUI : MonoBehaviour
 	public GameObject parent;
 	public TextMeshProUGUI request;
 	public CharacterAvatarUI avatar;
+	public Transform resourcesParent;
 	public Button yesButton;
 	public Button noButton;
 	public Button continueButton;
@@ -37,18 +39,23 @@ public class DialogPanelUI : MonoBehaviour
 		avatar.SetAvatarName(panelContent.character.name);
 		UpdateButtonsVisibility(buttons);
 
+		AddResourcesValue(panelContent.varChanges);
+
 		parent.SetActive(true);
 	}
 
 	public void Hide ()
 	{
+		parent.SetActive(false);
+
 		request.text = "";
 
 		onceYesCallback = null;
 		onceNoCallback = null;
 		onceContinueCallback = null;
 
-		parent.SetActive(false);
+		if (GameManager.Instance != null)
+			GameManager.Instance.uiManager.RemoveResourceValues(resourcesParent);
 	}
 
 	/**
@@ -75,7 +82,7 @@ public class DialogPanelUI : MonoBehaviour
 		OnClick(onceContinueCallback);
 	}
 
-	private void Awake ()
+	private void OnEnable ()
 	{
 		Hide();
 	}
@@ -95,6 +102,20 @@ public class DialogPanelUI : MonoBehaviour
 		yesButton.gameObject.SetActive(layout == DialogPanelUIButtonsLayout.YesNo);
 		noButton.gameObject.SetActive(layout == DialogPanelUIButtonsLayout.YesNo);
 		continueButton.gameObject.SetActive(layout == DialogPanelUIButtonsLayout.Continue);
+	}
+
+	private void AddResourcesValue (ResultVarChange[] resourceChanges)
+	{
+		if (resourceChanges == null || resourceChanges.Length == 0)
+			return;
+
+		foreach (ResultVarChange change in resourceChanges)
+		{
+			VarData varData = GameManager.Instance.varsManager.GetVarData(change.varId);
+
+			if (varData != null && varData.varId != GameVarId.None)
+				GameManager.Instance.uiManager.AddResourceValue(varData, change.currentValue, resourcesParent, Color.white);
+		}
 	}
 
 }

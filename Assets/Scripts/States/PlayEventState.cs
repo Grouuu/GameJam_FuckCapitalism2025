@@ -108,34 +108,8 @@ public class PlayEventState : StateCommand
 		EventPanelUIData panelData = new();
 
 		panelData.title = eventData.title;
-
-		string content = "";
-
-		content += $"{eventData.description}";
-
-		ResultVarChange[] changes = eventData.result.varChanges;
-
-		if (changes != null && changes.Length > 0)
-		{
-			content += "\n\n";
-
-			foreach (ResultVarChange varChange in changes)
-			{
-				if (varChange.currentValue == 0)
-					continue;
-
-				VarData varData = GameManager.Instance.varsManager.GetVarData(varChange.varId);
-
-				if (varData.type != GameVarType.UIVar)
-					continue;
-
-				string name = varData.displayName;
-				string modifier = varChange.currentValue > 0 ? "+" : "";
-				content += $"{name} : {modifier}{varChange.currentValue}\n";
-			}
-		}
-
-		panelData.content = content;
+		panelData.content = eventData.description;
+		panelData.varChanges = eventData.result.varChanges;
 
 		return panelData;
 	}

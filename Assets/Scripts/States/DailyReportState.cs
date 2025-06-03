@@ -76,31 +76,10 @@ public class DailyReportState : StateCommand
 		panelData.dayLabel = "DAY"; // translate
 		panelData.dayValue = currentDay;
 		panelData.description = "The sensors have gathered the following variations:"; // translate
-		panelData.resourcesChange = GetResourceValueDiff();
 		panelData.foodChange = GetFoodDiff();
 		panelData.populationChange = GetPopulationDiff();
 
 		return panelData;
-	}
-
-	private (string iconFileName, int valueDiff)[] GetResourceValueDiff ()
-	{
-		List<(string iconFileName, int valueDiff)> resourceDiff = new();
-		Dictionary<GameVarId, int> startDayValues = GameManager.Instance.varsManager.GetStartDayResourcesValue();
-		VarData[] endDayValues = GameManager.Instance.varsManager.GetResourcesData();
-
-		foreach (VarData resourceData in endDayValues)
-		{
-			int diff = 0;
-
-			if (startDayValues.TryGetValue(resourceData.varId, out int oldValue))
-				diff = resourceData.currentValue - oldValue;
-
-			if (diff != 0)
-				resourceDiff.Add((resourceData.iconFileName, diff));
-		}
-
-		return resourceDiff.ToArray();
 	}
 
 	private string GetFoodDiff ()
