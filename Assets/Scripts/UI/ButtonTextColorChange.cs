@@ -9,11 +9,6 @@ public class ButtonTextColorChange : MonoBehaviour, IPointerEnterHandler, IPoint
 
 	private TextMeshProUGUI _buttonLabel;
 
-	public void OnPointerClick (PointerEventData eventData)
-	{
-		throw new System.NotImplementedException();
-	}
-
 	public void OnPointerEnter (PointerEventData eventData)
 	{
 		if (_buttonLabel != null)
@@ -29,5 +24,11 @@ public class ButtonTextColorChange : MonoBehaviour, IPointerEnterHandler, IPoint
 	private void Start ()
 	{
 		_buttonLabel = GetComponentInChildren<TextMeshProUGUI>();
+	}
+
+	private void OnDisable ()
+	{
+		if (_buttonLabel != null)
+			_buttonLabel.color = baseColor;
 	}
 }
