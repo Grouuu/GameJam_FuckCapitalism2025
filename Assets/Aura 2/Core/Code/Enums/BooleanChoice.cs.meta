@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 1936fd2ac00b55e4bbb04ebf989da3ce
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Enums/BooleanChoice.cs
+  uploadId: 553157

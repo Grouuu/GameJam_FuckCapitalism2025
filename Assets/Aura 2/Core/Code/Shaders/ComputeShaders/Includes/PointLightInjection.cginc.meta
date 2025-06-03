@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 58f5d8b128c67284d98e798855d8f82e
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/ComputeShaders/Includes/PointLightInjection.cginc
+  uploadId: 553157

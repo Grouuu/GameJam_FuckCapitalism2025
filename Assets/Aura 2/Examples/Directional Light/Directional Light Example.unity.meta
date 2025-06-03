@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: abd565375088d3a47952d2e89de796c3
+timeCreated: 1513248609
+licenseType: Store
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Examples/Directional Light/Directional Light Example.unity
+  uploadId: 553157

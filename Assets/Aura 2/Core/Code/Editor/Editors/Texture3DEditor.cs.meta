@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 6a88621852a8d6a4e909333950ac83d4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - logoTexture: {fileID: 2800000, guid: 97dce7f7c39611f45a4bb637c1682e45, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Editor/Editors/Texture3DEditor.cs
+  uploadId: 553157

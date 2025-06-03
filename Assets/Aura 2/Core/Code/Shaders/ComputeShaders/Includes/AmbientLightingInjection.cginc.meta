@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1def82dc7c6dc424e8fdcf04894bdedd
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/ComputeShaders/Includes/AmbientLightingInjection.cginc
+  uploadId: 553157

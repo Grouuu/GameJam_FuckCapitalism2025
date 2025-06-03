@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ffdac5434c39f7545b910c253007c8fc
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/Shaders/Core/StoreDirectionalSpotLightCookieMap.shader
+  uploadId: 553157

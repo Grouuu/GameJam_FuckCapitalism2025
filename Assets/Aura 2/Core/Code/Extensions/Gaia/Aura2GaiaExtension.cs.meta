@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 8c4beac7ba8539d4f81118b5364f7117
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Extensions/Gaia/Aura2GaiaExtension.cs
+  uploadId: 553157

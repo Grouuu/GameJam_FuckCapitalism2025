@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8d85e65c85da6594e83ede201a92c68e
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11700000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Data/Textures/DummyTexture3D.asset
+  uploadId: 553157

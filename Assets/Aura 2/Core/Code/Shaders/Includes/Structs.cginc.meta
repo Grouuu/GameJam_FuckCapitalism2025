@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5616cf292574aab4889a8ff1f562d79a
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/Includes/Structs.cginc
+  uploadId: 553157

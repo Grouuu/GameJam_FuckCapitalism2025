@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7a801c7d44863c24d9737101253b701c
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/Shaders/StandardShaders/Unlit Textured.shader
+  uploadId: 553157

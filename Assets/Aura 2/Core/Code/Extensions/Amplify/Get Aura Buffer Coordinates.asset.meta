@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c7be419210659aa4b95108a112fa0b06
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Extensions/Amplify/Get Aura Buffer Coordinates.asset
+  uploadId: 553157

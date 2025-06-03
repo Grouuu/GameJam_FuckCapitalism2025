@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 689e7cb88e5f45447bdfd7327e649316
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Extensions/Amplify/Apply Aura Illumination.asset
+  uploadId: 553157

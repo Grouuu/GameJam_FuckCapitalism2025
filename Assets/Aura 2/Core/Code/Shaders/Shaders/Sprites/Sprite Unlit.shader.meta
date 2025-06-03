@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a1901b6b0e5452c49b2439fb615c7be2
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/Shaders/Sprites/Sprite Unlit.shader
+  uploadId: 553157

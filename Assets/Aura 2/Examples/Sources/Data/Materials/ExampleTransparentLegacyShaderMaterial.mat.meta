@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 69a0c52df35acb64a81d0b1b6e9140b1
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Examples/Sources/Data/Materials/ExampleTransparentLegacyShaderMaterial.mat
+  uploadId: 553157

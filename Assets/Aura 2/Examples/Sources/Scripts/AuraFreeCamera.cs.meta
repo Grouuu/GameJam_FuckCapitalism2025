@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 204f7d3308f43bb449fd9c1d5f9715f3
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Examples/Sources/Scripts/AuraFreeCamera.cs
+  uploadId: 553157

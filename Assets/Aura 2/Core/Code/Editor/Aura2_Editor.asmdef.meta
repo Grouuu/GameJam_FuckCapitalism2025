@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2b8c060ee81b931479f9d643ec0aa6cd
+AssemblyDefinitionImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Editor/Aura2_Editor.asmdef
+  uploadId: 553157

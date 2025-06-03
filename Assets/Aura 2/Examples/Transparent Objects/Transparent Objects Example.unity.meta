@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0d334bea6408f004e9c97252c1e592b6
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Examples/Transparent Objects/Transparent Objects Example.unity
+  uploadId: 553157

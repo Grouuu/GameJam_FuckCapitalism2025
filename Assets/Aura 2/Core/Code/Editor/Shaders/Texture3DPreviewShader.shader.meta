@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c114c0745e82962438f858727b8888d5
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Editor/Shaders/Texture3DPreviewShader.shader
+  uploadId: 553157

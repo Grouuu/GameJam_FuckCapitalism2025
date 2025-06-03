@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9d0c5722ea5798c4d9c9fa123a005281
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Editor/Drawers/Texture3DPreviewDrawer.cs
+  uploadId: 553157

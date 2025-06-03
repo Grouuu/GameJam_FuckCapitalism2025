@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a3f14228038d6b348a19d0acaa9a3f36
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/Includes/DepthAccumulation.cginc
+  uploadId: 553157

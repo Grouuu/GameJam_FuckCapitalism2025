@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 37ce686d9bb4573458ae0280889cb060
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/Shaders/SurfaceShaders/AuraStandardAlphaBlended.shader
+  uploadId: 553157

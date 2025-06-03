@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 971d5d94be5bebc44aa6d832c17f5e62
+ComputeShaderImporter:
+  externalObjects: {}
+  currentAPIMask: 4
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/ComputeShaders/ComputeDataComputeShader.compute
+  uploadId: 553157

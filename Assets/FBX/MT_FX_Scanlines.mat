@@ -44,10 +44,10 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _Opacity: -0.55
+    - _Opacity: -0.89
     m_Colors:
-    - _Base: {r: 0.2830189, g: 0.19090424, b: 0.21770428, a: 1}
-    - _Blend: {r: 0.6981132, g: 0.6948202, b: 0.6948202, a: 1}
+    - _Base: {r: 0.18307228, g: 0.20363082, b: 0.20754719, a: 1}
+    - _Blend: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
     - _Direction: {r: 0, g: 0.005, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

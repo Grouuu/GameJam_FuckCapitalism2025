@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 64fe5f98dd41dfd49835525825653494
+timeCreated: 1479463540
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Examples/Sources/Scripts/SinRotationOffset.cs
+  uploadId: 553157

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: de61867bd36a42f468c8be1d4ed0ac06
+ComputeShaderImporter:
+  externalObjects: {}
+  currentAPIMask: 4
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137148
+  packageName: Aura 2 - Volumetric Lighting & Fog
+  packageVersion: 2.1.17
+  assetPath: Assets/Aura 2/Core/Code/Shaders/ComputeShaders/ApplyDenoisingFilterComputeShader.compute
+  uploadId: 553157
