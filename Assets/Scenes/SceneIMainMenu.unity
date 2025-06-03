@@ -2608,6 +2608,7 @@ GameObject:
   - component: {fileID: 621047564}
   - component: {fileID: 621047563}
   - component: {fileID: 621047562}
+  - component: {fileID: 621047565}
   m_Layer: 5
   m_Name: ButtonExit
   m_TagString: Untagged
@@ -2729,6 +2730,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621047560}
   m_CullTransparentMesh: 1
+--- !u!114 &621047565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621047560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &635406589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3236,6 +3251,7 @@ GameObject:
   - component: {fileID: 796210174}
   - component: {fileID: 796210173}
   - component: {fileID: 796210172}
+  - component: {fileID: 796210175}
   m_Layer: 5
   m_Name: ButtonContinue
   m_TagString: Untagged
@@ -3357,6 +3373,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 796210170}
   m_CullTransparentMesh: 1
+--- !u!114 &796210175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796210170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 0, g: 0, b: 0, a: 1}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &827322357
 GameObject:
   m_ObjectHideFlags: 0
@@ -5815,6 +5845,7 @@ GameObject:
   - component: {fileID: 1401839677}
   - component: {fileID: 1401839676}
   - component: {fileID: 1401839675}
+  - component: {fileID: 1401839678}
   m_Layer: 5
   m_Name: ButtonNewGame
   m_TagString: Untagged
@@ -5936,6 +5967,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401839673}
   m_CullTransparentMesh: 1
+--- !u!114 &1401839678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401839673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba74a713ca9d5184dba22951d8298551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &1402260228
 PrefabInstance:
   m_ObjectHideFlags: 0
