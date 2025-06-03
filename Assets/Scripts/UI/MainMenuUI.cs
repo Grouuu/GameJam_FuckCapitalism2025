@@ -66,6 +66,15 @@ public class MainMenuUI : MonoBehaviour
 		_ = _saveManager.SaveData();
 	}
 
+	/**
+	 * Linked in the editor
+	 */
+	public void OnVolumeRelease ()
+	{
+		_saveManager.AddToSaveData(SaveItemKey.MusicVolume, _soundManager.GetMusicVolume());
+		_ = _saveManager.SaveData();
+	}
+
 	private void Start ()
 	{
 		Init();

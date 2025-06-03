@@ -40,9 +40,9 @@ public class OptionsPanelUI : MonoBehaviour
 	 */
 	public void OnMuteClick ()
 	{
-		PersistentManager.Instance.soundManager.SetMusicMute(!PersistentManager.Instance.soundManager.GetMusicMute());
+		PersistentManager.Instance.soundManager.SetMusicMute(!GameManager.Instance.soundManager.GetMusicMute());
 
-		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.MusicMute, PersistentManager.Instance.soundManager.GetMusicMute());
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.MusicMute, GameManager.Instance.soundManager.GetMusicMute());
 		_ = GameManager.Instance.saveManager.SaveData();
 	}
 
@@ -51,7 +51,7 @@ public class OptionsPanelUI : MonoBehaviour
 	 */
 	public void OnVolumeChange ()
 	{
-		PersistentManager.Instance.soundManager.SetMusicVolume(soundSlider.value);
+		GameManager.Instance.soundManager.SetMusicVolume(soundSlider.value);
 	}
 
 	/**
@@ -59,7 +59,16 @@ public class OptionsPanelUI : MonoBehaviour
 	 */
 	public void OnVolumeChangeEnd ()
 	{
-		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.MusicVolume, PersistentManager.Instance.soundManager.GetMusicVolume());
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.MusicVolume, GameManager.Instance.soundManager.GetMusicVolume());
+		_ = GameManager.Instance.saveManager.SaveData();
+	}
+
+	/**
+	 * Linked in the editor
+	 */
+	public void OnVolumeRelease ()
+	{
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.MusicVolume, GameManager.Instance.soundManager.GetMusicVolume());
 		_ = GameManager.Instance.saveManager.SaveData();
 	}
 
