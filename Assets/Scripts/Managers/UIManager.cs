@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-	public GameObject prefabResourceDiff;
+	public GameObject prefabResourceIcon;
 	public ResourceValueUI[] resourceValuesUI;
 
 	public DialogPanelUI dialogPanel => GetComponent<DialogPanelUI>();
@@ -96,7 +96,7 @@ public class UIManager : MonoBehaviour
 	public void AddResourceValue (VarData varData, int diff, Transform parent, Color color)
 	{
 		// TODO use pool
-		GameObject item = Instantiate(prefabResourceDiff, parent);
+		GameObject item = Instantiate(prefabResourceIcon, parent);
 		ReportResourceValueUI resource = item.GetComponent<ReportResourceValueUI>();
 
 		resource.SetColor(color);

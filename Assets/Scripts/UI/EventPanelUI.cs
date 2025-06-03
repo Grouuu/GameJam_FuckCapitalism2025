@@ -13,12 +13,14 @@ public class EventPanelUIData
 {
 	public string title;
 	public string content;
+	public string headerFileName;
 	public ResultVarChange[] varChanges;
 }
 
 public class EventPanelUI : MonoBehaviour
 {
 	public GameObject parent;
+	public Image headerSprite;
 	public TextMeshProUGUI titleUI;
 	public TextMeshProUGUI contentUI;
 	public Transform resourcesParent;
@@ -31,6 +33,7 @@ public class EventPanelUI : MonoBehaviour
 		titleUI.text = panelContent.title;
 		contentUI.text = panelContent.content;
 
+		SetHeader(panelContent.headerFileName);
 		AddResourcesValue(panelContent.varChanges);
 
 		parent.SetActive(true);
@@ -68,6 +71,19 @@ public class EventPanelUI : MonoBehaviour
 	private void OnEnable ()
 	{
 		Hide();
+	}
+
+	private void SetHeader (string fileName)
+	{
+		Sprite sprite = Resources.Load<Sprite>($"EventSprites/{fileName}");
+
+		if (sprite == null)
+		{
+			Debug.LogWarning($"No sprite found for {fileName}");
+			return;
+		}
+
+		headerSprite.sprite = sprite;
 	}
 
 	private void AddResourcesValue (ResultVarChange[] resourceChanges)

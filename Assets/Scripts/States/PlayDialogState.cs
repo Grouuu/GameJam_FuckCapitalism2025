@@ -29,18 +29,11 @@ public class PlayDialogState : StateCommand
 		if (charactersPlayedToday != null && charactersPlayedToday.Count > 0)
 			_todayPlayedCharactersName = charactersPlayedToday;
 
-		Debug.Log($"APPLY SAVE {_todayPlayedDialogTotal} {GameManager.Instance.saveManager.HasKey(SaveItemKey.DialogsPlayedToday)}");
-
-		if (GameManager.Instance.saveManager.HasKey(SaveItemKey.DialogsPlayedToday))
-			Debug.Log($"VALUE {GameManager.Instance.saveManager.GetSaveData<int>(SaveItemKey.DialogsPlayedToday)}");
-
 		if (GameManager.Instance.saveManager.HasKey(SaveItemKey.DialogsPlayedToday))
 			_todayPlayedDialogTotal = GameManager.Instance.saveManager.GetSaveData<int>(SaveItemKey.DialogsPlayedToday);
 
 		if (!string.IsNullOrEmpty(startedDialogName))
 			forceDialog = startedDialogName;
-
-		Debug.Log($"ApplySave on dialogs: played char total = {_todayPlayedCharactersName.Count}, played dialog total = {_todayPlayedDialogTotal}, force dialog = {forceDialog}");
 	}
 
 	private async void NextDialog ()

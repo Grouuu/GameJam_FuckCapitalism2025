@@ -109,6 +109,7 @@ public class PlayEventState : StateCommand
 
 		panelData.title = eventData.title;
 		panelData.content = eventData.description;
+		panelData.headerFileName = eventData.headerFileName;
 		panelData.varChanges = eventData.result.varChanges;
 
 		return panelData;

@@ -10,6 +10,7 @@ public class EventDatabaseData
     public int RANDOM_WEIGHT { get; set; }
     public string TITLE { get; set; }
     public string DESCRIPTION { get; set; }
+    public string HEADER_FILE_NAME { get; set; }
     public int PRIORITY { get; set; }
     public bool REPEATABLE { get; set; }
 	public int INITIAL_DAY { get; set; }
@@ -57,6 +58,7 @@ public class EventParser : DatabaseParser
 		eventData.priority = jsonData.PRIORITY;
 		eventData.isRepeateable = jsonData.REPEATABLE;
 		eventData.day = jsonData.INITIAL_DAY;
+		eventData.headerFileName = jsonData.HEADER_FILE_NAME;
 
 		// requirements
 

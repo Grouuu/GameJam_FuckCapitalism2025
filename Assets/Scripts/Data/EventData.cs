@@ -7,6 +7,7 @@ public class EventData
     public int randomWeight;
     public string title;
     public string description;
+    public string headerFileName;
     public int priority;
     public bool isRepeateable;
     public RequirementData[] requirements;
