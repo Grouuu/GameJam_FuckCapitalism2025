@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
 		endingsManager = GetComponentInChildren<EndingsManager>();
 	}
 
-	private void Awake ()
+	private void OnEnable ()
 	{
 		Init();
 	}
