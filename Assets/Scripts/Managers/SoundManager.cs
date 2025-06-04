@@ -40,12 +40,16 @@ public class SoundManager : MonoBehaviour
     {
         _musicVolume = volume;
         musicSound.volume = volume;
+        foreach ((_, AudioSource soundFX) in MapFxSounds)
+            soundFX.volume = volume;
     }
 
     public void SetMusicMute (bool isMute)
     {
         _musicMute = isMute;
         musicSound.mute = isMute;
+        foreach ((_, AudioSource soundFX) in MapFxSounds)
+            soundFX.mute = isMute;
     }
 
     public void RestartMusic ()
