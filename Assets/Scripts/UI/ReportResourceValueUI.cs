@@ -6,6 +6,7 @@ public class ReportResourceValueUI : MonoBehaviour
 {
 	public Image iconSprite;
 	public TextMeshProUGUI valueText;
+	public TextMeshProUGUI tooltipText;
 
 	private Sprite _sprite;
 
@@ -13,6 +14,7 @@ public class ReportResourceValueUI : MonoBehaviour
 	{
 		iconSprite.color = color;
 		valueText.color = color;
+		tooltipText.color = color;
 	}
 
 	public void SetIcon (string fileName)
@@ -29,10 +31,15 @@ public class ReportResourceValueUI : MonoBehaviour
 		iconSprite.sprite = _sprite;
 	}
 
-	public void SetValue (int diff)
+	public void SetValue (int value)
 	{
-		string modifier = diff > 0 ? "+" : "";
-		valueText.text = $"{modifier}{diff}";
+		string modifier = value > 0 ? "+" : "";
+		valueText.text = $"{modifier}{value}";
+	}
+
+	public void SetTooltipName (string name)
+	{
+		tooltipText.text = name;
 	}
 
 	private void OnDisable ()

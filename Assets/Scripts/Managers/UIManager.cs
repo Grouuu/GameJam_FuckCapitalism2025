@@ -102,6 +102,7 @@ public class UIManager : MonoBehaviour
 		resource.SetColor(color);
 		resource.SetIcon(varData.iconFileName);
 		resource.SetValue(diff);
+		resource.SetTooltipName(varData.displayName);
 	}
 
 	public void RemoveResourceValues (Transform parent)
