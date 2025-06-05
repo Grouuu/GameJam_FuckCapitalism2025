@@ -76,6 +76,10 @@ public enum GameVarId
 	Tweak_Progress,
 	Mara_Progress,
 	RandomEventGeneratorMax,
+	Celestis_Awareness,
+	Chantara_Mission_Progress,
+	Chantara_Progress,
+	Cook_Progress,
 }
 
 public enum CompareValueType

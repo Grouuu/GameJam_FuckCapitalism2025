@@ -15,6 +15,7 @@ public static class ParsingUtils
 		{ GameVarId.Fleet, "Fleet" },
 		{ GameVarId.Weapons, "Weapons" },
 		{ GameVarId.StationHP, "StationHP" },
+
 		{ GameVarId.Modules, "Modules" },
 		{ GameVarId.Day, "Day" },
 		{ GameVarId.FoodAfterConsumption, "FoodAfterConsumption" },
@@ -25,6 +26,7 @@ public static class ParsingUtils
 		{ GameVarId.PetLover, "PetLover" },
 		{ GameVarId.TrustGateMaxReached, "TrustGateMaxReached" },
 		{ GameVarId.FoodProduction, "FoodProduction" },
+
 		{ GameVarId.ScrapsProduction, "ScrapsProduction" },
 		{ GameVarId.ScienceProduction, "ScienceProduction" },
 		{ GameVarId.TrustGate1, "TrustGate1" },
@@ -35,6 +37,7 @@ public static class ParsingUtils
 		{ GameVarId.TrustGate6, "TrustGate6" },
 		{ GameVarId.HPachievments, "HPachievments" },
 		{ GameVarId.FirstBuilding, "FirstBuilding" },
+
 		{ GameVarId.SixBuildingsTotal, "SixBuildingsTotal" },
 		{ GameVarId.FirstRing, "FirstRing" },
 		{ GameVarId.IsNewcomersActive, "IsNewcomersActive" },
@@ -45,6 +48,7 @@ public static class ParsingUtils
 		{ GameVarId.BuildingCountHydroponic, "BuildingCountHydroponic" },
 		{ GameVarId.BuildingCountFusionReactor, "BuildingCountFusionReactor" },
 		{ GameVarId.BuildingCountCannons, "BuildingCountCannons" },
+
 		{ GameVarId.BuildingCountEntertainment, "BuildingCountEntertainment" },
 		{ GameVarId.BuildingCountFactory, "BuildingCountFactory" },
 		{ GameVarId.BuildingCountSensors, "BuildingCountSensors" },
@@ -55,8 +59,13 @@ public static class ParsingUtils
 		{ GameVarId.AttackStatus, "AttackStatus" },
 		{ GameVarId.Voices_Progress, "Voices_Progress" },
 		{ GameVarId.Tweak_Progress, "Tweak_Progress" },
+
 		{ GameVarId.Mara_Progress, "Mara_Progress" },
 		{ GameVarId.RandomEventGeneratorMax, "RandomEventGeneratorMax" },
+		{ GameVarId.Celestis_Awareness, "Celestis_Awareness" },
+		{ GameVarId.Chantara_Mission_Progress, "Chantara_Mission_Progress" },
+		{ GameVarId.Chantara_Progress, "Chantara_Progress" },
+		{ GameVarId.Cook_Progress, "Cook_Progress" },
 	};
 
 	public static GameVarId MapServerVarId (string serverId)
