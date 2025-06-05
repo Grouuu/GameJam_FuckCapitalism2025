@@ -115,6 +115,11 @@ public class UIManager : MonoBehaviour
 		}
 	}
 
+	public void ShowResourceLowWarning (GameVarId varId, bool isLow)
+	{
+		GetUIResourceComponent(varId)?.ShowWarning(isLow);
+	}
+
 	private ResourceValueUI GetUIResourceComponent (GameVarId resourceId)
 	{
 		return Array.Find(resourceValuesUI, component => component.id == resourceId);

@@ -315,7 +315,15 @@ public class VarsManager : MonoBehaviour
 	private void UpdateUIValue (VarData varData)
 	{
 		if (varData.type == GameVarType.UIVar)
+		{
 			GameManager.Instance.uiManager.SetResourceValue(varData.varId, varData.currentValue);
+
+			if (varData.lowThreshold != null)
+			{
+				bool isLow = varData.lowThreshold.IsValueOK(varData.currentValue);
+				GameManager.Instance.uiManager.ShowResourceLowWarning(varData.varId, isLow);
+			}
+		}
 	}
 
 	private void UpdateCheckVars(VarData varData, bool ignoreSave)
