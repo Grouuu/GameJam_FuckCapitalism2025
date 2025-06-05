@@ -175,7 +175,7 @@ public class VarsManager : MonoBehaviour
 		SetValueToVar(varData.varId, varData.currentValue + value);
 	}
 
-	public void SetValueToVar (GameVarId id, int value, bool ignoreSave = false)
+	public void SetValueToVar (GameVarId id, int value, bool ignoreSave = false, bool ignoreCheckVars = false)
 	{
 		if (id == GameVarId.None)
 			return;
@@ -191,7 +191,9 @@ public class VarsManager : MonoBehaviour
 		varData.currentValue = value;
 
 		UpdateUIValue(varData);
-		UpdateCheckVars(varData, ignoreSave);
+
+		if (!ignoreCheckVars)
+			UpdateCheckVars(varData, ignoreSave);
 
 		if (!ignoreSave)
 			UpdateSaveData();
@@ -325,7 +327,7 @@ public class VarsManager : MonoBehaviour
 		{
 			int food = GetVarValue(GameVarId.Food);
 			int population = GetVarValue(GameVarId.Population);
-			SetValueToVar(GameVarId.FoodAfterConsumption, food - population, ignoreSave);
+			SetValueToVar(GameVarId.FoodAfterConsumption, food - population, ignoreSave, true);
 		}
 	}
 
