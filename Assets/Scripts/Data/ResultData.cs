@@ -6,10 +6,8 @@ public class EditEventDay
 	public int addMinDays = -1;
 	public int addMaxDays = -1;
 
-	public int GetNewDay ()
+	public int GetNewDay (int currentDay)
 	{
-		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);
-
 		if (setDay != -1)
 			return setDay;
 		else if (addMinDays != -1 && addMaxDays != -1 && addMaxDays > addMinDays)
@@ -75,7 +73,7 @@ public class ResultData
 			EventData eventData = GameManager.Instance.eventsManager.GetEventByName(editDay.eventName);
 
 			if (eventData != null)
-				eventData.day = editDay.GetNewDay();
+				eventData.day = editDay.GetNewDay(GameManager.Instance.varsManager.GetVarValue(GameVarId.Day));
 		}
 	}
 
