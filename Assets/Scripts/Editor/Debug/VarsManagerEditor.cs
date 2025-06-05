@@ -15,6 +15,11 @@ public class VarsManagerEditor : Editor
 
 		EditorGUILayout.LabelField("Debug vars", EditorStyles.boldLabel);
 
+		serializedObject.Update();
+
+		if (serializedObject.hasModifiedProperties || serializedObject.UpdateIfRequiredOrScript())
+			Repaint();
+
 		VarData[] varsData = targetComponent.GetAllVars();
 
 		foreach (VarData varData in varsData)
