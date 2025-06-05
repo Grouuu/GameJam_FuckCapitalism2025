@@ -234,6 +234,31 @@ public class VarsManager : MonoBehaviour
 		return _gameVars.FirstOrDefault(data => data.varId == id);
 	}
 
+	public bool IsResultSafe (ResultData result)
+	{
+		ResultVarChange[] varChanges = result.varChanges;
+
+		if (varChanges == null)
+			return true;
+
+		foreach (ResultVarChange varChange in varChanges)
+		{
+			VarData varData = GetVarData(varChange.varId);
+
+			if (varData.type != GameVarType.UIVar)
+				continue;
+
+			int currentValue = varData.currentValue;
+			int minValue = varData.minValue;
+			int maxModifier = Mathf.Min(varChange.modifierValueMin, varChange.modifierValueMax);
+
+			if (currentValue + maxModifier < minValue)
+				return false;
+		}
+
+		return true;
+	}
+
 	public void UpdateSaveData ()
 	{
 		List<KeyValuePair<GameVarId, int>> varsValue = new();

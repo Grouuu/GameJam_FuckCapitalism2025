@@ -37,6 +37,9 @@ public class DialogData
         if (isUsed && !isRepeateable)
             return false;
 
+        if (!IsResultsSafe())
+            return false;
+
         return true;
 	}
 
@@ -53,6 +56,11 @@ public class DialogData
 
         return true;
 	}
+
+    public bool IsResultsSafe ()
+	{
+        return GameManager.Instance.varsManager.IsResultSafe(yesResult) && GameManager.Instance.varsManager.IsResultSafe(noResult);
+    }
 
     public void GenerateResultValue ()
 	{

@@ -25,6 +25,9 @@ public class EventData
         if (isUsed && !isRepeateable)
             return false;
 
+        if (!IsResultsSafe())
+            return false;
+
         return true;
     }
 
@@ -40,6 +43,11 @@ public class EventData
         }
 
         return true;
+    }
+
+    public bool IsResultsSafe ()
+    {
+        return GameManager.Instance.varsManager.IsResultSafe(result);
     }
 
     public void GenerateResultValue ()
