@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PersistentManager : MonoBehaviour
 {
-	public static PersistentManager Instance;
+	public static PersistentManager Instance { get; private set; }
 
     [HideInInspector] public SoundManager soundManager;
     [HideInInspector] public SaveManager saveManager;

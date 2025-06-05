@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 public class CharacterData
 {
 	public string id;
@@ -8,7 +10,7 @@ public class CharacterData
 	public string avatarFileName;
 	public RequirementData[] requirements;
 
-	public DialogData[] characterDialogs;
+	public List<DialogData> characterDialogs = new();
 
 	public bool isAvailable ()
 	{

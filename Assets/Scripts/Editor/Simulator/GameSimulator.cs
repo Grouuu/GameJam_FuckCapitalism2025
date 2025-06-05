@@ -69,15 +69,14 @@ public class GameSimulator : EditorWindow
 
 	private void OnEnable ()
 	{
-		_gameManager = FindAnyObjectByType<GameManager>();
+		//_gameManager = FindAnyObjectByType<GameManager>();
 
-		if (_gameManager != null)
-			InitSimulator();
+		//if (_gameManager != null)
+		//	InitSimulator();
 	}
 
 	private async void InitSimulator ()
 	{
-		_gameManager.Init();
 		await InitData();
 		InitUI();
 	}
@@ -94,6 +93,29 @@ public class GameSimulator : EditorWindow
 		// . params dialogs state
 		// . params daily state
 		// . checkWin/Lose
+
+		// NEED
+		// . database loading
+		// . build char data with dialogData
+		// . set used
+		// . set days
+		// . generate result random
+		// . pickEvent
+		// . pickDialog
+		// . daily results
+		// . check win/lose
+
+		// . Database
+		//		. load
+		//		. set Vars/Chars+Dialogs/Events/Endings data
+		// . GameLogic
+		//		. flag dialogs/events/endings as used
+		//		. edit events day
+		//		. update random result values
+		//		. pick dialogs (local charsUsed, dialogs played, max dialogs)
+		//		. pick events (local eventsUsed, randomEvent played)
+		//		. set daily results
+		//		. check win/lose
 
 		_database = _gameManager.gameObject.GetComponentInChildren<DatabaseManager>();
 		_vars = _gameManager.gameObject.GetComponentInChildren<VarsManager>();

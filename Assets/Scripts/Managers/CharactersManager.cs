@@ -31,8 +31,6 @@ public class CharactersManager : MonoBehaviour
 
 		Debug.Log($"Dialogs loaded (total: {dialogs.Length})");
 
-		Dictionary<string, List<DialogData>> mapDialogs = new();
-
 		foreach (DialogData dialogData in dialogs)
 		{
 			string characterName = dialogData.characterName;
@@ -44,17 +42,7 @@ public class CharactersManager : MonoBehaviour
 				continue;
 			}
 
-			if (!mapDialogs.ContainsKey(characterName))
-				mapDialogs.Add(characterName, new());
-
-			if (mapDialogs.TryGetValue(characterName, out List<DialogData> listDialogs))
-				listDialogs.Add(dialogData);
-		}
-
-		foreach (CharacterData character in _characters)
-		{
-			if (mapDialogs.TryGetValue(character.name, out List<DialogData> listDialogs))
-				character.characterDialogs = listDialogs.ToArray();
+			character.characterDialogs.Add(dialogData);
 		}
 	}
 

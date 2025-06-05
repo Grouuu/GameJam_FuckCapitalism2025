@@ -20,16 +20,16 @@ public class GameManager : MonoBehaviour
 	[HideInInspector] public EventsManager eventsManager;
 	[HideInInspector] public EndingsManager endingsManager;
 
-	public void Init ()
+	private void OnEnable ()
 	{
 		if (Instance == null)
 			Instance = this;
 		else
-		{
 			Destroy(gameObject);
-			return;
-		}
+	}
 
+	private void Start ()
+	{
 		saveManager = PersistentManager.Instance.saveManager;
 		soundManager = PersistentManager.Instance.soundManager;
 
@@ -40,15 +40,7 @@ public class GameManager : MonoBehaviour
 		charactersManager = GetComponentInChildren<CharactersManager>();
 		eventsManager = GetComponentInChildren<EventsManager>();
 		endingsManager = GetComponentInChildren<EndingsManager>();
-	}
 
-	private void OnEnable ()
-	{
-		Init();
-	}
-
-	private void Start ()
-	{
 		InitGame();
 	}
 

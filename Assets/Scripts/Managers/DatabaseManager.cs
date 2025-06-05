@@ -14,7 +14,11 @@ public class DatabaseParser : MonoBehaviour
 
 public class DatabaseManager : MonoBehaviour
 {
+	public DatabaseParser[] Parsers => _parsers;
+	public string FolderPath => _jsonFolderPath;
+
 	private DatabaseParser[] _parsers;
+	private string _jsonFolderPath = "Database";
 
 	public void Init ()
 	{
@@ -46,7 +50,7 @@ public class DatabaseManager : MonoBehaviour
 	{
 		if (parser != null)
 		{
-			ResourceRequest request = Resources.LoadAsync<TextAsset>($"Database/{parser.databaseFileName}");
+			ResourceRequest request = Resources.LoadAsync<TextAsset>($"{_jsonFolderPath}/{parser.databaseFileName}");
 
 			await request;
 
