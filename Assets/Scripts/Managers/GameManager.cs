@@ -46,17 +46,17 @@ public class GameManager : MonoBehaviour
 
 	private async void InitGame ()
 	{
-		await InitPersistentData();
-
 		InitSounds();
 
 		await InitDatabase();
-
 		InitVars();
 		InitCharacters();
 		InitEvents();
 		InitEndings();
+
+		await InitPersistentData(); // load save
 		ApplySave();
+
 		StartGame();
 	}
 

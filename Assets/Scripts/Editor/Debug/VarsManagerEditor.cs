@@ -15,8 +15,10 @@ public class VarsManagerEditor : Editor
 
 		EditorGUILayout.LabelField("Debug vars", EditorStyles.boldLabel);
 
+		// update the list with values modified by the game
 		serializedObject.Update();
 
+		// show the current game values
 		if (serializedObject.hasModifiedProperties || serializedObject.UpdateIfRequiredOrScript())
 			Repaint();
 
@@ -26,8 +28,10 @@ public class VarsManagerEditor : Editor
 		{
 			EditorGUI.BeginChangeCheck();
 
+			// check for a change from the inspector
 			int newValue = EditorGUILayout.IntField($"{ParsingUtils.MapVars[varData.varId]}", varData.currentValue);
 
+			// set the change to the current game value
 			if (EditorGUI.EndChangeCheck())
 				targetComponent.SetValueToVar(varData.varId, newValue, true);
 		}

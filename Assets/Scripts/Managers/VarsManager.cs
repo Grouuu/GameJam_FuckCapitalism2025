@@ -122,7 +122,7 @@ public class VarsManager : MonoBehaviour
 		foreach (VarData varData in _gameVars)
 		{
 			UpdateUIValue(varData);
-			UpdateCheckVars(varData);
+			UpdateCheckVars(varData, true);
 		}
 	}
 
@@ -191,7 +191,7 @@ public class VarsManager : MonoBehaviour
 		varData.currentValue = value;
 
 		UpdateUIValue(varData);
-		UpdateCheckVars(varData);
+		UpdateCheckVars(varData, ignoreSave);
 
 		if (!ignoreSave)
 			UpdateSaveData();
@@ -316,7 +316,7 @@ public class VarsManager : MonoBehaviour
 			GameManager.Instance.uiManager.SetResourceValue(varData.varId, varData.currentValue);
 	}
 
-	private void UpdateCheckVars(VarData varData)
+	private void UpdateCheckVars(VarData varData, bool ignoreSave)
 	{
 		if (varData.type == GameVarType.CheckVar)
 			return;
@@ -325,7 +325,7 @@ public class VarsManager : MonoBehaviour
 		{
 			int food = GetVarValue(GameVarId.Food);
 			int population = GetVarValue(GameVarId.Population);
-			SetValueToVar(GameVarId.FoodAfterConsumption, food - population);
+			SetValueToVar(GameVarId.FoodAfterConsumption, food - population, ignoreSave);
 		}
 	}
 
