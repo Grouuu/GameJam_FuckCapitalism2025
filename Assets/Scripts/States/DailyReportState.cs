@@ -61,7 +61,7 @@ public class DailyReportState : StateCommand
 	private void ApplyResult ()
 	{
 		int foodConsuption = GetFoodConsuption();
-		int populationGrowth = GetPopulationGrowth() + GetPopulationLossByFood();
+		int populationGrowth = GetPopulationGrowth() - GetPopulationLossByFood();
 
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Food, foodConsuption);
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Population, populationGrowth);
@@ -89,7 +89,7 @@ public class DailyReportState : StateCommand
 		int populationLoss = GetPopulationLossByFood();
 
 		if (population > food)
-			return $"Not enough food: {populationLoss} <sprite name=\"Population\"> left"; // translate
+			return $"Not enough food: -{populationLoss} <sprite name=\"Population\"> left"; // translate
 		else
 			return $"Everyone is fed: -{population} <sprite name=\"Food\">"; // translate
 	}
@@ -132,7 +132,7 @@ public class DailyReportState : StateCommand
 		int food = GameManager.Instance.varsManager.GetVarValue(GameVarId.Food);
 
 		if (population > food)
-			return -population - food;
+			return population - food;
 
 		return 0;
 	}
