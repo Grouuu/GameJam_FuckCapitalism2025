@@ -249,6 +249,12 @@ public class VarsManager : MonoBehaviour
 		{
 			VarData varData = GetVarData(varChange.varId);
 
+			if (varData == null)
+			{
+				Debug.LogWarning($"Var data null for varId: {varChange.varId} (from IsResultSafe)");
+				continue;
+			}
+
 			if (varData.type != GameVarType.UIVar)
 				continue;
 
