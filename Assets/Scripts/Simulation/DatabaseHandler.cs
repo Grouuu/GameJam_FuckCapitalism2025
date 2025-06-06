@@ -25,7 +25,7 @@ public class DatabaseHandler
 
 	public T[] GetData<T> ()
 	{
-		var parser = Array.Find(parsers, entry => entry.GetDataType() == typeof(T));
+		var parser = Array.Find(parsers, parser => parser.GetDataType() == typeof(T));
 
 		if (parser != null)
 			return parser.GetData<T>();

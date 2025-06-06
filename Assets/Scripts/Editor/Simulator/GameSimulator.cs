@@ -25,14 +25,7 @@ public class GameSimulator : EditorWindow
 		public bool isUsed = false;
 	}
 
-	private GameManager _gameManager;
-	private DatabaseManager _database;
-	private VarsManager _vars;
-	private CharactersManager _characters;
-	private EventsManager _events;
-	private EndingsManager _endings;
-	private PlayDialogState _dialogsState;
-	private DailyReportState _dailyState;
+	private GameController _controller;
 
 	private VisualElement _varsContainer;
 	private VisualElement _contentContainer;
@@ -44,17 +37,11 @@ public class GameSimulator : EditorWindow
 
 	private GameState _currentState = GameState.PlayEvent;
 
-	//[MenuItem("Debug/Game simulation")]
-	//private static void ShowWindow () => GetWindow<GameSimulator>("Game Simulator");
+	[MenuItem("Debug/Game simulation")]
+	private static void ShowWindow () => GetWindow<GameSimulator>("Game Simulator");
 
 	private void OnGUI ()
 	{
-		if (_gameManager == null)
-		{
-			EditorGUILayout.TextField("No game manager found.");
-			return;
-		}
-
 		if (_currentState == GameState.PlayEvent)
 			ShowEvents();
 	}
@@ -69,69 +56,18 @@ public class GameSimulator : EditorWindow
 
 	private void OnEnable ()
 	{
-		//_gameManager = FindAnyObjectByType<GameManager>();
+		_controller = new();
 
-		//if (_gameManager != null)
-		//	InitSimulator();
+		InitSimulator();
 	}
 
 	private async void InitSimulator ()
 	{
-		await InitData();
+		GameManager gameManager = FindAnyObjectByType<GameManager>();
+
+		await _controller.Init(gameManager.GetManagers());
+
 		InitUI();
-	}
-
-	private async Awaitable InitData ()
-	{
-		// TODO
-		// need:
-		// . _database
-		//		. chars setup with dialogs
-		// . pickEvent
-		// . pickDialog
-		// . daily calculation
-		// . params dialogs state
-		// . params daily state
-		// . checkWin/Lose
-
-		// NEED
-		// . database loading
-		// . build char data with dialogData
-		// . set used
-		// . set days
-		// . generate result random
-		// . pickEvent
-		// . pickDialog
-		// . daily results
-		// . check win/lose
-
-		// . Database
-		//		. load
-		//		. set Vars/Chars+Dialogs/Events/Endings data
-		// . GameLogic
-		//		. flag dialogs/events/endings as used
-		//		. edit events day
-		//		. update random result values
-		//		. pick dialogs (local charsUsed, dialogs played, max dialogs)
-		//		. pick events (local eventsUsed, randomEvent played)
-		//		. set daily results
-		//		. check win/lose
-
-		_database = _gameManager.gameObject.GetComponentInChildren<DatabaseManager>();
-		_vars = _gameManager.gameObject.GetComponentInChildren<VarsManager>();
-		_characters = _gameManager.gameObject.GetComponentInChildren<CharactersManager>();
-		_events = _gameManager.gameObject.GetComponentInChildren<EventsManager>();
-		_endings = _gameManager.gameObject.GetComponentInChildren<EndingsManager>();
-		_dialogsState = _gameManager.gameObject.GetComponentInChildren<PlayDialogState>();
-		_dailyState = _gameManager.gameObject.GetComponentInChildren<DailyReportState>();
-
-		_database.Init();
-		await _database.LoadDatabase();
-
-		_vars.InitVars(_database.GetData<VarData>());
-		_characters.InitCharacters(_database.GetData<CharacterData>(), _database.GetData<DialogData>());
-		_events.InitEvents(_database.GetData<EventData>());
-		_endings.InitEndings(_database.GetData<EndingData>());
 	}
 
 	private void InitUI ()
@@ -149,8 +85,11 @@ public class GameSimulator : EditorWindow
 	{
 		_varRows = new();
 
-		foreach (VarData varData in _vars.GetAllVars())
+		foreach (VarData varData in _controller.database.varsData)
 		{
+			if (varData.varId == GameVarId.None)
+				continue;
+
 			VarRow row = new()
 			{
 				name = ParsingUtils.MapVars[varData.varId],
@@ -206,7 +145,7 @@ public class GameSimulator : EditorWindow
 	{
 		_eventRows = new();
 
-		foreach (EventData eventData in _events.GetEvents())
+		foreach (EventData eventData in _controller.database.eventsData)
 		{
 			EventRow row = new()
 			{

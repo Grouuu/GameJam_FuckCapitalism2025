@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 
 public enum GameState
@@ -50,6 +51,11 @@ public class GameStateManager : MonoBehaviour
 		currentState.OnStateEnd += NextState;
 
 		currentState.StartCommand(previousState);
+	}
+
+	public GameState[] GetStatesName ()
+	{
+		return _stateCommands.Select(state => state.state).ToArray();
 	}
 
 	private void UpdateSaveData ()

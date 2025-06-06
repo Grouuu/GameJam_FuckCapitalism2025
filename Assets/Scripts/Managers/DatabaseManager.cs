@@ -14,16 +14,11 @@ public class DatabaseParser : MonoBehaviour
 
 public class DatabaseManager : MonoBehaviour
 {
-	public DatabaseParser[] Parsers => _parsers;
+	public DatabaseParser[] Parsers => GetComponents<DatabaseParser>();
 	public string FolderPath => _jsonFolderPath;
 
 	private DatabaseParser[] _parsers;
 	private string _jsonFolderPath = "Database";
-
-	public void Init ()
-	{
-		_parsers = GetComponents<DatabaseParser>();
-	}
 
 	public async Awaitable LoadDatabase ()
 	{
@@ -43,7 +38,7 @@ public class DatabaseManager : MonoBehaviour
 
 	private void OnEnable ()
 	{
-		Init();
+		_parsers = Parsers;
 	}
 
 	private async Awaitable LoadJsonData (DatabaseParser parser)
