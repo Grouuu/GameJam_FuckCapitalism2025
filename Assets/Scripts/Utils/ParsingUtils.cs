@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public static class ParsingUtils
 {
@@ -70,7 +71,12 @@ public static class ParsingUtils
 
 	public static GameVarId MapServerVarId (string serverId)
 	{
-		return MapVars.FirstOrDefault(entrey => entrey.Value == serverId).Key;
+		GameVarId varId = MapVars.FirstOrDefault(entrey => entrey.Value == serverId).Key;
+
+		if (varId == GameVarId.None)
+			Debug.LogWarning($"Missing GameVarId for serverId {serverId}");
+
+		return varId;
 	}
 
 	public static GameVarType MapServerVarType (string serverType)
