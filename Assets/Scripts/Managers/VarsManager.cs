@@ -40,7 +40,7 @@ public enum GameVarId
 	// Tracking type
 	ControlFreeWill,
 	UtilitarismEmpathy,
-	TraderCount,
+	TradeCount,
 	PetLover,
 	TrustGateMaxReached,
 	FoodProduction,
