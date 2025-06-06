@@ -22,7 +22,7 @@ public static class ParsingUtils
 		{ GameVarId.NextBattlePreview, "NextBattlePreview" },
 		{ GameVarId.ControlFreeWill, "ControlFreeWill" },
 		{ GameVarId.UtilitarismEmpathy, "UtilitarismEmpathy" },
-		{ GameVarId.TraderCount, "TraderCount" },
+		{ GameVarId.TradeCount, "TradeCount" },
 		{ GameVarId.PetLover, "PetLover" },
 		{ GameVarId.TrustGateMaxReached, "TrustGateMaxReached" },
 		{ GameVarId.FoodProduction, "FoodProduction" },
