@@ -248,10 +248,10 @@ public static class ParsingUtils
 
 		List<EditVarMax> varsMaxChanges = new();
 
-		if (editVarsMax != null && editVarsMax.Length >= 3 && editVarsMax[0] != "")
+		if (editVarsMax != null && editVarsMax.Length >= 2 && editVarsMax[0] != "")
 		{
 			EditVarMax edit = new();
-			edit.eventName = editVarsMax[0].Trim();
+			edit.varId = MapServerVarId(editVarsMax[0].Trim());
 			edit.setMax = int.Parse(editVarsMax[1].Trim());
 
 			varsMaxChanges.Add(edit);

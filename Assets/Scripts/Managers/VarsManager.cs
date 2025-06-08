@@ -199,6 +199,21 @@ public class VarsManager : MonoBehaviour
 			UpdateSaveData();
 	}
 
+	public void SetValueMax (GameVarId id, int maxValue)
+	{
+		if (id == GameVarId.None)
+			return;
+
+		VarData varData = GetVarData(id);
+
+		if (varData == null)
+			return;
+
+		varData.maxValue = maxValue;
+
+		UpdateUIValue(varData);
+	}
+
 	public bool IsVarLow (GameVarId id)
 	{
 		if (id == GameVarId.None)
@@ -279,11 +294,11 @@ public class VarsManager : MonoBehaviour
 
 	public void UpdateSaveData ()
 	{
-		List<KeyValuePair<GameVarId, int>> varsValue = new();
+		List<(GameVarId, int, int)> varsValue = new();
 		List<KeyValuePair<GameVarId, int>> startDayVarsValue = new();
 
 		foreach (VarData varData in _gameVars)
-			varsValue.Add(new KeyValuePair<GameVarId, int>(varData.varId, varData.currentValue));
+			varsValue.Add((varData.varId, varData.currentValue, varData.maxValue));
 
 		foreach (KeyValuePair<GameVarId, int> varData in _startDayResources)
 			startDayVarsValue.Add(varData);
@@ -294,13 +309,16 @@ public class VarsManager : MonoBehaviour
 
 	public void ApplySave ()
 	{
-		List<KeyValuePair<GameVarId, int>> varsValue = GameManager.Instance.saveManager.GetSaveData<List<KeyValuePair<GameVarId, int>>>(SaveItemKey.VarsValue);
+		List<(GameVarId, int, int)> varsValue = GameManager.Instance.saveManager.GetSaveData<List<(GameVarId, int, int)>>(SaveItemKey.VarsValue);
 		List<KeyValuePair<GameVarId, int>> startDayVarsValue = GameManager.Instance.saveManager.GetSaveData<List<KeyValuePair<GameVarId, int>>>(SaveItemKey.StartDayVarsValues);
 
 		if (varsValue != null)
 		{
-			foreach ((GameVarId varId, int value) in varsValue)
+			foreach ((GameVarId varId, int value, int max) in varsValue)
+			{
 				SetValueToVar(varId, value, true);
+				SetValueMax(varId, max);
+			}
 		}
 
 		if (startDayVarsValue != null)
@@ -322,7 +340,7 @@ public class VarsManager : MonoBehaviour
 	{
 		if (varData.type == GameVarType.UIVar)
 		{
-			GameManager.Instance.uiManager.SetResourceValue(varData.varId, varData.currentValue);
+			GameManager.Instance.uiManager.SetResourceValue(varData.varId, varData.currentValue, varData.maxValue);
 
 			if (varData.lowThreshold != null)
 			{

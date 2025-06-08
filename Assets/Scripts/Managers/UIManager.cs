@@ -11,12 +11,12 @@ public class UIManager : MonoBehaviour
 	public ReportPanelUI reportPanel => GetComponent<ReportPanelUI>();
 	public OptionsPanelUI optionsPanel => GetComponent<OptionsPanelUI>();
 
-	public void SetResourceValue (GameVarId id, int value)
+	public void SetResourceValue (GameVarId id, int value, int max)
 	{
 		if (id == GameVarId.None)
 			return;
 
-		GetUIResourceComponent(id)?.SetValue(value);
+		GetUIResourceComponent(id)?.SetValue(value, max);
 	}
 
 	public void ShowEventPanel (EventPanelUIData panelData, Action onContinue)

@@ -14,7 +14,7 @@ public static class SaveItemKey
 	public static string Date = "Date";										// string
 	public static string RunStarted = "RunStarted";                         // bool
 	public static string State = "State";									// GameState
-	public static string VarsValue = "VarsValue";							// List<KeyValuePair<GameVarId, int>>
+	public static string VarsValue = "VarsValue";                           // List<(GameVarId, int, int)>
 	public static string StartDayVarsValues = "StartDayVarsValues";         // List<KeyValuePair<GameVarId, int>>
 	public static string CharactersPlayedToday = "CharactersPlayedToday";   // List<string>
 	public static string DialogsUsed = "DialogsUsed";                       // List<string>

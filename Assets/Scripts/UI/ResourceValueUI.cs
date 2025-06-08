@@ -9,11 +9,19 @@ public class ResourceValueUI
 	public TextMeshProUGUI textfield;
 	public Slider slider;
 	public WarningVarUI warning;
+	public bool showMax;
 
-	public void SetValue (int value)
+	public void SetValue (int value, int max)
 	{
 		if (textfield != null)
-			textfield.text = $"{value}";
+		{
+			string text = $"{value}";
+
+			if (showMax)
+				text += $"/{max}";
+
+			textfield.text = text;
+		}
 
 		if (slider != null)
 			slider.value = value;

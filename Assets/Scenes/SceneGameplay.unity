@@ -3422,8 +3422,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 309.005, y: -34.5}
-  m_SizeDelta: {x: 136.01, y: 69}
+  m_AnchoredPosition: {x: 354.005, y: -34.5}
+  m_SizeDelta: {x: 226.01, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &274010657
 MonoBehaviour:
@@ -3928,7 +3928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1141.3, y: -34.5}
+  m_AnchoredPosition: {x: 1231.3, y: -34.5}
   m_SizeDelta: {x: 217.52, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325408011
@@ -5715,50 +5715,62 @@ MonoBehaviour:
     textfield: {fileID: 644114678}
     slider: {fileID: 0}
     warning: {fileID: 0}
+    showMax: 0
   - id: 1
     textfield: {fileID: 1139561673}
     slider: {fileID: 0}
     warning: {fileID: 5083122712856516130}
+    showMax: 1
   - id: 2
     textfield: {fileID: 0}
     slider: {fileID: 1222717184}
     warning: {fileID: 1634665720}
+    showMax: 0
   - id: 4
     textfield: {fileID: 549686777}
     slider: {fileID: 0}
     warning: {fileID: 537012539}
+    showMax: 0
   - id: 5
     textfield: {fileID: 553796455}
     slider: {fileID: 0}
     warning: {fileID: 633334207}
+    showMax: 0
   - id: 11
     textfield: {fileID: 565986285}
     slider: {fileID: 0}
     warning: {fileID: 1923709416}
+    showMax: 0
   - id: 6
     textfield: {fileID: 653551151}
     slider: {fileID: 0}
     warning: {fileID: 1938179420}
+    showMax: 0
   - id: 7
     textfield: {fileID: 780275743}
     slider: {fileID: 0}
     warning: {fileID: 1360696417}
+    showMax: 0
   - id: 8
     textfield: {fileID: 1791024814}
     slider: {fileID: 0}
     warning: {fileID: 35180512}
+    showMax: 0
   - id: 9
     textfield: {fileID: 1880577510}
     slider: {fileID: 0}
     warning: {fileID: 1487939446}
+    showMax: 0
   - id: 10
     textfield: {fileID: 79385238}
     slider: {fileID: 0}
     warning: {fileID: 870479175}
+    showMax: 0
   - id: 3
     textfield: {fileID: 0}
     slider: {fileID: 1162286414}
     warning: {fileID: 0}
+    showMax: 0
 --- !u!114 &509075184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10411,7 +10423,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 941.28503, y: -34.5}
+  m_AnchoredPosition: {x: 1031.285, y: -34.5}
   m_SizeDelta: {x: 102.51, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &999248243
@@ -11298,8 +11310,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 121.009995, y: -28.5}
-  m_SizeDelta: {x: 60.01, y: 48.3278}
+  m_AnchoredPosition: {x: 211.01, y: -28.5}
+  m_SizeDelta: {x: 150.01, y: 48.3278}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1139561672
 MonoBehaviour:
@@ -11335,7 +11347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 12
+  m_text: 12/30
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -16448,7 +16460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 633.52, y: -34.5}
+  m_AnchoredPosition: {x: 723.52, y: -34.5}
   m_SizeDelta: {x: 433.02002, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1866147723
