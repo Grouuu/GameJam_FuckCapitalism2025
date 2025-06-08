@@ -52,7 +52,7 @@ AudioMixerController:
     - 30ef03a29b4caa54eb6938d7df0dbffc
     name: MusicOFF
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 8524511378849585236}
+  m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
