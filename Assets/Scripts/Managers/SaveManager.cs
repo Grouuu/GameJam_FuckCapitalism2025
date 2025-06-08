@@ -36,7 +36,7 @@ public static class SaveItemKey
 
 public class SaveManager : MonoBehaviour
 {
-	private static string VERSION = "0.11";
+	private static string VERSION = "0.12";
 #pragma warning disable CS0414
 	private static string WEB_SAVE_KEY = "HOPE_save";
 #pragma warning restore CS0414
