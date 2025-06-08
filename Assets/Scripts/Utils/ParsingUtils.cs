@@ -150,7 +150,7 @@ public static class ParsingUtils
 		return require;
 	}
 
-	public static ResultData ParseResultData (string[] changeVars, string[] changeResources, string[] editDays)
+	public static ResultData ParseResultData (string[] changeVars, string[] changeResources, string[] editEventsDay, string[] editVarsMax)
 	{
 		// TODO allow multiple instances for all parts
 
@@ -214,27 +214,27 @@ public static class ParsingUtils
 
 		result.varChanges = varChanges.ToArray();
 
-		// edit days
+		// edit events day
 
 		List<EditEventDay> eventDayChanges = new();
 
-		if (editDays != null && editDays.Length >= 3 && editDays[0] != "")
+		if (editEventsDay != null && editEventsDay.Length >= 3 && editEventsDay[0] != "")
 		{
 			EditEventDay edit = new();
-			edit.eventName = editDays[0].Trim();
+			edit.eventName = editEventsDay[0].Trim();
 
-			ChangeValueType modifier = MapServerModifierType(editDays[1].Trim());
+			ChangeValueType modifier = MapServerModifierType(editEventsDay[1].Trim());
 
 			if (modifier == ChangeValueType.Set)
 			{
-				edit.setDay = int.Parse(editDays[2].Trim());
+				edit.setDay = int.Parse(editEventsDay[2].Trim());
 			}
 			else
 			{
-				edit.addMinDays = int.Parse(editDays[2].Trim());
+				edit.addMinDays = int.Parse(editEventsDay[2].Trim());
 
-				if (editDays.Length == 4)
-					edit.addMaxDays = int.Parse(editDays[3].Trim());
+				if (editEventsDay.Length == 4)
+					edit.addMaxDays = int.Parse(editEventsDay[3].Trim());
 				else
 					edit.addMaxDays = edit.addMinDays;
 			}
@@ -243,6 +243,21 @@ public static class ParsingUtils
 		}
 
 		result.eventsDay = eventDayChanges.ToArray();
+
+		// edit vars max
+
+		List<EditVarMax> varsMaxChanges = new();
+
+		if (editVarsMax != null && editVarsMax.Length >= 3 && editVarsMax[0] != "")
+		{
+			EditVarMax edit = new();
+			edit.eventName = editVarsMax[0].Trim();
+			edit.setMax = int.Parse(editVarsMax[1].Trim());
+
+			varsMaxChanges.Add(edit);
+		}
+
+		result.varsMax = varsMaxChanges.ToArray();
 
 		return result;
 	}

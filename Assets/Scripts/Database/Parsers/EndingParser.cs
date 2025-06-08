@@ -12,6 +12,8 @@ public class EndingDatabaseData
 	public string[] REQUIREMENT { get; set; }
 	public string[] RESULT_VARS { get; set; }
 	public string[] RESULT_RESOURCES { get; set; }
+	public string[] RESULT_EVENT_DAY { get; set; }
+	public string[] RESULT_VAR_MAX { get; set; }
 }
 
 public class EndingParser : DatabaseParser
@@ -58,7 +60,12 @@ public class EndingParser : DatabaseParser
 
 		// results
 
-		endingData.result = ParsingUtils.ParseResultData(jsonData.RESULT_VARS, jsonData.RESULT_RESOURCES, null);
+		endingData.result = ParsingUtils.ParseResultData(
+			jsonData.RESULT_VARS,
+			jsonData.RESULT_RESOURCES,
+			jsonData.RESULT_EVENT_DAY,
+			jsonData.RESULT_VAR_MAX
+		);
 
 		return endingData;
 	}

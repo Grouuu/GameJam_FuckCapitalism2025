@@ -17,6 +17,12 @@ public class EditEventDay
 	}
 }
 
+public class EditVarMax
+{
+	public string eventName;
+	public int setMax = -1;
+}
+
 public class ResultVarChange
 {
     public GameVarId varId;
@@ -35,6 +41,7 @@ public class ResultVarChange
 public class ResultData
 {
     public EditEventDay[] eventsDay;
+    public EditVarMax[] varsMax;
 	public ResultVarChange[] varChanges;
 
     public void UpdateResult ()
@@ -47,6 +54,7 @@ public class ResultData
     {
         UpdateResources();
         UpdateEventsDay();
+		UpdateVarsMax();
 	}
 
     private void UpdateResources ()
@@ -74,6 +82,20 @@ public class ResultData
 
 			if (eventData != null)
 				eventData.day = editDay.GetNewDay(GameManager.Instance.varsManager.GetVarValue(GameVarId.Day));
+		}
+	}
+
+	private void UpdateVarsMax ()
+	{
+		if (varsMax == null)
+			return;
+
+		foreach (EditVarMax varMax in varsMax)
+		{
+			EventData eventData = GameManager.Instance.eventsManager.GetEventByName(varMax.eventName);
+
+			if (eventData != null)
+				eventData.day = varMax.setMax;
 		}
 	}
 
