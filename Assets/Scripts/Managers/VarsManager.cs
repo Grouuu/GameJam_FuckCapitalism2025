@@ -262,9 +262,15 @@ public class VarsManager : MonoBehaviour
 
 			int currentValue = varData.currentValue;
 			int minValue = varData.minValue;
-			int maxModifier = Mathf.Min(varChange.modifierValueMin, varChange.modifierValueMax);
+			int maxValue = varData.maxValue;
 
-			if (currentValue + maxModifier < minValue)
+			int lowestModifier = Mathf.Min(varChange.modifierValueMin, varChange.modifierValueMax);
+			int higherModifier = Mathf.Max(varChange.modifierValueMin, varChange.modifierValueMax);
+
+			bool endsTooLow = currentValue + lowestModifier < minValue;
+			bool endsTooHigh = currentValue + higherModifier > maxValue;
+
+			if (endsTooLow || endsTooHigh)
 				return false;
 		}
 
