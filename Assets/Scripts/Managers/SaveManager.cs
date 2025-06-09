@@ -23,6 +23,7 @@ public static class SaveItemKey
 	public static string EventsDay = "EventsDay";							// List<KeyValuePair<string, int>>
 	public static string EventsUsed = "EventsUsed";                         // List<string
 	public static string EventsPlayedToday = "EventsPlayedToday";           // List<string>
+	public static string EventStarted = "EventStarted";						// string
 	public static string RandomEventPlayed = "RandomEventPlayed";           // bool
 	public static string EndingsUsed = "EndingsUsed";						// List<string>
 

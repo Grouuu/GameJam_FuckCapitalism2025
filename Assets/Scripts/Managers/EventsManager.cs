@@ -101,6 +101,11 @@ public class EventsManager : MonoBehaviour
 		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventsPlayedToday, eventsName);
 	}
 
+	public void UpdateEventStartedSaveData (string eventName)
+	{
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.EventStarted, eventName);
+	}
+
 	public void UpdateRandomEventPlayedTodaySaveData(bool isPlayed)
 	{
 		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.RandomEventPlayed, isPlayed);
