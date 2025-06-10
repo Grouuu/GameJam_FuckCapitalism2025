@@ -12,6 +12,7 @@ public class Managers
 	public EventsManager eventsManager;
 	public EndingsManager endingsManager;
 	public ProductionManager productionManager;
+	public AnimationsManager animationsManager;
 }
 
 public class GameManager : MonoBehaviour
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 	[HideInInspector] public EventsManager eventsManager;
 	[HideInInspector] public EndingsManager endingsManager;
 	[HideInInspector] public ProductionManager productionManager;
+	[HideInInspector] public AnimationsManager animationsManager;
 
 	public Managers GetManagers ()
 	{
@@ -49,7 +51,8 @@ public class GameManager : MonoBehaviour
 			charactersManager = GetComponentInChildren<CharactersManager>(),
 			eventsManager = GetComponentInChildren<EventsManager>(),
 			endingsManager = GetComponentInChildren<EndingsManager>(),
-			productionManager = GetComponentInChildren<ProductionManager>()
+			productionManager = GetComponentInChildren<ProductionManager>(),
+			animationsManager = GetComponentInChildren<AnimationsManager>(),
 		};
 	}
 
@@ -74,6 +77,7 @@ public class GameManager : MonoBehaviour
 		eventsManager = GetComponentInChildren<EventsManager>();
 		endingsManager = GetComponentInChildren<EndingsManager>();
 		productionManager = GetComponentInChildren<ProductionManager>();
+		animationsManager = GetComponentInChildren<AnimationsManager>();
 
 		InitGame();
 	}
@@ -146,6 +150,8 @@ public class GameManager : MonoBehaviour
 
 	private async void StartGame ()
 	{
+		await animationsManager.PlayAnimation(GameAnimationKey.Intro);
+
 		saveManager.AddToSaveData(SaveItemKey.RunStarted, true);
 
 		await saveManager.SaveData();
