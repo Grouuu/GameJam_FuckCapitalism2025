@@ -9,6 +9,7 @@ public class EndingDatabaseData
 	public string TITLE { get; set; }
 	public string DESCRIPTION { get; set; }
 	public bool IS_VICTORY { get; set; }
+	public string HEADER_FILE_NAME { get; set; }
 	public string[] REQUIREMENT { get; set; }
 	public string[] RESULT_VARS { get; set; }
 	public string[] RESULT_RESOURCES { get; set; }
@@ -50,6 +51,7 @@ public class EndingParser : DatabaseParser
 		endingData.title = jsonData.TITLE;
 		endingData.description = jsonData.DESCRIPTION;
 		endingData.isWinEnding = jsonData.IS_VICTORY;
+		endingData.headerFileName = jsonData.HEADER_FILE_NAME;
 
 		// requirements
 

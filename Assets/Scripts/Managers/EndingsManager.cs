@@ -149,6 +149,7 @@ public class EndingsManager : MonoBehaviour
 
 		panelData.title = ending.title;
 		panelData.content = ending.description;
+		panelData.headerFileName = ending.headerFileName;
 
 		return panelData;
 	}

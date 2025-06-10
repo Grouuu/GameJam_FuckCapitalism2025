@@ -134,8 +134,16 @@ public static class ParsingUtils
 
 	public static ResultData ParseResultData (string[] changeVars, string[] changeResources, string[] editEventsDay, string[] editVarsMax)
 	{
+		string[] varsChanges = { };
+
+		if (changeVars.Length > 0 && !string.IsNullOrEmpty(changeVars[0]))
+			varsChanges = varsChanges.Concat(changeVars).ToArray();
+
+		if (changeResources.Length > 0 && !string.IsNullOrEmpty(changeResources[0]))
+			varsChanges = varsChanges.Concat(changeResources).ToArray();
+
 		ResultData result = new();
-		result.varChanges = ParseResultVarChanges(changeVars.Concat(changeResources).ToArray());
+		result.varChanges = ParseResultVarChanges(varsChanges);
 		result.eventsDay = ParseEditEventDays(editEventsDay);
 		result.varsMax = ParseEditVarMaxs(editVarsMax);
 		return result;
@@ -161,7 +169,7 @@ public static class ParsingUtils
 			VarCompareValue compare = new();
 			compare.varId = varId;
 			compare.checkType = compareType;
-			//compare.compareValue = compareValue;
+			compare.compareValue = compareValue;
 
 			return (index + endOffset, compare);
 		});

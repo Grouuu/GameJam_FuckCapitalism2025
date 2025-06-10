@@ -7,6 +7,7 @@ public class EndingData
     public string title;
     public string description;
     public bool isWinEnding;
+    public string headerFileName;
     public RequirementData[] requirements;
     public ResultData result;
 

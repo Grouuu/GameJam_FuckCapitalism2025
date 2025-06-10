@@ -7127,37 +7127,6 @@ MonoBehaviour:
   baseTextColor: {r: 0, g: 0, b: 0, a: 1}
   hoverTextColor: {r: 1, g: 1, b: 1, a: 1}
   clickSound: 1
---- !u!1 &598374934
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 598374935}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &598374935
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 598374934}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
-  m_LocalPosition: {x: -12.67, y: 4.3, z: -29.53}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1879420267}
-  m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
 --- !u!1 &617898258
 GameObject:
   m_ObjectHideFlags: 0
@@ -7256,7 +7225,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 102, y: -3}
-  m_SizeDelta: {x: 0, y: -30}
+  m_SizeDelta: {x: 135.01, y: -30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &629970554
 MonoBehaviour:
@@ -17094,7 +17063,6 @@ Transform:
   - {fileID: 68224433}
   - {fileID: 333898469}
   - {fileID: 440401940}
-  - {fileID: 598374935}
   - {fileID: 1269874606}
   - {fileID: 1184356426}
   m_Father: {fileID: 954189677}
