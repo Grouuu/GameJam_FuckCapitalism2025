@@ -6,6 +6,8 @@ public class DailyReportState : StateCommand
 	public int minGrowth = -20;
 	public int maxGrowth = 30;
 
+	private (GameVarId, int)[] production;
+
 	public override void StartCommand (GameState previousState)
 	{
 		ShowDailyReport();
@@ -15,9 +17,12 @@ public class DailyReportState : StateCommand
 
 	private async void ShowDailyReport ()
 	{
+		production = GameManager.Instance.productionManager.GetProduction();
+
 		// first generate data with old resources value
 		ReportPanelUIData panelData = FormatReportPanelTexts();
 
+		// save state
 		await GameManager.Instance.saveManager.SaveData();
 
 		GameManager.Instance.uiManager.ShowReportPanel(panelData, () => EndReport());
@@ -30,6 +35,7 @@ public class DailyReportState : StateCommand
 
 		if (GameManager.Instance.endingsManager.CheckLose())
 		{
+			// no need save
 			EndCommand(GameState.EndGame);
 			return;
 		}
@@ -63,7 +69,8 @@ public class DailyReportState : StateCommand
 		int foodConsuption = GetFoodConsuption();
 		int populationGrowth = GetPopulationGrowth() - GetPopulationLossByFood();
 
-		// TODO add prod
+		foreach ((GameVarId varId, int value) in production)
+			GameManager.Instance.varsManager.AddValueToVar(varId, value);
 
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Food, foodConsuption);
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Population, populationGrowth);
@@ -80,6 +87,7 @@ public class DailyReportState : StateCommand
 		panelData.description = "The sensors have gathered the following variations:"; // translate
 		panelData.foodChange = GetFoodDiff();
 		panelData.populationChange = GetPopulationDiff();
+		panelData.production = production;
 
 		return panelData;
 	}
@@ -137,17 +145,6 @@ public class DailyReportState : StateCommand
 			return population - food;
 
 		return 0;
-	}
-
-	private List<(GameVarId, int)> GetProduction ()
-	{
-		List<(GameVarId, int)> production = new();
-
-		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
-
-
-
-		return production;
 	}
 
 }

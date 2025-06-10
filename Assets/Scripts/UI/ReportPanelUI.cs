@@ -17,6 +17,7 @@ public class ReportPanelUIData
 	public string description;
 	public string foodChange;
 	public string populationChange;
+	public (GameVarId, int)[] production;
 }
 
 public class ReportPanelUI : MonoBehaviour
@@ -28,6 +29,7 @@ public class ReportPanelUI : MonoBehaviour
 	public TextMeshProUGUI foodChange;
 	public TextMeshProUGUI populationChange;
 	public Transform resourcesParent;
+	public Transform productionParent;
 	public Button continueButton;
 
 	[HideInInspector] public Action onceClickCallback;
@@ -41,6 +43,7 @@ public class ReportPanelUI : MonoBehaviour
 		populationChange.text = panelContent.populationChange;
 
 		AddResourceValueDiff();
+		AddProduction(panelContent.production);
 
 		parent.SetActive(true);
 	}
@@ -98,4 +101,14 @@ public class ReportPanelUI : MonoBehaviour
 				GameManager.Instance.uiManager.AddResourceValue(resourceData, diff, resourcesParent, Color.white);
 		}
 	}
+
+	private void AddProduction ((GameVarId, int)[] production)
+	{
+		foreach ((GameVarId varId, int value) in production)
+		{
+			VarData varData = GameManager.Instance.varsManager.GetVarData(varId);
+			GameManager.Instance.uiManager.AddResourceValue(varData, value, productionParent, Color.white);
+		}
+	}
+
 }

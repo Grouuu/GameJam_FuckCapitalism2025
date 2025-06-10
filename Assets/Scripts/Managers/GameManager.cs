@@ -11,6 +11,7 @@ public class Managers
 	public CharactersManager charactersManager;
 	public EventsManager eventsManager;
 	public EndingsManager endingsManager;
+	public ProductionManager productionManager;
 }
 
 public class GameManager : MonoBehaviour
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
 	[HideInInspector] public CharactersManager charactersManager;
 	[HideInInspector] public EventsManager eventsManager;
 	[HideInInspector] public EndingsManager endingsManager;
+	[HideInInspector] public ProductionManager productionManager;
 
 	public Managers GetManagers ()
 	{
@@ -46,7 +48,8 @@ public class GameManager : MonoBehaviour
 			varsManager = GetComponentInChildren<VarsManager>(),
 			charactersManager = GetComponentInChildren<CharactersManager>(),
 			eventsManager = GetComponentInChildren<EventsManager>(),
-			endingsManager = GetComponentInChildren<EndingsManager>()
+			endingsManager = GetComponentInChildren<EndingsManager>(),
+			productionManager = GetComponentInChildren<ProductionManager>()
 		};
 	}
 
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
 		charactersManager = GetComponentInChildren<CharactersManager>();
 		eventsManager = GetComponentInChildren<EventsManager>();
 		endingsManager = GetComponentInChildren<EndingsManager>();
+		productionManager = GetComponentInChildren<ProductionManager>();
 
 		InitGame();
 	}
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour
 		InitCharacters();
 		InitEvents();
 		InitEndings();
+		InitProduction();
 
 		await InitPersistentData(); // load save
 		ApplySave();
@@ -124,6 +129,11 @@ public class GameManager : MonoBehaviour
 	private void InitEndings ()
 	{
 		endingsManager.InitEndings(databaseManager.GetData<EndingData>());
+	}
+
+	private void InitProduction ()
+	{
+		productionManager.InitProduction(databaseManager.GetData<ProductionData>());
 	}
 
 	private void ApplySave ()

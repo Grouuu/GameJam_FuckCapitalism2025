@@ -1425,7 +1425,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 428, y: -322.03857}
-  m_SizeDelta: {x: 204, y: 45}
+  m_SizeDelta: {x: 0, y: 45}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &145067536
 MonoBehaviour:
@@ -3282,6 +3282,7 @@ GameObject:
   - component: {fileID: 256100397}
   - component: {fileID: 256100396}
   - component: {fileID: 256100395}
+  - component: {fileID: 256100400}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -3381,6 +3382,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databaseFileName: EXPORT_VARS
+--- !u!114 &256100400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256100392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21d5c2cdfe0b7934cb875c13dbdb8b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseFileName: EXPORT_PROD
 --- !u!1 &274010655
 GameObject:
   m_ObjectHideFlags: 0
@@ -5827,6 +5841,7 @@ MonoBehaviour:
   foodChange: {fileID: 360574876}
   populationChange: {fileID: 776997131}
   resourcesParent: {fileID: 1698222223}
+  productionParent: {fileID: 1751450470}
   continueButton: {fileID: 672113253}
 --- !u!114 &509075187
 MonoBehaviour:
@@ -9725,7 +9740,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 214.4003, y: -25.5}
-  m_SizeDelta: {x: 30.01, y: 47.7188}
+  m_SizeDelta: {x: 0, y: 47.7188}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &870479173
 PrefabInstance:
@@ -11358,6 +11373,7 @@ Transform:
   - {fileID: 1565915108}
   - {fileID: 927251678}
   - {fileID: 291197900}
+  - {fileID: 1987074328}
   - {fileID: 509075182}
   - {fileID: 172065932}
   m_Father: {fileID: 0}
@@ -11387,6 +11403,7 @@ MonoBehaviour:
   charactersManager: {fileID: 1565915109}
   eventsManager: {fileID: 927251679}
   endingsManager: {fileID: 291197901}
+  productionManager: {fileID: 0}
 --- !u!1 &1139561670
 GameObject:
   m_ObjectHideFlags: 0
@@ -15761,7 +15778,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 80}
+  m_CellSize: {x: 70, y: 80}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -16049,7 +16066,7 @@ MonoBehaviour:
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 80}
+  m_CellSize: {x: 70, y: 80}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -17796,6 +17813,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d68cbfbe88d6284bac67ade5e54a12b, type: 3}
+--- !u!1 &1987074327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1987074328}
+  - component: {fileID: 1987074329}
+  m_Layer: 0
+  m_Name: Production
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1987074328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987074327}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1138032882}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1987074329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987074327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dceca9fd5477df4d8d75b29f9745211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2027371761
 GameObject:
   m_ObjectHideFlags: 0
