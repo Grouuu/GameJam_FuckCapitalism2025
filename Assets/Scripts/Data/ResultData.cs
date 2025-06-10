@@ -40,9 +40,9 @@ public class ResultVarChange
 
 public class ResultData
 {
-    public EditEventDay[] eventsDay;
-    public EditVarMax[] varsMax;
-	public ResultVarChange[] varChanges;
+    public EditEventDay[] eventsDay = { };
+    public EditVarMax[] varsMax = { };
+	public ResultVarChange[] varChanges = { };
 
     public void UpdateResult ()
     {
@@ -59,9 +59,6 @@ public class ResultData
 
     private void UpdateResources ()
 	{
-		if (varChanges == null)
-			return;
-
 		foreach (ResultVarChange modifier in varChanges)
 		{
             if (modifier.modifierType == ChangeValueType.Add)
@@ -73,9 +70,6 @@ public class ResultData
 
     private void UpdateEventsDay ()
 	{
-		if (eventsDay == null)
-			return;
-
 		foreach (EditEventDay editDay in eventsDay)
 		{
 			EventData eventData = GameManager.Instance.eventsManager.GetEventByName(editDay.eventName);
@@ -87,9 +81,6 @@ public class ResultData
 
 	private void UpdateVarsMax ()
 	{
-		if (varsMax == null)
-			return;
-
 		foreach (EditVarMax varMax in varsMax)
 			GameManager.Instance.varsManager.SetValueMax(varMax.varId, varMax.setMax);
 	}

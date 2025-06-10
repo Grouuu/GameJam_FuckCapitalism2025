@@ -63,6 +63,8 @@ public class DailyReportState : StateCommand
 		int foodConsuption = GetFoodConsuption();
 		int populationGrowth = GetPopulationGrowth() - GetPopulationLossByFood();
 
+		// TODO add prod
+
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Food, foodConsuption);
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Population, populationGrowth);
 	}
@@ -135,6 +137,17 @@ public class DailyReportState : StateCommand
 			return population - food;
 
 		return 0;
+	}
+
+	private List<(GameVarId, int)> GetProduction ()
+	{
+		List<(GameVarId, int)> production = new();
+
+		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
+
+
+
+		return production;
 	}
 
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RequirementData
 {
-	public VarCompareValue[] varsChecks;
+	public VarCompareValue[] varsChecks = { };
 
     public bool IsOK ()
 	{
@@ -11,9 +11,6 @@ public class RequirementData
 
 	private bool IsResourcesOK ()
 	{
-		if (varsChecks == null)
-			return true;
-
 		foreach (VarCompareValue varCompare in varsChecks)
 		{
 			int valueToCheck = GameManager.Instance.varsManager.GetVarValue(varCompare.varId);

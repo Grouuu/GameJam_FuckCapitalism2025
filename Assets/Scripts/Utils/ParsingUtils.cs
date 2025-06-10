@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -124,142 +125,155 @@ public static class ParsingUtils
 		};
 	}
 
-	public static RequirementData ParseRequirementData (string[] requirement)
+	public static RequirementData ParseRequirementData (string[] requirements)
 	{
-		// TODO allow multiple instances
-
-		if (requirement.Length != 3 || requirement[0] == "")
-			return null;
-
-		GameVarId varId = MapServerVarId(requirement[0].Trim());
-
-		if (varId == GameVarId.None)
-			return null;
-
-		CompareValueType compareType = MapServerCompareType(requirement[1].Trim());
-		int compareValue = int.Parse(requirement[2].Trim());
-
-		VarCompareValue compare = new();
-		compare.varId = varId;
-		compare.checkType = compareType;
-		compare.compareValue = compareValue;
-
 		RequirementData require = new();
-		require.varsChecks = new VarCompareValue[1] { compare };
-
+		require.varsChecks = ParseVarCompareValues (requirements);
 		return require;
 	}
 
 	public static ResultData ParseResultData (string[] changeVars, string[] changeResources, string[] editEventsDay, string[] editVarsMax)
 	{
-		// TODO allow multiple instances for all parts
-
 		ResultData result = new();
+		result.varChanges = ParseResultVarChanges(changeVars.Concat(changeResources).ToArray());
+		result.eventsDay = ParseEditEventDays(editEventsDay);
+		result.varsMax = ParseEditVarMaxs(editVarsMax);
+		return result;
+	}
 
-		// vars change
-
-		List<ResultVarChange> varChanges = new();
-
-		if (changeVars != null && changeVars.Length >= 3 && changeVars[0] != "")
+	private static VarCompareValue[] ParseVarCompareValues (string[] jsonData)
+	{
+		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
 		{
-			GameVarId varId = MapServerVarId(changeVars[0].Trim());
+			// pattern : "GameVarId,CompareValueType,intValue"
+			int endOffset = 3;
+			GameVarId varId = MapServerVarId(jsonData[index].Trim());
 
-			if (varId != GameVarId.None)
+			if (varId == GameVarId.None)
 			{
-				ResultVarChange change = new();
-				change.varId = varId;
-				change.modifierType = MapServerModifierType(changeVars[1].Trim());
-				change.modifierValueMin = int.Parse(changeVars[2].Trim());
-
-				if (changeVars.Length == 4)
-					change.modifierValueMax = int.Parse(changeVars[3].Trim());
-				else
-					change.modifierValueMax = change.modifierValueMin;
-
-				change.currentValue = change.modifierValueMin;
-
-				varChanges.Add(change);
+				Debug.LogWarning($"Incorrect varId: {jsonData[index]}");
+				return (index + 1, null);
 			}
-		}
 
-		if (changeResources != null && changeResources.Length > 0 && changeResources[0] != "")
+			CompareValueType compareType = MapServerCompareType(jsonData[index + 1].Trim());
+			int compareValue = int.Parse(jsonData[index + 2].Trim());
+
+			VarCompareValue compare = new();
+			compare.varId = varId;
+			compare.checkType = compareType;
+			//compare.compareValue = compareValue;
+
+			return (index + endOffset, compare);
+		});
+	}
+
+	private static ResultVarChange[] ParseResultVarChanges (string[] jsonData)
+	{
+		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
 		{
-			for (int i = 0; i < changeResources.Length; i++)
+			// pattern : "GameVarId,[ChangeValueType],intValueMin,[intValueMax]"
+			int endOffset = 2;
+			GameVarId varId = MapServerVarId(jsonData[index].Trim());
+
+			if (varId == GameVarId.None)
 			{
-				GameVarId varId = MapServerVarId(changeResources[i].Trim());
-
-				if (varId != GameVarId.None)
-				{
-					ResultVarChange change = new();
-					change.varId = varId;
-					change.modifierType = ChangeValueType.Add;
-					change.modifierValueMin = int.Parse(changeResources[i + 1].Trim());
-					i++;
-
-					// if a another int value is provided, there's a range result
-					if (i < changeResources.Length - 1 && int.TryParse(changeResources[i + 1].Trim(), out int value))
-					{
-						change.modifierValueMax = value;
-						i++;
-					}
-					else
-						change.modifierValueMax = change.modifierValueMin;
-
-					change.currentValue = change.modifierValueMin;
-
-					varChanges.Add(change);
-				}
+				Debug.LogWarning($"Incorrect varId: {jsonData[index]}");
+				return (index + 1, null);
 			}
-		}
 
-		result.varChanges = varChanges.ToArray();
+			ResultVarChange varChange = new();
+			varChange.varId = varId;
 
-		// edit events day
-
-		List<EditEventDay> eventDayChanges = new();
-
-		if (editEventsDay != null && editEventsDay.Length >= 3 && editEventsDay[0] != "")
-		{
-			EditEventDay edit = new();
-			edit.eventName = editEventsDay[0].Trim();
-
-			ChangeValueType modifier = MapServerModifierType(editEventsDay[1].Trim());
-
-			if (modifier == ChangeValueType.Set)
+			if (int.TryParse(jsonData[index + 1].Trim(), out int minValue))
 			{
-				edit.setDay = int.Parse(editEventsDay[2].Trim());
+				varChange.modifierType = ChangeValueType.Add;
+				varChange.modifierValueMin = minValue;
 			}
 			else
 			{
-				edit.addMinDays = int.Parse(editEventsDay[2].Trim());
-
-				if (editEventsDay.Length == 4)
-					edit.addMaxDays = int.Parse(editEventsDay[3].Trim());
-				else
-					edit.addMaxDays = edit.addMinDays;
+				varChange.modifierType = MapServerModifierType(jsonData[index + 1].Trim());
+				varChange.modifierValueMin = int.Parse(jsonData[index + 2].Trim());
+				endOffset++;
 			}
 
-			eventDayChanges.Add(edit);
-		}
+			if (index + endOffset < jsonData.Length && int.TryParse(jsonData[index + endOffset].Trim(), out int maxValue))
+			{
+				varChange.modifierValueMax = maxValue;
+				endOffset++;
+			}
+			else
+				varChange.modifierValueMax = varChange.modifierValueMin;
 
-		result.eventsDay = eventDayChanges.ToArray();
+			// default initial value
+			varChange.currentValue = varChange.modifierValueMin;
 
-		// edit vars max
+			return (index + endOffset, varChange);
+		});
+	}
 
-		List<EditVarMax> varsMaxChanges = new();
-
-		if (editVarsMax != null && editVarsMax.Length >= 2 && editVarsMax[0] != "")
+	private static EditEventDay[] ParseEditEventDays (string[] jsonData)
+	{
+		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
 		{
-			EditVarMax edit = new();
-			edit.varId = MapServerVarId(editVarsMax[0].Trim());
-			edit.setMax = int.Parse(editVarsMax[1].Trim());
+			// pattern:	"eventName,ChangeValueType,intValueMin,[intValueMax]"
+			int endOffset = 3;
 
-			varsMaxChanges.Add(edit);
+			EditEventDay editDay = new();
+			editDay.eventName = jsonData[index].Trim();
+
+			ChangeValueType modifier = MapServerModifierType(jsonData[index + 1].Trim());
+			int firstValue = int.Parse(jsonData[index + 2].Trim());
+
+			if (modifier == ChangeValueType.Set)
+				editDay.setDay = firstValue;
+			else
+				editDay.addMinDays = firstValue;
+
+			if (index + endOffset < jsonData.Length && int.TryParse(jsonData[index + 3].Trim(), out int secondValue))
+			{
+				if (modifier == ChangeValueType.Add)
+					editDay.addMaxDays = secondValue;
+
+				endOffset++;
+			}
+
+			return (index + endOffset, editDay);
+		});
+	}
+
+	private static EditVarMax[] ParseEditVarMaxs (string[] jsonData)
+	{
+		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
+		{
+			// pattern:	"GameVarId,intValue"
+			int endOffset = 2;
+
+			EditVarMax editVarMax = new();
+			editVarMax.varId = MapServerVarId(jsonData[0].Trim());
+			editVarMax.setMax = int.Parse(jsonData[1].Trim());
+
+			return (index + endOffset, editVarMax);
+		});
+	}
+
+	private static T[] ParseModuleData<T> (string[] jsonData, Func<string[], int, (int, T)> parser)
+	{
+		if (jsonData == null || jsonData.Length == 0 || string.IsNullOrEmpty(jsonData[0].Trim()))
+			return new T[0];
+
+		List<T> entries = new();
+
+		for (int i = 1; i < jsonData.Length; i++)
+		{
+			(int newIndex, T entry) = parser(jsonData, i - 1);
+
+			if (entry != null)
+				entries.Add(entry);
+
+			i = newIndex;
 		}
 
-		result.varsMax = varsMaxChanges.ToArray();
-
-		return result;
+		return entries.ToArray();
 	}
 
 }
