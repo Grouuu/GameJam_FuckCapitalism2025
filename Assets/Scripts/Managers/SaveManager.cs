@@ -38,15 +38,17 @@ public static class SaveItemKey
 
 public class SaveManager : MonoBehaviour
 {
+	public static bool IsRunStarted => GameManager.Instance != null && GameManager.Instance.saveManager != null && GameManager.Instance.saveManager.HasKey(SaveItemKey.RunStarted);
+
+	public bool debug = false;
+
+	[HideInInspector] public List<SaveItem> saveData { get; private set; }
+
 	private static string VERSION = "0.12";
 #pragma warning disable CS0414
 	private static string WEB_SAVE_KEY = "HOPE_save";
 #pragma warning restore CS0414
 	private static string WINDOWS_SAVE_KEY = "hopeIsHere.json";
-
-	public bool debug = false;
-
-	[HideInInspector] public List<SaveItem> saveData { get; private set; }
 
 	private string _savePath;
 	private bool _saveLoaded = false;

@@ -4,6 +4,8 @@ using UnityEngine;
 public class Managers
 {
 	public GameManager gameManager;
+	public SaveManager saveManager;
+	public SoundManager soundManager;
 	public DatabaseManager databaseManager;
 	public UIManager uiManager;
 	public GameStateManager gameStateManager;
@@ -25,27 +27,28 @@ public class GameManager : MonoBehaviour
 	public int minPopulationGrowth;
 	public int maxPopulationGrowth;
 
-	// persistent managers
-	[HideInInspector] public SaveManager saveManager;
-	[HideInInspector] public SoundManager soundManager;
+	public SaveManager saveManager => _managers.saveManager;
+	public SoundManager soundManager => _managers.soundManager;
+	public DatabaseManager databaseManager => _managers.databaseManager;
+	public UIManager uiManager => _managers.uiManager;
+	public GameStateManager gameStateManager => _managers.gameStateManager;
+	public VarsManager varsManager => _managers.varsManager;
+	public CharactersManager charactersManager => _managers.charactersManager;
+	public EventsManager eventsManager => _managers.eventsManager;
+	public EndingsManager endingsManager => _managers.endingsManager;
+	public ProductionManager productionManager => _managers.productionManager;
+	public BuildingsManager buildingsManager => _managers.buildingsManager;
+	public AnimationsManager animationsManager => _managers.animationsManager;
 
-	// scene managers
-	[HideInInspector] public DatabaseManager databaseManager;
-	[HideInInspector] public UIManager uiManager;
-	[HideInInspector] public GameStateManager gameStateManager;
-	[HideInInspector] public VarsManager varsManager;
-	[HideInInspector] public CharactersManager charactersManager;
-	[HideInInspector] public EventsManager eventsManager;
-	[HideInInspector] public EndingsManager endingsManager;
-	[HideInInspector] public ProductionManager productionManager;
-	[HideInInspector] public BuildingsManager buildingsManager;
-	[HideInInspector] public AnimationsManager animationsManager;
+	private Managers _managers;
 
 	public Managers GetManagers ()
 	{
 		return new()
 		{
 			gameManager = this,
+			saveManager = PersistentManager.Instance.saveManager,
+			soundManager = PersistentManager.Instance.soundManager,
 			databaseManager = GetComponentInChildren<DatabaseManager>(),
 			uiManager = GetComponentInChildren<UIManager>(),
 			gameStateManager = GetComponentInChildren<GameStateManager>(),
@@ -69,21 +72,13 @@ public class GameManager : MonoBehaviour
 
 	private void Start ()
 	{
-		saveManager = PersistentManager.Instance.saveManager;
-		soundManager = PersistentManager.Instance.soundManager;
-
-		databaseManager = GetComponentInChildren<DatabaseManager>();
-		uiManager = GetComponentInChildren<UIManager>();
-		gameStateManager = GetComponentInChildren<GameStateManager>();
-		varsManager = GetComponentInChildren<VarsManager>();
-		charactersManager = GetComponentInChildren<CharactersManager>();
-		eventsManager = GetComponentInChildren<EventsManager>();
-		endingsManager = GetComponentInChildren<EndingsManager>();
-		productionManager = GetComponentInChildren<ProductionManager>();
-		buildingsManager = GetComponentInChildren<BuildingsManager>();
-		animationsManager = GetComponentInChildren<AnimationsManager>();
-
+		InitManagers();
 		InitGame();
+	}
+
+	private void InitManagers ()
+	{
+		_managers = GetManagers();
 	}
 
 	private async void InitGame ()
@@ -99,6 +94,7 @@ public class GameManager : MonoBehaviour
 		InitBuildings();
 
 		await InitPersistentData(); // load save
+		SaveGeneratedData();
 		ApplySave();
 
 		StartGame();
@@ -148,6 +144,13 @@ public class GameManager : MonoBehaviour
 	private void InitBuildings ()
 	{
 		buildingsManager.InitBuildings(databaseManager.GetData<BuildingData>());
+	}
+
+	private void SaveGeneratedData ()
+	{
+		// save events random generated days at fresh start only
+		if (!SaveManager.IsRunStarted)
+			eventsManager.UpdateEventsDaySaveData();
 	}
 
 	private void ApplySave ()

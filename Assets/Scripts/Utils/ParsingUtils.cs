@@ -126,6 +126,22 @@ public static class ParsingUtils
 		};
 	}
 
+	public static int ParseAndSolveMinMaxInt (string minData, string maxData)
+	{
+		int min = -1;
+		int max = -1;
+
+		if (!string.IsNullOrEmpty(minData))
+			min = int.Parse(minData);
+
+		if (!string.IsNullOrEmpty(maxData) && maxData.Trim() != "-1")
+			max = int.Parse(maxData);
+		else
+			max = min;
+
+		return UnityEngine.Random.Range(min, max + 1);
+	}
+
 	public static RequirementData ParseRequirementData (string[] requirements)
 	{
 		RequirementData require = new();

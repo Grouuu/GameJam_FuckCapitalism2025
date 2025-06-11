@@ -11,9 +11,7 @@ public class IntroAnimation : GameAnimation
 	{
 		spline.Play();
 
-		bool runStarted = GameManager.Instance.saveManager.HasKey(SaveItemKey.RunStarted);
-
-		if (runStarted)
+		if (SaveManager.IsRunStarted)
 		{
 			spline.ElapsedTime = spline.Duration;
 			return;

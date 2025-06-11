@@ -13,7 +13,8 @@ public class EventDatabaseData
     public string HEADER_FILE_NAME { get; set; }
     public int PRIORITY { get; set; }
     public bool REPEATABLE { get; set; }
-	public int INITIAL_DAY { get; set; }
+	public string MIN_DAY { get; set; }
+	public string MAX_DAY { get; set; }
     public string[] REQUIREMENT { get; set; }
     public string[] RESULT_VARS { get; set; }
     public string[] RESULT_RESOURCES { get; set; }
@@ -58,7 +59,7 @@ public class EventParser : DatabaseParser
 		eventData.description = jsonData.DESCRIPTION;
 		eventData.priority = jsonData.PRIORITY;
 		eventData.isRepeateable = jsonData.REPEATABLE;
-		eventData.day = jsonData.INITIAL_DAY;
+		eventData.day = ParsingUtils.ParseAndSolveMinMaxInt(jsonData.MIN_DAY, jsonData.MAX_DAY);
 		eventData.headerFileName = jsonData.HEADER_FILE_NAME;
 		eventData.requirements = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
 		eventData.result = ParsingUtils.ParseResultData(
