@@ -186,6 +186,10 @@ public class VarsManager : MonoBehaviour
 		if (varData == null)
 			return;
 
+		// clamp
+		value = Mathf.Min(value, varData.minValue);
+		value = Mathf.Max(value, varData.maxValue);
+
 		if (debug)
 			Debug.Log($"{id} is now {value} (old: {varData.currentValue})");
 
