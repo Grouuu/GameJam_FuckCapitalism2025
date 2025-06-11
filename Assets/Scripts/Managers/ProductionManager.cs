@@ -7,15 +7,15 @@ public class ProductionManager : MonoBehaviour
 {
 	[NonSerialized] private ProductionData[] _production;
 
-	public void InitProduction(ProductionData[] production)
+	public void InitProductions(ProductionData[] production)
 	{
 		if (production == null)
 		{
-			Debug.LogError($"No production to init");
+			Debug.LogError($"No productions to init");
 			return;
 		}
 
-		Debug.Log($"Prodution loaded (total: {production.Length})");
+		Debug.Log($"Produtions loaded (total: {production.Length})");
 
 		_production = production;
 	}
@@ -33,10 +33,18 @@ public class ProductionManager : MonoBehaviour
 
 			if (productionData.CheckRandom())
 			{
+				int productionValue = 1;
+
+				foreach (ProductionMultiplierData multiplierData in GetProductionMultiplier(productionData.varId))
+				{
+					// additif
+					productionValue += multiplierData.multiplier;
+				}
+
 				if (productionByResource.ContainsKey(productionData.varId))
-					productionByResource[productionData.varId]++;
+					productionByResource[productionData.varId] += productionValue;
 				else
-					productionByResource.Add(productionData.varId, 1);
+					productionByResource.Add(productionData.varId, productionValue);
 			}
 		}
 
@@ -44,6 +52,11 @@ public class ProductionManager : MonoBehaviour
 			.Select(entry => (entry.Key, entry.Value))
 			.ToArray()
 		;
+	}
+
+	private ProductionMultiplierData[] GetProductionMultiplier (GameVarId varId)
+	{
+		return GameManager.Instance.buildingsManager.GetMultipliers(varId);
 	}
 
 }

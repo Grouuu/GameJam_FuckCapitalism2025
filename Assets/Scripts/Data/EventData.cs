@@ -10,7 +10,7 @@ public class EventData
     public string headerFileName;
     public int priority;
     public bool isRepeateable;
-    public RequirementData[] requirements;
+    public RequirementData requirements;
     public ResultData result;
 
     // runtime values
@@ -33,14 +33,8 @@ public class EventData
 
     private bool IsRespectRequirements ()
     {
-        if (requirements == null)
-            return true;
-
-        foreach (RequirementData requirement in requirements)
-        {
-            if (!requirement.IsOK())
-                return false;
-        }
+        if (requirements != null && !requirements.IsOK())
+            return false;
 
         return true;
     }

@@ -80,6 +80,7 @@ public enum GameVarId
 	Chantara_Mission_Progress,
 	Chantara_Progress,
 	Cook_Progress,
+	SpaceDebrisLength,
 }
 
 public enum CompareValueType

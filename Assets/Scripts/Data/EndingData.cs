@@ -8,7 +8,7 @@ public class EndingData
     public string description;
     public bool isWinEnding;
     public string headerFileName;
-    public RequirementData[] requirements;
+    public RequirementData requirements;
     public ResultData result;
 
     // runtime values
@@ -16,14 +16,8 @@ public class EndingData
 
     public bool IsRespectRequirements ()
     {
-        if (requirements == null)
-            return false;
-
-        foreach (RequirementData requirement in requirements)
-        {
-            if (requirement.IsOK())
-                return true;
-        }
+        if (requirements != null && requirements.IsOK())
+            return true;
 
         return false;
     }

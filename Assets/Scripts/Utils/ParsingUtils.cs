@@ -68,6 +68,7 @@ public static class ParsingUtils
 		{ GameVarId.Chantara_Mission_Progress, "Chantara_Mission_Progress" },
 		{ GameVarId.Chantara_Progress, "Chantara_Progress" },
 		{ GameVarId.Cook_Progress, "Cook_Progress" },
+		{ GameVarId.SpaceDebrisLength, "SpaceDebrisLength" },
 	};
 
 	public static GameVarId MapServerVarId (string serverId)
@@ -149,7 +150,7 @@ public static class ParsingUtils
 		return result;
 	}
 
-	private static VarCompareValue[] ParseVarCompareValues (string[] jsonData)
+	public static VarCompareValue[] ParseVarCompareValues (string[] jsonData)
 	{
 		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
 		{
@@ -160,7 +161,7 @@ public static class ParsingUtils
 			if (varId == GameVarId.None)
 			{
 				Debug.LogWarning($"Incorrect varId: {jsonData[index]}");
-				return (index + 1, null);
+				return (jsonData.Length, null);
 			}
 
 			CompareValueType compareType = MapServerCompareType(jsonData[index + 1].Trim());
@@ -175,7 +176,7 @@ public static class ParsingUtils
 		});
 	}
 
-	private static ResultVarChange[] ParseResultVarChanges (string[] jsonData)
+	public static ResultVarChange[] ParseResultVarChanges (string[] jsonData)
 	{
 		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
 		{
@@ -186,7 +187,7 @@ public static class ParsingUtils
 			if (varId == GameVarId.None)
 			{
 				Debug.LogWarning($"Incorrect varId: {jsonData[index]}");
-				return (index + 1, null);
+				return (jsonData.Length, null);
 			}
 
 			ResultVarChange varChange = new();
@@ -219,7 +220,7 @@ public static class ParsingUtils
 		});
 	}
 
-	private static EditEventDay[] ParseEditEventDays (string[] jsonData)
+	public static EditEventDay[] ParseEditEventDays (string[] jsonData)
 	{
 		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
 		{
@@ -249,7 +250,7 @@ public static class ParsingUtils
 		});
 	}
 
-	private static EditVarMax[] ParseEditVarMaxs (string[] jsonData)
+	public static EditVarMax[] ParseEditVarMaxs (string[] jsonData)
 	{
 		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
 		{
@@ -261,6 +262,21 @@ public static class ParsingUtils
 			editVarMax.setMax = int.Parse(jsonData[1].Trim());
 
 			return (index + endOffset, editVarMax);
+		});
+	}
+
+	public static ProductionMultiplierData[] ParseProductionMultipliers (string[] jsonData)
+	{
+		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
+		{
+			// pattern:	"GameVarId,intValue"
+			int endOffset = 2;
+
+			ProductionMultiplierData productionMultiplier = new();
+			productionMultiplier.varId = MapServerVarId(jsonData[0].Trim());
+			productionMultiplier.multiplier = int.Parse(jsonData[1].Trim());
+
+			return (index + endOffset, productionMultiplier);
 		});
 	}
 

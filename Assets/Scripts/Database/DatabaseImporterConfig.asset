@@ -19,5 +19,6 @@ MonoBehaviour:
   - EXPORT_REQUESTS
   - EXPORT_EVENTS
   - EXPORT_ENDINGS
+  - EXPORT_BUILDINGS
   - EXPORT_PROD
   outputDir: ./Assets/Resources/Database

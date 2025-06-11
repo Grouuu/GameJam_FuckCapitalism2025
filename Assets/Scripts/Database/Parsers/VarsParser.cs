@@ -12,9 +12,7 @@ public class VarsDatabaseData
     public int MIN { get; set; }
     public int MAX { get; set; }
     public int START { get; set; }
-    public string PROD_PER_CYCLE { get; set; }
-    public string IS_LOW { get; set; }
-    public string END_WHEN_0 { get; set; }
+    public string[] IS_LOW { get; set; }
 }
 
 public class VarsParser : DatabaseParser
@@ -35,8 +33,8 @@ public class VarsParser : DatabaseParser
 			if (jsonData.NAME == "")
 				continue;
 
-			VarData character = ParseEntry(jsonData);
-			list.Add(character);
+			VarData varData = ParseEntry(jsonData);
+			list.Add(varData);
 		}
 
 		_data = list.ToArray();
@@ -56,38 +54,10 @@ public class VarsParser : DatabaseParser
 		varData.minValue = jsonData.MIN;
 		varData.maxValue = jsonData.MAX;
 
-		// production per cycle
+		VarCompareValue[] comparers = ParsingUtils.ParseVarCompareValues(jsonData.IS_LOW);
 
-		string[] stringArray = jsonData.PROD_PER_CYCLE.Split(new char[] { ',' });
-
-		if (stringArray.Length > 0 && stringArray[0] != "")
-		{
-			varData.prodPerCycleMin = int.Parse(stringArray[0].Trim());
-
-			if (stringArray.Length > 1)
-				varData.prodPerCycleMax = int.Parse(stringArray[1].Trim());
-			else
-				varData.prodPerCycleMax = varData.prodPerCycleMin;
-		} else
-		{
-			varData.prodPerCycleMin = 0;
-			varData.prodPerCycleMax = 0;
-		}
-
-		// low threshold
-
-		stringArray = jsonData.IS_LOW.Split(new char[] { ',' });
-
-		if (stringArray.Length == 3 && stringArray[0] != "")
-		{
-			VarCompareValue compare = new();
-
-			compare.varId = ParsingUtils.MapServerVarId(stringArray[0].Trim());
-			compare.checkType = ParsingUtils.MapServerCompareType(stringArray[1].Trim());
-			compare.compareValue = int.Parse(stringArray[2].Trim());
-
-			varData.lowThreshold = compare;
-		}
+		if (comparers.Length > 0)
+			varData.lowThreshold = comparers[0];
 
 		return varData;
 	}

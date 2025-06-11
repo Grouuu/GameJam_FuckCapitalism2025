@@ -12,6 +12,7 @@ public class Managers
 	public EventsManager eventsManager;
 	public EndingsManager endingsManager;
 	public ProductionManager productionManager;
+	public BuildingsManager buildingsManager;
 	public AnimationsManager animationsManager;
 }
 
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 	[HideInInspector] public EventsManager eventsManager;
 	[HideInInspector] public EndingsManager endingsManager;
 	[HideInInspector] public ProductionManager productionManager;
+	[HideInInspector] public BuildingsManager buildingsManager;
 	[HideInInspector] public AnimationsManager animationsManager;
 
 	public Managers GetManagers ()
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
 			eventsManager = GetComponentInChildren<EventsManager>(),
 			endingsManager = GetComponentInChildren<EndingsManager>(),
 			productionManager = GetComponentInChildren<ProductionManager>(),
+			buildingsManager = GetComponentInChildren<BuildingsManager>(),
 			animationsManager = GetComponentInChildren<AnimationsManager>(),
 		};
 	}
@@ -77,6 +80,7 @@ public class GameManager : MonoBehaviour
 		eventsManager = GetComponentInChildren<EventsManager>();
 		endingsManager = GetComponentInChildren<EndingsManager>();
 		productionManager = GetComponentInChildren<ProductionManager>();
+		buildingsManager = GetComponentInChildren<BuildingsManager>();
 		animationsManager = GetComponentInChildren<AnimationsManager>();
 
 		InitGame();
@@ -91,7 +95,8 @@ public class GameManager : MonoBehaviour
 		InitCharacters();
 		InitEvents();
 		InitEndings();
-		InitProduction();
+		InitProductions();
+		InitBuildings();
 
 		await InitPersistentData(); // load save
 		ApplySave();
@@ -135,9 +140,14 @@ public class GameManager : MonoBehaviour
 		endingsManager.InitEndings(databaseManager.GetData<EndingData>());
 	}
 
-	private void InitProduction ()
+	private void InitProductions ()
 	{
-		productionManager.InitProduction(databaseManager.GetData<ProductionData>());
+		productionManager.InitProductions(databaseManager.GetData<ProductionData>());
+	}
+
+	private void InitBuildings ()
+	{
+		buildingsManager.InitBuildings(databaseManager.GetData<BuildingData>());
 	}
 
 	private void ApplySave ()
@@ -146,6 +156,7 @@ public class GameManager : MonoBehaviour
 		charactersManager.ApplySave();
 		eventsManager.ApplySave();
 		endingsManager.ApplySave();
+		buildingsManager.ApplySave();
 	}
 
 	private async void StartGame ()

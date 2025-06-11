@@ -60,16 +60,7 @@ public class EventParser : DatabaseParser
 		eventData.isRepeateable = jsonData.REPEATABLE;
 		eventData.day = jsonData.INITIAL_DAY;
 		eventData.headerFileName = jsonData.HEADER_FILE_NAME;
-
-		// requirements
-
-		RequirementData requirement = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
-
-		if (requirement != null)
-			eventData.requirements = new RequirementData[1] { requirement };
-
-		// results
-
+		eventData.requirements = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
 		eventData.result = ParsingUtils.ParseResultData(
 			jsonData.RESULT_VARS,
 			jsonData.RESULT_RESOURCES,

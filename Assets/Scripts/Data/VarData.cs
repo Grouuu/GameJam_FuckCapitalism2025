@@ -11,20 +11,10 @@ public class VarData
 	public int startValue;
 	public int minValue;
 	public int maxValue;
-	public int prodPerCycleMin;
-	public int prodPerCycleMax;
 	public VarCompareValue lowThreshold;
 
 	// runtime values
 	public int currentValue;
-
-	public int GetRandomProductionYield ()
-	{
-		if (prodPerCycleMax == 0 || prodPerCycleMin == prodPerCycleMax)
-			return prodPerCycleMin;
-
-		return UnityEngine.Random.Range(prodPerCycleMin, prodPerCycleMax + 1);
-	}
 
 	public bool isLow ()
 	{

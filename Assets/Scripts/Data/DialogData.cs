@@ -22,7 +22,7 @@ public class DialogData
     public string request;
     public int priority;
     public bool isRepeateable;
-    public RequirementData[] requirements;
+    public RequirementData requirements;
     public DialogResultData yesResult;
     public DialogResultData noResult;
 
@@ -45,14 +45,8 @@ public class DialogData
 
     public bool IsRespectRequirements ()
 	{
-        if (requirements == null)
-            return true;
-
-        foreach(RequirementData requirement in requirements)
-		{
-            if (!requirement.IsOK())
-                return false;
-		}
+        if (requirements != null && !requirements.IsOK())
+            return false;
 
         return true;
 	}

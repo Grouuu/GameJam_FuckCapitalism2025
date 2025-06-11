@@ -52,16 +52,7 @@ public class EndingParser : DatabaseParser
 		endingData.description = jsonData.DESCRIPTION;
 		endingData.isWinEnding = jsonData.IS_VICTORY;
 		endingData.headerFileName = jsonData.HEADER_FILE_NAME;
-
-		// requirements
-
-		RequirementData requirement = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
-
-		if (requirement != null)
-			endingData.requirements = new RequirementData[1] { requirement };
-
-		// results
-
+		endingData.requirements = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
 		endingData.result = ParsingUtils.ParseResultData(
 			jsonData.RESULT_VARS,
 			jsonData.RESULT_RESOURCES,

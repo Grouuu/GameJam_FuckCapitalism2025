@@ -41,8 +41,8 @@ public class DialogParser : DatabaseParser
 			if (jsonData.NAME == "")
 				continue;
 
-			DialogData character = ParseEntry(jsonData);
-			list.Add(character);
+			DialogData dialogData = ParseEntry(jsonData);
+			list.Add(dialogData);
 		}
 
 		_data = list.ToArray();
@@ -58,16 +58,7 @@ public class DialogParser : DatabaseParser
 		dialog.request = jsonData.REQUEST;
 		dialog.priority = jsonData.PRIORITY;
 		dialog.isRepeateable = jsonData.REPEATABLE;
-
-		// requirements
-
-		RequirementData requirement = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
-
-		if (requirement != null)
-			dialog.requirements = new RequirementData[1] { requirement };
-
-		// results
-
+		dialog.requirements = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
 		dialog.yesResult = DialogResultData.CreateFrom(ParsingUtils.ParseResultData(
 			jsonData.YES_RESULT_VARS,
 			jsonData.YES_RESULT_RESOURCES,
@@ -75,7 +66,6 @@ public class DialogParser : DatabaseParser
 			jsonData.YES_RESULT_VAR_MAX
 		));
 		dialog.yesResult.response = jsonData.YES_TEXT;
-
 		dialog.noResult = DialogResultData.CreateFrom(ParsingUtils.ParseResultData(
 			jsonData.NO_RESULT_VARS,
 			jsonData.NO_RESULT_RESOURCES,

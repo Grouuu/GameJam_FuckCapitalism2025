@@ -52,13 +52,7 @@ public class CharacterParser : DatabaseParser
 			.Where(entry => entry != GameVarId.None)
 			.ToArray()
 		;
-
-		// requirements
-
-		RequirementData requirement = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
-
-		if (requirement != null)
-			characterData.requirements = new RequirementData[1] { requirement };
+		characterData.requirements = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
 
 		return characterData;
 	}

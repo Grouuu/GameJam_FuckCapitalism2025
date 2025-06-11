@@ -1,5 +1,11 @@
 using UnityEngine;
 
+public class ProductionMultiplierData
+{
+    public GameVarId varId;
+    public int multiplier;
+}
+
 public class ProductionData
 {
     private readonly int MAX = 100;
