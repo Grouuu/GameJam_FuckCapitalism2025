@@ -81,6 +81,10 @@ public enum GameVarId
 	Chantara_Progress,
 	Cook_Progress,
 	SpaceDebrisLength,
+	Habitat_Building_Gate,
+	Habitat_Building_Progress,
+	Station_Repair_Gate,
+	RemainingPopulationRoom,
 }
 
 public enum CompareValueType

@@ -69,6 +69,11 @@ public static class ParsingUtils
 		{ GameVarId.Chantara_Progress, "Chantara_Progress" },
 		{ GameVarId.Cook_Progress, "Cook_Progress" },
 		{ GameVarId.SpaceDebrisLength, "SpaceDebrisLength" },
+		{ GameVarId.Habitat_Building_Gate, "Habitat_Building_Gate" },
+		{ GameVarId.Habitat_Building_Progress, "Habitat_Building_Progress" },
+		{ GameVarId.Station_Repair_Gate, "Station_Repair_Gate" },
+
+		{ GameVarId.RemainingPopulationRoom, "RemainingPopulationRoom" },
 	};
 
 	public static GameVarId MapServerVarId (string serverId)
