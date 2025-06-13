@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum EventType
+public enum EventDataType
 {
 	None,
 	FixedDay,
@@ -186,7 +186,7 @@ public class EventsManager : MonoBehaviour
 		// all available events for the day not already played today
 		EventData[] availableEvents = _events
 			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
-			.Where(eventData => eventData.isAvailable() && eventData.type == EventType.RequireTrue)
+			.Where(eventData => eventData.isAvailable() && eventData.type == EventDataType.RequireTrue)
 			.ToArray()
 		;
 
@@ -217,7 +217,7 @@ public class EventsManager : MonoBehaviour
 		// all random events not already played today
 		EventData[] randomEvents = _events
 			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
-			.Where(eventData => eventData.isAvailable() && eventData.type == EventType.Random)
+			.Where(eventData => eventData.isAvailable() && eventData.type == EventDataType.Random)
 			.ToArray()
 		;
 

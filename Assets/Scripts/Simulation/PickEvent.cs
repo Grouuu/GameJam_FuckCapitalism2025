@@ -38,7 +38,7 @@ public class PickEvent
 		eventData.isUsed = true;
 		eventData.GenerateResultValue();
 
-		if (eventData.type == EventType.Random)
+		if (eventData.type == EventDataType.Random)
 			isRandomEventPlayed = true;
 	}
 
@@ -78,7 +78,7 @@ public class PickEvent
 	private EventData PickRequireTrueEvent ()
 	{
 		EventData[] availableEvents = database.eventsData
-			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name) && eventData.isAvailable() && eventData.type == EventType.RequireTrue)
+			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name) && eventData.isAvailable() && eventData.type == EventDataType.RequireTrue)
 			.OrderBy(eventData => eventData.priority)
 			.ToArray()
 		;
@@ -93,7 +93,7 @@ public class PickEvent
 
 		EventData[] randomEvents = database.eventsData
 			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name))
-			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name) && eventData.isAvailable() && eventData.type == EventType.Random)
+			.Where(eventData => !ignoredEvents.Any(id => id == eventData.name) && eventData.isAvailable() && eventData.type == EventDataType.Random)
 			.ToArray()
 		;
 

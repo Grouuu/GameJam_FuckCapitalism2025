@@ -112,8 +112,10 @@ namespace I2.Loc
 
 		static void EnablePluginsOnPlatform( BuildTargetGroup Platform )
 		{
+#pragma warning disable CS0618 // Le type ou le membre est obsolète
 			string Settings = PlayerSettings.GetScriptingDefineSymbolsForGroup(Platform );
-			
+#pragma warning restore CS0618 // Le type ou le membre est obsolète
+
 			bool HasChanged = false;
 			List<string> symbols = new List<string>( Settings.Split(';'));
 			
@@ -133,7 +135,9 @@ namespace I2.Loc
 						if (i>0) Settings += ";";
 						Settings += symbols[i];
 					}
+#pragma warning disable CS0618 // Le type ou le membre est obsolète
 					PlayerSettings.SetScriptingDefineSymbolsForGroup(Platform, Settings );
+#pragma warning restore CS0618 // Le type ou le membre est obsolète
 				}
 				catch (Exception)
 				{

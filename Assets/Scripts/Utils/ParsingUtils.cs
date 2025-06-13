@@ -115,14 +115,14 @@ public static class ParsingUtils
 		};
 	}
 
-	public static EventType MapServerEventType (string serverType)
+	public static EventDataType MapServerEventType (string serverType)
 	{
 		return serverType switch
 		{
-			"FixedDay" => EventType.FixedDay,
-			"RequireTrue" => EventType.RequireTrue,
-			"Random" => EventType.Random,
-			_ => EventType.None
+			"FixedDay" => EventDataType.FixedDay,
+			"RequireTrue" => EventDataType.RequireTrue,
+			"Random" => EventDataType.Random,
+			_ => EventDataType.None
 		};
 	}
 

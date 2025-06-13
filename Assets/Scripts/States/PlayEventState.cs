@@ -50,7 +50,7 @@ public class PlayEventState : StateCommand
 			_todayPlayedEventsName.Add(selectedEvent.name);
 			selectedEvent.isUsed = true;
 
-			if (selectedEvent.type == EventType.Random)
+			if (selectedEvent.type == EventDataType.Random)
 				_randomEventPlayed = true;
 
 			PlayEvent(selectedEvent);
@@ -79,7 +79,7 @@ public class PlayEventState : StateCommand
 	{
 		ApplyResult(eventData.result);
 
-		if (eventData.type == EventType.Random)
+		if (eventData.type == EventDataType.Random)
 			GameManager.Instance.eventsManager.UpdateRandomEventPlayedTodaySaveData(true);
 
 		GameManager.Instance.eventsManager.UpdateEventsPlayedTodaySaveData(_todayPlayedEventsName);

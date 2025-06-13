@@ -18,7 +18,7 @@ public class GameSimulator : EditorWindow
 	public class EventRow
 	{
 		public string name;
-		public EventType type;
+		public EventDataType type;
 		public int priority;
 		public int randomWeight;
 		public int day = -1;
