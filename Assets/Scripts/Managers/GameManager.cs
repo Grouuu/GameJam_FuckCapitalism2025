@@ -164,7 +164,7 @@ public class GameManager : MonoBehaviour
 
 	private async void StartGame ()
 	{
-		await animationsManager.PlayAnimation(GameAnimationKey.Intro);
+		await animationsManager.PlayAnimation(GameAnimationKey.IntroResilience);
 
 		saveManager.AddToSaveData(SaveItemKey.RunStarted, true);
 

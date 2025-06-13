@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum GameAnimationKey
 {
-	Intro,
+	IntroResilience,
 }
 
 public class GameAnimation : MonoBehaviour
