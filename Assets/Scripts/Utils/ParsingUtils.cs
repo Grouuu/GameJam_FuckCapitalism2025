@@ -282,8 +282,8 @@ public static class ParsingUtils
 			int endOffset = 2;
 
 			EditVarMax editVarMax = new();
-			editVarMax.varId = MapServerVarId(jsonData[0].Trim());
-			editVarMax.setMax = int.Parse(jsonData[1].Trim());
+			editVarMax.varId = MapServerVarId(jsonData[index].Trim());
+			editVarMax.setMax = int.Parse(jsonData[index + 1].Trim());
 
 			return (index + endOffset, editVarMax);
 		});
@@ -297,11 +297,55 @@ public static class ParsingUtils
 			int endOffset = 3;
 
 			EditBuildingProgress editBuildingProgress = new();
-			editBuildingProgress.progress = int.Parse(jsonData[0].Trim());
-			editBuildingProgress.isBuilt = bool.Parse(jsonData[1].Trim());
+			editBuildingProgress.buildingName = jsonData[index].Trim();
+			editBuildingProgress.progress = int.Parse(jsonData[index + 1].Trim());
+			editBuildingProgress.isBuilt = bool.Parse(jsonData[index + 2].Trim());
 
 			return (index + endOffset, editBuildingProgress);
 		});
+	}
+
+	public static (EditAnimations, EditAnimations) ParseEditAnimations (string[] jsonData)
+	{
+		EditAnimations enterAnimations = new();
+		EditAnimations exitAnimations = new();
+
+		List<string> enterStartAnimation = new();
+		List<string> enterStopAnimation = new();
+		List<string> exitStartAnimation = new();
+		List<string> exitStopAnimation = new();
+
+		ParseModuleData<string>(jsonData, (string[] jsonData, int index) =>
+		{
+			// pattern: "animationName,boolIsStart,boolIsEnter"
+			int endOffset = 3;
+
+			string name = jsonData[index].Trim();
+			bool isStart = bool.Parse(jsonData[index].Trim());
+			bool isEnter = bool.Parse(jsonData[index].Trim());
+
+			List<string> animations = null;
+
+			if (isStart && isEnter)
+				animations = enterStartAnimation;
+			else if (isStart && !isEnter)
+				animations = exitStartAnimation;
+			else if (!isStart && isEnter)
+				animations = enterStopAnimation;
+			else if (!isStart && !isEnter)
+				animations = exitStopAnimation;
+
+			animations.Add(name);
+
+			return (index + endOffset, null);
+		});
+
+		enterAnimations.startAnimations = enterStartAnimation.ToArray();
+		enterAnimations.stopAnimations = enterStopAnimation.ToArray();
+		exitAnimations.stopAnimations = exitStartAnimation.ToArray();
+		exitAnimations.stopAnimations = exitStopAnimation.ToArray();
+
+		return (enterAnimations, exitAnimations);
 	}
 
 	public static ProductionMultiplierData[] ParseProductionMultipliers (string[] jsonData)
@@ -312,8 +356,8 @@ public static class ParsingUtils
 			int endOffset = 2;
 
 			ProductionMultiplierData productionMultiplier = new();
-			productionMultiplier.varId = MapServerVarId(jsonData[0].Trim());
-			productionMultiplier.multiplier = int.Parse(jsonData[1].Trim());
+			productionMultiplier.varId = MapServerVarId(jsonData[index].Trim());
+			productionMultiplier.multiplier = int.Parse(jsonData[index + 1].Trim());
 
 			return (index + endOffset, productionMultiplier);
 		});

@@ -3081,7 +3081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    key: 0
+    name: IntroResilienceShip
     isPersistent: 1
   animate: {fileID: 1269874607}
   splineIntro: {fileID: 1522547209}

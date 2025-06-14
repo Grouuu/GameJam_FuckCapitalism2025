@@ -81,6 +81,7 @@ public class PlayDialogState : StateCommand
 		await GameManager.Instance.saveManager.SaveData();
 
 		dialogData.GenerateResultValue();
+		dialogData.UpdateEnterAnimations();
 
 		DialogPanelUIData panelData = FormatDialogPanelRequestTexts(characterData, dialogData);
 		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => OnYes(characterData, dialogData), () => OnNo(characterData, dialogData));
@@ -90,36 +91,48 @@ public class PlayDialogState : StateCommand
 	{
 		ApplyResult(dialogData.yesResult);
 
-		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData("");
-		GameManager.Instance.charactersManager.UpdateDialogsUsedSaveData();
-		GameManager.Instance.charactersManager.UpdateCharactersPlayedTodaySaveData(_todayPlayedCharactersName);
-		GameManager.Instance.charactersManager.UpdateTotalDialogPlayedTodaySaveData(_todayPlayedDialogTotal);
-		await GameManager.Instance.saveManager.SaveData();
+		dialogData.UpdateYesEnterAnimations();
 
-		PlayResponse(characterData, dialogData, dialogData.yesResult);
+		await SaveAnswer();
+
+		PlayResponse(characterData, dialogData, dialogData.yesResult, true);
 	}
 
 	private async void OnNo (CharacterData characterData, DialogData dialogData)
 	{
 		ApplyResult(dialogData.noResult);
 
+		dialogData.UpdateNoEnterAnimations();
+
+		await SaveAnswer();
+
+		PlayResponse(characterData, dialogData, dialogData.noResult, false);
+	}
+
+	private async Awaitable SaveAnswer ()
+	{
 		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData("");
 		GameManager.Instance.charactersManager.UpdateDialogsUsedSaveData();
 		GameManager.Instance.charactersManager.UpdateCharactersPlayedTodaySaveData(_todayPlayedCharactersName);
 		GameManager.Instance.charactersManager.UpdateTotalDialogPlayedTodaySaveData(_todayPlayedDialogTotal);
 		await GameManager.Instance.saveManager.SaveData();
-
-		PlayResponse(characterData, dialogData, dialogData.noResult);
 	}
 
-	private void PlayResponse (CharacterData characterData, DialogData dialogData, DialogResultData result)
+	private void PlayResponse (CharacterData characterData, DialogData dialogData, DialogResultData result, bool isYes)
 	{
 		DialogPanelUIData panelData = FormatDialogPanelResponseTexts(characterData, dialogData, result);
-		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => EndDialog());
+		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => EndDialog(dialogData, isYes));
 	}
 
-	private void EndDialog ()
+	private void EndDialog (DialogData dialogData, bool isYes)
 	{
+		dialogData.UpdateExitAnimations();
+
+		if (isYes)
+			dialogData.UpdateYesExitAnimations();
+		else
+			dialogData.UpdateNoExitAnimations();
+
 		if (GameManager.Instance.endingsManager.CheckLose())
 		{
 			// no need to save

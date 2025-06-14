@@ -12,6 +12,8 @@ public class EventData
     public bool isRepeateable;
     public RequirementData requirements;
     public ResultData result;
+    public EditAnimations enterAnimations;
+    public EditAnimations exitAnimations;
 
     // runtime values
     public int day = -1;
@@ -47,6 +49,16 @@ public class EventData
     public void GenerateResultValue ()
     {
         result.UpdateResult();
+    }
+
+    public void UpdateEnterAnimations ()
+    {
+        GameManager.Instance.animationsManager.UpdateAnimations(enterAnimations);
+    }
+
+    public void UpdateExitAnimations ()
+    {
+        GameManager.Instance.animationsManager.UpdateAnimations(exitAnimations);
     }
 
 }

@@ -66,8 +66,13 @@ public class EndingsManager : MonoBehaviour
 
 		UpdateSaveData();
 
+		ending.UpdateEnterAnimations();
+
 		EventPanelUIData panelData = FormatPanelData(ending);
-		GameManager.Instance.uiManager.ShowEventPanel(panelData, onContinue);
+		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => {
+			ending.UpdateExitAnimations();
+			onContinue();
+		});
 	}
 
 	public void ShowLose (Action onContinue)
@@ -81,8 +86,13 @@ public class EndingsManager : MonoBehaviour
 			return;
 		}
 
+		ending.UpdateEnterAnimations();
+
 		EventPanelUIData panelData = FormatPanelData(ending);
-		GameManager.Instance.uiManager.ShowEventPanel(panelData, onContinue);
+		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => {
+			ending.UpdateExitAnimations();
+			onContinue();
+		});
 	}
 
 	public void UpdateSaveData ()

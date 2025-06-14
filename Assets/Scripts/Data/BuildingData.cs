@@ -12,6 +12,7 @@ public class BuildingData
     public ResultVarChange[] production;
     public ProductionMultiplierData[] productionMultipliers;
 
+    // runtime values
     public int progress = 0;
     public bool isBuilt = false;
 

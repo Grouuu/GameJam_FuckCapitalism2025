@@ -11,18 +11,21 @@ public class DialogDatabaseData
     public string REQUEST { get; set; }
     public bool REPEATABLE { get; set; }
     public string[] REQUIREMENT { get; set; }
-    public string YES_TEXT { get; set; }
+	public string[] EDIT_ANIMS { get; set; }
+	public string YES_TEXT { get; set; }
     public string[] YES_RESULT_VARS { get; set; }
     public string[] YES_RESULT_RESOURCES { get; set; }
     public string[] YES_RESULT_EVENT_DAY { get; set; }
     public string[] YES_RESULT_VAR_MAX { get; set; }
     public string[] YES_RESULT_BUILDING_PROGRESS { get; set; }
+    public string[] YES_EDIT_ANIMS { get; set; }
     public string NO_TEXT { get; set; }
     public string[] NO_RESULT_VARS { get; set; }
     public string[] NO_RESULT_RESOURCES { get; set; }
     public string[] NO_RESULT_EVENT_DAY { get; set; }
 	public string[] NO_RESULT_VAR_MAX { get; set; }
 	public string[] NO_RESULT_BUILDING_PROGRESS { get; set; }
+	public string[] NO_EDIT_ANIMS { get; set; }
 }
 
 public class DialogParser : DatabaseParser
@@ -77,6 +80,9 @@ public class DialogParser : DatabaseParser
 			jsonData.NO_RESULT_BUILDING_PROGRESS
 		));
 		dialog.noResult.response = jsonData.NO_TEXT;
+		(dialog.enterAnimations, dialog.exitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.EDIT_ANIMS);
+		(dialog.yesEnterAnimations, dialog.yesExitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.YES_EDIT_ANIMS);
+		(dialog.noEnterAnimations, dialog.noExitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.NO_EDIT_ANIMS);
 
 		return dialog;
 	}

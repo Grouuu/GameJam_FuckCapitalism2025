@@ -67,6 +67,7 @@ public class PlayEventState : StateCommand
 	{
 		// TODO generated results are not conserved on restart
 		eventData.GenerateResultValue();
+		eventData.UpdateEnterAnimations();
 
 		GameManager.Instance.eventsManager.UpdateEventStartedSaveData(eventData.name);
 		await GameManager.Instance.saveManager.SaveData();
@@ -78,6 +79,8 @@ public class PlayEventState : StateCommand
 	private async void EndEvent (EventData eventData)
 	{
 		ApplyResult(eventData.result);
+
+		eventData.UpdateExitAnimations();
 
 		if (eventData.type == EventDataType.Random)
 			GameManager.Instance.eventsManager.UpdateRandomEventPlayedTodaySaveData(true);

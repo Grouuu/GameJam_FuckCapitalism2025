@@ -10,6 +10,8 @@ public class EndingData
     public string headerFileName;
     public RequirementData requirements;
     public ResultData result;
+    public EditAnimations enterAnimations;
+    public EditAnimations exitAnimations;
 
     // runtime values
     public bool isUsed = false;
@@ -20,5 +22,15 @@ public class EndingData
             return true;
 
         return false;
+    }
+
+    public void UpdateEnterAnimations ()
+    {
+        GameManager.Instance.animationsManager.UpdateAnimations(enterAnimations);
+    }
+
+    public void UpdateExitAnimations ()
+    {
+        GameManager.Instance.animationsManager.UpdateAnimations(exitAnimations);
     }
 }

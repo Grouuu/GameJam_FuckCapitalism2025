@@ -21,6 +21,7 @@ public class EventDatabaseData
     public string[] RESULT_EVENT_DAY { get; set; }
     public string[] RESULT_VAR_MAX { get; set; }
 	public string[] RESULT_BUILDING_PROGRESS { get; set; }
+	public string[] EDIT_ANIMS { get; set; }
 }
 
 public class EventParser : DatabaseParser
@@ -70,6 +71,7 @@ public class EventParser : DatabaseParser
 			jsonData.RESULT_VAR_MAX,
 			jsonData.RESULT_BUILDING_PROGRESS
 		);
+		(eventData.enterAnimations, eventData.exitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.EDIT_ANIMS);
 
 		return eventData;
 	}

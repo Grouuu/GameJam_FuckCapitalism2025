@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
 	{
 		animationsManager.ResumeAnimations();
 
-		await animationsManager.PlayAnimation(GameAnimationKey.IntroResilience);
+		await animationsManager.PlayAnimation(GameAnimationName.IntroResilienceShip);
 
 		saveManager.AddToSaveData(SaveItemKey.RunStarted, true);
 

@@ -1,9 +1,15 @@
 using System;
 
+public class EditAnimations
+{
+	public string[] startAnimations;
+	public string[] stopAnimations;
+}
+
 [Serializable]
 public class AnimationData
 {
-	public GameAnimationKey key;
+	public string name;
 	public bool isPersistent;
 
 	// runtime

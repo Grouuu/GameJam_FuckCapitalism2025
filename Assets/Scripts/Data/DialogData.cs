@@ -25,6 +25,12 @@ public class DialogData
     public RequirementData requirements;
     public DialogResultData yesResult;
     public DialogResultData noResult;
+    public EditAnimations enterAnimations;
+    public EditAnimations exitAnimations;
+    public EditAnimations yesEnterAnimations;
+    public EditAnimations yesExitAnimations;
+    public EditAnimations noEnterAnimations;
+    public EditAnimations noExitAnimations;
 
     // runtime values
     public bool isUsed = false;
@@ -60,6 +66,36 @@ public class DialogData
 	{
         yesResult.UpdateResult();
         noResult.UpdateResult();
+    }
+
+    public void UpdateEnterAnimations ()
+	{
+        GameManager.Instance.animationsManager.UpdateAnimations(enterAnimations);
+	}
+
+    public void UpdateExitAnimations ()
+    {
+        GameManager.Instance.animationsManager.UpdateAnimations(exitAnimations);
+    }
+
+    public void UpdateYesEnterAnimations ()
+    {
+        GameManager.Instance.animationsManager.UpdateAnimations(yesEnterAnimations);
+    }
+
+    public void UpdateYesExitAnimations ()
+    {
+        GameManager.Instance.animationsManager.UpdateAnimations(yesExitAnimations);
+    }
+
+    public void UpdateNoEnterAnimations ()
+    {
+        GameManager.Instance.animationsManager.UpdateAnimations(noEnterAnimations);
+    }
+
+    public void UpdateNoExitAnimations ()
+    {
+        GameManager.Instance.animationsManager.UpdateAnimations(noExitAnimations);
     }
 
 }

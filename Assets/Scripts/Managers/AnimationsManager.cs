@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public enum GameAnimationKey
+public static class GameAnimationName
 {
-	IntroResilience,
+	public static string IntroResilienceShip = "IntroResilienceShip";
 }
 
 public class GameAnimation : MonoBehaviour
@@ -27,9 +27,18 @@ public class AnimationsManager : MonoBehaviour
 {
 	private GameAnimation[] _animations = { };
 
-	public async Awaitable PlayAnimation (GameAnimationKey key)
+	public void UpdateAnimations (EditAnimations animations)
 	{
-		GameAnimation animation = GetAnimationByKey(key);
+		foreach (string animationName in animations.startAnimations)
+			_ = PlayAnimation(animationName);
+
+		foreach (string animationName in animations.stopAnimations)
+			_ = StopAnimation(animationName);
+	}
+
+	public async Awaitable PlayAnimation (string animationName)
+	{
+		GameAnimation animation = GetAnimationByName(animationName);
 
 		if (animation == null)
 			return;
@@ -41,12 +50,12 @@ public class AnimationsManager : MonoBehaviour
 		await animation.Play();
 
 		if (!animation.data.isPersistent)
-			await StopAnimation(key);
+			await StopAnimation(animationName);
 	}
 
-	public async Awaitable StopAnimation (GameAnimationKey key)
+	public async Awaitable StopAnimation (string animationName)
 	{
-		GameAnimation animation = GetAnimationByKey(key);
+		GameAnimation animation = GetAnimationByName(animationName);
 
 		if (animation == null)
 			return;
@@ -58,9 +67,9 @@ public class AnimationsManager : MonoBehaviour
 		await animation.Stop();
 	}
 
-	public GameAnimation GetAnimationByKey (GameAnimationKey key)
+	public GameAnimation GetAnimationByName (string animationName)
 	{
-		return _animations.FirstOrDefault(entry => entry.data.key == key);
+		return _animations.FirstOrDefault(entry => entry.data.name == animationName);
 	}
 
 	public void ResumeAnimations ()
@@ -76,13 +85,13 @@ public class AnimationsManager : MonoBehaviour
 
 	public void UpdateSaveData ()
 	{
-		List<(GameAnimationKey, bool)> animationsState = new();
+		List<(string, bool)> animationsState = new();
 
 		foreach (GameAnimation animation in _animations)
 		{
 			// only save persistent animations
 			if (animation.data.isPersistent)
-				animationsState.Add((animation.data.key, animation.data.isRunning));
+				animationsState.Add((animation.data.name, animation.data.isRunning));
 		}
 
 		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.AnimationsState, animationsState);
@@ -90,18 +99,18 @@ public class AnimationsManager : MonoBehaviour
 
 	public void ApplySave ()
 	{
-		List<(GameAnimationKey, bool)> animationsState = GameManager.Instance.saveManager.GetSaveData<List<(GameAnimationKey, bool)>>(SaveItemKey.AnimationsState);
+		List<(string, bool)> animationsState = GameManager.Instance.saveManager.GetSaveData<List<(string, bool)>>(SaveItemKey.AnimationsState);
 
 		if (animationsState == null)
 			return;
 
-		foreach ((GameAnimationKey key, bool isRunning) in animationsState)
+		foreach ((string name, bool isRunning) in animationsState)
 		{
-			GameAnimation animation = GetAnimationByKey(key);
+			GameAnimation animation = GetAnimationByName(name);
 
 			if (animation == null)
 			{
-				Debug.LogWarning($"Missing animation with key: {key}");
+				Debug.LogWarning($"Missing animation with name: {name}");
 				continue;
 			}
 
