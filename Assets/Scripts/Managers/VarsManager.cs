@@ -389,6 +389,8 @@ public class VarsManager : MonoBehaviour
 		if (varData.type == GameVarType.CheckVar)
 			return;
 
+		// do not trigger any save from here, the saveManager is not ready at start
+
 		if (varData.varId == GameVarId.Food || varData.varId == GameVarId.Population)
 		{
 			int food = GetVarValue(GameVarId.Food);

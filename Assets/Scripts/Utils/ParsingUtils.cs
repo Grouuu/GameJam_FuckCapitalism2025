@@ -74,6 +74,8 @@ public static class ParsingUtils
 		{ GameVarId.Station_Repair_Gate, "Station_Repair_Gate" },
 
 		{ GameVarId.RemainingPopulationRoom, "RemainingPopulationRoom" },
+		{ GameVarId.Chantara_Ship_State, "Chantara_Ship_State" },
+		{ GameVarId.Trader_Ship_State, "Trader_Ship_State" },
 	};
 
 	public static GameVarId MapServerVarId (string serverId)
