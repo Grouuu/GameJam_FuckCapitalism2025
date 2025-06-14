@@ -27,6 +27,7 @@ public static class SaveItemKey
 	public static string RandomEventPlayed = "RandomEventPlayed";           // bool
 	public static string EndingsUsed = "EndingsUsed";						// List<string>
 	public static string BuildingsState = "BuildingsState";					// List<(string, bool, int)>
+	public static string AnimationsState = "AnimationsState";				// List<(GameAnimationKey, bool)>
 
 	public static string[] ProtectedKeys = new[]
 	{
@@ -53,6 +54,7 @@ public class SaveManager : MonoBehaviour
 	private string _savePath;
 	private bool _saveLoaded = false;
 	private bool _saveInProgress = false;
+	private bool _savePending = false;
 
 	public void Init ()
 	{
@@ -146,7 +148,8 @@ public class SaveManager : MonoBehaviour
 	{
 		if (_saveInProgress)
 		{
-			Debug.LogWarning($"Save already in progress, call ignored");
+			Debug.LogWarning($"Save already in progress, call queued");
+			_savePending = true;
 			return;
 		}
 
@@ -178,6 +181,12 @@ public class SaveManager : MonoBehaviour
 		}
 
 		_saveInProgress = false;
+
+		if (_savePending)
+		{
+			_savePending = false;
+			_ = SaveData();
+		}
 	}
 
 	public async Awaitable DeleteGameSave ()
