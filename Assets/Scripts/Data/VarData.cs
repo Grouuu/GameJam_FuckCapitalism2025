@@ -14,9 +14,18 @@ public class VarData
 	public VarCompareValue lowThreshold;
 
 	// runtime values
-	public int currentValue;
+	public int previousValue;
+	public int currentValue {
+		get => _currentValue;
+		set {
+			previousValue = _currentValue;
+			_currentValue = value;
+		}
+	}
 
-	public bool isLow ()
+	private int _currentValue;
+
+	public bool IsLow ()
 	{
 		if (lowThreshold == null)
 			return false;

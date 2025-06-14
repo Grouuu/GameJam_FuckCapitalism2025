@@ -36,6 +36,9 @@ public enum GameVarId
 	// CheckType
 	FoodAfterConsumption,
 	NextBattlePreview,
+	RemainingPopulationRoom,
+	Chantara_Ship_State,
+	Trader_Ship_State,
 
 	// Tracking type
 	ControlFreeWill,
@@ -84,7 +87,6 @@ public enum GameVarId
 	Habitat_Building_Gate,
 	Habitat_Building_Progress,
 	Station_Repair_Gate,
-	RemainingPopulationRoom,
 }
 
 public enum CompareValueType
@@ -127,7 +129,7 @@ public class VarsManager : MonoBehaviour
 		foreach (VarData varData in _gameVars)
 		{
 			UpdateUIValue(varData);
-			UpdateCheckVars(varData, true);
+			UpdateCheckVars(varData);
 		}
 	}
 
@@ -202,10 +204,23 @@ public class VarsManager : MonoBehaviour
 		UpdateUIValue(varData);
 
 		if (!ignoreCheckVars)
-			UpdateCheckVars(varData, ignoreSave);
+			UpdateCheckVars(varData);
 
 		if (!ignoreSave)
 			UpdateSaveData();
+	}
+
+	public void SetOldValueToVar (GameVarId id, int oldValue)
+	{
+		if (id == GameVarId.None)
+			return;
+
+		VarData varData = GetVarData(id);
+
+		if (varData == null)
+			return;
+
+		varData.previousValue = oldValue;
 	}
 
 	public void SetValueMax (GameVarId id, int maxValue)
@@ -221,6 +236,7 @@ public class VarsManager : MonoBehaviour
 		varData.maxValue = maxValue;
 
 		UpdateUIValue(varData);
+		UpdateCheckVars(varData);
 	}
 
 	public bool IsVarLow (GameVarId id)
@@ -233,7 +249,7 @@ public class VarsManager : MonoBehaviour
 		if (varData == null)
 			return false;
 
-		return varData.isLow();
+		return varData.IsLow();
 	}
 
 	public string GetVarDisplayName (GameVarId id)
@@ -303,11 +319,15 @@ public class VarsManager : MonoBehaviour
 
 	public void UpdateSaveData ()
 	{
-		List<(GameVarId, int, int)> varsValue = new();
+		List<(GameVarId, int, int, int)> varsValue = new();
 		List<KeyValuePair<GameVarId, int>> startDayVarsValue = new();
 
 		foreach (VarData varData in _gameVars)
-			varsValue.Add((varData.varId, varData.currentValue, varData.maxValue));
+		{
+			// do not save CheckVars
+			if (varData.type != GameVarType.CheckVar)
+				varsValue.Add((varData.varId, varData.currentValue, varData.previousValue, varData.maxValue));
+		}
 
 		foreach (KeyValuePair<GameVarId, int> varData in _startDayResources)
 			startDayVarsValue.Add(varData);
@@ -318,14 +338,15 @@ public class VarsManager : MonoBehaviour
 
 	public void ApplySave ()
 	{
-		List<(GameVarId, int, int)> varsValue = GameManager.Instance.saveManager.GetSaveData<List<(GameVarId, int, int)>>(SaveItemKey.VarsValue);
+		List < (GameVarId, int, int, int)> varsValue = GameManager.Instance.saveManager.GetSaveData<List<(GameVarId, int, int, int)>>(SaveItemKey.VarsValue);
 		List<KeyValuePair<GameVarId, int>> startDayVarsValue = GameManager.Instance.saveManager.GetSaveData<List<KeyValuePair<GameVarId, int>>>(SaveItemKey.StartDayVarsValues);
 
 		if (varsValue != null)
 		{
-			foreach ((GameVarId varId, int value, int max) in varsValue)
+			foreach ((GameVarId varId, int value, int oldValue, int max) in varsValue)
 			{
 				SetValueToVar(varId, value, true);
+				SetOldValueToVar(varId, oldValue);
 				SetValueMax(varId, max);
 			}
 		}
@@ -359,7 +380,7 @@ public class VarsManager : MonoBehaviour
 		}
 	}
 
-	private void UpdateCheckVars(VarData varData, bool ignoreSave)
+	private void UpdateCheckVars(VarData varData)
 	{
 		if (varData.type == GameVarType.CheckVar)
 			return;
@@ -368,7 +389,13 @@ public class VarsManager : MonoBehaviour
 		{
 			int food = GetVarValue(GameVarId.Food);
 			int population = GetVarValue(GameVarId.Population);
-			SetValueToVar(GameVarId.FoodAfterConsumption, food - population, ignoreSave, true);
+			SetValueToVar(GameVarId.FoodAfterConsumption, food - population, true, true);
+		}
+		
+		if (varData.varId == GameVarId.Population)
+		{
+			VarData populationData = GetVarData(GameVarId.Population);
+			SetValueToVar(GameVarId.RemainingPopulationRoom, populationData.maxValue - populationData.currentValue, true, true);
 		}
 	}
 
