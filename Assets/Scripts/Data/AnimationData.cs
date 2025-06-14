@@ -2,8 +2,8 @@ using System;
 
 public class EditAnimations
 {
-	public string[] startAnimations;
-	public string[] stopAnimations;
+	public string[] startAnimations = { };
+	public string[] stopAnimations = { };
 }
 
 [Serializable]
