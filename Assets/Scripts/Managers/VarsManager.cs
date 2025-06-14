@@ -192,9 +192,13 @@ public class VarsManager : MonoBehaviour
 		if (varData == null)
 			return;
 
-		// clamp
-		value = Mathf.Max(value, varData.minValue);
-		value = Mathf.Min(value, varData.maxValue);
+		// only UIVars have legit max values
+		if (varData.type == GameVarType.UIVar)
+		{
+			// clamp
+			value = Mathf.Max(value, varData.minValue);
+			value = Mathf.Min(value, varData.maxValue);
+		}
 
 		if (debug)
 			Debug.Log($"{id} is now {value} (old: {varData.currentValue})");
