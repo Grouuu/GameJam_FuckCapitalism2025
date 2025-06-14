@@ -20,6 +20,7 @@ public class EventDatabaseData
     public string[] RESULT_RESOURCES { get; set; }
     public string[] RESULT_EVENT_DAY { get; set; }
     public string[] RESULT_VAR_MAX { get; set; }
+	public string[] RESULT_BUILDING_PROGRESS { get; set; }
 }
 
 public class EventParser : DatabaseParser
@@ -66,7 +67,8 @@ public class EventParser : DatabaseParser
 			jsonData.RESULT_VARS,
 			jsonData.RESULT_RESOURCES,
 			jsonData.RESULT_EVENT_DAY,
-			jsonData.RESULT_VAR_MAX
+			jsonData.RESULT_VAR_MAX,
+			jsonData.RESULT_BUILDING_PROGRESS
 		);
 
 		return eventData;

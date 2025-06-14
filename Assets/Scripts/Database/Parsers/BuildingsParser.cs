@@ -15,7 +15,8 @@ public class BuildingsDatabaseData
     public string[] RESULT_RESOURCES { get; set; }
 	public string[] RESULT_EVENT_DAY { get; set; }
 	public string[] RESULT_VAR_MAX { get; set; }
-    public string[] DAILY_PRODUCTION_FLAT { get; set; }
+	public string[] RESULT_BUILDING_PROGRESS { get; set; }
+	public string[] DAILY_PRODUCTION_FLAT { get; set; }
     public string[] PROD_MULTIPLIER { get; set; }
 }
 
@@ -59,7 +60,8 @@ public class BuildingsParser : DatabaseParser
 			jsonData.RESULT_VARS,
 			jsonData.RESULT_RESOURCES,
 			jsonData.RESULT_EVENT_DAY,
-			jsonData.RESULT_VAR_MAX
+			jsonData.RESULT_VAR_MAX,
+			jsonData.RESULT_BUILDING_PROGRESS
 		));
 		buildingData.production = ParsingUtils.ParseResultVarChanges(jsonData.DAILY_PRODUCTION_FLAT);
 		buildingData.productionMultipliers = ParsingUtils.ParseProductionMultipliers(jsonData.PROD_MULTIPLIER);

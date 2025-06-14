@@ -16,11 +16,13 @@ public class DialogDatabaseData
     public string[] YES_RESULT_RESOURCES { get; set; }
     public string[] YES_RESULT_EVENT_DAY { get; set; }
     public string[] YES_RESULT_VAR_MAX { get; set; }
+    public string[] YES_RESULT_BUILDING_PROGRESS { get; set; }
     public string NO_TEXT { get; set; }
     public string[] NO_RESULT_VARS { get; set; }
     public string[] NO_RESULT_RESOURCES { get; set; }
     public string[] NO_RESULT_EVENT_DAY { get; set; }
 	public string[] NO_RESULT_VAR_MAX { get; set; }
+	public string[] NO_RESULT_BUILDING_PROGRESS { get; set; }
 }
 
 public class DialogParser : DatabaseParser
@@ -63,14 +65,16 @@ public class DialogParser : DatabaseParser
 			jsonData.YES_RESULT_VARS,
 			jsonData.YES_RESULT_RESOURCES,
 			jsonData.YES_RESULT_EVENT_DAY,
-			jsonData.YES_RESULT_VAR_MAX
+			jsonData.YES_RESULT_VAR_MAX,
+			jsonData.YES_RESULT_BUILDING_PROGRESS
 		));
 		dialog.yesResult.response = jsonData.YES_TEXT;
 		dialog.noResult = DialogResultData.CreateFrom(ParsingUtils.ParseResultData(
 			jsonData.NO_RESULT_VARS,
 			jsonData.NO_RESULT_RESOURCES,
 			jsonData.NO_RESULT_EVENT_DAY,
-			jsonData.NO_RESULT_VAR_MAX
+			jsonData.NO_RESULT_VAR_MAX,
+			jsonData.NO_RESULT_BUILDING_PROGRESS
 		));
 		dialog.noResult.response = jsonData.NO_TEXT;
 

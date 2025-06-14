@@ -23,6 +23,13 @@ public class EditVarMax
 	public int setMax = -1;
 }
 
+public class EditBuildingProgress
+{
+	public string buildingName;
+	public int progress;
+	public bool isBuilt;
+}
+
 public class ResultVarChange
 {
     public GameVarId varId;
@@ -42,6 +49,7 @@ public class ResultData
 {
     public EditEventDay[] eventsDay = { };
     public EditVarMax[] varsMax = { };
+    public EditBuildingProgress[] buildingsProgress = { };
 	public ResultVarChange[] varChanges = { };
 
     public void UpdateResult ()
@@ -52,9 +60,10 @@ public class ResultData
 
     public void ApplyResult ()
     {
-        UpdateResources();
-        UpdateEventsDay();
+		UpdateResources();
+		UpdateEventsDay();
 		UpdateVarsMax();
+		UpdateBuildingsProgress();
 	}
 
     private void UpdateResources ()
@@ -83,6 +92,15 @@ public class ResultData
 	{
 		foreach (EditVarMax varMax in varsMax)
 			GameManager.Instance.varsManager.SetValueMax(varMax.varId, varMax.setMax);
+	}
+
+	private void UpdateBuildingsProgress ()
+	{
+		foreach (EditBuildingProgress buildingProgress in buildingsProgress)
+		{
+			GameManager.Instance.buildingsManager.SetBuildingProgress(buildingProgress.buildingName, buildingProgress.progress);
+			GameManager.Instance.buildingsManager.SetBuildingIsBuilt(buildingProgress.buildingName, buildingProgress.isBuilt);
+		}
 	}
 
 }

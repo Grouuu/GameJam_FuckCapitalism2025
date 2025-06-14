@@ -20,35 +20,56 @@ public class BuildingsManager : MonoBehaviour
 		_buildings = buildings;
 	}
 
+	public void SetBuildingProgress (string buildingName, int progress)
+	{
+		BuildingData buildingData = GetBuildingByName(buildingName);
+
+		if (buildingData == null)
+			return;
+
+		buildingData.progress = progress;
+
+		UpdateBuildingVisual(buildingName);
+		UpdateSaveData();
+	}
+
+	public void SetBuildingIsBuilt (string buildingName, bool isBuilt)
+	{
+		BuildingData buildingData = GetBuildingByName(buildingName);
+
+		if (buildingData == null)
+			return;
+
+		buildingData.isBuilt = isBuilt;
+
+		UpdateSaveData();
+	}
+
 	public void UpdateSaveData ()
 	{
-		// TODO use it
-
-		List<string> buildingsBuilt = new();
+		List<(string, bool, int)> buildingsState = new();
 
 		foreach (BuildingData buildingData in _buildings)
-		{
-			if (buildingData.isBuilt)
-				buildingsBuilt.Add(buildingData.name);
-		}
+			buildingsState.Add((buildingData.name, buildingData.isBuilt, buildingData.progress));
 
-		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.BuildingsBuilt, buildingsBuilt);
+		GameManager.Instance.saveManager.AddToSaveData(SaveItemKey.BuildingsState, buildingsState);
 	}
 
 	public void ApplySave ()
 	{
-		List<string> buildingsBuilt = GameManager.Instance.saveManager.GetSaveData<List<string>>(SaveItemKey.BuildingsBuilt);
+		List<(string, bool, int)> buildingsState = GameManager.Instance.saveManager.GetSaveData<List<(string, bool, int)>>(SaveItemKey.BuildingsState);
 
-		if (buildingsBuilt != null)
+		if (buildingsState != null)
 		{
-			foreach (string buildingName in buildingsBuilt)
+			foreach ((string buildingName, bool isBuilt, int progress) in buildingsState)
 			{
 				BuildingData buildingData = GetBuildingByName(buildingName);
 
-				if (buildingData == null)
-					continue;
-
-				buildingData.isBuilt = true;
+				if (buildingData != null)
+				{
+					buildingData.isBuilt = isBuilt;
+					buildingData.progress = progress;
+				}
 			}
 		}
 	}
@@ -75,5 +96,11 @@ public class BuildingsManager : MonoBehaviour
 		}
 
 		return multipliers.ToArray();
+	}
+
+	private void UpdateBuildingVisual (string buildingName)
+	{
+		BuildingData buildingData = GetBuildingByName(buildingName);
+		// TODO
 	}
 }

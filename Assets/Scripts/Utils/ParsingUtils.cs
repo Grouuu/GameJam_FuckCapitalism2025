@@ -156,7 +156,7 @@ public static class ParsingUtils
 		return require;
 	}
 
-	public static ResultData ParseResultData (string[] changeVars, string[] changeResources, string[] editEventsDay, string[] editVarsMax)
+	public static ResultData ParseResultData (string[] changeVars, string[] changeResources, string[] editEventsDay, string[] editVarsMax, string[] editBuildingsProgress)
 	{
 		string[] varsChanges = { };
 
@@ -170,6 +170,7 @@ public static class ParsingUtils
 		result.varChanges = ParseResultVarChanges(varsChanges);
 		result.eventsDay = ParseEditEventDays(editEventsDay);
 		result.varsMax = ParseEditVarMaxs(editVarsMax);
+		result.buildingsProgress = ParseEditBuildingsProgress(editBuildingsProgress);
 		return result;
 	}
 
@@ -285,6 +286,21 @@ public static class ParsingUtils
 			editVarMax.setMax = int.Parse(jsonData[1].Trim());
 
 			return (index + endOffset, editVarMax);
+		});
+	}
+
+	public static EditBuildingProgress[] ParseEditBuildingsProgress (string[] jsonData)
+	{
+		return ParseModuleData(jsonData, (string[] jsonData, int index) =>
+		{
+			// pattern: "buildingName,intProgress,boolIsBuilt"
+			int endOffset = 3;
+
+			EditBuildingProgress editBuildingProgress = new();
+			editBuildingProgress.progress = int.Parse(jsonData[0].Trim());
+			editBuildingProgress.isBuilt = bool.Parse(jsonData[1].Trim());
+
+			return (index + endOffset, editBuildingProgress);
 		});
 	}
 
