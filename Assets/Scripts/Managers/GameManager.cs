@@ -160,10 +160,13 @@ public class GameManager : MonoBehaviour
 		eventsManager.ApplySave();
 		endingsManager.ApplySave();
 		buildingsManager.ApplySave();
+		animationsManager.ApplySave();
 	}
 
 	private async void StartGame ()
 	{
+		animationsManager.ResumeAnimations();
+
 		await animationsManager.PlayAnimation(GameAnimationKey.IntroResilience);
 
 		saveManager.AddToSaveData(SaveItemKey.RunStarted, true);

@@ -3080,7 +3080,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6b9c090aa6eb641b81313771109a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationKey: 0
+  data:
+    key: 0
+    isPersistent: 1
   animate: {fileID: 1269874607}
   splineIntro: {fileID: 1522547209}
   splineLoop: {fileID: 1001012836}
@@ -5002,7 +5004,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -647.00024, y: -57.999985}
+  m_AnchoredPosition: {x: -647.00024, y: -58}
   m_SizeDelta: {x: -1590.0004, y: -116.00001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &435625034
@@ -8793,7 +8795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -647, y: -180.34727}
+  m_AnchoredPosition: {x: -647, y: -180.34729}
   m_SizeDelta: {x: -1590, y: -1002.1907}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &754178916

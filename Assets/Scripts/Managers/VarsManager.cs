@@ -342,7 +342,7 @@ public class VarsManager : MonoBehaviour
 
 	public void ApplySave ()
 	{
-		List < (GameVarId, int, int, int)> varsValue = GameManager.Instance.saveManager.GetSaveData<List<(GameVarId, int, int, int)>>(SaveItemKey.VarsValue);
+		List<(GameVarId, int, int, int)> varsValue = GameManager.Instance.saveManager.GetSaveData<List<(GameVarId, int, int, int)>>(SaveItemKey.VarsValue);
 		List<KeyValuePair<GameVarId, int>> startDayVarsValue = GameManager.Instance.saveManager.GetSaveData<List<KeyValuePair<GameVarId, int>>>(SaveItemKey.StartDayVarsValues);
 
 		if (varsValue != null)

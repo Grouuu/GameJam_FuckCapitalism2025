@@ -14,8 +14,12 @@ public class IntroResilienceAnimation : GameAnimation
 	public EasingMode loopEase;
 	public int loopSpeed;
 
-	public override async Awaitable Play ()
+	public override async Awaitable Play (bool isResumed)
 	{
+		// do not resume it automatically
+		if (isResumed)
+			return;
+
 		bool playIntro = !SaveManager.IsRunStarted;
 
 		if (playIntro)
