@@ -61,7 +61,10 @@ public class ReportPanelUI : MonoBehaviour
 		onceClickCallback = null;
 
 		if (GameManager.Instance != null)
+		{
 			GameManager.Instance.uiManager.RemoveResourceValues(resourcesParent);
+			GameManager.Instance.uiManager.RemoveResourceValues(productionParent);
+		}
 	}
 
 	/**
