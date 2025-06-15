@@ -94,7 +94,7 @@ public class DailyReportState : StateCommand
 	private string GetFoodDiff ()
 	{
 		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
-		int food = GameManager.Instance.varsManager.GetVarValue(GameVarId.Food);
+		int food = GetTotalFoodAvailable();
 		int populationLoss = GetPopulationLossByFood();
 
 		if (population > food)
@@ -133,7 +133,7 @@ public class DailyReportState : StateCommand
 	private int GetFoodConsuption ()
 	{
 		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
-		int food = GameManager.Instance.varsManager.GetVarValue(GameVarId.Food);
+		int food = GetTotalFoodAvailable();
 
 		if (population > food)
 			return -food;
@@ -153,12 +153,29 @@ public class DailyReportState : StateCommand
 	private int GetPopulationLossByFood ()
 	{
 		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
-		int food = GameManager.Instance.varsManager.GetVarValue(GameVarId.Food);
+		int food = GetTotalFoodAvailable();
 
 		if (population > food)
 			return population - food;
 
 		return 0;
+	}
+
+	private int GetTotalFoodAvailable ()
+	{
+		int currentFood = GameManager.Instance.varsManager.GetVarValue(GameVarId.Food);
+		int productedFood = 0;
+
+		foreach ((GameVarId varId, int value) in production)
+		{
+			if (varId == GameVarId.Food)
+			{
+				productedFood = value;
+				break;
+			}
+		}
+
+		return currentFood + productedFood;
 	}
 
 }
