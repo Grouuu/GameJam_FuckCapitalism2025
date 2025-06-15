@@ -12,9 +12,7 @@ public enum ReportPanelButtonId
 
 public class ReportPanelUIData
 {
-	public string dayLabel;
 	public int dayValue;
-	public string description;
 	public string foodChange;
 	public string populationChange;
 	public (GameVarId, int)[] production;
@@ -36,9 +34,7 @@ public class ReportPanelUI : MonoBehaviour
 
 	public void Show (ReportPanelUIData panelContent)
 	{
-		dayLabelUI.text = panelContent.dayLabel;
 		dayCountUI.text = $"{panelContent.dayValue}";
-		descriptionUI.text = panelContent.description;
 		foodChange.text = panelContent.foodChange;
 		populationChange.text = panelContent.populationChange;
 

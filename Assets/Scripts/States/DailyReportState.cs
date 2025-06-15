@@ -1,3 +1,4 @@
+using I2.Loc;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -82,9 +83,7 @@ public class DailyReportState : StateCommand
 
 		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);
 
-		panelData.dayLabel = "DAY"; // translate
 		panelData.dayValue = currentDay;
-		panelData.description = "The sensors have gathered the following variations:"; // translate
 		panelData.foodChange = GetFoodDiff();
 		panelData.populationChange = GetPopulationDiff();
 		panelData.production = production;
@@ -99,21 +98,36 @@ public class DailyReportState : StateCommand
 		int populationLoss = GetPopulationLossByFood();
 
 		if (population > food)
-			return $"Not enough food: -{populationLoss} <sprite name=\"Population\"> left"; // translate
+		{
+			string text = LocalizationManager.GetTranslation("UI_REPORT_FOOD_NOT_ENOUGH");
+			return text.Replace("<value>", $"{populationLoss}");
+		}
 		else
-			return $"Everyone is fed: -{population} <sprite name=\"Food\">"; // translate
+		{
+			string text = LocalizationManager.GetTranslation("UI_REPORT_FOOD_ENOUGH");
+			return text.Replace("<value>", $"{population}");
+		}
 	}
 
 	private string GetPopulationDiff ()
 	{
 		int populationGrowth = GetPopulationGrowth();
 
+
 		if (populationGrowth > 0)
-			return $"Quality of life is high: +{populationGrowth} <sprite name=\"Population\">"; // translate
+		{
+			string text = LocalizationManager.GetTranslation("UI_REPORT_QOL_ENOUGH");
+			return text.Replace("<value>", $"{populationGrowth}");
+		}
 		else if (populationGrowth == 0)
-			return $"No newcomers"; // translate
+		{
+			return LocalizationManager.GetTranslation("UI_REPORT_QOL_MEDIAN");
+		}
 		else
-			return $"Quality of life is low: {populationGrowth} <sprite name=\"Population\">"; // translate
+		{
+			string text = LocalizationManager.GetTranslation("UI_REPORT_QOL_NOT_ENOUGH");
+			return text.Replace("<value>", $"{populationGrowth}");
+		}
 	}
 
 	private int GetFoodConsuption ()

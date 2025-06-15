@@ -65,6 +65,149 @@ MonoBehaviour:
       - Compris
       Flags: 0000
       Languages_Touch: []
+    - Term: UI_REPORT_DIFF_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - 'The sensors have gathered the following variations:'
+      - "Les senseurs ont compil\xE9s les variations suivantes :"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_REPORT_PROD_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Inhabitants daily production:'
+      - "Production journali\xE8re :"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_REPORT_FOOD_ENOUGH
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Everyone is fed: -<value> <sprite name=\"Food\">'
+      - 'Tout le monde est nourri : -<value> <sprite name=\"Food\">'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_REPORT_FOOD_NOT_ENOUGH
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Not enough food: -<value> <sprite name=\"Population\"> left'
+      - 'Pas assez de nourriture : -<value> <sprite name=\"Population\"> left'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_REPORT_QOL_ENOUGH
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Quality of life is high: +<value> <sprite name=\"Population\">'
+      - "La qualit\xE9 de vie est haute : +<value> <sprite name=\\\"Population\\\">"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_REPORT_QOL_NOT_ENOUGH
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Quality of life is low: <value> <sprite name=\"Population\">'
+      - "La qualit\xE9 de vie est basse : <value> <sprite name=\\\"Population\\\">"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_REPORT_QOL_MEDIAN
+      TermType: 0
+      Description: 
+      Languages:
+      - No newcomers
+      - Pas de nouveaux arrivants
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_BT_NEXT_DAY
+      TermType: 0
+      Description: 
+      Languages:
+      - Next day
+      - Jour suivant
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_OPTIONS_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - 'OPTIONS
+
+'
+      - OPTIONS
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_BT_MAIN_MENU
+      TermType: 0
+      Description: 
+      Languages:
+      - 'MAIN MENU
+
+'
+      - MENU PRINCIPAL
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_BT_CLOSE
+      TermType: 0
+      Description: 
+      Languages:
+      - 'CLOSE
+
+'
+      - FERMER
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_BT_NEW_GAME
+      TermType: 0
+      Description: 
+      Languages:
+      - NEW GAME
+      - NOUVELLE PARTIE
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_BT_EXIT
+      TermType: 0
+      Description: 
+      Languages:
+      - Exit
+      - Quitter
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_DISCLAIMER
+      TermType: 0
+      Description: 
+      Languages:
+      - Made in a month for the Fuck Capitalism game jam 2025 by two gamedevs for
+        hire
+      - "Fait en un mois pour la Fuck Capitalism game jam 2025 par deux cr\xE9ateurs
+        de jeux en recherche de projets"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_CREDITS_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Credits:'
+      - "Cr\xE9dits :"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_CREDITS
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Grouuu: programming
+
+        Ouroboros: Design, story, art & music
+
+
+        100%
+        hand made without AI'
+      - "Grouuu: d\xE9veloppement\nOuroboros: design, narration, graphismes & musiques\n\n100%
+        fait main sans IA"
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
