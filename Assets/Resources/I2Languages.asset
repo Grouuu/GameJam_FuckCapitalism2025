@@ -16,18 +16,72 @@ MonoBehaviour:
     UserAgreesToHaveItOnTheScene: 0
     UserAgreesToHaveItInsideThePluginsFolder: 0
     GoogleLiveSyncIsUptoDate: 1
-    mTerms: []
+    mTerms:
+    - Term: UI_VAR_DAY_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - DAY
+      - JOUR
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_VAR_TRUST_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - <rotate="90">TRUST</rotate>
+      - <rotate="90">CONFIANCE</rotate>
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_BT_YES
+      TermType: 0
+      Description: 
+      Languages:
+      - YES
+      - OUI
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_BT_NO
+      TermType: 0
+      Description: 
+      Languages:
+      - NO
+      - NON
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_BT_CONTINUE
+      TermType: 0
+      Description: 
+      Languages:
+      - CONTINUE
+      - CONTINUER
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI_BT_ACKNOWLEDGED
+      TermType: 0
+      Description: 
+      Languages:
+      - Acknowledged
+      - Compris
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
-    mLanguages: []
+    mLanguages:
+    - Name: english
+      Code: en
+      Flags: 0
+    - Name: french
+      Code: fr
+      Flags: 0
     IgnoreDeviceLanguage: 0
     _AllowUnloadingLanguages: 0
-    Google_WebServiceURL: 
+    Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxE4LbyVg5j3wlC3qPKQNqn02vewBFKiOMN24sAEMeINH0Zu9_k58rrGVM6tAfLJKMI/exec
     Google_SpreadsheetKey: 
     Google_SpreadsheetName: 
     Google_LastUpdatedVersion: 
-    Google_Password: change_this
+    Google_Password: gv1685nn&:f58761&32dsf,az:!
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2
     GoogleUpdateSynchronization: 1
