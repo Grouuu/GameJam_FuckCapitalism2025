@@ -85,32 +85,32 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 'Everyone is fed: -<value> <sprite name=\"Food\">'
-      - 'Tout le monde est nourri : -<value> <sprite name=\"Food\">'
+      - 'Everyone is fed: -<value> <sprite name="Food">'
+      - 'Tout le monde est nourri : -<value> <sprite name="Food">'
       Flags: 0000
       Languages_Touch: []
     - Term: UI_REPORT_FOOD_NOT_ENOUGH
       TermType: 0
       Description: 
       Languages:
-      - 'Not enough food: -<value> <sprite name=\"Population\"> left'
-      - 'Pas assez de nourriture : -<value> <sprite name=\"Population\"> left'
+      - 'Not enough food: -<value> <sprite name="Population"> left'
+      - 'Pas assez de nourriture : -<value> <sprite name="Population"> left'
       Flags: 0000
       Languages_Touch: []
     - Term: UI_REPORT_QOL_ENOUGH
       TermType: 0
       Description: 
       Languages:
-      - 'Quality of life is high: +<value> <sprite name=\"Population\">'
-      - "La qualit\xE9 de vie est haute : +<value> <sprite name=\\\"Population\\\">"
+      - 'Quality of life is high: +<value> <sprite name="Population">'
+      - "La qualit\xE9 de vie est haute : +<value> <sprite name=\"Population\">"
       Flags: 0000
       Languages_Touch: []
     - Term: UI_REPORT_QOL_NOT_ENOUGH
       TermType: 0
       Description: 
       Languages:
-      - 'Quality of life is low: <value> <sprite name=\"Population\">'
-      - "La qualit\xE9 de vie est basse : <value> <sprite name=\\\"Population\\\">"
+      - 'Quality of life is low: <value> <sprite name="Population">'
+      - "La qualit\xE9 de vie est basse : <value> <sprite name=\"Population\">"
       Flags: 0000
       Languages_Touch: []
     - Term: UI_REPORT_QOL_MEDIAN
