@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ReportResourceValueUI : MonoBehaviour
+public class ResourceIconUI : MonoBehaviour
 {
 	public Image iconSprite;
 	public TextMeshProUGUI valueText;

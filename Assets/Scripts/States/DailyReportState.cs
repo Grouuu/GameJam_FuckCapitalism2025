@@ -1,5 +1,3 @@
-using I2.Loc;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DailyReportState : StateCommand
@@ -21,7 +19,7 @@ public class DailyReportState : StateCommand
 		production = GameManager.Instance.productionManager.GetProduction();
 
 		// first generate data with old resources value
-		ReportPanelUIData panelData = FormatReportPanelTexts();
+		DailyReportPanelUIData panelData = FormatReportPanelTexts();
 
 		// save state
 		await GameManager.Instance.saveManager.SaveData();
@@ -77,9 +75,9 @@ public class DailyReportState : StateCommand
 		GameManager.Instance.varsManager.AddValueToVar(GameVarId.Population, populationGrowth);
 	}
 
-	private ReportPanelUIData FormatReportPanelTexts ()
+	private DailyReportPanelUIData FormatReportPanelTexts ()
 	{
-		ReportPanelUIData panelData = new();
+		DailyReportPanelUIData panelData = new();
 
 		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);
 
@@ -99,13 +97,11 @@ public class DailyReportState : StateCommand
 
 		if (population > food)
 		{
-			string text = LocalizationManager.GetTranslation("UI_REPORT_FOOD_NOT_ENOUGH");
-			return text.Replace("{[VALUE]}", $"{populationLoss}");
+			return LocalizationUtils.GetText("UI_REPORT_FOOD_NOT_ENOUGH", LocCat.UI).ReplaceValue("VALUE", $"{populationLoss}");
 		}
 		else
 		{
-			string text = LocalizationManager.GetTranslation("UI_REPORT_FOOD_ENOUGH");
-			return text.Replace("{[VALUE]}", $"{population}");
+			return LocalizationUtils.GetText("UI_REPORT_FOOD_ENOUGH", LocCat.UI).ReplaceValue("VALUE", $"{population}");
 		}
 	}
 
@@ -116,17 +112,15 @@ public class DailyReportState : StateCommand
 
 		if (populationGrowth > 0)
 		{
-			string text = LocalizationManager.GetTranslation("UI_REPORT_QOL_ENOUGH");
-			return text.Replace("{[VALUE]}", $"{populationGrowth}");
+			return LocalizationUtils.GetText("UI_REPORT_QOL_ENOUGH", LocCat.UI).ReplaceValue("VALUE", $"{populationGrowth}");
 		}
 		else if (populationGrowth == 0)
 		{
-			return LocalizationManager.GetTranslation("UI_REPORT_QOL_MEDIAN");
+			return LocalizationUtils.GetText("UI_REPORT_QOL_MEDIAN", LocCat.UI);
 		}
 		else
 		{
-			string text = LocalizationManager.GetTranslation("UI_REPORT_QOL_NOT_ENOUGH");
-			return text.Replace("{[VALUE]}", $"{populationGrowth}");
+			return LocalizationUtils.GetText("UI_REPORT_QOL_NOT_ENOUGH", LocCat.UI).ReplaceValue("VALUE", $"{populationGrowth}");
 		}
 	}
 

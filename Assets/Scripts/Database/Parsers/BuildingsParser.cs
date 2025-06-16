@@ -51,8 +51,6 @@ public class BuildingsParser : DatabaseParser
 
 		buildingData.id = jsonData.ID;
 		buildingData.name = jsonData.NAME;
-		buildingData.displayName = jsonData.DISPLAY_NAME;
-		buildingData.description = jsonData.DESCRIPTION;
 		buildingData.constructionTime = jsonData.CONSTRUCTION_TIME;
 		buildingData.buildLimit = jsonData.BUILD_LIMIT;
 		buildingData.costs = ParsingUtils.ParseResultVarChanges(jsonData.COST);

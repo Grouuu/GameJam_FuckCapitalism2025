@@ -44,7 +44,6 @@ public class CharacterParser : DatabaseParser
 
 		characterData.id = jsonData.ID;
 		characterData.name = jsonData.NAME;
-		characterData.displayName = jsonData.DISPLAY_NAME;
 		characterData.avatarFileName = jsonData.FILE_NAME;
 		characterData.relatedGameVars = jsonData.MAIN_PROD
 			.Where(entry => !string.IsNullOrEmpty(entry))

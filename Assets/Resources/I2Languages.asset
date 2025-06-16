@@ -5718,12 +5718,12 @@ MonoBehaviour:
     - Name: french
       Code: fr
       Flags: 0
-    IgnoreDeviceLanguage: 0
+    IgnoreDeviceLanguage: 1
     _AllowUnloadingLanguages: 0
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxE4LbyVg5j3wlC3qPKQNqn02vewBFKiOMN24sAEMeINH0Zu9_k58rrGVM6tAfLJKMI/exec
     Google_SpreadsheetKey: 1BgSi0pcYXoZY8rZH2lPdD1uZCVBx7ubwf_pqjhvtcQQ
     Google_SpreadsheetName: I2Loc HOPE - Localization
-    Google_LastUpdatedVersion: 1750103591486
+    Google_LastUpdatedVersion: 1750103656436
     Google_Password: gv1685nn&:f58761&32dsf,az:!
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2
@@ -5734,4 +5734,4 @@ MonoBehaviour:
     Spreadsheet_LocalCSVSeparator: ','
     Spreadsheet_LocalCSVEncoding: utf-8
     Spreadsheet_SpecializationAsRows: 1
-    Spreadsheet_SortRows: 1
+    Spreadsheet_SortRows: 0

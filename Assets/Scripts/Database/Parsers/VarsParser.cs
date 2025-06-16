@@ -45,9 +45,9 @@ public class VarsParser : DatabaseParser
 		VarData varData = new();
 
 		varData.id = jsonData.ID;
+		varData.name = jsonData.NAME;
 		varData.varId = ParsingUtils.MapServerVarId(jsonData.NAME);
 		varData.type = ParsingUtils.MapServerVarType(jsonData.TYPE);
-		varData.displayName = jsonData.DISPLAY_NAME;
 		varData.iconFileName = jsonData.ICON_FILE_NAME;
 		varData.startValue = jsonData.START;
 		varData.currentValue = jsonData.START;

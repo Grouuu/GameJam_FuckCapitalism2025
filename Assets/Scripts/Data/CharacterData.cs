@@ -5,10 +5,11 @@ public class CharacterData
 {
 	public string id;
     public string name;
-    public string displayName;
 	public GameVarId[] relatedGameVars;
 	public string avatarFileName;
 	public RequirementData requirements;
+
+	public string displayName => LocalizationUtils.GetText(name, LocCat.CharactersNames);
 
 	public List<DialogData> characterDialogs = new();
 

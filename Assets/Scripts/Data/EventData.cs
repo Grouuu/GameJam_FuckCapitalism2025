@@ -5,8 +5,6 @@ public class EventData
     public string name;
     public EventDataType type;
     public int randomWeight;
-    public string title;
-    public string description;
     public string headerFileName;
     public int priority;
     public bool isRepeateable;
@@ -14,6 +12,9 @@ public class EventData
     public ResultData result;
     public EditAnimations enterAnimations;
     public EditAnimations exitAnimations;
+
+    public string title => LocalizationUtils.GetText(name, LocCat.EventsTitles);
+    public string description => LocalizationUtils.GetText(name, LocCat.EventsDescriptions);
 
     // runtime values
     public int day = -1;

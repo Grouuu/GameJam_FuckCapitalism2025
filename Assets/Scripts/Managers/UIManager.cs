@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
 
 	public DialogPanelUI dialogPanel => GetComponent<DialogPanelUI>();
 	public EventPanelUI eventPanel => GetComponent<EventPanelUI>();
-	public ReportPanelUI reportPanel => GetComponent<ReportPanelUI>();
+	public DailyReportPanelUI reportPanel => GetComponent<DailyReportPanelUI>();
 	public OptionsPanelUI optionsPanel => GetComponent<OptionsPanelUI>();
 
 	public void SetResourceValue (GameVarId id, int value, int max)
@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 		eventPanel.Show(panelData);
 	}
 
-	public void ShowReportPanel (ReportPanelUIData panelData, Action onContinue)
+	public void ShowReportPanel (DailyReportPanelUIData panelData, Action onContinue)
 	{
 		reportPanel.onceClickCallback = () => {
 			HideReportPanel();
@@ -97,7 +97,7 @@ public class UIManager : MonoBehaviour
 	{
 		// TODO use pool
 		GameObject item = Instantiate(prefabResourceIcon, parent);
-		ReportResourceValueUI resource = item.GetComponent<ReportResourceValueUI>();
+		ResourceIconUI resource = item.GetComponent<ResourceIconUI>();
 
 		resource.SetColor(color);
 		resource.SetIcon(varData.iconFileName);
@@ -107,9 +107,9 @@ public class UIManager : MonoBehaviour
 
 	public void RemoveResourceValues (Transform parent)
 	{
-		ReportResourceValueUI[] resources = parent.GetComponentsInChildren<ReportResourceValueUI>();
+		ResourceIconUI[] resources = parent.GetComponentsInChildren<ResourceIconUI>();
 
-		foreach (ReportResourceValueUI resource in resources)
+		foreach (ResourceIconUI resource in resources)
 		{
 			Destroy(resource.gameObject);
 		}

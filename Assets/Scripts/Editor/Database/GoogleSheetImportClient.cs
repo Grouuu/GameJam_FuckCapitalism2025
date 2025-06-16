@@ -20,7 +20,7 @@ public class GoogleSheetImportClient : GSpreadSheetsToJson
 		{ "float[]",		ParseFloatArray },
 		{ "bool[]",			ParseBoolArray },
 	};
-	private readonly string configPath = "Assets/Scripts/Database/DatabaseImporterConfig.asset";
+	private readonly string configPath = "Assets/Resources/DatabaseImporterConfig.asset";
 	private string outputFolder;
 
 	[MenuItem("Database/GoogleSheets to JSON")]

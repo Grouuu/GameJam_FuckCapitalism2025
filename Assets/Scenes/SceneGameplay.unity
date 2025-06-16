@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NON
+  m_text: NO
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -821,7 +821,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 102, y: -3}
-  m_SizeDelta: {x: 90.01, y: -30}
+  m_SizeDelta: {x: 75.01, y: -30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &78369017
 MonoBehaviour:
@@ -857,7 +857,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FERMER
+  m_text: 'CLOSE
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -1230,7 +1232,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: JOUR
+  m_text: DAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -1560,7 +1562,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 428, y: -322.03857}
-  m_SizeDelta: {x: 230.01, y: 45}
+  m_SizeDelta: {x: 204, y: 45}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &145067536
 MonoBehaviour:
@@ -1769,7 +1771,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OUI
+  m_text: YES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -1945,7 +1947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <rotate="90">CONFIANCE</rotate>
+  m_text: <rotate="90">TRUST</rotate>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c571c6570f2d3847b16fe880912d347, type: 2}
   m_sharedMaterial: {fileID: -2242326616365516283, guid: 0c571c6570f2d3847b16fe880912d347, type: 2}
@@ -5116,7 +5118,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 102, y: -3}
-  m_SizeDelta: {x: 180.01, y: -30}
+  m_SizeDelta: {x: 120.01, y: -30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &369206779
 MonoBehaviour:
@@ -5152,7 +5154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Jour suivant
+  m_text: Next day
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -5920,7 +5922,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Les senseurs ont compil\xE9s les variations suivantes:"
+  m_text: 'The sensors have gathered the following variations:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb4b868c35c41c0428a0b1f3d111cf52, type: 2}
   m_sharedMaterial: {fileID: 8021991795392894148, guid: eb4b868c35c41c0428a0b1f3d111cf52, type: 2}
@@ -6297,9 +6299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 2058246127}
-  dayLabelUI: {fileID: 1716696571}
   dayCountUI: {fileID: 837877075}
-  descriptionUI: {fileID: 477859163}
   foodChange: {fileID: 360574876}
   populationChange: {fileID: 776997131}
   resourcesParent: {fileID: 1698222223}
@@ -7713,8 +7713,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 115.005, y: -3}
-  m_SizeDelta: {x: 210.01, y: -30}
+  m_AnchoredPosition: {x: 102, y: -3}
+  m_SizeDelta: {x: 135.01, y: -30}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &629970554
 MonoBehaviour:
@@ -7750,7 +7750,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MENU PRINCIPAL
+  m_text: 'MAIN MENU
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -10250,7 +10252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 238.05501, y: -25.5}
+  m_AnchoredPosition: {x: 206.375, y: -25.5}
   m_SizeDelta: {x: 30.01, y: 47.7188}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &870479173
@@ -11934,7 +11936,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OPTIONS
+  m_text: 'OPTIONS
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c571c6570f2d3847b16fe880912d347, type: 2}
   m_sharedMaterial: {fileID: -2242326616365516283, guid: 0c571c6570f2d3847b16fe880912d347, type: 2}
@@ -12393,7 +12397,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 102, y: -18.402}
-  m_SizeDelta: {x: 105.01, y: -35.196}
+  m_SizeDelta: {x: 180.01, y: -35.196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153672894
 MonoBehaviour:
@@ -12429,7 +12433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Compris
+  m_text: Acknowledged
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -16945,7 +16949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: JOUR
+  m_text: DAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c571c6570f2d3847b16fe880912d347, type: 2}
   m_sharedMaterial: {fileID: -2242326616365516283, guid: 0c571c6570f2d3847b16fe880912d347, type: 2}
@@ -18510,7 +18514,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Production journali\xE8re:"
+  m_text: 'Inhabitants daily production:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb4b868c35c41c0428a0b1f3d111cf52, type: 2}
   m_sharedMaterial: {fileID: 8021991795392894148, guid: eb4b868c35c41c0428a0b1f3d111cf52, type: 2}
@@ -19127,7 +19131,7 @@ GameObject:
   - component: {fileID: 2058246130}
   - component: {fileID: 2058246129}
   m_Layer: 5
-  m_Name: Log Canvas
+  m_Name: Daily Report Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19325,7 +19329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CONTINUER
+  m_text: CONTINUE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}

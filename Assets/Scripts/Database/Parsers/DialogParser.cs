@@ -60,7 +60,6 @@ public class DialogParser : DatabaseParser
 		dialog.id = jsonData.ID;
 		dialog.name = jsonData.NAME;
 		dialog.characterName = jsonData.CHAR_NAME;
-		dialog.request = jsonData.REQUEST;
 		dialog.priority = jsonData.PRIORITY;
 		dialog.isRepeateable = jsonData.REPEATABLE;
 		dialog.requirements = ParsingUtils.ParseRequirementData(jsonData.REQUIREMENT);
@@ -71,7 +70,8 @@ public class DialogParser : DatabaseParser
 			jsonData.YES_RESULT_VAR_MAX,
 			jsonData.YES_RESULT_BUILDING_PROGRESS
 		));
-		dialog.yesResult.response = jsonData.YES_TEXT;
+		dialog.yesResult.dialogName = dialog.name;
+		dialog.yesResult.isYes = true;
 		dialog.noResult = DialogResultData.CreateFrom(ParsingUtils.ParseResultData(
 			jsonData.NO_RESULT_VARS,
 			jsonData.NO_RESULT_RESOURCES,
@@ -79,7 +79,8 @@ public class DialogParser : DatabaseParser
 			jsonData.NO_RESULT_VAR_MAX,
 			jsonData.NO_RESULT_BUILDING_PROGRESS
 		));
-		dialog.noResult.response = jsonData.NO_TEXT;
+		dialog.yesResult.dialogName = dialog.name;
+		dialog.yesResult.isYes = false;
 		(dialog.enterAnimations, dialog.exitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.EDIT_ANIMS);
 		(dialog.yesEnterAnimations, dialog.yesExitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.YES_EDIT_ANIMS);
 		(dialog.noEnterAnimations, dialog.noExitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.NO_EDIT_ANIMS);

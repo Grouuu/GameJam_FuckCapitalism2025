@@ -4,13 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum ReportPanelButtonId
+public enum DailyReportPanelButtonId
 {
 	None,
 	Continue,
 }
 
-public class ReportPanelUIData
+public class DailyReportPanelUIData
 {
 	public int dayValue;
 	public string foodChange;
@@ -18,12 +18,10 @@ public class ReportPanelUIData
 	public (GameVarId, int)[] production;
 }
 
-public class ReportPanelUI : MonoBehaviour
+public class DailyReportPanelUI : MonoBehaviour
 {
 	public GameObject parent;
-	public TextMeshProUGUI dayLabelUI;
 	public TextMeshProUGUI dayCountUI;
-	public TextMeshProUGUI descriptionUI;
 	public TextMeshProUGUI foodChange;
 	public TextMeshProUGUI populationChange;
 	public Transform resourcesParent;
@@ -32,7 +30,7 @@ public class ReportPanelUI : MonoBehaviour
 
 	[HideInInspector] public Action onceClickCallback;
 
-	public void Show (ReportPanelUIData panelContent)
+	public void Show (DailyReportPanelUIData panelContent)
 	{
 		dayCountUI.text = $"{panelContent.dayValue}";
 		foodChange.text = panelContent.foodChange;
@@ -48,9 +46,7 @@ public class ReportPanelUI : MonoBehaviour
 	{
 		parent.SetActive(false);
 
-		dayLabelUI.text = "";
 		dayCountUI.text = "";
-		descriptionUI.text = "";
 		foodChange.text = "";
 		populationChange.text = "";
 

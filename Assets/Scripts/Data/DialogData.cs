@@ -2,7 +2,10 @@
 
 public class DialogResultData : ResultData
 {
-    public string response;
+    public string dialogName;
+    public bool isYes;
+
+    public string response => LocalizationUtils.GetText(dialogName, isYes ? LocCat.DialogsYes : LocCat.DialogsNo);
 
     public static DialogResultData CreateFrom (ResultData resultData)
     {
@@ -19,7 +22,6 @@ public class DialogData
     public string id;
     public string name;
     public string characterName;
-    public string request;
     public int priority;
     public bool isRepeateable;
     public RequirementData requirements;
@@ -31,6 +33,8 @@ public class DialogData
     public EditAnimations yesExitAnimations;
     public EditAnimations noEnterAnimations;
     public EditAnimations noExitAnimations;
+
+    public string request => LocalizationUtils.GetText(name, LocCat.DialogsRequests);
 
     // runtime values
     public bool isUsed = false;

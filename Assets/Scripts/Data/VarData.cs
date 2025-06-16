@@ -4,14 +4,16 @@ using System;
 public class VarData
 {
 	public string id;
+	public string name;
 	public GameVarId varId;
 	public GameVarType type;
-	public string displayName;
 	public string iconFileName;
 	public int startValue;
 	public int minValue;
 	public int maxValue;
 	public VarCompareValue lowThreshold;
+
+	public string displayName => LocalizationUtils.GetText(name, LocCat.VarsNames);
 
 	// runtime values
 	public int previousValue;
