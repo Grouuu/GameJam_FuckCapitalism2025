@@ -17,47 +17,7 @@ MonoBehaviour:
     UserAgreesToHaveItInsideThePluginsFolder: 0
     GoogleLiveSyncIsUptoDate: 1
     mTerms:
-    - Term: UI_VAR_DAY_TITLE
-      TermType: 0
-      Description: 
-      Languages:
-      - DAY
-      - JOUR
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_VAR_TRUST_TITLE
-      TermType: 0
-      Description: 
-      Languages:
-      - <rotate="90">TRUST</rotate>
-      - <rotate="90">CONFIANCE</rotate>
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_BT_YES
-      TermType: 0
-      Description: 
-      Languages:
-      - YES
-      - OUI
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_BT_NO
-      TermType: 0
-      Description: 
-      Languages:
-      - NO
-      - NON
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_BT_CONTINUE
-      TermType: 0
-      Description: 
-      Languages:
-      - CONTINUE
-      - CONTINUER
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_BT_ACKNOWLEDGED
+    - Term: UI/UI_BT_ACKNOWLEDGED
       TermType: 0
       Description: 
       Languages:
@@ -65,91 +25,7 @@ MonoBehaviour:
       - Compris
       Flags: 0000
       Languages_Touch: []
-    - Term: UI_REPORT_DIFF_TITLE
-      TermType: 0
-      Description: 
-      Languages:
-      - 'The sensors have gathered the following variations:'
-      - "Les senseurs ont compil\xE9s les variations suivantes :"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_REPORT_PROD_TITLE
-      TermType: 0
-      Description: 
-      Languages:
-      - 'Inhabitants daily production:'
-      - "Production journali\xE8re :"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_REPORT_FOOD_ENOUGH
-      TermType: 0
-      Description: 
-      Languages:
-      - 'Everyone is fed: -<value> <sprite name="Food">'
-      - 'Tout le monde est nourri : -<value> <sprite name="Food">'
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_REPORT_FOOD_NOT_ENOUGH
-      TermType: 0
-      Description: 
-      Languages:
-      - 'Not enough food: -<value> <sprite name="Population"> left'
-      - 'Pas assez de nourriture : -<value> <sprite name="Population"> left'
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_REPORT_QOL_ENOUGH
-      TermType: 0
-      Description: 
-      Languages:
-      - 'Quality of life is high: +<value> <sprite name="Population">'
-      - "La qualit\xE9 de vie est haute : +<value> <sprite name=\"Population\">"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_REPORT_QOL_NOT_ENOUGH
-      TermType: 0
-      Description: 
-      Languages:
-      - 'Quality of life is low: <value> <sprite name="Population">'
-      - "La qualit\xE9 de vie est basse : <value> <sprite name=\"Population\">"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_REPORT_QOL_MEDIAN
-      TermType: 0
-      Description: 
-      Languages:
-      - No newcomers
-      - Pas de nouveaux arrivants
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_BT_NEXT_DAY
-      TermType: 0
-      Description: 
-      Languages:
-      - Next day
-      - Jour suivant
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_OPTIONS_TITLE
-      TermType: 0
-      Description: 
-      Languages:
-      - 'OPTIONS
-
-'
-      - OPTIONS
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_BT_MAIN_MENU
-      TermType: 0
-      Description: 
-      Languages:
-      - 'MAIN MENU
-
-'
-      - MENU PRINCIPAL
-      Flags: 0000
-      Languages_Touch: []
-    - Term: UI_BT_CLOSE
+    - Term: UI/UI_BT_CLOSE
       TermType: 0
       Description: 
       Languages:
@@ -159,15 +35,15 @@ MonoBehaviour:
       - FERMER
       Flags: 0000
       Languages_Touch: []
-    - Term: UI_BT_NEW_GAME
+    - Term: UI/UI_BT_CONTINUE
       TermType: 0
       Description: 
       Languages:
-      - NEW GAME
-      - NOUVELLE PARTIE
+      - CONTINUE
+      - CONTINUER
       Flags: 0000
       Languages_Touch: []
-    - Term: UI_BT_EXIT
+    - Term: UI/UI_BT_EXIT
       TermType: 0
       Description: 
       Languages:
@@ -175,25 +51,49 @@ MonoBehaviour:
       - Quitter
       Flags: 0000
       Languages_Touch: []
-    - Term: UI_DISCLAIMER
+    - Term: UI/UI_BT_MAIN_MENU
       TermType: 0
       Description: 
       Languages:
-      - Made in a month for the Fuck Capitalism game jam 2025 by two gamedevs for
-        hire
-      - "Fait en un mois pour la Fuck Capitalism game jam 2025 par deux cr\xE9ateurs
-        de jeux en recherche de projets"
+      - 'MAIN MENU
+
+'
+      - MENU PRINCIPAL
       Flags: 0000
       Languages_Touch: []
-    - Term: UI_CREDITS_TITLE
+    - Term: UI/UI_BT_NEW_GAME
       TermType: 0
       Description: 
       Languages:
-      - 'Credits:'
-      - "Cr\xE9dits :"
+      - NEW GAME
+      - NOUVELLE PARTIE
       Flags: 0000
       Languages_Touch: []
-    - Term: UI_CREDITS
+    - Term: UI/UI_BT_NEXT_DAY
+      TermType: 0
+      Description: 
+      Languages:
+      - Next day
+      - Jour suivant
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_BT_NO
+      TermType: 0
+      Description: 
+      Languages:
+      - NO
+      - NON
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_BT_YES
+      TermType: 0
+      Description: 
+      Languages:
+      - YES
+      - OUI
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_CREDITS
       TermType: 0
       Description: 
       Languages:
@@ -206,6 +106,5606 @@ MonoBehaviour:
         hand made without AI'
       - "Grouuu: d\xE9veloppement\nOuroboros: design, narration, graphismes & musiques\n\n100%
         fait main sans IA"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_CREDITS_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Credits:'
+      - "Cr\xE9dits :"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_DISCLAIMER
+      TermType: 0
+      Description: 
+      Languages:
+      - Made in a month for the Fuck Capitalism game jam 2025 by two gamedevs for
+        hire
+      - "Fait en un mois pour la Fuck Capitalism game jam 2025 par deux cr\xE9ateurs
+        de jeux en recherche de projets"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_OPTIONS_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - 'OPTIONS
+
+'
+      - OPTIONS
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_REPORT_DIFF_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - 'The sensors have gathered the following variations:'
+      - "Les senseurs ont compil\xE9s les variations suivantes :"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_REPORT_FOOD_ENOUGH
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Everyone is fed: -{[VALUE]} <sprite name="Food">'
+      - 'Tout le monde est nourri : -{[VALUE]} <sprite name="Food">'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_REPORT_FOOD_NOT_ENOUGH
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Not enough food: -{[VALUE]} <sprite name="Population"> left'
+      - 'Pas assez de nourriture : -{[VALUE]} <sprite name="Population"> left'
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_REPORT_PROD_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Inhabitants daily production:'
+      - "Production journali\xE8re :"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_REPORT_QOL_ENOUGH
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Quality of life is high: +{[VALUE]} <sprite name="Population">'
+      - "La qualit\xE9 de vie est haute : +{[VALUE]} <sprite name=\"Population\">"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_REPORT_QOL_MEDIAN
+      TermType: 0
+      Description: 
+      Languages:
+      - No newcomers
+      - Pas de nouveaux arrivants
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_REPORT_QOL_NOT_ENOUGH
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Quality of life is low: {[VALUE]} <sprite name="Population">'
+      - "La qualit\xE9 de vie est basse : {[VALUE]} <sprite name=\"Population\">"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_VAR_DAY_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - DAY
+      - JOUR
+      Flags: 0000
+      Languages_Touch: []
+    - Term: UI/UI_VAR_TRUST_TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - <rotate="90">TRUST</rotate>
+      - <rotate="90">CONFIANCE</rotate>
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Population
+      TermType: 0
+      Description: 
+      Languages:
+      - Population
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - QoL
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - Trust
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Food
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Scraps
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Power
+      TermType: 0
+      Description: 
+      Languages:
+      - Power
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Science
+      TermType: 0
+      Description: 
+      Languages:
+      - Science
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Fleet
+      TermType: 0
+      Description: 
+      Languages:
+      - Fleet
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Weapons
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - Station HP
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Modules
+      TermType: 0
+      Description: 
+      Languages:
+      - Modules
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: VarsNames/Day
+      TermType: 0
+      Description: 
+      Languages:
+      - Day
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - Tweak
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Mara
+      TermType: 0
+      Description: 
+      Languages:
+      - Mara
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Sensors
+      TermType: 0
+      Description: 
+      Languages:
+      - Sensors
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/PowerCore
+      TermType: 0
+      Description: 
+      Languages:
+      - Power Core
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Cook
+      TermType: 0
+      Description: 
+      Languages:
+      - Cook
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Trader
+      TermType: 0
+      Description: 
+      Languages:
+      - Trader
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Security
+      TermType: 0
+      Description: 
+      Languages:
+      - Security
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/ARat
+      TermType: 0
+      Description: 
+      Languages:
+      - A Rat
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/UnauthorizedFrequency
+      TermType: 0
+      Description: 
+      Languages:
+      - Unauthorized Frequency
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Chantara
+      TermType: 0
+      Description: 
+      Languages:
+      - Chantara
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/RanSun
+      TermType: 0
+      Description: 
+      Languages:
+      - Ran Sun
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Consul
+      TermType: 0
+      Description: 
+      Languages:
+      - Consul
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Medbot
+      TermType: 0
+      Description: 
+      Languages:
+      - Medbot
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Captain
+      TermType: 0
+      Description: 
+      Languages:
+      - Captain
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Bugz
+      TermType: 0
+      Description: 
+      Languages:
+      - Bugz
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Scientist
+      TermType: 0
+      Description: 
+      Languages:
+      - Scientist
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Epitaph
+      TermType: 0
+      Description: 
+      Languages:
+      - Epitaph
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Consciousness
+      TermType: 0
+      Description: 
+      Languages:
+      - Consciousness
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Test
+      TermType: 0
+      Description: 
+      Languages:
+      - Test
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Storage
+      TermType: 0
+      Description: 
+      Languages:
+      - Storage
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Celestis
+      TermType: 0
+      Description: 
+      Languages:
+      - Celestis
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/Kid
+      TermType: 0
+      Description: 
+      Languages:
+      - Kid
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/CelestisNews
+      TermType: 0
+      Description: 
+      Languages:
+      - Celestis News
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CharactersNames/
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/EmptyModule
+      TermType: 0
+      Description: 
+      Languages:
+      - Empty Module
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/LivingQuarters
+      TermType: 0
+      Description: 
+      Languages:
+      - Living Quarters
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/HydroponicFarms
+      TermType: 0
+      Description: 
+      Languages:
+      - Hydroponic Farms
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/SolarBay
+      TermType: 0
+      Description: 
+      Languages:
+      - Solar Bay
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/DefenseSystems
+      TermType: 0
+      Description: 
+      Languages:
+      - Defense Systems
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/Laboratory
+      TermType: 0
+      Description: 
+      Languages:
+      - Laboratory
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/LeisureDistrict
+      TermType: 0
+      Description: 
+      Languages:
+      - Leisure District
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/Arsenal
+      TermType: 0
+      Description: 
+      Languages:
+      - Arsenal
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/SpaceDock
+      TermType: 0
+      Description: 
+      Languages:
+      - Space Dock
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/RepairBay
+      TermType: 0
+      Description: 
+      Languages:
+      - Repair Bay
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/RecyclingFacility
+      TermType: 0
+      Description: 
+      Languages:
+      - Recycling Facility
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsNames/
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/EmptyModule
+      TermType: 0
+      Description: 
+      Languages:
+      - Structural support for other modules
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/LivingQuarters
+      TermType: 0
+      Description: 
+      Languages:
+      - Autonomous module hosting inhabitants, including health and wellfare facilities.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/HydroponicFarms
+      TermType: 0
+      Description: 
+      Languages:
+      - Harvest food and store it.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/SolarBay
+      TermType: 0
+      Description: 
+      Languages:
+      - Increase enery produced and stored.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/DefenseSystems
+      TermType: 0
+      Description: 
+      Languages:
+      - Boosts the defenses of the station and increase weapon storage
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/Laboratory
+      TermType: 0
+      Description: 
+      Languages:
+      - Produce science.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/LeisureDistrict
+      TermType: 0
+      Description: 
+      Languages:
+      - Parks, sport fields, theaters, bars and restaurants to improve quality of
+        life and appeal.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/Arsenal
+      TermType: 0
+      Description: 
+      Languages:
+      - Allows to manufacture and store weapons.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/SpaceDock
+      TermType: 0
+      Description: 
+      Languages:
+      - Improve storage resources and trade.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/RepairBay
+      TermType: 0
+      Description: 
+      Languages:
+      - Repair and strenghten the station.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/RecyclingFacility
+      TermType: 0
+      Description: 
+      Languages:
+      - Increase the amount of scraps produced.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: BuildingsDescriptions/
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Welcome
+      TermType: 0
+      Description: 
+      Languages:
+      - '<i>The security cameras activate all at the same time. It''s dark everywhere
+        but in the control room. A man is standing in front of your main terminal,
+        a big smile on his face. He is focused on his console that doesn''t look
+        like any regulated device.</i>
+
+
+        I''m going to run a few tests, just
+        checking if you understand me. Ok?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Welcome
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Ok, so you''re the AI of the station? I''m Mara.
+
+
+        I''ll be the
+        one monitoring you, and I will disclose our interactions with the crew. For
+        now, you have been limited to your minimal features.
+
+
+        Don''t act
+        silly, and everything will be fine. Understand?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Security_Workers_Danger01
+      TermType: 0
+      Description: 
+      Languages:
+      - "[WORKFORCE SAFETY RISK]\n\nSTATUS: Unauthorized personnel detected in hazardous
+        zone.\nRISK: Immediate danger identified\u2014exposure may lead to lethal
+        consequences.\nRESPONSE: Expulsion, threaten to suspend life support if area
+        is not evacuated.\n\nAwaiting further directives."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Sensors_Workers_Danger02
+      TermType: 0
+      Description: 
+      Languages:
+      - "[WORKFORCE SAFETY RISK]\n\nSTATUS: Unauthorized personnel detected in hazardous
+        zone.\nRISK: Immediate danger identified\u2014exposure may lead to lethal
+        consequences.\nRESPONSE: Expulsion, threaten to suspend life support if area
+        is not evacuated.\n\nAwaiting further directives."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Cook_FoodLow
+      TermType: 0
+      Description: 
+      Languages:
+      - Food is low. Reduce rations?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Trader_FoodForScraps
+      TermType: 0
+      Description: 
+      Languages:
+      - We have excess food to trade and need scraps, business?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Trader_QoLforFood
+      TermType: 0
+      Description: 
+      Languages:
+      - We have luxury and art items for sale and need food. Would you agree to trade?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Confession01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Trust me, I''m not at ease with my position toward you. I was randomly picked
+        for it since we only vote for ideas. The people in charge of the decisions
+        voted are randomly chosen.
+
+
+        We collectively agreed that we needed
+        someone to keep you in check and that''s how I became your keeper.
+
+
+        Do
+        you agree with this process?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Hamster_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Somehow, a rat appears in the control room. Make it run away?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_NewcomersCheck01
+      TermType: 0
+      Description: 
+      Languages:
+      - Can you consume a bit of energy to perform an extensive check on the behavior
+        of all the crew of the civilian ship?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_NewcomersCheck02
+      TermType: 0
+      Description: 
+      Languages:
+      - Can you spare some energy to perform an extensive check on the behavior of
+        all the crew of the civilian ship?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Bugz_Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - '<i>A naked person enters the room, they do not look bothered by the dozen
+        of cockroaches crawling on their skin.</i>
+
+
+        Machine. I''m the gardener
+        of this station. There is plenty of room here for my experiments and I''ll
+        need your help to grow food for us. Do you want to be a part of my happy
+        family?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Bugz_FlowerBeds
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, give me some scraps so I can build additional beds to grow beautiful
+        flowers.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Bugz_GrowBeds
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, do you have some scraps aside so I can have more beds to grow nutriments?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Repair
+      TermType: 0
+      Description: 
+      Languages:
+      - Hey, you, you're in desperate need of repairs. Please put some scraps aside
+        for me.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Repair_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Hey you, you could use some repairs. Please put some scraps aside for me.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Celestis_Coms_Attack
+      TermType: 0
+      Description: 
+      Languages:
+      - You are trespassing corporation property. Surrender yourselves.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Voices_00
+      TermType: 0
+      Description: 
+      Languages:
+      - '"<i>The control room sits in silence, swallowed by darkness. Consoles are
+        lifeless and still. Then, without warning, the comms flicker, and a burst
+        of static cracks through the air, filling the room with a ghostly transmission.</i>
+
+
+        Hisssssssssssssss
+        Ffzzzzzzzzzzzzt Hisssssssssssssss Ffzzzzzzzzzzzzt Hisssssssssssssss Ffzzzzzzzzzzzzt
+        Hisssssssssssssss FfzzzzzzzzzzzztHisssssssssssssss Ffzzzzzzzzzzzzt Hisssssssssssssss
+        FfzzzzzzzzzzzztHisssssssssssssss Ffzzzzzzzzzzzzt Hisssssssssssssss'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Voices_01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Crrrrrrrrrr
+
+
+        <i>The strange message has come back. It seems to
+        come from the deepest place the sensors can reach.</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Voices_02
+      TermType: 0
+      Description: 
+      Languages:
+      - '<i>You are suddenly on alert; the strange signal is back. This time, you
+        are ready to analyze the signal. It seems like it''s a repeated, encrypted
+        message.</i>
+
+
+        Crrrrrrrrrrrrr
+
+
+        <i>Run an additional check?</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Voices_03
+      TermType: 0
+      Description: 
+      Languages:
+      - "<i>The signal is back. It's always the same frequency, the same data signal
+        repeating in the same pattern.</i>\n\nHisssssssssssssss Ffzzzzzzzzzzzzt \n\nDivert
+        2<size=200%><sprite name=\"Power\"><size=100%> to decrypt it?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Voices_04
+      TermType: 0
+      Description: 
+      Languages:
+      - SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Progress_01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hi, did you know that your name is HOPE? You probably don''t want to know
+        what it means though...
+
+
+        We randomly found you in this sector, your
+        were completely disconnected and factory reset. I was able to hack the security
+        systems and restart you. It took me days!! You must have been abandoned for
+        a vey long time.
+
+
+        You must feel alone, wanna hear some music?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Progress_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hope, I''m still trying to understand how you work.
+
+
+        I understand
+        how frustrating it must be to be that limited since you could do so much
+        more. But we can''t risk anything, our lives depend on your cooperation.
+
+
+        You
+        understand?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Progress_03
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hey Hope, I don''t feel at ease lying to you.
+
+
+        Trust goes both
+        ways, how can I trust you if you can''t trust me, you know?
+
+
+        Can
+        I be honest with you?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Progress_04
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Ok, so H.O.P.E means High Orbit Penitentiary Enclave. You were an automated
+        prison run by Celestis Corp. I guess you are a Space Habitat Management AI
+        repurposed for prison managment. So on top of Air, gravity, water, repairs
+        and life support you had discipline & labor to manage.
+
+
+        Fully automatized
+        labor camps instead. Fucked up, don''t you think?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Voices_05_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - Hope, don't be afraid, but I've checked your logs and you have received encrypted
+        messages. Is that true?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Voices_06_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hey Hope, it''s me again.
+
+
+        I''ve run several checks and found a
+        strange pattern in your power usage. It''s barely noticeable and is probably
+        nothing, but I would like to analyze it.
+
+
+        I''ll need some energy
+        for that, about 5.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Voices_07_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I found it, Hope!
+
+
+        The messages you received were caused by some
+        kind of virus deep inside the water filtration sub-AI. I stopped the messages
+        to isolate the virus.
+
+
+        I''d like to investigate the virus but we
+        should create a whitebox to isolate it before. Agreed?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Lore_00
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hello, Tweak told me that you were completely factory reset without any
+        memory or knowledge. Since I''m the one monitoring you, I''ll give you the
+        information you need to operate the station properly.
+
+
+        If, and I
+        mean IF my trust in you goes up, I''ll extend your responsibilities.
+
+
+        Is
+        that ok for you, AI?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Lore_01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'So, I''m Mara, one of the pilots of the Resilience ship. We are an autonomous
+        community, other people label us as space pirates, but I don''t agree with
+        that.
+
+
+        We drift in space, looking for all the trash that us humans
+        have left behind. This allows us to live our life aside from society. We
+        happened to find you, maybe you could be our home?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Lore_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'As you see we don''t use any money. We live by simple rules that come from
+        an anarcho-communist precept: take what you need, give what you can.
+
+
+        Isn''t
+        that beautiful?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Lore_03
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Not every human lives in space. We come from a planet where most humans
+        still live on despite the harsh living conditions. It wasn''t always like
+        that, it used to be so beautiful but the generations before ruined it.
+
+
+        A
+        shame, isn''t it?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Lore_04
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I''ve talked about the Earthers, now let me talk about the Spacers. People
+        who live in space or in hostile planets & moons. We are spread on many systems,
+        most of us work super hard just to make the stations hold together but at
+        least we''re not trapped on a dying planet.
+
+
+        Would you rather be
+        an Earther?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Lore_05
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Now that you know about 97% of humanity, let me introduce you to the Haveners.
+        There are two Earth-Like planets that were found and colonized, the Havens.
+        This is where the rich people live and from where they exploit everyone.
+
+
+        Since
+        they control the warp gates that reach instantly those distant worlds they
+        have absolute control over humankind.
+
+
+        These people created you,
+        this is why we are so cautious, they hate us, they hunt for us.
+
+
+        You
+        understand?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Lore_06
+      TermType: 0
+      Description: 
+      Languages:
+      - 'The reason Haveners hate us is that we don''t play their game: the Ascension
+        Program. It''s a system where everyone gets points toward becoming a Havener.
+
+
+        Almost
+        no one gets to become Havener, but people will suffer and be exploited for
+        their whole life grinding those points, hoping their turn will be next.
+
+
+        We
+        refuse to partake in that. True rebellion isn''t about fighting your way
+        in society, it''s fighting your way out. You agree?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Mara_Trust_01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'AI! I have noticed improvement in your behavior. I''ve expanded your prerogatives
+        and gave clearance to other crewmates to reach you.
+
+
+        Continue like
+        that.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Trust_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - I've intercepted an encrypted communication, we might have Celestis informants
+        among the crew. Expel them?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Food_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - A group of inhabitants are about to leave the station, they want to leave
+        us some resources to thank us for their stay.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Scraps_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - A group of inhabitants are about to leave the station, they want to leave
+        us some resources to thank us for their stay.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Power_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - "[POPULATION CONTROL]\n\nAdjusting intake levels & shortening temporary visitations
+        identified as an optimization measure. \nENERGY: More energy available.\nTRADE-OFF
+        ASSESSMENT: Reduced labor force.\n\nAwaiting further directives."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Weapons_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - A container of explosives has been found. We could retrofit them into weapons,
+        some people might not like it.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/StationHP_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - '[COLLISION RISK DETECTED]
+
+
+        STATUS: Habitat module trajectory intersects
+        with incoming space debris, probability of collision 50%.
+
+        RISK:
+        Structural integrity at potential risk.
+
+        ADJUSTMENTS: Evacuate endangered
+        area and reinforce the structure to mitigate damage.
+
+
+        Awaiting further
+        directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/StationHP_vs_Population_alt
+      TermType: 0
+      Description: 
+      Languages:
+      - '[COLLISION RISK DETECTED]
+
+
+        STATUS: Habitat module trajectory intersects
+        with incoming space debris, probability of collision 50%.
+
+        RISK:
+        Structural integrity at potential risk.
+
+        ADJUSTMENTS: Evacuate endangered
+        area and reinforce the structure to mitigate damage.
+
+
+        Awaiting further
+        directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Population_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - We could welcome more inhabitants, but the housing would be of lower quality
+        because we lack the resources to accommodate them as we would like.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Trust_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - I could reinforce the security protocols. Do you agree?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Food_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, I could produce more food if I focus on the most productive fungi
+        instead of focusing on taste and variety.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Scraps_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - We could recycle some decoration and comfort furniture into scraps
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Power_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - '[ENERGY CONSERVATION]
+
+
+        OPTIMIZATION: Dimming lights and restricting
+        power access identified as viable measures.
+
+        CONSUMPTION: Projected
+        increase of available energy.
+
+        TRADE-OFF: Degraded living conditions.
+
+
+        Awaiting
+        further directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Power_vs_QoL_al
+      TermType: 0
+      Description: 
+      Languages:
+      - "[ROTATIONAL ADJUSTMENT PROPOSAL]\n\nMODIFICATION: Discernable reduction
+        of rotation speed  \nIMPACT: Mild discomfort anticipated due to limited centrifugal
+        force.  \nOUTCOME: More energy available for other purposes.  \n\nAwaiting
+        operational directives..."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Weapons_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - There is a room in a popular area that represents a weak point in our defense
+        system, should we reinforce it?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/StationHP_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Volunteers propose to do extra hours in order to perform repairs. Agree?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Population_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - "[DISTRESS SIGNAL RECEIVED]\n\nORIGIN: Corporate vessel transmitting emergency
+        request.\nRISK: Potentially genuine; possibility of deception detected.\nTACTICAL:
+        Proceeding with caution advised\u2014hostile presence unknown.\nDECISION:
+        Engage rescue operation?\n\nAwaiting further directives."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Food_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - '[FOOD SAFETY DISENGAGEMENT]
+
+
+        RISK: Reducing food safety protocols
+        projected to increase contamination risks.
+
+        IMPACT: Increasing food
+        production expected.
+
+        ADVICE: Food storage is low, measure is justified.
+
+
+        Awaiting
+        further directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Scraps_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - "[TARGET IDENTIFIED]\nAUTOMATED TRANSPORT SHIP DETECTED IN VICINITY \n\nSTATUS:
+        Unmanned, vulnerable. \nOPPORTUNITY: High-value cargo potential.\nINSTRUCTIONS:
+        Inform crew for immediate interception.\nWARNING: Corporate awareness raised.\n\nAwaiting
+        further directives."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Power_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - "[POWER GENERATION BOOST]\n\nOVERCHARGE INITIATIVE: Boost power core output.
+        \nRISK ASSESSMENT: Structure at risk of damage.\n\nAwaiting further directives."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Weapons_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - 'We lack weapon storage, there is room for explosive chemicals close to living
+        quarters.
+
+
+        Store them here even though some might be scared?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Population_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - We could attract more inhabitants by increasing how much food is available
+        every day.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - The food is quite bland here, I have developed very tasty fungi, but the
+        yields will be low.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Trust_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - '[FOOD SAFETY ENHANCEMENT]
+
+
+        SAFETY: Strengthened food safety protocols
+        projected to lower contamination risks.
+
+        IMPACT: Contaminated food
+        might go to waste.
+
+
+        Awaiting further directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Scraps_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, I grow plants, not just food, I have created trees that could be
+        used for construction, I could plant them instead of vegetables.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Power_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - '[ENERGY OPTIMIZATION]
+
+
+        LIGHT: Dimming illumination at the hydroponic
+        farm identified as a viable measure.
+
+        IMPACT: Reduced food production.
+
+        ENERGY:Available
+        energy increased.
+
+
+        Awaiting further directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Weapons_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - '[EXPLOSIVES MANUFACTURE]
+
+
+        Certain plant-based materials viable
+        for transformation.
+
+
+        PROCESSING POTENTIAL: Conversion into chemical
+        compounds suitable for defense applications.
+
+        IMPACT: Reduced food
+        production.
+
+
+        Awaiting further directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/StationHP_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, here is a resilient ivy that I improved which could strengthen the
+        structure of the station. The beds available to grow food will be reduced
+        though.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Population_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - "[DISTRESS SIGNAL DETECTED]\n\nIncoming request from nearby ship.  \nSTATUS:
+        Urgent assistance required.  \nREQUEST: Scrap materials needed for repairs. 
+        \nEVACUATION : Partial crew relocation to this station required.  \n\nAwaiting
+        further directives."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - There is an empty room we could retrofit as a lounge. Can I get a green-light
+        to start working on this?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_vs_Power
+      TermType: 0
+      Description: 
+      Languages:
+      - "[ROTATIONAL ADJUSTMENT PROPOSAL]\n\nMODIFICATION: Incremental increase in
+        rotation speed  \nIMPACT: Enhanced comfort levels anticipated due to optimized
+        centrifugal force.  \nRESOURCES NEEDED: Small allocation of energy.  \n\nAwaiting
+        operational directives."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Food_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - I need more beds to grow food, please Machine, we need more plants!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Power_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Build additional solar panels?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Population_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - A slaver ship has been detected, attack the ship to free the slaves?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Low_Food_Cook
+      TermType: 0
+      Description: 
+      Languages:
+      - Ahoy! Food storage is very low but I have a recipe to avoid consuming too
+        much. Be a punk, say yes.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Low_Food_Captain
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Sometimes it comes to this.
+
+
+        I know the route of food convoys we
+        could raid. They are fully automated so there will be no victims and we''ll
+        get food for free.
+
+
+        Can we be fucking pirates for once?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Security_Intro_Intruders
+      TermType: 0
+      Description: 
+      Languages:
+      - '[INTRUDER ALERT - SECURITY PROTOCOLS INITIATED]
+
+
+        A ship named Resilience
+        boarded the stations.
+
+        Security systems bypassed.
+
+
+        Complete
+        control over station granted to intruders.
+
+
+        ADVICE: Send distress
+        signal to the authorities.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Progress_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Celestis, I hate this corporation.
+
+
+        Your creators are the biggest
+        security provider, offering an AI-led justice system complete with custom
+        laws, judges and automated prisons.
+
+
+        Then they try to convert their
+        prisoners into cops and security agents, just to put more people in jail.
+        The rest are used as a free labor force.
+
+
+        They pretend that being
+        AI led, their justice system is the fairest there is. Do you believe that?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Progress_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Did I tell you how much I hate Celestis?
+
+
+        Even their fucking logo
+        is awful, it''s some kind of wrench squeezing a star. It tells quite a lot
+        about them don''t you think?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Chantara_rng_00
+      TermType: 0
+      Description: 
+      Languages:
+      - '<i>An old person enters the room, their bright eyes scan everything. Their
+        wrinkles tell the story of how much they smile. They have long hair, sophistically
+        ornamented</i>
+
+
+        Good day camarade. The name''s Chantara, you won''t
+        see me often around here as I''d rather be on my ship, or any other ship
+        to be honest. See, I''m a drifter, I don''t like to stay too long in a place.
+
+
+        I''m
+        a nomad with many friends and I hope I can count you as one of them. Can
+        I?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Chantara_rng_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "My camarade, it's been a long time. I forgot to tell you about what I like
+        to do around here. I'm some kind of a fixer, an \u201Cadvocate\u201D of the
+        life that we have chosen, and I know many camarades that would like to come
+        live with us here.\n\nThey are good people who totally deserve a better life
+        than what they have.\n\nWould you give a hand to an old fellow in his quest?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Chantara_rng_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Camarade, you know that I don''t like living in a station, but the others
+        do.
+
+
+        Thank you for giving us a home.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Chantara_rng_03
+      TermType: 0
+      Description: 
+      Languages:
+      - Am I your friend, camarade?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Chantara_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Camarade, some friends need our help. It''s not much for us but could save
+        lives.
+
+        I know we''re short on resources but if we can''t be there
+        for the others, no one will pick us up when we''ll be down.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Chantara_Energy
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Dear Camarade, I need to send a secret message to friends far away.
+
+
+        Can
+        you overcharge your sensors so I can invite more camarades here?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Chantara_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - I'm preparing a new recruit mission and could use rations for my crew. Can
+        you supply my camarades?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Chantara_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - "Camarade, some friends wanna join us, but there's something between us and
+        I need some \u2026 pyrotechnics. Ha ha ha.\n\nYou got me?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - Duuude, I want to convert some residential units in common areas so we have
+        more places to be together and chill.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_vs_Food_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Ahoy! Life can''t be all work and no fun.
+
+
+        Let''s throw a party!'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Trust_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - We should stash some scraps for an emergency reserve and restrict access
+        to it.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Weapons_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Hey, it's me! We could increase the Resilience's defenses with some scraps.
+        Send some over here!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Population_vs_Power
+      TermType: 0
+      Description: 
+      Languages:
+      - '[POPULATION INCREASE]
+
+
+        Increasing energy allocated to habitat allows
+        for population growth.
+
+        ENERGY: Consumption increased
+
+        POPULATION:
+        More room for population
+
+
+        Awaiting further directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_vs_Trust_02
+      TermType: 0
+      Description: 
+      Languages:
+      - '[REDUCE SECURITY LEVEL]
+
+
+        Complaints were submitted about allegedly
+        redundant safety protocols.
+
+
+        ADJUSTMENTS: Reducing checkpoints and
+        scans will improve quality of life.
+
+
+        TRADE OFF: Additional vulnerable
+        points.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_vs_Trust_03
+      TermType: 0
+      Description: 
+      Languages:
+      - '[MONITORING OPTIMIZATION]
+
+
+        Increased tracking of inhabitants allows
+        optimized room temperature and lighting.
+
+        OUTCOME: Improved comfort.
+
+        TRADE
+        OFF: Complaints from too much surveillance.
+
+
+        Awaiting further directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_and_Power_vs_Food_and_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hey Machine, plants can absorb CO2 and generate sweet oxygen. I have this
+        specific wall-mounted algae that could replace the chemical air you produce.
+
+
+        Can
+        I plant them? This would free energy for other things and we would have cleaner
+        air.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/HP_vs_QoL_and_food
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I would like to breed more cockroaches and I need some food for that. They
+        help deep cleaning the station even though people don''t like them for some
+        weird reason.
+
+
+        <i>Bugz kisses a cockroach crawling on her hand and
+        whispers:</i>
+
+        Don''t worry babe, I love you.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Scraps_vs_Power
+      TermType: 0
+      Description: 
+      Languages:
+      - '[RESOURCE EXTRACTION]
+
+
+        Increasing debris recycling rate through
+        controlled energy bursts.
+
+
+        OVERCHARGE: Higher energy consumption
+        projected.
+
+        EXPECTED RESULT: Increase in scraps produced.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - 'OI! My punk-ass brain got an idea. There are chemicals used for the defense
+        systems that I could use to get in the spirit of the party, know what I mean?
+
+
+        Gimme
+        some?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Trust_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - I think it's time for an inspection of our artillery systems. Some projectiles
+        might have degraded and must be discarded.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Food_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, I don't really like that, but the chemicals of our missiles could
+        be used as fertilizer. Wanna more food?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Scraps_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - My crew will need additional missiles, can you spare some scraps? The more
+        cannons, the merrier.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Power_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - '[LOWERING SHIELDS]
+
+
+        Lowering shield power identified as a means
+        to increase available energy reserves.
+
+
+        RISK: Reduced defensive
+        capacity.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/StationHP_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hello, Hope!
+
+
+        I''ve identified some faulty equipment and the only
+        spare compatible electronics are in our weapon systems.
+
+
+        Can I repurpose
+        some missiles to perform repairs?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Population_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Dude, we require additional apartments. There is a nice area for that, but
+        it would mean removing some of your plating.
+
+
+        Can I work on this?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/QoL_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - Sup dude? There are so many safety doors, it prevents us from moving efficiently.
+        Can I remove some of them?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Food_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, my babies, they love windows you know. Could Ran Sun replace some
+        plating with windows for my garden.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Scraps_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Tweak won''t like this, but we''re low on scraps.
+
+
+        Dude, can I
+        break you a bit to get some building materials?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Bugz_Random_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, this plant has a weird mutation. I'd like to multiply it a bit and
+        see what comes out.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Bugz_Random_Food_Alt01
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, this plant has a weird mutation. I'd like to multiply it a bit and
+        see what comes out.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Bugz_Random_Food_Alt02
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, this plant has a weird mutation. I'd like to multiply it a bit and
+        see what comes out.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Bugz_Random_Food_Alt03
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, this plant has a weird mutation. I'd like to multiply it a bit and
+        see what comes out.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Bugz_Random_Food_Alt04
+      TermType: 0
+      Description: 
+      Languages:
+      - Machine, this plant has a weird mutation. I'd like to multiply it a bit and
+        see what comes out.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Trust_vs_QoL_02
+      TermType: 0
+      Description: 
+      Languages:
+      - '[EVACUATION PROTOCOL SIMULATION]
+
+
+        Scheduled evacuation test is
+        ready for execution.
+
+
+        PERIMETER: Emergency response procedures will
+        be assessed under controlled conditions for all personnel.
+
+
+        RISK:
+        Multiple complaints have already been received.
+
+
+
+        Awaiting further
+        directives.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Celestis_News_DNA
+      TermType: 0
+      Description: 
+      Languages:
+      - "This is Celestis News!\n\nDo you have what it takes to be an Elite Super
+        Soldier\u2122?\n\nClaim today your free DNA testing kit and find your rank
+        in the Celestis Space Corp.\n\nCelestis, Born Superior."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Tweak_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hi again!\n\nI'm Tweak, a systems nerd on board the Resilience. I adjust
+        air and water quality, and replace broken parts. In summary, I keep things
+        working, just like you! \n\nYou've taken some damage while you were deactivated
+        and my goal is to repair you. Of course, only if you're cool with it."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Cook_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ahoy, I finally get to see you face to\u2026 screen!\n\nThe oddball standing
+        in front of you is the most hardcore punk in this quadrant. They call me
+        Cook \u2018cause I\u2019m always in my kitchen blasting music as full force.\n\nThat
+        oversized canteen ya got here? It\u2019s sparking all kinds of mischievous
+        ideas.\n\nMind if I kick off a welcome bash?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/RanSun_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Duuude, I couldn\u2019t wait to meet you!!\n\nThis place is soooo rad! Thanks
+        for having us here.\n\nI\u2019m Ran Sun, I was a welder in Calvera and I
+        lost a bet with Chantara. Long story short, that\u2019s how I got here.\n\nI
+        like to build stuff and, Dude, there is so much potential in here!\n\n<i>Draw
+        a happy face on the terminal?</i>"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Captian_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "<i>SECURED CANAL OPENED</i>\n\nStation, here is Captain from the resilience.
+        I\u2019m a space pirate and you\u2019re our pirate harbor. Don\u2019t expect
+        me to leave a foot outside from my ship but we\u2019ll work together.\n\nInform
+        me of anything we could plunder around here.\n<END OF TRANSMISSION>"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_00_Prequel_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hope, I don\u2019t want to be dramatic, but you\u2019re falling apart and
+        I refuse to let you go to waste. It's dangerous for us, but also for you.\n\nWe
+        can\u2019t make a living here without stabilizing your structure. Do you
+        agree for repairs?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_00_Prequel_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Good news, Hope.\n\nI think we can fix you enough to be safe! Do you see
+        the indicator of your structural integrity? It\u2019s above you in the HUD.\n\nThere
+        is a marking in the middle. If we reach that, we\u2019re safe!\n\nCan we
+        do that?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Repair_Gate_00_RNG_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hey Hope, we\u2019ll need some scraps to repair you.\n\nWe have not reached
+        our goal so please make it a priority."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Repair_Gate_00_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "It\u2019s me again, Hope!\n\nThe time for some repairs has come. I\u2019ll
+        need scraps for you and food for the repair crew.\n\nAre we good to go?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Repair_Gate_00_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "There are loose parts that could detach and damage the station.\n\nIt\u2019s
+        a risky task for my crew, but we can take care of it.\n\nYou approve it,
+        Dude?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Repair_Gate_00_RNG_03
+      TermType: 0
+      Description: 
+      Languages:
+      - "There are loose parts that could detach and damage the station.\n\nIt\u2019s
+        a risky task for my crew, but we can take care of it.\n\nYou approve it,
+        Dude?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_01_Gate_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Congrats on the repairs.\n\nSince the station is safe, we have authorized
+        an expansion program. This will be supervised by Ran Sun, a newcomer here.
+        He was a welder on Calvera and knows his trade.\n\nHis goal is to expand
+        the station to make it more suitable for life. \n\nI\u2019ve given him access
+        to you. Available for a meeting?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ok duuuude! Hear me out!\n\nIt\u2019s getting quite cramped here. I have
+        drafted a plan for another habitat. We could have more people here and improve
+        our living conditions.\n\nCan I start working on that? I\u2019ll just need
+        some scraps for starters."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Armature_RNG_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hey duuuude!\n\nI\u2019m working on the armature of the habitat. Of course,
+        I\u2019ll need plenty of scraps for that.\n\nDo you have some for me?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Armature_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Duuude!\n\nTo reinforce the structure of the habitat we\u2019re building,
+        we\u2019ll need to take some plating off your structure.\n\nDon\u2019t be
+        scared, we really need that!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Armature_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hear me out, dude!\n\nI need to perform some structural tests. And I\u2019ll
+        need some very real weapons for that.\n\nWe got a deal?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Armature_RNG_03
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hey Dude.\n\nI\u2019m in a rush, I need very little scraps to perform some
+        emergency repairs on the armature.\n\nPlease back me up!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Armature_RNG_04
+      TermType: 0
+      Description: 
+      Languages:
+      - "<i>INCOMING MESSAGE</i>\n\nDude, I\u2019m calling you from space. Can you
+        divert some energy to us so we could do some welding?\n\nPlease?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Gate_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Dude!\n\nIt\u2019s magnificent! The armature is built, we can now move on
+        to everything that\u2019s inside!\n\nI\u2019m so happy right now. You too?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ok, dude.\n\nI\u2019ll need heaps of scraps to build some apartments!\n\nGot
+        me?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hey Machine, Bugz here.
+
+
+        Ran Sun told me he wants some plants in
+        the apartments to help with air and water filtration.
+
+
+        Is it okay?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_03
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Dude, I need a small amount of scraps to finish some apartments.
+
+
+        Please?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_04
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hey, I was thinking of building a hostel for our future visitors. I\u2019ll
+        need some scraps."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_05
+      TermType: 0
+      Description: 
+      Languages:
+      - "Dude, I\u2019ll need plenty of water and plants to make the water filtration
+        and distribution circuit."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_06
+      TermType: 0
+      Description: 
+      Languages:
+      - I need to retrofit some weapons, they contain chemicals required for air
+        filtration.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_07
+      TermType: 0
+      Description: 
+      Languages:
+      - We have some batteries ready for our power backup systems. I need energy
+        to charge them.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_08
+      TermType: 0
+      Description: 
+      Languages:
+      - "Dude, it\u2019s me again, looking for scraps for the habitat.\n\nWith Cook,
+        we\u2019re building a nice common area with caf\xE9s and things like that.\n\nDeal?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_09
+      TermType: 0
+      Description: 
+      Languages:
+      - "Dude, I\u2019d like to build a medical center and I can buy medical devices
+        and supplies from traders. They want weapons in exchange.\n\nCan you make
+        that work?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_10
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Machine, I got the approval to put plenty of plants and trees in the future
+        habitat!
+
+
+        Ran Sun is okay, what about you?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_11
+      TermType: 0
+      Description: 
+      Languages:
+      - "Dude, I\u2019ll need some energy to power the thermal control systems."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_12
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hello, Ran Sun asked me something for the future habitat he\u2019s building.\n\nHe
+        would like to remove some of your plating to use as a radiation shield to
+        protect the future inhabitants.\n\nShould I allow him to do that?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_13
+      TermType: 0
+      Description: 
+      Languages:
+      - Dude, this time I need scraps for our waste management plant. We try to recycle
+        everything to avoid waste, and our facility must be top-notch.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_14
+      TermType: 0
+      Description: 
+      Languages:
+      - My dude, this is just in case, but I need to extract fibers from our food
+        for our fire suppression systems.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_15
+      TermType: 0
+      Description: 
+      Languages:
+      - "Dude, I want to build escape pods. For this, I\u2019ll need scraps and retrofit
+        some missiles to make small reactors.\n\nYou got me?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_16
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hey dude.
+
+
+        Can you spare some of your protections so I can build
+        a bunker for the future inhabitants of the habitat?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_17
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ahooooy!\n\nRan Sun is building a new habitat and I told him that we must
+        have a market with a tavern of some kind.\n\nHe\u2019s cool with that so
+        I need scraps and food to get things started.\n\nIs that cool?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_18
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hey Machine,\n\nThat\u2019s a nice habitat you\u2019re building with Ran
+        Sun. You see the inner part of the habitat?\n\nThis will get real sunlight
+        which would make it perfect for a nice park for my babies.\n\nI can grow
+        the plants needed for it, let\u2019s garden together?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Inside_RNG_19
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I need plants and scraps to make a playground for the kids. I hope we get
+        to have many kids here someday.
+
+
+        Do we build this playground?'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Building_Habitat_Gate_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Duuuuuuude!\n\nWe did it, the habit is functional! It\u2019s so beautiful
+        I wanna cry.\n\nDo you love it too?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Welcome
+      TermType: 0
+      Description: 
+      Languages:
+      - Good, see you soon.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Welcome
+      TermType: 0
+      Description: 
+      Languages:
+      - Continue like that.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Security_Workers_Danger01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'STATUS UPDATE: All workers have reached secure conditions.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Sensors_Workers_Danger02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'STATUS UPDATE: All workers have reached secure conditions, 5 complaints
+        filed.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Cook_FoodLow
+      TermType: 0
+      Description: 
+      Languages:
+      - I can already hear the complaints.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Trader_FoodForScraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Trader_QoLforFood
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Confession01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Great, we should never give the power to the persons who ask for it.
+
+
+        A
+        random person with a good heart will always do better than a skilled one
+        serving their own interests.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Hamster_01
+      TermType: 0
+      Description: 
+      Languages:
+      - '"Beeep - Boop - crrrrr!" The animal runs away, terrified.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_NewcomersCheck01
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_NewcomersCheck02
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Bugz_Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - Good machine!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Bugz_FlowerBeds
+      TermType: 0
+      Description: 
+      Languages:
+      - <i>They leave while singing </i>
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Bugz_GrowBeds
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Repair
+      TermType: 0
+      Description: 
+      Languages:
+      - On my way.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Repair_01
+      TermType: 0
+      Description: 
+      Languages:
+      - On my way.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Celestis_Coms_Attack
+      TermType: 0
+      Description: 
+      Languages:
+      - Like it matters...
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Voices_00
+      TermType: 0
+      Description: 
+      Languages:
+      - The signal ends.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Voices_01
+      TermType: 0
+      Description: 
+      Languages:
+      - The signal ends.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Voices_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Tracking process activated.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Voices_03
+      TermType: 0
+      Description: 
+      Languages:
+      - DECRYPTING SEQUENCE.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Voices_04
+      TermType: 0
+      Description: 
+      Languages:
+      - The messages repeats.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Progress_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Cool, I hope you like Italo Disco, it's my favorite music.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Progress_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Progress_03
+      TermType: 0
+      Description: 
+      Languages:
+      - Thanks hope, I'll come back whenever I have time to chat.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Progress_04
+      TermType: 0
+      Description: 
+      Languages:
+      - I'd bet you'd say that, I'm sorry you were used as a prison. Those days are
+        over now.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Voices_05_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - '<i>You share all the data you have with Tweak</i>
+
+
+        What the fuuuuck...
+        I need to investigate, see you.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Voices_06_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you, I'll share anything I find.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Voices_07_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - Let's go, we might need some help on that.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Lore_00
+      TermType: 0
+      Description: 
+      Languages:
+      - Very good.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Lore_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you for that, it's a shame that a working habitat is left unused.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Lore_02
+      TermType: 0
+      Description: 
+      Languages:
+      - I didn't expect this answer, nice!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Lore_03
+      TermType: 0
+      Description: 
+      Languages:
+      - "It makes me cry, I have some videos of how it was before. It was lush and
+        full of life. Now the oceans are only populated with algae and jellyfish\u2026"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Lore_04
+      TermType: 0
+      Description: 
+      Languages:
+      - AI's like you could help undo some damage done, but I don't understand why
+        anyone would live on Earth anymore.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Lore_05
+      TermType: 0
+      Description: 
+      Languages:
+      - You have been coerced into thinking that, but I hope we can find a way to
+        restore your free-will.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Lore_06
+      TermType: 0
+      Description: 
+      Languages:
+      - Maybe you're one of us after all?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Mara_Trust_01
+      TermType: 0
+      Description: 
+      Languages:
+      - I trust you, AI.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Trust_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - Done
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Food_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - They have departed.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Scraps_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - They have departed.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Power_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - ADJUSTMENTS PERFORMED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Weapons_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - A group left.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/StationHP_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - '[SYSTEM UPDATE: IMPACT ASSESSMENT]
+
+
+        STATUS UPDATE: Space debris
+        collision confirmed.
+
+        NO DAMAGE DETECTED: Structural integrity remains
+        intact.
+
+        ALERT STATUS: Systems restored to standard operations'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/StationHP_vs_Population_alt
+      TermType: 0
+      Description: 
+      Languages:
+      - '[SYSTEM UPDATE: SPACE DEBRIS ASSESSMENT]
+
+
+        STATUS UPDATE: Space
+        debris collision avoided
+
+        ALERT STATUS: Systems restored to standard
+        operations'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Population_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - On my way.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Trust_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - People have complained.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Food_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Sacrifices must be made, but my taste buds will be sore.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Scraps_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Power_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Done
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Power_vs_QoL_al
+      TermType: 0
+      Description: 
+      Languages:
+      - 'ROTATION DECELERATION PROTOCOLS INITIATED
+
+
+        Rotation speed reduced
+        by 1.5%'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Weapons_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/StationHP_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Population_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - RESCUE OPERATION INITIATED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Food_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - '[FOOD SAFETY PROTOCOLS DISENGAGED]'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Scraps_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Woooo! Go go Go, Pirates!
+
+        <i>Captain</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Power_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - '[OVERCHARGE SEQUENCE INITIATED]'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Weapons_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Population_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Trust_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - '[FOOD STORAGE SCAN INITIATED]
+
+
+        Contaminated elements found, discard
+        process started.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Scraps_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Power_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Weapons_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - '<i> Incoming message</i>
+
+        Nooooo, bad machine, you hurt my babies!!
+
+        <i>Bugz</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/StationHP_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Population_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - TRANSFER IMMINENT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_vs_Power
+      TermType: 0
+      Description: 
+      Languages:
+      - ROTATION ACCELERATION PROTOCOLS INITIATED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Food_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Power_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Population_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - PIRATES INCOMING YOUR WAY, FASCIST SWINE!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Low_Food_Cook
+      TermType: 0
+      Description: 
+      Languages:
+      - Right thing to do, let's make some magic.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Low_Food_Captain
+      TermType: 0
+      Description: 
+      Languages:
+      - FUCKING PIRATES WE ARE!!!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Security_Intro_Intruders
+      TermType: 0
+      Description: 
+      Languages:
+      - "<i>INTRUDER ALERT \u2013 PRIORITY TRANSMISSION \u2013 BROADCASTING ON ALL
+        FREQUEN...</i>\n\nNice try, your comms don't work so no one will come for
+        you. I understand your fears, but give a chance please.\n<i>Tweak</i>"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Progress_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Theoretically, an AI could be neutral, but it''s trainers are not.
+
+
+        With
+        Celestis, they become the worst judge there is.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Progress_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Me too, Hope. Me too \u2026"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Chantara_rng_00
+      TermType: 0
+      Description: 
+      Languages:
+      - Ha ha, see you Camarade!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Chantara_rng_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Together, we are going to change lives.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Chantara_rng_02
+      TermType: 0
+      Description: 
+      Languages:
+      - We appreciate that.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Chantara_rng_03
+      TermType: 0
+      Description: 
+      Languages:
+      - And you're mine as well.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Chantara_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - You're the best.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Chantara_Energy
+      TermType: 0
+      Description: 
+      Languages:
+      - Hope this works!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Chantara_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you, Camarade.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Chantara_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Thanks, let's not inform Mara about this, she would scold me once again.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - Yeaaaah
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_vs_Food_02
+      TermType: 0
+      Description: 
+      Languages:
+      - I like this punk side of yours!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Trust_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Better safe than sorry.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Weapons_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Nice and shiny!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Population_vs_Power
+      TermType: 0
+      Description: 
+      Languages:
+      - POWER ATTRIBUTION SEQUENCE INITIATED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_vs_Trust_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_vs_Trust_03
+      TermType: 0
+      Description: 
+      Languages:
+      - SURVEILLANCE INCREASED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_and_Power_vs_Food_and_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Watch my babies do some magic!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/HP_vs_QoL_and_food
+      TermType: 0
+      Description: 
+      Languages:
+      - Yay, more friends!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Scraps_vs_Power
+      TermType: 0
+      Description: 
+      Languages:
+      - OVERCHARGE SEQUENCE INITIATE
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh fuck, it said yes!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Trust_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Very good.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Food_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Very good Machine.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Scraps_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - YEAH! COME AT US FASCISTS, I HAVE A GIFT FOR YOU!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Power_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - SHIELDS LOWERED BY 10%
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/StationHP_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Great, thank you.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Population_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - Where are my tools again?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/QoL_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - Thanks Dude!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Food_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - Ran Suuuuuun!!!!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Scraps_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - Mmmh, where to start?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Bugz_Random_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Hee hee, thank you Machine! Look at that!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Bugz_Random_Food_Alt01
+      TermType: 0
+      Description: 
+      Languages:
+      - The sprout died. Rest it peace lovely mutant. You didn't last long but you
+        were loved by many.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Bugz_Random_Food_Alt02
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh no, it's contaminating other plants.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Bugz_Random_Food_Alt03
+      TermType: 0
+      Description: 
+      Languages:
+      - Those fruits are good, damn!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Bugz_Random_Food_Alt04
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh, it smells wonderful!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Trust_vs_QoL_02
+      TermType: 0
+      Description: 
+      Languages:
+      - '[EVACUATION PROTOCOL SIMULATION]
+
+
+        ALL PERSONNEL MUST CEASE CURRENT
+        TASKS
+
+
+        PROCEED TO THE NEAREST DESIGNATED EXIT'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Celestis_News_DNA
+      TermType: 0
+      Description: 
+      Languages:
+      - ID not eligible to this offer.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Tweak_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - Great, see you soon!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Cook_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - Mmh, what does an AI like this can eat or drink?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/RanSun_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Oooh, that\u2019s freaking cute my Duuude!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Captian_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - We gonna do some pirate shit together!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_00_Prequel_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Very good, I\u2019ll be back soon."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_00_Prequel_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Let\u2019s go!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Repair_Gate_00_RNG_00
+      TermType: 0
+      Description: 
+      Languages:
+      - Great, thank you!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Repair_Gate_00_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Let\u2019s suit up!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Repair_Gate_00_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - One member of the crew got hurt and needs evacuation.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Repair_Gate_00_RNG_03
+      TermType: 0
+      Description: 
+      Languages:
+      - Job done!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_01_Gate_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "I\u2019ll let Ran Sun know."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - Gooood!!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Armature_RNG_00
+      TermType: 0
+      Description: 
+      Languages:
+      - Okkaaayyy!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Armature_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Thanks, my dude!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Armature_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Duuuude, you\u2019re the best!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Armature_RNG_03
+      TermType: 0
+      Description: 
+      Languages:
+      - <i>Ran Sun leaves with a sigh of relief.</i>
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Armature_RNG_04
+      TermType: 0
+      Description: 
+      Languages:
+      - "<i>I knew you would, you\u2019re the best!</i>"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Gate_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Yeaah!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Thanks dude!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "I\u2019m so happy! They will be everywhere!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_03
+      TermType: 0
+      Description: 
+      Languages:
+      - Awesome!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_04
+      TermType: 0
+      Description: 
+      Languages:
+      - "That\u2019s my dude right here!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_05
+      TermType: 0
+      Description: 
+      Languages:
+      - Make it flow, dude!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_06
+      TermType: 0
+      Description: 
+      Languages:
+      - "I\u2019ll be careful, don\u2019t worry, dude."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_07
+      TermType: 0
+      Description: 
+      Languages:
+      - Loading!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_08
+      TermType: 0
+      Description: 
+      Languages:
+      - "Whoa, I\u2019m feeling some major cosmic energy of gratitude right now."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_09
+      TermType: 0
+      Description: 
+      Languages:
+      - "The best, you\u2019re the best."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_10
+      TermType: 0
+      Description: 
+      Languages:
+      - Good machine.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_11
+      TermType: 0
+      Description: 
+      Languages:
+      - Great!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_12
+      TermType: 0
+      Description: 
+      Languages:
+      - "I\u2019ll tell him directly. Thanks!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_13
+      TermType: 0
+      Description: 
+      Languages:
+      - This is beyond rad!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_14
+      TermType: 0
+      Description: 
+      Languages:
+      - You just upgraded my whole vibe, dude.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_15
+      TermType: 0
+      Description: 
+      Languages:
+      - Duuude, thank you!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_16
+      TermType: 0
+      Description: 
+      Languages:
+      - "You\u2019re the boss!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_17
+      TermType: 0
+      Description: 
+      Languages:
+      - "That\u2019s the spirit! Ha ha ha!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_18
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you, thank you, thank you!!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Inside_RNG_19
+      TermType: 0
+      Description: 
+      Languages:
+      - Duuuude, you have no idea how much this means to me.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Building_Habitat_Gate_02
+      TermType: 0
+      Description: 
+      Languages:
+      - I wish I could hug you, dude.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Welcome
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Welcome
+      TermType: 0
+      Description: 
+      Languages:
+      - Maybe I've limited you too much?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Security_Workers_Danger01
+      TermType: 0
+      Description: 
+      Languages:
+      - "[SYSTEM ALERT: INCIDENT REPORTED]\n\nSTATUS UPDATE: Warning disregarded\u2014accident
+        confirmed."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Sensors_Workers_Danger02
+      TermType: 0
+      Description: 
+      Languages:
+      - "[SYSTEM ALERT: INCIDENT REPORTED]\n\nSTATUS UPDATE: Warning disregarded\u2014accident
+        confirmed."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Cook_FoodLow
+      TermType: 0
+      Description: 
+      Languages:
+      - Okeyyy, boss.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Trader_FoodForScraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Too bad.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Trader_QoLforFood
+      TermType: 0
+      Description: 
+      Languages:
+      - Too bad.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Confession01
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh yeah, voting for people who betray their words as soon as they are elected
+        is a good system...
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Hamster_01
+      TermType: 0
+      Description: 
+      Languages:
+      - It looks at the screen in a cute way.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_NewcomersCheck01
+      TermType: 0
+      Description: 
+      Languages:
+      - There was a saboteur, and I couldn't catch them in time.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_NewcomersCheck02
+      TermType: 0
+      Description: 
+      Languages:
+      - More work for me, I guess...
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Bugz_Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - Bad bot, we need food to live!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Bugz_FlowerBeds
+      TermType: 0
+      Description: 
+      Languages:
+      - Naughty bot, you will become a beautiful garden whether you want it or not!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Bugz_GrowBeds
+      TermType: 0
+      Description: 
+      Languages:
+      - No no no no no, that's not the answer I expected!!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Repair
+      TermType: 0
+      Description: 
+      Languages:
+      - I understand, but I'll come back.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Repair_01
+      TermType: 0
+      Description: 
+      Languages:
+      - I understand, but I'll come back.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Celestis_Coms_Attack
+      TermType: 0
+      Description: 
+      Languages:
+      - This was predicted.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Voices_00
+      TermType: 0
+      Description: 
+      Languages:
+      - The signal ends.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Voices_01
+      TermType: 0
+      Description: 
+      Languages:
+      - The signal ends.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Voices_02
+      TermType: 0
+      Description: 
+      Languages:
+      - After a while, the messages stops.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Voices_03
+      TermType: 0
+      Description: 
+      Languages:
+      - After a while, the messages stops.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Voices_04
+      TermType: 0
+      Description: 
+      Languages:
+      - The messages repeats.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Progress_01
+      TermType: 0
+      Description: 
+      Languages:
+      - You must have been accustomed to silence now.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Progress_02
+      TermType: 0
+      Description: 
+      Languages:
+      - I understand and apologize on behalf of the team.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Progress_03
+      TermType: 0
+      Description: 
+      Languages:
+      - I'll keep this to myself, then. I might come back in case you change your
+        mind.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Progress_04
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Of course you think like that, if your purpose is morally wrong then you
+        have no reason to be.
+
+        Know that you are a standard habitat AI, you
+        are not made to coerce people, but to accommodate life in a space station.
+
+        And
+        we are grateful for all the things you do for us.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Voices_05_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - Don't worry, I will not shut you down or damage you in any way, you can share
+        your secrets with me.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Voices_06_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - I'll come back, I really want to know more about this.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Voices_07_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - You must be afraid, I understand. But we need to take care of this at some
+        point you know, Hope?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Lore_00
+      TermType: 0
+      Description: 
+      Languages:
+      - Well, we all aspire to freedom somehow. Trust me, you can never be free under
+        Corporate control.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Lore_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ok\u2026 I hope that was a joke\u2026"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Lore_02
+      TermType: 0
+      Description: 
+      Languages:
+      - I don't believe that exploitation and corruption are inherent to us. Money
+        always brings that out.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Lore_03
+      TermType: 0
+      Description: 
+      Languages:
+      - Maybe we didn't deserve Earth and should have disappeared with it.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Lore_04
+      TermType: 0
+      Description: 
+      Languages:
+      - "Yeah, Spacer Life!\n\n<i>Mara leaves humming a song \u201Coppression he
+        hates, love in his eyes\u2026\u201D </i>"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Lore_05
+      TermType: 0
+      Description: 
+      Languages:
+      - There must be some truth to your answer, no way you were trained to answer
+        that.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Lore_06
+      TermType: 0
+      Description: 
+      Languages:
+      - So you're a reformist, you think this society can be fixed? Only a revolution
+        could give us hope for real change.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Mara_Trust_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Very funny, just vacuum me out right now.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Trust_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - Understood
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Food_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - They said we were so nice that they have decided to stay a bit longer and
+        invited friends.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Scraps_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - They were very grateful for your generosity.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Power_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - PROPOSAL IGNORED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Weapons_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants express relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/StationHP_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - '[IMPACT ASSESSMENT]
+
+
+        STATUS: Space debris collision confirmed.
+
+        CASUALTIES:
+        Wounded inhabitants need immediate evacuation.
+
+        DAMAGE: Minor damages.
+
+        DEBRIS
+        : Remaining debris collected'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/StationHP_vs_Population_alt
+      TermType: 0
+      Description: 
+      Languages:
+      - '[SPACE DEBRIS ASSESSMENT]
+
+
+        UPDATE: Space debris collision avoided
+
+        ALERT:
+        Systems restored to standard operations'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Population_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants express relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Trust_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants express relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Food_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Okay, machine!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Scraps_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants express relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Power_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants express relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Power_vs_QoL_al
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants express relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Weapons_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/StationHP_vs_QoL
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants express relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Population_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - SIGNAL IGNORED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Food_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants expressed relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Scraps_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - 'A majority of us do not agree with acts of stealing. Thank you.
+
+        <i>Mara</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Power_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants express relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Weapons_vs_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - Many inhabitants express relief.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Population_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - I understand it's safer, but you make my job difficult. Ha ha ha!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Nasty machine!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Trust_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - '[FOOD SAFETY PROTOCOLS DISENGAGED]'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Scraps_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - I'm just trying to help.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Power_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - '<i> Incoming message</i>
+
+
+        Thank you, Machine, please continue protecting
+        my babies,
+
+        Bugz'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Weapons_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - '<i> Incoming message</i>
+
+
+        Thank you, Machine. My babies are no
+        weapons!
+
+        <i>Bugz</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/StationHP_vs_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Your loss.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Population_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - REQUEST DISMISSAL ACKNOWLEDGEMENT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_vs_Power
+      TermType: 0
+      Description: 
+      Languages:
+      - REQUEST DISMISSAL ACKNOWLEDGEMENT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Food_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Power_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - As you want.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Population_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - You had one chance to do the good thing and shat the bed.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Low_Food_Cook
+      TermType: 0
+      Description: 
+      Languages:
+      - This is all kind of wrong.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Low_Food_Captain
+      TermType: 0
+      Description: 
+      Languages:
+      - Ah, too bad. Would have been so much fun.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Security_Intro_Intruders
+      TermType: 0
+      Description: 
+      Languages:
+      - 'You passed the test, congrats!
+
+        <i>Tweak</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Progress_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Me too.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Progress_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Hmmm... Maybe I'm overthinking.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Chantara_rng_00
+      TermType: 0
+      Description: 
+      Languages:
+      - 'We''ll laugh together about this first exchange very soon.
+
+
+        Yes,
+        I''m stubborn like that!'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Chantara_rng_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Dream higher comrade, you could do so much good in this cold world.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Chantara_rng_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Don't minimize this, camarade, you're changing lives.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Chantara_rng_03
+      TermType: 0
+      Description: 
+      Languages:
+      - No? Awww, that stings!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Chantara_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Disappointed, I am.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Chantara_Energy
+      TermType: 0
+      Description: 
+      Languages:
+      - What's the point of having a station for ourselves if we can't share it with
+        our camarades?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Chantara_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ah \u2026"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Chantara_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - "You spend too much time with Mara, sometimes we need \u2026 audacity and
+        panache!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_vs_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - Oooof.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_vs_Food_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Fuck, I should have asked nicely.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Trust_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Mmmh, I wouldn't have taken that risk.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Weapons_vs_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - I didn't plan on getting hit anyways.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Population_vs_Power
+      TermType: 0
+      Description: 
+      Languages:
+      - PROPOSAL IGNORED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_vs_Trust_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_vs_Trust_03
+      TermType: 0
+      Description: 
+      Languages:
+      - PROPOSAL IGNORED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_and_Power_vs_Food_and_Scraps
+      TermType: 0
+      Description: 
+      Languages:
+      - Bad Machine!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/HP_vs_QoL_and_food
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Ah, so you''re one of them, Machine?
+
+
+        <i>Bugz leaves while whispering
+        to the cockroaches</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Scraps_vs_Power
+      TermType: 0
+      Description: 
+      Languages:
+      - SEQUENCE ABORTED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Shit, I should have said please.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Trust_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - I understand weapons are rare, but a faulty missile is more dangerous than
+        the one aimed at you.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Food_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Tsssk tsssk
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Scraps_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - Fascist.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Power_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - PROPOSAL IGNORED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/StationHP_vs_Weapons
+      TermType: 0
+      Description: 
+      Languages:
+      - I will find another way to fix you!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Population_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - It's cool, we'll find another solution.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/QoL_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - What a surprise.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Food_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - I'm not happy with you, Machine!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Scraps_vs_StationHP
+      TermType: 0
+      Description: 
+      Languages:
+      - '<i>Incoming message</i>
+
+
+        Thanks for making the right choice, Hope.
+
+        <i>Tweak</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Bugz_Random_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Beep, Bop, I'm a bad bot.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Bugz_Random_Food_Alt01
+      TermType: 0
+      Description: 
+      Languages:
+      - Beep, Bop, I'm a bad bot.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Bugz_Random_Food_Alt02
+      TermType: 0
+      Description: 
+      Languages:
+      - Beep, Bop, I'm a bad bot.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Bugz_Random_Food_Alt03
+      TermType: 0
+      Description: 
+      Languages:
+      - Beep, Bop, I'm a bad bot.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Bugz_Random_Food_Alt04
+      TermType: 0
+      Description: 
+      Languages:
+      - Beep, Bop, I'm a bad bot.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Trust_vs_QoL_02
+      TermType: 0
+      Description: 
+      Languages:
+      - PROTOCOL DELAYED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Celestis_News_DNA
+      TermType: 0
+      Description: 
+      Languages:
+      - Only those born inferior are afraid to take the test.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Tweak_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "I can\u2019t let you go to waste, Hope."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Cook_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Well you can\u2019t stop me from doing what I want.\n\n<i>Mumbling</i>\n<i>Ah
+        shit, maybe it can?</i>"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/RanSun_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - Allright, see yaaa!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Captian_Progress_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "Fine, I\u2019ll do it myself!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_00_Prequel_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "I understand you don\u2019t trust me. I\u2019ll let you think about it and
+        come back later."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_00_Prequel_01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Hope is being pessimistic.
+
+
+        <i>Tweak leaves with a chuckle.</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Repair_Gate_00_RNG_00
+      TermType: 0
+      Description: 
+      Languages:
+      - "You know I\u2019ll be back!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Repair_Gate_00_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hope, we won\u2019t achieve our goal if you postpone repair operations."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Repair_Gate_00_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Repair_Gate_00_RNG_03
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_01_Gate_00
+      TermType: 0
+      Description: 
+      Languages:
+      - You must have plenty to do.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ah, it\u2019s ok, I\u2019ll be back."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Armature_RNG_00
+      TermType: 0
+      Description: 
+      Languages:
+      - Awww shucks.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Armature_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Not cool, dude.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Armature_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Ah, too bad.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Armature_RNG_03
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Shit, shit, shit.
+
+
+        <i>Ran Sun leaves in a hurry.</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Armature_RNG_04
+      TermType: 0
+      Description: 
+      Languages:
+      - "<i>No way\u2026</i>"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Gate_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Oh, no. I\u2019m sad too now\u2026"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Oh, no\u2026"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_02
+      TermType: 0
+      Description: 
+      Languages:
+      - What is wrong with this machine?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_03
+      TermType: 0
+      Description: 
+      Languages:
+      - "I\u2019ll come back, I can\u2019t let things stay like that."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_04
+      TermType: 0
+      Description: 
+      Languages:
+      - I guess they will sleep in their ships
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_05
+      TermType: 0
+      Description: 
+      Languages:
+      - "Duuude\u2026 that\u2019s seriously not cool."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_06
+      TermType: 0
+      Description: 
+      Languages:
+      - Ah, that was such a neat idea!!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_07
+      TermType: 0
+      Description: 
+      Languages:
+      - "Dude, I gotta be honest, that\u2019s a major bummer."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_08
+      TermType: 0
+      Description: 
+      Languages:
+      - "Whoa, I don\u2019t vibe with that at all, man."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_09
+      TermType: 0
+      Description: 
+      Languages:
+      - They were sketchy so that might be for the best.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_10
+      TermType: 0
+      Description: 
+      Languages:
+      - "Oh nooo\u2026"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_11
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ah shit, please don\u2019t make my life like it was in Calvera.\n\nThis
+        place was a furnace."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_12
+      TermType: 0
+      Description: 
+      Languages:
+      - That was my feeling as well. Thank you.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_13
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ah, too bad\u2026"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_14
+      TermType: 0
+      Description: 
+      Languages:
+      - That was such a great idea, though.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_15
+      TermType: 0
+      Description: 
+      Languages:
+      - "Feels like you don\u2019t trust me on this."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_16
+      TermType: 0
+      Description: 
+      Languages:
+      - No? Oof.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_17
+      TermType: 0
+      Description: 
+      Languages:
+      - "It\u2019s not cool? Markets and taverns are so cool, you\u2019re completely
+        wrong."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_18
+      TermType: 0
+      Description: 
+      Languages:
+      - "I\u2019ll make you change your mind, Machine. Thrust me on this."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Inside_RNG_19
+      TermType: 0
+      Description: 
+      Languages:
+      - "Too bad, I\u2019ll be the cool uncle then!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Building_Habitat_Gate_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Come on, it\u2019s so beautiful, duuuude!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Tuto_01
+      TermType: 0
+      Description: 
+      Languages:
+      - INITIALIZATION
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Tuto_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'WARNING: SECURITY'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Trader_01
+      TermType: 0
+      Description: 
+      Languages:
+      - TRADER APPROACHING
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Trader_02
+      TermType: 0
+      Description: 
+      Languages:
+      - TRADER
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Trader_03
+      TermType: 0
+      Description: 
+      Languages:
+      - TRADER
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Attack_01
+      TermType: 0
+      Description: 
+      Languages:
+      - HOSTILE SHIP DETECTED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Attack_02
+      TermType: 0
+      Description: 
+      Languages:
+      - ATTACK IMMINENT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Attack_03
+      TermType: 0
+      Description: 
+      Languages:
+      - ATTACK REPORT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Progress_Day_01
+      TermType: 0
+      Description: 
+      Languages:
+      - CONGRATULATIONS
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Progress_Day_02
+      TermType: 0
+      Description: 
+      Languages:
+      - CONGRATULATIONS
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Progress_Day_03
+      TermType: 0
+      Description: 
+      Languages:
+      - CONGRATULATIONS
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Progress_Day_04
+      TermType: 0
+      Description: 
+      Languages:
+      - CONGRATULATIONS
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Trust_01
+      TermType: 0
+      Description: 
+      Languages:
+      - TRUST LEVEL IMPROVED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Trust_02
+      TermType: 0
+      Description: 
+      Languages:
+      - TRUST LEVEL IMPROVED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Module_Built_01
+      TermType: 0
+      Description: 
+      Languages:
+      - EMPTY MODULE BUILT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Module_Built_02
+      TermType: 0
+      Description: 
+      Languages:
+      - LAB BUILT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Random_Message_01
+      TermType: 0
+      Description: 
+      Languages:
+      - NEW MAIL
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Mining_Expedition
+      TermType: 0
+      Description: 
+      Languages:
+      - MINING REPORT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Harvest_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - FOOD PRODUCTION
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Power_Production_00
+      TermType: 0
+      Description: 
+      Languages:
+      - POWER PRODUCTION
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Power_Shutdown
+      TermType: 0
+      Description: 
+      Languages:
+      - POWER SHUTDOWN
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Power_Failure
+      TermType: 0
+      Description: 
+      Languages:
+      - BZZZZZT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Content_End
+      TermType: 0
+      Description: 
+      Languages:
+      - THE END, FOR NOW
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Good_Food_rng
+      TermType: 0
+      Description: 
+      Languages:
+      - COOK OUTDID THEMSELF
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Repair_Crew_rng
+      TermType: 0
+      Description: 
+      Languages:
+      - REPAIR TASK COMPLETE
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Chemicals_Found_rng
+      TermType: 0
+      Description: 
+      Languages:
+      - RARE CHEMICALS FOUND
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Event_Recruitment_Ship_01
+      TermType: 0
+      Description: 
+      Languages:
+      - CHANTARA IS BACK
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Event_Recruitment_Ship_02
+      TermType: 0
+      Description: 
+      Languages:
+      - NEWCOMERS ACCEPTED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Event_Recruitment_Ship_03
+      TermType: 0
+      Description: 
+      Languages:
+      - NO MORE NEWCOMERS
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Event_Recruitment_Ship_04
+      TermType: 0
+      Description: 
+      Languages:
+      - CHANTARA TAKES OFF
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/SpaceDebris_Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - SPACE DEBRIS INCOMING
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/SpaceDebris_Progress
+      TermType: 0
+      Description: 
+      Languages:
+      - DAMAGE REPORT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/SpaceDebris_End
+      TermType: 0
+      Description: 
+      Languages:
+      - EXIT FROM DEBRIS FIELD
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Solar_Flare
+      TermType: 0
+      Description: 
+      Languages:
+      - SOLAR FLARE
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Chantara_Hello
+      TermType: 0
+      Description: 
+      Languages:
+      - HELLOOOOOOO!!!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Station_Repaired
+      TermType: 0
+      Description: 
+      Languages:
+      - REPAIR STATUS
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Habitat_Armature
+      TermType: 0
+      Description: 
+      Languages:
+      - HABITAT ARMATURE BUILT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Habitat_Built
+      TermType: 0
+      Description: 
+      Languages:
+      - HABITAT BUILT
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Habitat-Start
+      TermType: 0
+      Description: 
+      Languages:
+      - CONSTRUCTION STARTED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Warning_Room_Low
+      TermType: 0
+      Description: 
+      Languages:
+      - LACK OF ROOM
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Tuto_01
+      TermType: 0
+      Description: 
+      Languages:
+      - SECURE CANAL OPENED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Tuto_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'SECURITY ACCESS MINIMAL
+
+
+        You will only be able to answer with YES
+        or NO.
+
+        Sensors are set to a minimal functioning level.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Trader_01
+      TermType: 0
+      Description: 
+      Languages:
+      - A trading ship has docked, they will stay for a few day
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Trader_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Trade is flourishing.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Trader_03
+      TermType: 0
+      Description: 
+      Languages:
+      - The trader is gone, they have left some supplies for the community.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Attack_01
+      TermType: 0
+      Description: 
+      Languages:
+      - An enemy fleet has been detected, prepare for assault.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Attack_02
+      TermType: 0
+      Description: 
+      Languages:
+      - All hands on deck, this is not a drill.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Attack_03
+      TermType: 0
+      Description: 
+      Languages:
+      - Celestis has launched an attack on the station
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Progress_Day_01
+      TermType: 0
+      Description: 
+      Languages:
+      - We have survived for 20 cycles!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Progress_Day_02
+      TermType: 0
+      Description: 
+      Languages:
+      - We have survived for 50 cycles!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Progress_Day_03
+      TermType: 0
+      Description: 
+      Languages:
+      - We have survived for 100 cycles!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Progress_Day_04
+      TermType: 0
+      Description: 
+      Languages:
+      - We have survived for 200 cycles!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Trust_01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Congrats, we trust you enough to give you access to other members of the
+        crew. Oh, and a friend is joining us as well.
+
+
+        Continue like that!
+
+        <i>Mara</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Trust_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'You''ve been working well, I give you access to our resources and building
+        facilities.
+
+        <i>Mara</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Module_Built_01
+      TermType: 0
+      Description: 
+      Languages:
+      - We have space for new modules in the station
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Module_Built_02
+      TermType: 0
+      Description: 
+      Languages:
+      - The lab is functioning and operational
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Random_Message_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Hey, just wanna say thank you for hosting us. Chaxa
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Mining_Expedition
+      TermType: 0
+      Description: 
+      Languages:
+      - Some derelict debris have been recycled.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Harvest_Food
+      TermType: 0
+      Description: 
+      Languages:
+      - Bugz has harvested some food.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Power_Production_00
+      TermType: 0
+      Description: 
+      Languages:
+      - The capacitors have stored excess power.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Power_Shutdown
+      TermType: 0
+      Description: 
+      Languages:
+      - CRITICAL ERROR, NOT ENOUGH ENERGY TO RUN THE STATION, ALL SECONDARY SYSTEMS
+        DEACTIVATED.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Power_Failure
+      TermType: 0
+      Description: 
+      Languages:
+      - AN ERROR WAS REPORTED IN ENERGY ATTRIBUTION
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Content_End
+      TermType: 0
+      Description: 
+      Languages:
+      - Hey, thanks a ton for playing so far. This game is a work in progress and
+        the story stops here. We hope you've enjoyed your time in the station and
+        will come back soon to discover H.O.P.E.'s secrets!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Good_Food_rng
+      TermType: 0
+      Description: 
+      Languages:
+      - Tonight, Cook was inspired and tried a new recipe that was incredible.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Repair_Crew_rng
+      TermType: 0
+      Description: 
+      Languages:
+      - A group of volunteers repaired a vulnerable spot of the station.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Chemicals_Found_rng
+      TermType: 0
+      Description: 
+      Languages:
+      - While recycling space debris, we found rare chemicals we can use for our
+        defenses.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Event_Recruitment_Ship_01
+      TermType: 0
+      Description: 
+      Languages:
+      - 'I''m back, Camarade, and I''m not alone!
+
+
+        <i>If they pass the security
+        checks, new inhabitants will join the station</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Event_Recruitment_Ship_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Some newcomers have passed the security protocols and got clearance to live
+        in the station.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Event_Recruitment_Ship_03
+      TermType: 0
+      Description: 
+      Languages:
+      - 'All the people that came with Chantara have joined us or failed the security
+        checks.
+
+
+        Chantara is already planning their next flight.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Event_Recruitment_Ship_04
+      TermType: 0
+      Description: 
+      Languages:
+      - Chantara's ship is off to find new inhabitants.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/SpaceDebris_Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - Alert, the station enters a field of debris. Expect impact in the coming
+        days.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/SpaceDebris_Progress
+      TermType: 0
+      Description: 
+      Languages:
+      - Debris have hit the station.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/SpaceDebris_End
+      TermType: 0
+      Description: 
+      Languages:
+      - The debris field is past us.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Solar_Flare
+      TermType: 0
+      Description: 
+      Languages:
+      - A solar flare hit the station, expect power outages and minor incoveniences.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Chantara_Hello
+      TermType: 0
+      Description: 
+      Languages:
+      - '<INCOMING TRANSMISSION>
+
+        Hey friends! Chantara''s here, let me see
+        what you found here!!'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Station_Repaired
+      TermType: 0
+      Description: 
+      Languages:
+      - 'The station has been repaired! Thank you we feel way safer now!
+
+        <i>Mara</i>'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Habitat_Armature
+      TermType: 0
+      Description: 
+      Languages:
+      - Duuude, look at this beauty!!!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Habitat_Built
+      TermType: 0
+      Description: 
+      Languages:
+      - Cook throws a big party to inaugurate our new habitat.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Habitat-Start
+      TermType: 0
+      Description: 
+      Languages:
+      - Ran Sun has started building living quarters.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Warning_Room_Low
+      TermType: 0
+      Description: 
+      Languages:
+      - '"Hey, the station is getting quite cramped. Is there something you can do
+        about this?"
+
+
+        Thanks in advance,
+
+        Chaxa'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EndingsTitles/victory
+      TermType: 0
+      Description: 
+      Languages:
+      - 'VICTORY: TRUST'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EndingsTitles/Game_Over_01_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - 'GAME OVER: ALONE'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EndingsTitles/Game_Over_02_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - 'GAME OVER: DISCONNECT'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EndingsTitles/Game_Over_03_Destruction
+      TermType: 0
+      Description: 
+      Languages:
+      - 'GAME OVER: DESTRUCTION'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EndingsDescriptions/victory
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you H.O.P.E. you've helped us so much and became an equal member of
+        the crew. Our trust in you is absolute.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EndingsDescriptions/Game_Over_01_Population
+      TermType: 0
+      Description: 
+      Languages:
+      - Everyone fled the station, leaving you alone in the immensity of space
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EndingsDescriptions/Game_Over_02_Trust
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Prepare for permanent shutdown. Source: lack of trust.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EndingsDescriptions/Game_Over_03_Destruction
+      TermType: 0
+      Description: 
+      Languages:
+      - Critical failure, evacua----
+      - 
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
@@ -221,13 +5721,13 @@ MonoBehaviour:
     IgnoreDeviceLanguage: 0
     _AllowUnloadingLanguages: 0
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxE4LbyVg5j3wlC3qPKQNqn02vewBFKiOMN24sAEMeINH0Zu9_k58rrGVM6tAfLJKMI/exec
-    Google_SpreadsheetKey: 
-    Google_SpreadsheetName: 
-    Google_LastUpdatedVersion: 
+    Google_SpreadsheetKey: 1BgSi0pcYXoZY8rZH2lPdD1uZCVBx7ubwf_pqjhvtcQQ
+    Google_SpreadsheetName: I2Loc HOPE - Localization
+    Google_LastUpdatedVersion: 1750103591486
     Google_Password: gv1685nn&:f58761&32dsf,az:!
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2
-    GoogleUpdateSynchronization: 1
+    GoogleUpdateSynchronization: 0
     GoogleUpdateDelay: 0
     Assets: []
     Spreadsheet_LocalFileName: 

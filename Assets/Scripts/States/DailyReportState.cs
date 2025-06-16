@@ -100,12 +100,12 @@ public class DailyReportState : StateCommand
 		if (population > food)
 		{
 			string text = LocalizationManager.GetTranslation("UI_REPORT_FOOD_NOT_ENOUGH");
-			return text.Replace("<value>", $"{populationLoss}");
+			return text.Replace("{[VALUE]}", $"{populationLoss}");
 		}
 		else
 		{
 			string text = LocalizationManager.GetTranslation("UI_REPORT_FOOD_ENOUGH");
-			return text.Replace("<value>", $"{population}");
+			return text.Replace("{[VALUE]}", $"{population}");
 		}
 	}
 
@@ -117,7 +117,7 @@ public class DailyReportState : StateCommand
 		if (populationGrowth > 0)
 		{
 			string text = LocalizationManager.GetTranslation("UI_REPORT_QOL_ENOUGH");
-			return text.Replace("<value>", $"{populationGrowth}");
+			return text.Replace("{[VALUE]}", $"{populationGrowth}");
 		}
 		else if (populationGrowth == 0)
 		{
@@ -126,7 +126,7 @@ public class DailyReportState : StateCommand
 		else
 		{
 			string text = LocalizationManager.GetTranslation("UI_REPORT_QOL_NOT_ENOUGH");
-			return text.Replace("<value>", $"{populationGrowth}");
+			return text.Replace("{[VALUE]}", $"{populationGrowth}");
 		}
 	}
 
