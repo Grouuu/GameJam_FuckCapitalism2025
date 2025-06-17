@@ -24,7 +24,10 @@ public class ResourceValueUI
 		}
 
 		if (slider != null)
+		{
+			slider.maxValue = max;
 			slider.value = value;
+		}
 	}
 
 	public void ShowWarning (bool isShow)
