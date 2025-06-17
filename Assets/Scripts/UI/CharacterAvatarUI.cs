@@ -1,11 +1,11 @@
-using TMPro;
+using I2.Loc;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterAvatarUI : MonoBehaviour
 {
 	public Image avatarSprite;
-	public TextMeshProUGUI avatarName;
+	public Localize avatarNameLocalize;
 
 	private Sprite _sprite;
 
@@ -25,7 +25,7 @@ public class CharacterAvatarUI : MonoBehaviour
 
 	public void SetAvatarName (string name)
 	{
-		avatarName.text = name;
+		avatarNameLocalize.SetTerm($"{LocCat.CharactersNames}/{name}");
 	}
 
 	private void OnDisable ()

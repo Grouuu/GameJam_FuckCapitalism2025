@@ -1,3 +1,4 @@
+using I2.Loc;
 using System;
 using TMPro;
 using UnityEngine;
@@ -12,7 +13,8 @@ public enum DialogPanelUIButtonsLayout
 
 public class DialogPanelUIData
 {
-	public string content;
+	public string contentTermKey;
+	public string contentTermCat;
 	public CharacterData character;
 	public DialogPanelUIButtonsLayout buttons;
 	public ResultVarChange[] varChanges;
@@ -27,6 +29,7 @@ public class DialogPanelUI : MonoBehaviour
 	public Button yesButton;
 	public Button noButton;
 	public Button continueButton;
+	public Localize contentLocalize;
 
 	[HideInInspector] public Action onceYesCallback;
 	[HideInInspector] public Action onceNoCallback;
@@ -34,9 +37,9 @@ public class DialogPanelUI : MonoBehaviour
 
 	public void Show (DialogPanelUIData panelContent, DialogPanelUIButtonsLayout buttons)
 	{
-		request.text = panelContent.content;
+		contentLocalize.SetTerm($"{panelContent.contentTermCat}/{panelContent.contentTermKey}");
 		avatar.SetAvatarSprite(panelContent.character.avatarFileName);
-		avatar.SetAvatarName(panelContent.character.displayName);
+		avatar.SetAvatarName(panelContent.character.name);
 		UpdateButtonsVisibility(buttons);
 
 		AddResourcesValue(panelContent.varChanges);

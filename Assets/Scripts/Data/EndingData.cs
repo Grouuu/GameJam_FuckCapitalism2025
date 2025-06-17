@@ -11,9 +11,6 @@ public class EndingData
     public EditAnimations enterAnimations;
     public EditAnimations exitAnimations;
 
-    public string title => LocalizationUtils.GetText(name, LocCat.EndingsTitles);
-    public string description => LocalizationUtils.GetText(name, LocCat.EndingsDescriptions);
-
     // runtime values
     public bool isUsed = false;
 

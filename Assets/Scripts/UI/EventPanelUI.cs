@@ -1,3 +1,4 @@
+using I2.Loc;
 using System;
 using TMPro;
 using UnityEngine;
@@ -11,8 +12,10 @@ public enum EventPanelButtonId
 
 public class EventPanelUIData
 {
-	public string title;
-	public string content;
+	public string titleTermKey;
+	public string titleTermCat;
+	public string contentTermKey;
+	public string contentTermCat;
 	public string headerFileName;
 	public ResultVarChange[] varChanges;
 }
@@ -25,13 +28,15 @@ public class EventPanelUI : MonoBehaviour
 	public TextMeshProUGUI contentUI;
 	public Transform resourcesParent;
 	public Button continueButton;
+	public Localize titleLocalize;
+	public Localize contentLocalize;
 
 	[HideInInspector] public Action onceClickCallback;
 
 	public void Show (EventPanelUIData panelContent)
 	{
-		titleUI.text = panelContent.title;
-		contentUI.text = panelContent.content;
+		titleLocalize.SetTerm($"{panelContent.titleTermCat}/{panelContent.titleTermKey}");
+		contentLocalize.SetTerm($"{panelContent.contentTermCat}/{panelContent.contentTermKey}");
 
 		SetHeader(panelContent.headerFileName);
 		AddResourcesValue(panelContent.varChanges);

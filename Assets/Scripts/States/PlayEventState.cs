@@ -123,8 +123,10 @@ public class PlayEventState : StateCommand
 	{
 		EventPanelUIData panelData = new();
 
-		panelData.title = eventData.title;
-		panelData.content = eventData.description;
+		panelData.titleTermKey = eventData.name;
+		panelData.titleTermCat = LocCat.EventsTitles;
+		panelData.contentTermKey = eventData.name;
+		panelData.contentTermCat = LocCat.EventsDescriptions;
 		panelData.headerFileName = eventData.headerFileName;
 		panelData.varChanges = eventData.result.varChanges;
 

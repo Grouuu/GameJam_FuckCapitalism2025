@@ -256,16 +256,6 @@ public class VarsManager : MonoBehaviour
 		return varData.IsLow();
 	}
 
-	public string GetVarDisplayName (GameVarId id)
-	{
-		VarData varData = GetVarData(id);
-
-		if (varData != null)
-			return varData.displayName;
-
-		return "";
-	}
-
 	public VarData[] GetResourcesData ()
 	{
 		return _gameVars

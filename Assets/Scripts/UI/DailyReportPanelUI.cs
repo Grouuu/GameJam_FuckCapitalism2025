@@ -1,3 +1,4 @@
+using I2.Loc;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -13,8 +14,10 @@ public enum DailyReportPanelButtonId
 public class DailyReportPanelUIData
 {
 	public int dayValue;
-	public string foodChange;
-	public string populationChange;
+	public string foodKey;
+	public int foodValue;
+	public string qolKey;
+	public int qolValue;
 	public (GameVarId, int)[] production;
 }
 
@@ -27,14 +30,22 @@ public class DailyReportPanelUI : MonoBehaviour
 	public Transform resourcesParent;
 	public Transform productionParent;
 	public Button continueButton;
+	public Localize foodLocalize;
+	public Localize qolLocalize;
+	public LocalizationParamsManager foodLocalizeParams;
+	public LocalizationParamsManager qolLocalizeParams;
 
 	[HideInInspector] public Action onceClickCallback;
 
 	public void Show (DailyReportPanelUIData panelContent)
 	{
 		dayCountUI.text = $"{panelContent.dayValue}";
-		foodChange.text = panelContent.foodChange;
-		populationChange.text = panelContent.populationChange;
+
+		foodLocalize.SetTerm($"{LocCat.UI}/{panelContent.foodKey}");
+		foodLocalizeParams.SetParameterValue(LocValue.DailyFoodValue, $"{panelContent.foodValue}");
+
+		qolLocalize.SetTerm($"{LocCat.UI}/{panelContent.qolKey}");
+		qolLocalizeParams.SetParameterValue(LocValue.DailyQoLValue, $"{panelContent.qolValue}");
 
 		AddResourceValueDiff();
 		AddProduction(panelContent.production);

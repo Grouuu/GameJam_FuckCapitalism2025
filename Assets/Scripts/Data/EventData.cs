@@ -13,9 +13,6 @@ public class EventData
     public EditAnimations enterAnimations;
     public EditAnimations exitAnimations;
 
-    public string title => LocalizationUtils.GetText(name, LocCat.EventsTitles);
-    public string description => LocalizationUtils.GetText(name, LocCat.EventsDescriptions);
-
     // runtime values
     public int day = -1;
     public bool isUsed = false;

@@ -17,6 +17,12 @@ public static class LocCat
 	public static string EndingsDescriptions = "EndingsDescriptions";
 }
 
+public static class LocValue
+{
+	public static string DailyFoodValue = "VALUE";
+	public static string DailyQoLValue = "VALUE";
+}
+
 public static class LocalizationUtils
 {
 	public static string GetText (string key, string category)
@@ -32,5 +38,20 @@ public static class LocalizationUtils
 	public static string ReplaceValue (this string text, string key, string value)
 	{
 		return text.Replace("{[" + key + "]}", $"{value}");
+	}
+
+	public static string GetCurrentLanguage ()
+	{
+		return LocalizationManager.CurrentLanguage;
+	}
+
+	public static void SetCurrentLanguage (string language)
+	{
+		LocalizationManager.SetLanguageAndCode(language, LocalizationManager.GetLanguageCode(language));
+	}
+
+	public static string[] GetSupportedLanguages ()
+	{
+		return LocalizationManager.GetAllLanguages().ToArray();
 	}
 }

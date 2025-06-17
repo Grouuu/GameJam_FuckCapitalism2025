@@ -5,8 +5,6 @@ public class DialogResultData : ResultData
     public string dialogName;
     public bool isYes;
 
-    public string response => LocalizationUtils.GetText(dialogName, isYes ? LocCat.DialogsYes : LocCat.DialogsNo);
-
     public static DialogResultData CreateFrom (ResultData resultData)
     {
         return new()
@@ -33,8 +31,6 @@ public class DialogData
     public EditAnimations yesExitAnimations;
     public EditAnimations noEnterAnimations;
     public EditAnimations noExitAnimations;
-
-    public string request => LocalizationUtils.GetText(name, LocCat.DialogsRequests);
 
     // runtime values
     public bool isUsed = false;

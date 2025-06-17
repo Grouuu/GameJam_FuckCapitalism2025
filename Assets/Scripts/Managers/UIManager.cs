@@ -102,7 +102,7 @@ public class UIManager : MonoBehaviour
 		resource.SetColor(color);
 		resource.SetIcon(varData.iconFileName);
 		resource.SetValue(diff);
-		resource.SetTooltipName(varData.displayName);
+		resource.SetTooltipName(varData.name);
 	}
 
 	public void RemoveResourceValues (Transform parent)
@@ -118,6 +118,17 @@ public class UIManager : MonoBehaviour
 	public void ShowResourceLowWarning (GameVarId varId, bool isLow)
 	{
 		GetUIResourceComponent(varId)?.ShowWarning(isLow);
+	}
+
+	private void OnEnable ()
+	{
+		InitResourceValueUI();
+	}
+
+	private void InitResourceValueUI ()
+	{
+		foreach (ResourceValueUI valueUI in resourceValuesUI)
+			valueUI.Update();
 	}
 
 	private ResourceValueUI GetUIResourceComponent (GameVarId resourceId)

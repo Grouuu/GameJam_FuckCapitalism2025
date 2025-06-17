@@ -82,46 +82,36 @@ public class DailyReportState : StateCommand
 		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);
 
 		panelData.dayValue = currentDay;
-		panelData.foodChange = GetFoodDiff();
-		panelData.populationChange = GetPopulationDiff();
+		(panelData.foodKey, panelData.foodValue) = GetFoodDiff();
+		(panelData.qolKey, panelData.qolValue) = GetPopulationDiff();
 		panelData.production = production;
 
 		return panelData;
 	}
 
-	private string GetFoodDiff ()
+	private (string, int) GetFoodDiff ()
 	{
 		int population = GameManager.Instance.varsManager.GetVarValue(GameVarId.Population);
 		int food = GetTotalFoodAvailable();
 		int populationLoss = GetPopulationLossByFood();
 
 		if (population > food)
-		{
-			return LocalizationUtils.GetText("UI_REPORT_FOOD_NOT_ENOUGH", LocCat.UI).ReplaceValue("VALUE", $"{populationLoss}");
-		}
+			return ("UI_REPORT_FOOD_NOT_ENOUGH", populationLoss);
 		else
-		{
-			return LocalizationUtils.GetText("UI_REPORT_FOOD_ENOUGH", LocCat.UI).ReplaceValue("VALUE", $"{population}");
-		}
+			return ("UI_REPORT_FOOD_ENOUGH", population);
 	}
 
-	private string GetPopulationDiff ()
+	private (string, int) GetPopulationDiff ()
 	{
 		int populationGrowth = GetPopulationGrowth();
 
 
 		if (populationGrowth > 0)
-		{
-			return LocalizationUtils.GetText("UI_REPORT_QOL_ENOUGH", LocCat.UI).ReplaceValue("VALUE", $"{populationGrowth}");
-		}
+			return ("UI_REPORT_QOL_ENOUGH", populationGrowth);
 		else if (populationGrowth == 0)
-		{
-			return LocalizationUtils.GetText("UI_REPORT_QOL_MEDIAN", LocCat.UI);
-		}
+			return ("UI_REPORT_QOL_MEDIAN", 0);
 		else
-		{
-			return LocalizationUtils.GetText("UI_REPORT_QOL_NOT_ENOUGH", LocCat.UI).ReplaceValue("VALUE", $"{populationGrowth}");
-		}
+			return ("UI_REPORT_QOL_NOT_ENOUGH", populationGrowth);
 	}
 
 	private int GetFoodConsuption ()

@@ -165,7 +165,8 @@ public class PlayDialogState : StateCommand
 	{
 		DialogPanelUIData panelData = new();
 
-		panelData.content = dialogData.request;
+		panelData.contentTermKey = dialogData.name;
+		panelData.contentTermCat = LocCat.DialogsRequests;
 		panelData.character = characterData;
 		panelData.buttons = DialogPanelUIButtonsLayout.YesNo;
 
@@ -176,7 +177,8 @@ public class PlayDialogState : StateCommand
 	{
 		DialogPanelUIData panelData = new();
 
-		panelData.content = result.response;
+		panelData.contentTermKey = dialogData.name;
+		panelData.contentTermCat = result.isYes ? LocCat.DialogsYes : LocCat.DialogsNo;
 		panelData.varChanges = result.varChanges;
 		panelData.character = characterData;
 		panelData.buttons = DialogPanelUIButtonsLayout.Continue;

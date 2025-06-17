@@ -13,8 +13,6 @@ public class VarData
 	public int maxValue;
 	public VarCompareValue lowThreshold;
 
-	public string displayName => LocalizationUtils.GetText(name, LocCat.VarsNames);
-
 	// runtime values
 	public int previousValue;
 	public int currentValue {

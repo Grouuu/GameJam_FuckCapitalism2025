@@ -8,8 +8,15 @@ public class ResourceValueUI
 	public GameVarId id = GameVarId.None;
 	public TextMeshProUGUI textfield;
 	public Slider slider;
+	public TooltipUI tooltip;
 	public WarningVarUI warning;
 	public bool showMax;
+
+	public void Update ()
+	{
+		if (tooltip != null)
+			tooltip.varId = id;
+	}
 
 	public void SetValue (int value, int max)
 	{

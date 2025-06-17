@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 7579585222319596164}
   - component: {fileID: 6204439079700047985}
   - component: {fileID: 1805805162015846237}
+  - component: {fileID: 2662098970897943210}
   m_Layer: 5
   m_Name: TooltipPop
   m_TagString: Untagged
@@ -323,6 +324,45 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 10
+--- !u!114 &2662098970897943210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599767291541689055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mTerm: '-'
+  mTermSecondary: 
+  PrimaryTermModifier: 0
+  SecondaryTermModifier: 0
+  TermPrefix: 
+  TermSuffix: 
+  LocalizeOnAwake: 1
+  IgnoreRTL: 0
+  MaxCharactersInRTL: 0
+  IgnoreNumbersInRTL: 1
+  CorrectAlignmentForRTL: 1
+  AddSpacesToJoinedLanguages: 0
+  AllowLocalizedParameters: 1
+  AllowParameters: 1
+  TranslatedObjects: []
+  LocalizeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  AlwaysForceLocalize: 0
+  LocalizeCallBack:
+    Target: {fileID: 0}
+    MethodName: 
+  mGUI_ShowReferences: 0
+  mGUI_ShowTems: 1
+  mGUI_ShowCallback: 0
+  mLocalizeTarget: {fileID: 0}
+  mLocalizeTargetName: I2.Loc.LocalizeTarget_TextMeshPro_UGUI
 --- !u!1 &2685449985141039120
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +426,7 @@ MonoBehaviour:
   iconSprite: {fileID: 101766180018465298}
   valueText: {fileID: 4059248835925613908}
   tooltipText: {fileID: 7579585222319596164}
+  tooltipLocalize: {fileID: 2662098970897943210}
 --- !u!114 &5954543173407652731
 MonoBehaviour:
   m_ObjectHideFlags: 0

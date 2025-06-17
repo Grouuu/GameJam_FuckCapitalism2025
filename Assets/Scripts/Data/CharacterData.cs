@@ -9,8 +9,6 @@ public class CharacterData
 	public string avatarFileName;
 	public RequirementData requirements;
 
-	public string displayName => LocalizationUtils.GetText(name, LocCat.CharactersNames);
-
 	public List<DialogData> characterDialogs = new();
 
 	public bool isAvailable ()

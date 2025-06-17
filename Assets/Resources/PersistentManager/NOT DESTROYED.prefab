@@ -300,8 +300,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8199379737384464517, guid: c22edf8307f27ac47817f60c427baf1c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 0127bf5a82b60914285aecbe6b4b9d6d, type: 3}
-  m_Resource: {fileID: 8300000, guid: 0127bf5a82b60914285aecbe6b4b9d6d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f102cf2b0363f0e4b9a8db34b576fe49, type: 3}
+  m_Resource: {fileID: 8300000, guid: f102cf2b0363f0e4b9a8db34b576fe49, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 6400424441954404004}
   - component: {fileID: 3489945091619652293}
   - component: {fileID: 7459989500914921556}
+  - component: {fileID: 3795304893533404081}
   m_Layer: 0
   m_Name: NOT DESTROYED
   m_TagString: Untagged
@@ -440,6 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundManager: {fileID: 0}
   saveManager: {fileID: 0}
+  localizationManager: {fileID: 0}
 --- !u!114 &6400424441954404004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +484,18 @@ MonoBehaviour:
   clickSound: {fileID: 8220938830858837982}
   yesSound: {fileID: 7185020934320870979}
   noSound: {fileID: 392528963154213787}
+--- !u!114 &3795304893533404081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7038524784630191307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cbd377b5b44b94286385c71a584589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9096865060532066493
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,8 +538,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8199379737384464517, guid: c22edf8307f27ac47817f60c427baf1c, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 16d19102bbecb884eaeacff5ff091019, type: 3}
-  m_Resource: {fileID: 8300000, guid: 16d19102bbecb884eaeacff5ff091019, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f102cf2b0363f0e4b9a8db34b576fe49, type: 3}
+  m_Resource: {fileID: 8300000, guid: f102cf2b0363f0e4b9a8db34b576fe49, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

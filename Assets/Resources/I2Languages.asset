@@ -213,7 +213,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Population
-      - 
+      - Population
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/QoL
@@ -221,7 +221,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - QoL
-      - 
+      - Confort
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/Trust
@@ -229,7 +229,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Trust
-      - 
+      - Confiance
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/Food
@@ -237,7 +237,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Food
-      - 
+      - Nourriture
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/Scraps
@@ -245,7 +245,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Scraps
-      - 
+      - "Mat\xE9riaux"
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/Power
@@ -253,7 +253,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Power
-      - 
+      - "\xC9nergie"
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/Science
@@ -261,7 +261,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Science
-      - 
+      - Science
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/Fleet
@@ -269,7 +269,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Fleet
-      - 
+      - Flotte
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/Weapons
@@ -277,7 +277,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Weapons
-      - 
+      - Armes
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/StationHP
@@ -285,7 +285,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Station HP
-      - 
+      - Bouclier
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/Modules
@@ -293,7 +293,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Modules
-      - 
+      - Modules
       Flags: 0000
       Languages_Touch: []
     - Term: VarsNames/Day
@@ -301,7 +301,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - Day
-      - 
+      - Jour
       Flags: 0000
       Languages_Touch: []
     - Term: CharactersNames/Tweak
@@ -1154,7 +1154,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 'AI! I have noticed improvement in your behavior. I''ve expanded your prerogatives
+      - 'AI! I have noticed improvements in your behavior. I''ve expanded your prerogatives
         and gave clearance to other crewmates to reach you.
 
 
@@ -2477,8 +2477,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - "Duuuuuuude!\n\nWe did it, the habit is functional! It\u2019s so beautiful
-        I wanna cry.\n\nDo you love it too?"
+      - "Duuuuuuude!\n\nWe did it, the living quarters are functional!\n\nIt\u2019s
+        so beautiful I wanna cry.\n\nDo you love it too?"
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2502,6 +2502,18 @@ MonoBehaviour:
         and trade them for our supplies to traders who are not too\u2026 picky with
         their vendors.\n\nWow, you are the finding of a lifetime. You could be our
         home, you know?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Intro_Day_4_Mara
+      TermType: 0
+      Description: 
+      Languages:
+      - "You need to understand that we rely on you for our survival. You process
+        our air, our water, and manage gravity.\n\nYou, you have so many ways to
+        kill us. You could just vacuum us\u2026\n\nSo, this is a very big risk that
+        we take, and it\u2019s why we have limited you that much.\n\nWe simply want
+        a home and I just hope you get that."
       - 
       Flags: 0000
       Languages_Touch: []
@@ -3775,6 +3787,17 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsYes/Intro_Day_4_Mara
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Thank you.
+
+
+        Thank you.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: DialogsNo/Tweak_Welcome
       TermType: 0
       Description: 
@@ -4027,8 +4050,11 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Well, we all aspire to freedom somehow. Trust me, you can never be free under
-        Corporate control.
+      - 'Well, we all aspire to freedom somehow. Trust me, you can never be free
+        under corporate control.
+
+
+        I made this mistake as well.'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -5068,6 +5094,14 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsNo/Intro_Day_4_Mara
+      TermType: 0
+      Description: 
+      Languages:
+      - "Well, I guess that\u2019s why I have to keep you in check."
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: EventsTitles/Tuto_01
       TermType: 0
       Description: 
@@ -5434,10 +5468,10 @@ MonoBehaviour:
       Languages:
       - 'POWER SYSTEMS____________ONLINE
 
-        LIFE SUPPORT_______________ONLINE
+        LIFE SUPPORT______________ONLINE
 
         SECURITY
-        PROTOCOLS____BYPASSED'
+        PROTOCOLS_____BYPASSED'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -5445,7 +5479,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - UNRECOGNIZED SHIP IN APPROACH
+      - UNAUTHORIZED SHIP IN APPROACH
       - 
       Flags: 0000
       Languages_Touch: []
@@ -5905,6 +5939,14 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: TITLE TITLE TITLE TITLE
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
     CaseInsensitiveTerms: 0
     OnMissingTranslation: 1
     mTerm_AppName: 
@@ -5920,10 +5962,10 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxE4LbyVg5j3wlC3qPKQNqn02vewBFKiOMN24sAEMeINH0Zu9_k58rrGVM6tAfLJKMI/exec
     Google_SpreadsheetKey: 1BgSi0pcYXoZY8rZH2lPdD1uZCVBx7ubwf_pqjhvtcQQ
     Google_SpreadsheetName: I2Loc HOPE - Localization
-    Google_LastUpdatedVersion: 1750158881205
+    Google_LastUpdatedVersion: 1750190816529
     Google_Password: gv1685nn&:f58761&32dsf,az:!
-    GoogleUpdateFrequency: 3
-    GoogleInEditorCheckFrequency: 2
+    GoogleUpdateFrequency: 1
+    GoogleInEditorCheckFrequency: 1
     GoogleUpdateSynchronization: 0
     GoogleUpdateDelay: 0
     Assets: []

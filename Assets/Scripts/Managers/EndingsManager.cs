@@ -157,8 +157,10 @@ public class EndingsManager : MonoBehaviour
 	{
 		EventPanelUIData panelData = new();
 
-		panelData.title = ending.title;
-		panelData.content = ending.description;
+		panelData.titleTermKey = ending.name;
+		panelData.titleTermCat = LocCat.EndingsTitles;
+		panelData.contentTermKey = ending.name;
+		panelData.contentTermCat = LocCat.EndingsDescriptions;
 		panelData.headerFileName = ending.headerFileName;
 
 		return panelData;

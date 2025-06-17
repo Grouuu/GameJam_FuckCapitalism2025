@@ -6,6 +6,7 @@ public class PersistentManager : MonoBehaviour
 
     [HideInInspector] public SoundManager soundManager;
     [HideInInspector] public SaveManager saveManager;
+    [HideInInspector] public I2Manager localizationManager;
 
     public async Awaitable InitPersistentData ()
 	{
@@ -27,6 +28,7 @@ public class PersistentManager : MonoBehaviour
     {
         soundManager = GetComponent<SoundManager>();
         saveManager = GetComponent<SaveManager>();
+        localizationManager = GetComponent<I2Manager>();
     }
 
     private async Awaitable InitSaveData ()

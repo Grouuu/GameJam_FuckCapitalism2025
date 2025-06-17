@@ -6,6 +6,7 @@ public class Managers
 	public GameManager gameManager;
 	public SaveManager saveManager;
 	public SoundManager soundManager;
+	public I2Manager localizationManager;
 	public DatabaseManager databaseManager;
 	public UIManager uiManager;
 	public GameStateManager gameStateManager;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
 
 	public SaveManager saveManager => _managers.saveManager;
 	public SoundManager soundManager => _managers.soundManager;
+	public I2Manager localizationManager => _managers.localizationManager;
 	public DatabaseManager databaseManager => _managers.databaseManager;
 	public UIManager uiManager => _managers.uiManager;
 	public GameStateManager gameStateManager => _managers.gameStateManager;
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
 			gameManager = this,
 			saveManager = PersistentManager.Instance.saveManager,
 			soundManager = PersistentManager.Instance.soundManager,
+			localizationManager = PersistentManager.Instance.localizationManager,
 			databaseManager = GetComponentInChildren<DatabaseManager>(),
 			uiManager = GetComponentInChildren<UIManager>(),
 			gameStateManager = GetComponentInChildren<GameStateManager>(),
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour
 			endingsManager = GetComponentInChildren<EndingsManager>(),
 			productionManager = GetComponentInChildren<ProductionManager>(),
 			buildingsManager = GetComponentInChildren<BuildingsManager>(),
-			animationsManager = GetComponentInChildren<AnimationsManager>(),
+			animationsManager = GetComponentInChildren<AnimationsManager>()
 		};
 	}
 

@@ -1,3 +1,4 @@
+using I2.Loc;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ public class ResourceIconUI : MonoBehaviour
 	public Image iconSprite;
 	public TextMeshProUGUI valueText;
 	public TextMeshProUGUI tooltipText;
+	public Localize tooltipLocalize;
 
 	private Sprite _sprite;
 
@@ -37,9 +39,9 @@ public class ResourceIconUI : MonoBehaviour
 		valueText.text = $"{modifier}{value}";
 	}
 
-	public void SetTooltipName (string name)
+	public void SetTooltipName (string varName)
 	{
-		tooltipText.text = name;
+		tooltipLocalize.SetTerm($"{LocCat.VarsNames}/{varName}");
 	}
 
 	private void OnDisable ()
