@@ -79,8 +79,8 @@ public class DialogParser : DatabaseParser
 			jsonData.NO_RESULT_VAR_MAX,
 			jsonData.NO_RESULT_BUILDING_PROGRESS
 		));
-		dialog.yesResult.dialogName = dialog.name;
-		dialog.yesResult.isYes = false;
+		dialog.noResult.dialogName = dialog.name;
+		dialog.noResult.isYes = false;
 		(dialog.enterAnimations, dialog.exitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.EDIT_ANIMS);
 		(dialog.yesEnterAnimations, dialog.yesExitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.YES_EDIT_ANIMS);
 		(dialog.noEnterAnimations, dialog.noExitAnimations) = ParsingUtils.ParseEditAnimations(jsonData.NO_EDIT_ANIMS);

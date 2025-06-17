@@ -54,13 +54,13 @@ public class BuildingsParser : DatabaseParser
 		buildingData.constructionTime = jsonData.CONSTRUCTION_TIME;
 		buildingData.buildLimit = jsonData.BUILD_LIMIT;
 		buildingData.costs = ParsingUtils.ParseResultVarChanges(jsonData.COST);
-		buildingData.result = DialogResultData.CreateFrom(ParsingUtils.ParseResultData(
+		buildingData.result = ParsingUtils.ParseResultData(
 			jsonData.RESULT_VARS,
 			jsonData.RESULT_RESOURCES,
 			jsonData.RESULT_EVENT_DAY,
 			jsonData.RESULT_VAR_MAX,
 			jsonData.RESULT_BUILDING_PROGRESS
-		));
+		);
 		buildingData.production = ParsingUtils.ParseResultVarChanges(jsonData.DAILY_PRODUCTION_FLAT);
 		buildingData.productionMultipliers = ParsingUtils.ParseProductionMultipliers(jsonData.PROD_MULTIPLIER);
 

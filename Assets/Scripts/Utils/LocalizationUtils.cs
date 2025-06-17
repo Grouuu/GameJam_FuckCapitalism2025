@@ -21,7 +21,12 @@ public static class LocalizationUtils
 {
 	public static string GetText (string key, string category)
 	{
-		return LocalizationManager.GetTranslation($"{category}/{key}");
+		string text = LocalizationManager.GetTranslation($"{category}/{key}");
+
+		if (string.IsNullOrEmpty(text))
+			Debug.LogWarning($"Missing translation for {category}/{key}");
+
+		return text;
 	}
 
 	public static string ReplaceValue (this string text, string key, string value)
