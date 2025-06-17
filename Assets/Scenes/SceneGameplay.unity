@@ -1598,7 +1598,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 428, y: -322.03857}
-  m_SizeDelta: {x: 204, y: 45}
+  m_SizeDelta: {x: 0, y: 45}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &145067536
 MonoBehaviour:
@@ -6474,7 +6474,7 @@ MonoBehaviour:
     showMax: 0
   - id: 10
     textfield: {fileID: 79385238}
-    slider: {fileID: 0}
+    slider: {fileID: 511937737}
     warning: {fileID: 870479175}
     showMax: 0
   - id: 3
@@ -13048,7 +13048,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 211.01, y: -28.5}
-  m_SizeDelta: {x: 150.01, y: 48.3278}
+  m_SizeDelta: {x: 0, y: 48.3278}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1139561672
 MonoBehaviour:
@@ -19163,7 +19163,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 863.52, y: -34.5}
-  m_SizeDelta: {x: 433.02002, y: 69}
+  m_SizeDelta: {x: 0, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1866147723
 MonoBehaviour:
@@ -19440,7 +19440,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 90.51, y: -28.5}
-  m_SizeDelta: {x: 22.51, y: 48.3278}
+  m_SizeDelta: {x: 0, y: 48.3278}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1880577509
 MonoBehaviour:
@@ -20241,6 +20241,10 @@ PrefabInstance:
     - target: {fileID: 8835703150390837248, guid: 9d68cbfbe88d6284bac67ade5e54a12b, type: 3}
       propertyPath: m_Name
       value: PF_HopeStation (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835703150390837248, guid: 9d68cbfbe88d6284bac67ade5e54a12b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
