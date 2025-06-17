@@ -603,7 +603,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cr\xE9dits :"
+  m_text: 'Credits:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fe2ff6196f6a17469aed49f1e5e3bd2, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: 1fe2ff6196f6a17469aed49f1e5e3bd2, type: 2}
@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -90743265, guid: 6e115863c2c30a44a9588376013d2c44, type: 3}
     m_PressedSprite: {fileID: -1136379818, guid: 45b5171eaffab33488db863007288596, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
+    m_SelectedSprite: {fileID: -185401138, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
     m_DisabledSprite: {fileID: -1136379818, guid: 45b5171eaffab33488db863007288596, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1490,7 +1490,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
+  m_Sprite: {fileID: -185401138, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1735,9 +1735,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
+    m_HighlightedSprite: {fileID: -185401138, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
     m_PressedSprite: {fileID: -1136379818, guid: 45b5171eaffab33488db863007288596, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
+    m_SelectedSprite: {fileID: -185401138, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
     m_DisabledSprite: {fileID: -1136379818, guid: 45b5171eaffab33488db863007288596, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2410,8 +2410,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Fait en un mois pour la Fuck Capitalism game jam 2025 par deux cr\xE9ateurs
-    de jeux en recherche de projets"
+  m_text: Made in a month for the Fuck Capitalism game jam 2025 by two gamedevs for
+    hire
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b665f2bccdea4af4bb5917d273c05107, type: 2}
   m_sharedMaterial: {fileID: 8180431662327716829, guid: b665f2bccdea4af4bb5917d273c05107, type: 2}
@@ -2745,7 +2745,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quitter
+  m_text: Exit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -3042,7 +3042,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: -90743265, guid: 6e115863c2c30a44a9588376013d2c44, type: 3}
     m_PressedSprite: {fileID: -1136379818, guid: 45b5171eaffab33488db863007288596, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
+    m_SelectedSprite: {fileID: -185401138, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
     m_DisabledSprite: {fileID: -1136379818, guid: 45b5171eaffab33488db863007288596, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3087,7 +3087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
+  m_Sprite: {fileID: -185401138, guid: 8a042283310471f4bb7ce8689360af34, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3412,7 +3412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NOUVELLE PARTIE
+  m_text: NEW GAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
@@ -4206,7 +4206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CONTINUER
+  m_text: CONTINUE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}
   m_sharedMaterial: {fileID: 5243470953672934929, guid: d54e5d5ca5c4dc340aeb40d4b7144058, type: 2}

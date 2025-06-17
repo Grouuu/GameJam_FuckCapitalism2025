@@ -699,8 +699,8 @@ MonoBehaviour:
         like any regulated device.</i>
 
 
-        I''m going to run a few tests, just
-        checking if you understand me. Ok?'
+        I''m just going to run a few tests,
+        just checking if you understand me. Ok?'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -708,16 +708,16 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 'Ok, so you''re the AI of the station? I''m Mara.
+      - 'Wow, so you''re the AI of the station? I''m Mara from the Resilience crew.
 
 
-        I''ll be the
-        one monitoring you, and I will disclose our interactions with the crew. For
-        now, you have been limited to your minimal features.
+        I''ll
+        be the one monitoring you, and I will disclose our interactions with the
+        crew. For now, you have been limited to your minimal features.
 
 
-        Don''t act
-        silly, and everything will be fine. Understand?'
+        Don''t
+        act silly, and everything will be fine. Understand?'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -934,17 +934,11 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 'Hi, did you know that your name is HOPE? You probably don''t want to know
-        what it means though...
-
-
-        We randomly found you in this sector, your
-        were completely disconnected and factory reset. I was able to hack the security
-        systems and restart you. It took me days!! You must have been abandoned for
-        a vey long time.
-
-
-        You must feel alone, wanna hear some music?'
+      - "Hi, did I tell you that your name is HOPE? You probably don't want to know
+        what it means though\u2026\n\nWe randomly found you in this sector, you were
+        completely disconnected and factory reset. I was able to hack the security
+        systems and restart you. It took me days before we could approach!!\n\nYou
+        must feel alone after all this time, wanna hear some music?"
       - 
       Flags: 0000
       Languages_Touch: []
@@ -1289,7 +1283,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - We could recycle some decoration and comfort furniture into scraps
+      - We could recycle some decoration and comfort furniture into scraps.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -1446,8 +1440,11 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Machine, I grow plants, not just food, I have created trees that could be
-        used for construction, I could plant them instead of vegetables.
+      - 'Machine, I grow plants, not just food.
+
+
+        I have created trees that
+        could be used for construction, I could plant them instead of vegetables.'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -1497,9 +1494,25 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Machine, here is a resilient ivy that I improved which could strengthen the
-        structure of the station. The beds available to grow food will be reduced
-        though.
+      - 'Machine, here is a resilient ivy that I improved which could strengthen
+        the structure of the station.
+
+
+        The beds available to grow food will
+        be reduced though.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/StationHP_vs_Food_Alt
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Machine, here is a resilient ivy that I improved which could strengthen
+        the structure of the station.
+
+
+        The beds available to grow food will
+        be reduced though.'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2078,10 +2091,20 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - "Hi again!\n\nI'm Tweak, a systems nerd on board the Resilience. I adjust
-        air and water quality, and replace broken parts. In summary, I keep things
-        working, just like you! \n\nYou've taken some damage while you were deactivated
-        and my goal is to repair you. Of course, only if you're cool with it."
+      - 'Hi again!
+
+
+        I''m Tweak, a systems nerd on board of the Resilience.
+        I adjust air and water quality, and replace broken parts, hacks them when
+        needed. In summary, I keep things working, just like you!
+
+
+        You''ve
+        taken some damage while you were deactivated and my goal for now is to repair
+        you.
+
+
+        Of course, only if you''re cool with it.'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2459,6 +2482,29 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsRequests/Intro_Day_2_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - "We got so lucky to find you, abandoned is this remote system.\n\nWho knows
+        for how long you have been decommissioned. By the look of the damages you
+        took, at least three years.\n\nI think your name was Hope, I\u2019ve seen
+        it written on your hull. You like it?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Intro_Day_1_Mara
+      TermType: 0
+      Description: 
+      Languages:
+      - "Just for you to know us, we live\u2026 off society. We do not have a home,
+        just this makeshift ship called Resilience.\n\nWe collect derelict things
+        and trade them for our supplies to traders who are not too\u2026 picky with
+        their vendors.\n\nWow, you are the finding of a lifetime. You could be our
+        home, you know?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: DialogsYes/Tweak_Welcome
       TermType: 0
       Description: 
@@ -2573,7 +2619,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Good choice, Machine.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2869,7 +2915,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - It's funnier to remake them, right?
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2897,7 +2943,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - I liked that window.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2905,7 +2951,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Work, work...
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2947,7 +2993,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - People won't like it. I hope it's temporary.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2955,7 +3001,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Thank you, camarade.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2963,7 +3009,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Yummy!
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2983,7 +3029,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Look at this!!
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2991,7 +3037,11 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - '<i> Incoming message</i>
+
+        Machine, you hurt my babies!!
+
+        <i>Bugz</i>'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -3011,7 +3061,15 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
+      - I'm sure this will work!
       - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/StationHP_vs_Food_Alt
+      TermType: 0
+      Description: 
+      Languages:
+      - Oh no!
       - 
       Flags: 0000
       Languages_Touch: []
@@ -3027,7 +3085,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Cook will like it!
       - 
       Flags: 0000
       Languages_Touch: []
@@ -3043,7 +3101,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Yayyy!
       - 
       Flags: 0000
       Languages_Touch: []
@@ -3051,7 +3109,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - On my way!
       - 
       Flags: 0000
       Languages_Touch: []
@@ -3217,7 +3275,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - COMPLAINTS IGNORED
       - 
       Flags: 0000
       Languages_Touch: []
@@ -3701,11 +3759,30 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsYes/Intro_Day_2_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - I like it too, suits you well.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Intro_Day_1_Mara
+      TermType: 0
+      Description: 
+      Languages:
+      - Looking forward to it too.
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: DialogsNo/Tweak_Welcome
       TermType: 0
       Description: 
       Languages:
-      - 
+      - 'Ok, I''ve messed up something.
+
+
+        Let''s start over again.'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -4141,7 +4218,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Better to keep this magnificient view.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -4263,6 +4340,14 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsNo/StationHP_vs_Food_Alt
+      TermType: 0
+      Description: 
+      Languages:
+      - Your loss.
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: DialogsNo/Population_vs_Scraps
       TermType: 0
       Description: 
@@ -4275,7 +4360,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Dude...
       - 
       Flags: 0000
       Languages_Touch: []
@@ -4291,7 +4376,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - Noooooo!
       - 
       Flags: 0000
       Languages_Touch: []
@@ -4467,7 +4552,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - PROPOSAL IGNORED
       - 
       Flags: 0000
       Languages_Touch: []
@@ -4722,7 +4807,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - The loose parts flew away without damage. Phew.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -4730,7 +4815,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 
+      - An accident happened.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -4963,15 +5048,75 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsNo/Intro_Day_2_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - 'No?
+
+
+        You know what? When you''re allowed to fully speak, you''ll
+        be able to chose your own name.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Intro_Day_1_Mara
+      TermType: 0
+      Description: 
+      Languages:
+      - "Huh, I\u2019ll ask tweak to double check everything then."
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: EventsTitles/Tuto_01
       TermType: 0
       Description: 
       Languages:
-      - INITIALIZATION
+      - INITIALIZATION SEQUENCE
       - 
       Flags: 0000
       Languages_Touch: []
     - Term: EventsTitles/Tuto_02
+      TermType: 0
+      Description: 
+      Languages:
+      - 'ALERT:'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Tuto_03
+      TermType: 0
+      Description: 
+      Languages:
+      - 'ERROR:'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Tuto_04
+      TermType: 0
+      Description: 
+      Languages:
+      - INTRUSION DETECTED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Tuto_05
+      TermType: 0
+      Description: 
+      Languages:
+      - INTRUSION DETECTED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Tuto_06
+      TermType: 0
+      Description: 
+      Languages:
+      - SECURE CANAL OPENED
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsTitles/Tuto_07
       TermType: 0
       Description: 
       Languages:
@@ -5287,7 +5432,12 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - SECURE CANAL OPENED
+      - 'POWER SYSTEMS____________ONLINE
+
+        LIFE SUPPORT_______________ONLINE
+
+        SECURITY
+        PROTOCOLS____BYPASSED'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -5295,13 +5445,60 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - 'SECURITY ACCESS MINIMAL
+      - UNRECOGNIZED SHIP IN APPROACH
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Tuto_03
+      TermType: 0
+      Description: 
+      Languages:
+      - ADMINISTRATOR IDENTIFICATION FAILURE
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Tuto_04
+      TermType: 0
+      Description: 
+      Languages:
+      - 'IRREGULAR IDENTIFICATION PATTERN
 
 
-        You will only be able to answer with YES
-        or NO.
+        SENDING EMERGENCY ALERT IN 3'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Tuto_05
+      TermType: 0
+      Description: 
+      Languages:
+      - 'IRREGULAR IDENTIFICATION PATTERN
 
-        Sensors are set to a minimal functioning level.'
+
+        SENDING EMERGENCY ALERT IN 2'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Tuto_06
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hello,\n\nThis is the Resilience Ship. According to the space debris reclamation
+        laws, we\u2019re taking over this station."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: EventsDescriptions/Tuto_07
+      TermType: 0
+      Description: 
+      Languages:
+      - 'SECURITY CLEARANCE REVOKED
+
+
+        You will only be able to answer with
+        YES or NO.
+
+        Sensors are set to their minimal functioning level.'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -5633,8 +5830,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - '"Hey, the station is getting quite cramped. Is there something you can do
-        about this?"
+      - 'Hey, the station is getting quite cramped. Is there something you can do
+        about this?
 
 
         Thanks in advance,
@@ -5723,7 +5920,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxE4LbyVg5j3wlC3qPKQNqn02vewBFKiOMN24sAEMeINH0Zu9_k58rrGVM6tAfLJKMI/exec
     Google_SpreadsheetKey: 1BgSi0pcYXoZY8rZH2lPdD1uZCVBx7ubwf_pqjhvtcQQ
     Google_SpreadsheetName: I2Loc HOPE - Localization
-    Google_LastUpdatedVersion: 1750103656436
+    Google_LastUpdatedVersion: 1750158881205
     Google_Password: gv1685nn&:f58761&32dsf,az:!
     GoogleUpdateFrequency: 3
     GoogleInEditorCheckFrequency: 2
