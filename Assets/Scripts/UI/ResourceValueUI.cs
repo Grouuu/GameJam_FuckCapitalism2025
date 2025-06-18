@@ -8,8 +8,9 @@ public class ResourceValueUI
 	public GameVarId id = GameVarId.None;
 	public TextMeshProUGUI textfield;
 	public Slider slider;
+	public SegmentedProgressBarUI segmentedBar;
 	public TooltipUI tooltip;
-	public WarningVarUI warning;
+	public WarningVarUI lowWarning;
 	public bool showMax;
 
 	public void Update ()
@@ -35,12 +36,18 @@ public class ResourceValueUI
 			slider.maxValue = max;
 			slider.value = value;
 		}
+
+		if (segmentedBar != null)
+		{
+			segmentedBar.SetMax(max);
+			segmentedBar.SetValue(value);
+		}
 	}
 
 	public void ShowWarning (bool isShow)
 	{
-		if (warning != null)
-			warning.gameObject.SetActive(isShow);
+		if (lowWarning != null)
+			lowWarning.gameObject.SetActive(isShow);
 	}
 
 }
