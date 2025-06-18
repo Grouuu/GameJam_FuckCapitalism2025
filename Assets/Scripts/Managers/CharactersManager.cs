@@ -9,7 +9,7 @@ public class CharactersManager : MonoBehaviour
 
 	public bool debug = false;
 
-	private int _maxPriorityGrade = 20;
+	private int _numberOfDialogPriorities = 6;
 
 	public void InitCharacters (CharacterData[] characters, DialogData[] dialogs)
 	{
@@ -69,7 +69,7 @@ public class CharactersManager : MonoBehaviour
 		if (availableCharacters.Length == 0)
 			return (null, null);
 
-		List<(CharacterData, DialogData)>[] dialogsByPriority = new List<(CharacterData, DialogData)>[_maxPriorityGrade];
+		List<(CharacterData, DialogData)>[] dialogsByPriority = new List<(CharacterData, DialogData)>[_numberOfDialogPriorities];
 		List<(CharacterData, DialogData)> lowResourcesDialogs = new();
 
 		foreach (CharacterData character in availableCharacters)
@@ -88,7 +88,7 @@ public class CharactersManager : MonoBehaviour
 				{
 					bool isResourceLow = GameManager.Instance.varsManager.IsVarLow(varId);
 
-					if (isResourceLow)
+					if (isResourceLow && dialog.priority == 3)
 					{
 						lowResourcesDialogs.Add((character, dialog));
 						break;
@@ -119,21 +119,27 @@ public class CharactersManager : MonoBehaviour
 		// pick priority 0
 		if (dialogsByPriority[0] != null)
 			selected = dialogsByPriority[0][UnityEngine.Random.Range(0, dialogsByPriority[0].Count)];
-		// pick low resource
+		// pick priority 3 with low resource
 		else if (lowResourcesDialogs.Count > 0)
 			selected = lowResourcesDialogs[UnityEngine.Random.Range(0, lowResourcesDialogs.Count)];
-		// random pick on highest priority
+		// random pick
 		else
 		{
-			for (int i = 1; i < dialogsByPriority.Length; i++)
+			// pick priority 1
+			if (dialogsByPriority[1] != null)
+				selected = dialogsByPriority[1][UnityEngine.Random.Range(0, dialogsByPriority[1].Count)];
+			// pick priority 2
+			else if (dialogsByPriority[2] != null)
+				selected = dialogsByPriority[2][UnityEngine.Random.Range(0, dialogsByPriority[2].Count)];
+			// pick priority 4 over priority 5 75% of the time
+			else
 			{
-				List<(CharacterData, DialogData)> samePriorityDialogs = dialogsByPriority[i];
+				var priorityMax = dialogsByPriority[4] ?? dialogsByPriority[5] ?? null;
+				var priorityMin = dialogsByPriority[5] ?? dialogsByPriority[4] ?? null;
+				var prioritySelected = UnityEngine.Random.value > 0.25 ? priorityMax : priorityMin;
 
-				if (samePriorityDialogs == null)
-					continue;
-
-				selected = samePriorityDialogs[UnityEngine.Random.Range(0, samePriorityDialogs.Count)];
-				break;
+				if (prioritySelected != null)
+					selected = prioritySelected[UnityEngine.Random.Range(0, prioritySelected.Count)];
 			}
 		}
 
