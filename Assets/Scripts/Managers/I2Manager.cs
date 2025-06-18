@@ -4,6 +4,12 @@ public class I2Manager : MonoBehaviour
 {
 	public string currentLangage => LocalizationUtils.GetCurrentLanguage();
 
+	public void SetLanguage (string language)
+	{
+		LocalizationUtils.SetCurrentLanguage(language);
+	}
+
+#if UNITY_EDITOR
 	public void ToogleLanguage ()
 	{
 		string[] languages = LocalizationUtils.GetSupportedLanguages();
@@ -17,5 +23,6 @@ public class I2Manager : MonoBehaviour
 			}
 		}
 	}
+#endif
 
 }

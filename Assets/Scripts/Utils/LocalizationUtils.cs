@@ -1,4 +1,6 @@
 using I2.Loc;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class LocCat
@@ -25,6 +27,22 @@ public static class LocValue
 
 public static class LocalizationUtils
 {
+	public static Dictionary<string, string> MapDisplayToI2LanguageName = new()
+	{
+		{ "EN", "english" },
+		{ "FR", "french" },
+	};
+
+	public static string GetI2LanguageByDisplayName (string displayName)
+	{
+		return MapDisplayToI2LanguageName.FirstOrDefault(entry => entry.Key == displayName).Value;
+	}
+
+	public static string GetDisplayLanguageByI2Name (string i2Name)
+	{
+		return MapDisplayToI2LanguageName.FirstOrDefault(entry => entry.Value == i2Name).Key;
+	}
+
 	public static string GetText (string key, string category)
 	{
 		string text = LocalizationManager.GetTranslation($"{category}/{key}");
