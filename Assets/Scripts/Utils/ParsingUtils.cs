@@ -305,47 +305,47 @@ public static class ParsingUtils
 		});
 	}
 
-	public static (EditAnimations, EditAnimations) ParseEditAnimations (string[] jsonData)
+	public static (EditSceneEffect, EditSceneEffect) ParseEditSceneEffects (string[] jsonData)
 	{
-		EditAnimations enterAnimations = new();
-		EditAnimations exitAnimations = new();
+		EditSceneEffect enterSceneEffects = new();
+		EditSceneEffect exitSceneEffects = new();
 
-		List<string> enterStartAnimation = new();
-		List<string> enterStopAnimation = new();
-		List<string> exitStartAnimation = new();
-		List<string> exitStopAnimation = new();
+		List<string> enterPlaySceneEffects = new();
+		List<string> enterStopSceneEffects = new();
+		List<string> exitPlaySceneEffects = new();
+		List<string> exitStopSceneEffects = new();
 
 		ParseModuleData<string>(jsonData, (string[] jsonData, int index) =>
 		{
-			// pattern: "animationName,boolIsStart,boolIsEnter"
+			// pattern: "sceneEffectName,boolIsPlay,boolIsEnter"
 			int endOffset = 3;
 
 			string name = jsonData[index].Trim();
-			bool isStart = bool.Parse(jsonData[index].Trim());
+			bool isPlay = bool.Parse(jsonData[index].Trim());
 			bool isEnter = bool.Parse(jsonData[index].Trim());
 
-			List<string> animations = null;
+			List<string> sceneEffects = null;
 
-			if (isStart && isEnter)
-				animations = enterStartAnimation;
-			else if (isStart && !isEnter)
-				animations = exitStartAnimation;
-			else if (!isStart && isEnter)
-				animations = enterStopAnimation;
-			else if (!isStart && !isEnter)
-				animations = exitStopAnimation;
+			if (isPlay && isEnter)
+				sceneEffects = enterPlaySceneEffects;
+			else if (isPlay && !isEnter)
+				sceneEffects = exitPlaySceneEffects;
+			else if (!isPlay && isEnter)
+				sceneEffects = enterStopSceneEffects;
+			else if (!isPlay && !isEnter)
+				sceneEffects = exitStopSceneEffects;
 
-			animations.Add(name);
+			sceneEffects.Add(name);
 
 			return (index + endOffset, null);
 		});
 
-		enterAnimations.startAnimations = enterStartAnimation.ToArray();
-		enterAnimations.stopAnimations = enterStopAnimation.ToArray();
-		exitAnimations.stopAnimations = exitStartAnimation.ToArray();
-		exitAnimations.stopAnimations = exitStopAnimation.ToArray();
+		enterSceneEffects.playSceneEffects = enterPlaySceneEffects.ToArray();
+		enterSceneEffects.stopSceneEffects = enterStopSceneEffects.ToArray();
+		exitSceneEffects.playSceneEffects = exitPlaySceneEffects.ToArray();
+		exitSceneEffects.stopSceneEffects = exitStopSceneEffects.ToArray();
 
-		return (enterAnimations, exitAnimations);
+		return (enterSceneEffects, exitSceneEffects);
 	}
 
 	public static ProductionMultiplierData[] ParseProductionMultipliers (string[] jsonData)

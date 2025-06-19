@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class StartDayState : StateCommand
 {
+	public override GameState state => GameState.StartDay;
+
 	public override void StartCommand (GameState previousState)
 	{
 		// save internally resources value (for the next daily report)
 		GameManager.Instance.varsManager.SaveStartDayResourcesValue();
 
-		EndCommand();
+		UpdateNewDayEffects();
 	}
 
-	private void OnEnable () => state = GameState.StartDay;
+	private async void UpdateNewDayEffects ()
+	{
+		await GameManager.Instance.sceneEffectsManager.PlayStartDayEffects();
+
+		EndCommand();
+	}
 
 }

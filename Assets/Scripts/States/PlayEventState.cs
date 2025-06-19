@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayEventState : StateCommand
 {
+	public override GameState state => GameState.PlayEvent;
+
 	private List<string> _todayPlayedEventsName;        // prevent to play twice the same event
 	private bool _randomEventPlayed;                    // one attempt of picking a random event
 	private string forceEvent;                          // force to show the same started event at restart
@@ -16,8 +18,6 @@ public class PlayEventState : StateCommand
 
 		NextEvent();
 	}
-
-	private void OnEnable () => state = GameState.PlayEvent;
 
 	private void ApplySave ()
 	{
@@ -65,9 +65,10 @@ public class PlayEventState : StateCommand
 
 	private async void PlayEvent (EventData eventData)
 	{
+		await eventData.UpdateEnterSceneEffects();
+
 		// TODO generated results are not conserved on restart
 		eventData.GenerateResultValue();
-		eventData.UpdateEnterAnimations();
 
 		GameManager.Instance.eventsManager.UpdateEventStartedSaveData(eventData.name);
 		await GameManager.Instance.saveManager.SaveData();
@@ -80,8 +81,6 @@ public class PlayEventState : StateCommand
 	{
 		ApplyResult(eventData.result);
 
-		eventData.UpdateExitAnimations();
-
 		if (eventData.type == EventDataType.Random)
 			GameManager.Instance.eventsManager.UpdateRandomEventPlayedTodaySaveData(true);
 
@@ -91,7 +90,9 @@ public class PlayEventState : StateCommand
 		GameManager.Instance.eventsManager.UpdateEventsDaySaveData();
 		await GameManager.Instance.saveManager.SaveData();
 
-		if (GameManager.Instance.endingsManager.CheckLose())
+		await eventData.UpdateExitSceneEffects();
+
+		if (GameManager.Instance.endingsManager.CheckLose() != null)
 		{
 			// no need to save
 			EndCommand(GameState.EndGame);
@@ -103,7 +104,7 @@ public class PlayEventState : StateCommand
 
 	private void CheckWin ()
 	{
-		if (GameManager.Instance.endingsManager.CheckWin())
+		if (GameManager.Instance.endingsManager.CheckWin() != null)
 			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
 		else
 			NextEvent();

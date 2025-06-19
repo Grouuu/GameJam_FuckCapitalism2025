@@ -1,4 +1,4 @@
-using UnityEngine;
+using System.Threading.Tasks;
 
 public class EndingData
 {
@@ -8,8 +8,8 @@ public class EndingData
     public string headerFileName;
     public RequirementData requirements;
     public ResultData result;
-    public EditAnimations enterAnimations;
-    public EditAnimations exitAnimations;
+    public EditSceneEffect enterSceneEffets;
+    public EditSceneEffect exitSceneEffets;
 
     // runtime values
     public bool isUsed = false;
@@ -22,13 +22,13 @@ public class EndingData
         return false;
     }
 
-    public void UpdateEnterAnimations ()
+    public Task UpdateEnterSceneEffects ()
     {
-        GameManager.Instance.animationsManager.UpdateAnimations(enterAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(enterSceneEffets);
     }
 
-    public void UpdateExitAnimations ()
+    public Task UpdateExitSceneEffects ()
     {
-        GameManager.Instance.animationsManager.UpdateAnimations(exitAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(exitSceneEffets);
     }
 }

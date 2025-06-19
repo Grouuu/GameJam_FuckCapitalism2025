@@ -1,5 +1,8 @@
 
 
+using System.Threading.Tasks;
+using UnityEngine;
+
 public class DialogResultData : ResultData
 {
     public string dialogName;
@@ -25,12 +28,12 @@ public class DialogData
     public RequirementData requirements;
     public DialogResultData yesResult;
     public DialogResultData noResult;
-    public EditAnimations enterAnimations;
-    public EditAnimations exitAnimations;
-    public EditAnimations yesEnterAnimations;
-    public EditAnimations yesExitAnimations;
-    public EditAnimations noEnterAnimations;
-    public EditAnimations noExitAnimations;
+    public EditSceneEffect enterSceneEffets;
+    public EditSceneEffect exitSceneEffets;
+    public EditSceneEffect yesEnterSceneEffets;
+    public EditSceneEffect yesExitSceneEffets;
+    public EditSceneEffect noEnterSceneEffets;
+    public EditSceneEffect noExitSceneEffets;
 
     // runtime values
     public bool isUsed = false;
@@ -68,34 +71,34 @@ public class DialogData
         noResult.UpdateResult();
     }
 
-    public void UpdateEnterAnimations ()
+    public Task UpdateEnterSceneEffects ()
 	{
-        GameManager.Instance.animationsManager.UpdateAnimations(enterAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(enterSceneEffets);
 	}
 
-    public void UpdateExitAnimations ()
+    public Task UpdateExitSceneEffects ()
     {
-        GameManager.Instance.animationsManager.UpdateAnimations(exitAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(exitSceneEffets);
     }
 
-    public void UpdateYesEnterAnimations ()
+    public Task UpdateYesEnterSceneEffects ()
     {
-        GameManager.Instance.animationsManager.UpdateAnimations(yesEnterAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(yesEnterSceneEffets);
     }
 
-    public void UpdateYesExitAnimations ()
+    public Task UpdateYesExitSceneEffects ()
     {
-        GameManager.Instance.animationsManager.UpdateAnimations(yesExitAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(yesExitSceneEffets);
     }
 
-    public void UpdateNoEnterAnimations ()
+    public Task UpdateNoEnterSceneEffects ()
     {
-        GameManager.Instance.animationsManager.UpdateAnimations(noEnterAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(noEnterSceneEffets);
     }
 
-    public void UpdateNoExitAnimations ()
+    public Task UpdateNoExitSceneEffects ()
     {
-        GameManager.Instance.animationsManager.UpdateAnimations(noExitAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(noExitSceneEffets);
     }
 
 }

@@ -16,7 +16,7 @@ public class Managers
 	public EndingsManager endingsManager;
 	public ProductionManager productionManager;
 	public BuildingsManager buildingsManager;
-	public AnimationsManager animationsManager;
+	public SceneEffectsManager sceneEffectsManager;
 }
 
 public class GameManager : MonoBehaviour
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 	public EndingsManager endingsManager => _managers.endingsManager;
 	public ProductionManager productionManager => _managers.productionManager;
 	public BuildingsManager buildingsManager => _managers.buildingsManager;
-	public AnimationsManager animationsManager => _managers.animationsManager;
+	public SceneEffectsManager sceneEffectsManager => _managers.sceneEffectsManager;
 
 	private Managers _managers;
 
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 			endingsManager = GetComponentInChildren<EndingsManager>(),
 			productionManager = GetComponentInChildren<ProductionManager>(),
 			buildingsManager = GetComponentInChildren<BuildingsManager>(),
-			animationsManager = GetComponentInChildren<AnimationsManager>()
+			sceneEffectsManager = GetComponentInChildren<SceneEffectsManager>()
 		};
 	}
 
@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
 		InitEndings();
 		InitProductions();
 		InitBuildings();
+		InitSceneEffects();
 
 		await InitPersistentData(); // load save
 		SaveGeneratedData();
@@ -149,6 +150,11 @@ public class GameManager : MonoBehaviour
 		buildingsManager.InitBuildings(databaseManager.GetData<BuildingData>());
 	}
 
+	private void InitSceneEffects ()
+	{
+		sceneEffectsManager.InitSceneEffects(databaseManager.GetData<SceneEffectData>());
+	}
+
 	private void SaveGeneratedData ()
 	{
 		// save events random generated days at fresh start only
@@ -163,14 +169,14 @@ public class GameManager : MonoBehaviour
 		eventsManager.ApplySave();
 		endingsManager.ApplySave();
 		buildingsManager.ApplySave();
-		animationsManager.ApplySave();
+		sceneEffectsManager.ApplySave();
 	}
 
 	private async void StartGame ()
 	{
-		animationsManager.ResumeAnimations();
+		sceneEffectsManager.ResumeSceneEffects();
 
-		await animationsManager.PlayAnimation(GameAnimationName.IntroResilienceShip);
+		await sceneEffectsManager.PlaySceneEffect(SceneEffectName.IntroResilienceShip);
 
 		saveManager.AddToSaveData(SaveItemKey.RunStarted, true);
 

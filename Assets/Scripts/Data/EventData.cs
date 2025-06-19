@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+using UnityEngine;
 
 public class EventData
 {
@@ -10,8 +12,8 @@ public class EventData
     public bool isRepeateable;
     public RequirementData requirements;
     public ResultData result;
-    public EditAnimations enterAnimations;
-    public EditAnimations exitAnimations;
+    public EditSceneEffect enterSceneEffets;
+    public EditSceneEffect exitSceneEffets;
 
     // runtime values
     public int day = -1;
@@ -49,14 +51,14 @@ public class EventData
         result.UpdateResult();
     }
 
-    public void UpdateEnterAnimations ()
+    public Task UpdateEnterSceneEffects ()
     {
-        GameManager.Instance.animationsManager.UpdateAnimations(enterAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(enterSceneEffets);
     }
 
-    public void UpdateExitAnimations ()
+    public Task UpdateExitSceneEffects ()
     {
-        GameManager.Instance.animationsManager.UpdateAnimations(exitAnimations);
+        return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(exitSceneEffets);
     }
 
 }

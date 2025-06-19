@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Splines;
 using static UnityEngine.Splines.SplineAnimate;
 
-public class IntroResilienceAnimation : GameAnimation
+public class IntroResilienceSceneEffect : SceneEffect
 {
 	public SplineAnimate animate;
 	public SplineContainer splineIntro;
@@ -14,7 +14,9 @@ public class IntroResilienceAnimation : GameAnimation
 	public EasingMode loopEase;
 	public int loopSpeed;
 
-	public override async Awaitable Play (bool isResumed)
+	public override string effectName => SceneEffectName.IntroResilienceShip;
+
+	public override async Task Play (bool isResumed)
 	{
 		// do not resume it automatically
 		if (isResumed)

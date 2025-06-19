@@ -6,7 +6,7 @@ public class StateCommand : MonoBehaviour
 {
 	public event OnStateEnd OnStateEnd;
 
-	[HideInInspector] public GameState state = GameState.None;
+	public virtual GameState state => GameState.None;
 
 	public virtual void StartCommand (GameState previousState = GameState.None)
 	{

@@ -1,9 +1,12 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class PlayDialogState : StateCommand
 {
 	public int maxDialogsByDay;
+
+	public override GameState state => GameState.PlayDialog;
 
 	private List<string> _todayPlayedCharactersName;	// prevent to play twice the same character
 	private int _todayPlayedDialogTotal;				// cap the number of dialogs by day
@@ -18,8 +21,6 @@ public class PlayDialogState : StateCommand
 
 		NextDialog();
 	}
-
-	private void OnEnable () => state = GameState.PlayDialog;
 
 	private void ApplySave ()
 	{
@@ -77,11 +78,12 @@ public class PlayDialogState : StateCommand
 
 	private async void PlayDialog (CharacterData characterData, DialogData dialogData)
 	{
+		await dialogData.UpdateEnterSceneEffects();
+
 		GameManager.Instance.charactersManager.UpdateDialogStartedSaveData(dialogData.name);
 		await GameManager.Instance.saveManager.SaveData();
 
 		dialogData.GenerateResultValue();
-		dialogData.UpdateEnterAnimations();
 
 		DialogPanelUIData panelData = FormatDialogPanelRequestTexts(characterData, dialogData);
 		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => OnYes(characterData, dialogData), () => OnNo(characterData, dialogData));
@@ -91,9 +93,9 @@ public class PlayDialogState : StateCommand
 	{
 		ApplyResult(dialogData.yesResult);
 
-		dialogData.UpdateYesEnterAnimations();
-
 		await SaveAnswer();
+
+		await dialogData.UpdateYesEnterSceneEffects();
 
 		PlayResponse(characterData, dialogData, dialogData.yesResult, true);
 	}
@@ -102,9 +104,9 @@ public class PlayDialogState : StateCommand
 	{
 		ApplyResult(dialogData.noResult);
 
-		dialogData.UpdateNoEnterAnimations();
-
 		await SaveAnswer();
+
+		await dialogData.UpdateNoEnterSceneEffects();
 
 		PlayResponse(characterData, dialogData, dialogData.noResult, false);
 	}
@@ -124,16 +126,20 @@ public class PlayDialogState : StateCommand
 		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => EndDialog(dialogData, isYes));
 	}
 
-	private void EndDialog (DialogData dialogData, bool isYes)
+	private async void EndDialog (DialogData dialogData, bool isYes)
 	{
-		dialogData.UpdateExitAnimations();
+		List<Task> tasks = new();
+
+		tasks.Add(dialogData.UpdateExitSceneEffects());
 
 		if (isYes)
-			dialogData.UpdateYesExitAnimations();
+			tasks.Add(dialogData.UpdateYesExitSceneEffects());
 		else
-			dialogData.UpdateNoExitAnimations();
+			tasks.Add(dialogData.UpdateNoExitSceneEffects());
 
-		if (GameManager.Instance.endingsManager.CheckLose())
+		await Task.WhenAll(tasks.ToArray());
+
+		if (GameManager.Instance.endingsManager.CheckLose() != null)
 		{
 			// no need to save
 			EndCommand(GameState.EndGame);
@@ -145,7 +151,7 @@ public class PlayDialogState : StateCommand
 
 	private void CheckWin ()
 	{
-		if (GameManager.Instance.endingsManager.CheckWin())
+		if (GameManager.Instance.endingsManager.CheckWin() != null)
 			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
 		else
 			NextDialog();

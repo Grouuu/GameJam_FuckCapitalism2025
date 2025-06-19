@@ -5,14 +5,14 @@ public class DailyReportState : StateCommand
 	public int minGrowth = -20;
 	public int maxGrowth = 30;
 
+	public override GameState state => GameState.DailyReport;
+
 	private (GameVarId, int)[] production;
 
 	public override void StartCommand (GameState previousState)
 	{
 		ShowDailyReport();
 	}
-
-	private void OnEnable () => state = GameState.DailyReport;
 
 	private async void ShowDailyReport ()
 	{
@@ -32,7 +32,7 @@ public class DailyReportState : StateCommand
 		// then updates resources value
 		ApplyResult();
 
-		if (GameManager.Instance.endingsManager.CheckLose())
+		if (GameManager.Instance.endingsManager.CheckLose() != null)
 		{
 			// no need save
 			EndCommand(GameState.EndGame);
@@ -44,7 +44,7 @@ public class DailyReportState : StateCommand
 
 	private void CheckWin ()
 	{
-		if (GameManager.Instance.endingsManager.CheckWin())
+		if (GameManager.Instance.endingsManager.CheckWin() != null)
 			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
 		else
 			End();

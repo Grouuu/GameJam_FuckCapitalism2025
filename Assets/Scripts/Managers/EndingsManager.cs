@@ -20,7 +20,7 @@ public class EndingsManager : MonoBehaviour
 		_endings = endings;
 	}
 
-	public bool CheckWin ()
+	public EndingData CheckWin ()
 	{
 		foreach (EndingData ending in _endings)
 		{
@@ -28,13 +28,13 @@ public class EndingsManager : MonoBehaviour
 				continue;
 
 			if (ending.IsRespectRequirements())
-				return true;
+				return ending;
 		}
 
-		return false;
+		return null;
 	}
 
-	public bool CheckLose ()
+	public EndingData CheckLose ()
 	{
 		foreach (EndingData ending in _endings)
 		{
@@ -42,10 +42,10 @@ public class EndingsManager : MonoBehaviour
 				continue;
 
 			if (ending.IsRespectRequirements())
-				return true;
+				return ending;
 		}
 
-		return false;
+		return null;
 	}
 
 	public void ShowWin (Action onContinue)
@@ -66,11 +66,11 @@ public class EndingsManager : MonoBehaviour
 
 		UpdateSaveData();
 
-		ending.UpdateEnterAnimations();
+		ending.UpdateEnterSceneEffects();
 
 		EventPanelUIData panelData = FormatPanelData(ending);
 		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => {
-			ending.UpdateExitAnimations();
+			ending.UpdateExitSceneEffects();
 			onContinue();
 		});
 	}
@@ -86,11 +86,11 @@ public class EndingsManager : MonoBehaviour
 			return;
 		}
 
-		ending.UpdateEnterAnimations();
+		ending.UpdateEnterSceneEffects();
 
 		EventPanelUIData panelData = FormatPanelData(ending);
 		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => {
-			ending.UpdateExitAnimations();
+			ending.UpdateExitSceneEffects();
 			onContinue();
 		});
 	}

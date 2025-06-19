@@ -2438,7 +2438,7 @@ GameObject:
   - component: {fileID: 221376595}
   - component: {fileID: 221376596}
   m_Layer: 0
-  m_Name: Animations
+  m_Name: SceneEffects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2483,9 +2483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6b9c090aa6eb641b81313771109a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data:
-    name: IntroResilienceShip
-    isPersistent: 1
   animate: {fileID: 1269874607}
   splineIntro: {fileID: 1522547209}
   splineLoop: {fileID: 1001012836}
@@ -2795,6 +2792,7 @@ GameObject:
   - component: {fileID: 256100395}
   - component: {fileID: 256100401}
   - component: {fileID: 256100400}
+  - component: {fileID: 256100402}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -2920,6 +2918,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databaseFileName: EXPORT_BUILDINGS
+--- !u!114 &256100402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256100392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168bc5ef1426a1849995b5bf47b443c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  databaseFileName: EXPORT_SCENE_EFFECTS
 --- !u!114 &257116778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13948,7 +13959,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e9e4a4b1265224dafef13484838e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 2
   maxDialogsByDay: 5
 --- !u!114 &1530738274
 MonoBehaviour:
@@ -13962,7 +13972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfc90af3583e0243b49e7b78149b4b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
 --- !u!114 &1530738275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13975,7 +13984,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 825b8e2af05649345819fc26778344f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
 --- !u!114 &1530738276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13988,7 +13996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e4842f668fb5a4eafda713fc8f675c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
 --- !u!114 &1530738277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14001,7 +14008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fcce3dda2216149baa51b0e9692833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
   minGrowth: -20
   maxGrowth: 30
 --- !u!1 &1565915107

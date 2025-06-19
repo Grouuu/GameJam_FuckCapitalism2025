@@ -21,4 +21,5 @@ MonoBehaviour:
   - EXPORT_ENDINGS
   - EXPORT_BUILDINGS
   - EXPORT_PROD
+  - EXPORT_SCENE_EFFECTS
   outputDir: ./Assets/Resources/Database

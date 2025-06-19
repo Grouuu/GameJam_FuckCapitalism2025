@@ -27,7 +27,7 @@ public static class SaveItemKey
 	public static string RandomEventPlayed = "RandomEventPlayed";           // bool
 	public static string EndingsUsed = "EndingsUsed";						// List<string>
 	public static string BuildingsState = "BuildingsState";					// List<(string, bool, int)>
-	public static string AnimationsState = "AnimationsState";				// List<(GameAnimationKey, bool)>
+	public static string SceneEffects = "SceneEffects";                     // List<(SceneEffectName, bool)>
 
 	public static string[] ProtectedKeys = new[]
 	{
