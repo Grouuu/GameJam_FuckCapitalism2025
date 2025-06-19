@@ -66,8 +66,6 @@ public class EndingsManager : MonoBehaviour
 
 		UpdateSaveData();
 
-		ending.UpdateEnterSceneEffects();
-
 		EventPanelUIData panelData = FormatPanelData(ending);
 		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => {
 			ending.UpdateExitSceneEffects();
@@ -85,8 +83,6 @@ public class EndingsManager : MonoBehaviour
 			onContinue();
 			return;
 		}
-
-		ending.UpdateEnterSceneEffects();
 
 		EventPanelUIData panelData = FormatPanelData(ending);
 		GameManager.Instance.uiManager.ShowEventPanel(panelData, () => {

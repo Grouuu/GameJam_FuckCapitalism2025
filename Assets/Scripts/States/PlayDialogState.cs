@@ -149,17 +149,18 @@ public class PlayDialogState : StateCommand
 		CheckWin();
 	}
 
-	private void CheckWin ()
+	private async void CheckWin ()
 	{
-		if (GameManager.Instance.endingsManager.CheckWin() != null)
-			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
+		EndingData endingData = GameManager.Instance.endingsManager.CheckWin();
+
+		if (endingData != null)
+		{
+			await endingData.UpdateEnterSceneEffects();
+			GameManager.Instance.endingsManager.ShowWin(() => NextDialog());
+			await endingData.UpdateExitSceneEffects();
+		}
 		else
 			NextDialog();
-	}
-
-	private void AfterWin ()
-	{
-		NextDialog();
 	}
 
 	private void ApplyResult (ResultData resultData)

@@ -102,17 +102,18 @@ public class PlayEventState : StateCommand
 		CheckWin();
 	}
 
-	private void CheckWin ()
+	private async void CheckWin ()
 	{
-		if (GameManager.Instance.endingsManager.CheckWin() != null)
-			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
+		EndingData endingData = GameManager.Instance.endingsManager.CheckWin();
+
+		if (endingData != null)
+		{
+			await endingData.UpdateEnterSceneEffects();
+			GameManager.Instance.endingsManager.ShowWin(() => NextEvent());
+			await endingData.UpdateExitSceneEffects();
+		}
 		else
 			NextEvent();
-	}
-
-	private void AfterWin ()
-	{
-		NextEvent();
 	}
 
 	private void ApplyResult (ResultData resultData)

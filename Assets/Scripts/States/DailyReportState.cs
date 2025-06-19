@@ -42,17 +42,18 @@ public class DailyReportState : StateCommand
 		CheckWin();
 	}
 
-	private void CheckWin ()
+	private async void CheckWin ()
 	{
-		if (GameManager.Instance.endingsManager.CheckWin() != null)
-			GameManager.Instance.endingsManager.ShowWin(() => AfterWin());
+		EndingData endingData = GameManager.Instance.endingsManager.CheckWin();
+
+		if (endingData != null)
+		{
+			await endingData.UpdateEnterSceneEffects();
+			GameManager.Instance.endingsManager.ShowWin(() => End());
+			await endingData.UpdateExitSceneEffects();
+		}
 		else
 			End();
-	}
-
-	private void AfterWin ()
-	{
-		End();
 	}
 
 	private void End ()
