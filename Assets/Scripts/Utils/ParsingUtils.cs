@@ -74,8 +74,15 @@ public static class ParsingUtils
 		{ GameVarId.Station_Repair_Gate, "Station_Repair_Gate" },
 
 		{ GameVarId.RemainingPopulationRoom, "RemainingPopulationRoom" },
-		{ GameVarId.Chantara_Ship_State, "Chantara_Ship_State" },
-		{ GameVarId.Trader_Ship_State, "Trader_Ship_State" },
+		{ GameVarId.Test_1, "Test_1" },
+		{ GameVarId.Test_2, "Test_2" },
+		{ GameVarId.Test_3, "Test_3" },
+		{ GameVarId.Test_4, "Test_4" },
+		{ GameVarId.Test_5, "Test_5" },
+		{ GameVarId.Test_6, "Test_6" },
+		{ GameVarId.Test_7, "Test_7" },
+		{ GameVarId.Test_8, "Test_8" },
+		{ GameVarId.Test_9, "Test_9" },
 	};
 
 	public static GameVarId MapServerVarId (string serverId)

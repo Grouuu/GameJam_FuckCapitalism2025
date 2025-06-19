@@ -37,8 +37,6 @@ public enum GameVarId
 	FoodAfterConsumption,
 	NextBattlePreview,
 	RemainingPopulationRoom,
-	Chantara_Ship_State,
-	Trader_Ship_State,
 
 	// Tracking type
 	ControlFreeWill,
@@ -87,6 +85,15 @@ public enum GameVarId
 	Habitat_Building_Gate,
 	Habitat_Building_Progress,
 	Station_Repair_Gate,
+	Test_1,
+	Test_2,
+	Test_3,
+	Test_4,
+	Test_5,
+	Test_6,
+	Test_7,
+	Test_8,
+	Test_9,
 }
 
 public enum CompareValueType
