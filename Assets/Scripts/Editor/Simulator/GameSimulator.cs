@@ -37,8 +37,8 @@ public class GameSimulator : EditorWindow
 
 	private GameState _currentState = GameState.PlayEvent;
 
-	[MenuItem("Debug/Game simulation")]
-	private static void ShowWindow () => GetWindow<GameSimulator>("Game Simulator");
+	//[MenuItem("Debug/Game simulation")]
+	//private static void ShowWindow () => GetWindow<GameSimulator>("Game Simulator");
 
 	private void OnGUI ()
 	{

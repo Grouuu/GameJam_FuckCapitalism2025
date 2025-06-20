@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class DatabaseController : MonoBehaviour
+public class DatabaseController
 {
 	public VarData[] varsData = { };
 	public CharacterData[] charactersData = { };
