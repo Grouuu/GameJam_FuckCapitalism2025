@@ -1,3 +1,4 @@
+/*
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,7 @@ public class GameSimulator : EditorWindow
 
 	//[MenuItem("Debug/Game simulation")]
 	//private static void ShowWindow () => GetWindow<GameSimulator>("Game Simulator");
-
+	
 	private void OnGUI ()
 	{
 		if (_currentState == GameState.PlayEvent)
@@ -179,3 +180,4 @@ public class GameSimulator : EditorWindow
 	}
 
 }
+*/
