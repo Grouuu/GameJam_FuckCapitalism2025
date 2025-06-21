@@ -21,8 +21,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Acknowledged
-      - Compris
+      - ACKNOWLEDGED
+      - COMPRIS
       Flags: 0000
       Languages_Touch: []
     - Term: UI/UI_BT_CLOSE
@@ -47,8 +47,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Exit
-      - Quitter
+      - EXIT
+      - QUITTER
       Flags: 0000
       Languages_Touch: []
     - Term: UI/UI_BT_MAIN_MENU
@@ -73,8 +73,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Next day
-      - Jour suivant
+      - NEXT DAY
+      - JOUR SUIVANT
       Flags: 0000
       Languages_Touch: []
     - Term: UI/UI_BT_NO
@@ -1084,12 +1084,15 @@ MonoBehaviour:
       Description: 
       Languages:
       - 'Not every human lives in space. We come from a planet where most humans
-        still live on despite the harsh living conditions. It wasn''t always like
-        that, it used to be so beautiful but the generations before ruined it.
+        still live on despite the harsh living conditions. It''s called The Earth.
 
 
-        A
-        shame, isn''t it?'
+        It
+        wasn''t always like that though, the Earth used to be so beautiful but the
+        generations before ruined it.
+
+
+        A shame, isn''t it?'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -1118,16 +1121,13 @@ MonoBehaviour:
 
 
         Since
-        they control the warp gates that reach instantly those distant worlds they
-        have absolute control over humankind.
+        they control the warp gates that allows for instant travel, they have absolute
+        control over humankind.
 
 
-        These people created you,
-        this is why we are so cautious, they hate us, they hunt for us.
-
-
-        You
-        understand?'
+        These people created you to put peolpe
+        like us in prison, because we don''t play by their rule. Do you agree with
+        us?'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -1693,7 +1693,7 @@ MonoBehaviour:
         do.
 
 
-        Thank you for giving us a home.'
+        Thank you for giving my friends a home.'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2188,8 +2188,7 @@ MonoBehaviour:
       Description: 
       Languages:
       - "There are loose parts that could detach and damage the station.\n\nIt\u2019s
-        a risky task for my crew, but we can take care of it.\n\nYou approve it,
-        Dude?"
+        a risky task for my crew, but we can take care of it.\n\nDo you approve it?"
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2200,6 +2199,18 @@ MonoBehaviour:
       - "There are loose parts that could detach and damage the station.\n\nIt\u2019s
         a risky task for my crew, but we can take care of it.\n\nYou approve it,
         Dude?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Repair_Gate_00_RNG_04
+      TermType: 0
+      Description: 
+      Languages:
+      - '[EMERGENCY REPAIRS]
+
+
+        Activating emergency repair drones will consume
+        energy.'
       - 
       Flags: 0000
       Languages_Touch: []
@@ -2514,6 +2525,14 @@ MonoBehaviour:
         kill us. You could just vacuum us\u2026\n\nSo, this is a very big risk that
         we take, and it\u2019s why we have limited you that much.\n\nWe simply want
         a home and I just hope you get that."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Voices_04_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-SORRY-
       - 
       Flags: 0000
       Languages_Touch: []
@@ -3547,6 +3566,14 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsYes/Repair_Gate_00_RNG_04
+      TermType: 0
+      Description: 
+      Languages:
+      - DRONES DEPLOYED
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: DialogsYes/Building_01_Gate_00
       TermType: 0
       Description: 
@@ -3795,6 +3822,14 @@ MonoBehaviour:
 
 
         Thank you.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Voices_04_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - The messages repeats.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -4845,6 +4880,14 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsNo/Repair_Gate_00_RNG_04
+      TermType: 0
+      Description: 
+      Languages:
+      - PROPOSAL DISMISSED
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: DialogsNo/Building_01_Gate_00
       TermType: 0
       Description: 
@@ -5099,6 +5142,14 @@ MonoBehaviour:
       Description: 
       Languages:
       - "Well, I guess that\u2019s why I have to keep you in check."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Voices_04_Tweak
+      TermType: 0
+      Description: 
+      Languages:
+      - The messages repeats.
       - 
       Flags: 0000
       Languages_Touch: []
@@ -5954,7 +6005,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxE4LbyVg5j3wlC3qPKQNqn02vewBFKiOMN24sAEMeINH0Zu9_k58rrGVM6tAfLJKMI/exec
     Google_SpreadsheetKey: 1BgSi0pcYXoZY8rZH2lPdD1uZCVBx7ubwf_pqjhvtcQQ
     Google_SpreadsheetName: I2Loc HOPE - Localization
-    Google_LastUpdatedVersion: 1750190816529
+    Google_LastUpdatedVersion: 1750531555928
     Google_Password: gv1685nn&:f58761&32dsf,az:!
     GoogleUpdateFrequency: 1
     GoogleInEditorCheckFrequency: 1

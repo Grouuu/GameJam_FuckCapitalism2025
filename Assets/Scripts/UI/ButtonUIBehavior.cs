@@ -2,10 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ButtonUIBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class ButtonUIBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerUpHandler, IPointerDownHandler
 {
 	public Color baseTextColor = Color.black;
 	public Color hoverTextColor = Color.white;
+	public Color pressedTextColor = Color.black;
 	public SoundFxKey clickSound = SoundFxKey.Click;
 
 	private TextMeshProUGUI _buttonLabel;
@@ -22,6 +23,18 @@ public class ButtonUIBehavior : MonoBehaviour, IPointerEnterHandler, IPointerExi
 	}
 
 	public void OnPointerExit (PointerEventData eventData)
+	{
+		if (_buttonLabel != null)
+			_buttonLabel.color = baseTextColor;
+	}
+
+	public void OnPointerDown (PointerEventData eventData)
+	{
+		if (_buttonLabel != null)
+			_buttonLabel.color = pressedTextColor;
+	}
+
+	public void OnPointerUp (PointerEventData eventData)
 	{
 		if (_buttonLabel != null)
 			_buttonLabel.color = baseTextColor;
