@@ -14,11 +14,12 @@ public class DatabaseParser : MonoBehaviour
 
 public class DatabaseManager : MonoBehaviour
 {
+	public static readonly string PATH_DATABASE = "Database/";
+
 	public DatabaseParser[] Parsers => GetComponents<DatabaseParser>();
-	public string FolderPath => _jsonFolderPath;
+	public string FolderPath => PATH_DATABASE;
 
 	private DatabaseParser[] _parsers;
-	private string _jsonFolderPath = "Database";
 
 	public async Awaitable LoadDatabase ()
 	{
@@ -45,7 +46,7 @@ public class DatabaseManager : MonoBehaviour
 	{
 		if (parser != null)
 		{
-			ResourceRequest request = Resources.LoadAsync<TextAsset>($"{_jsonFolderPath}/{parser.databaseFileName}");
+			ResourceRequest request = Resources.LoadAsync<TextAsset>($"{PATH_DATABASE}{parser.databaseFileName}");
 
 			await request;
 

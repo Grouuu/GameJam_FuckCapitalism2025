@@ -22,6 +22,8 @@ public class EventPanelUIData
 
 public class EventPanelUI : MonoBehaviour
 {
+	public static readonly string FOLDER_SPRITES = "EventSprites/";
+
 	public GameObject parent;
 	public Image headerSprite;
 	public TextMeshProUGUI titleUI;
@@ -80,7 +82,7 @@ public class EventPanelUI : MonoBehaviour
 
 	private void SetHeader (string fileName)
 	{
-		Sprite sprite = Resources.Load<Sprite>($"EventSprites/{fileName}");
+		Sprite sprite = Resources.Load<Sprite>($"{UIManager.PATH_SPRITES}{FOLDER_SPRITES}{fileName}");
 
 		if (sprite == null)
 		{

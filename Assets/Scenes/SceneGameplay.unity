@@ -461,6 +461,10 @@ PrefabInstance:
       propertyPath: mLocalizeTarget
       value: 
       objectReference: {fileID: 737599856}
+    - target: {fileID: 4491119273490345359, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
+      propertyPath: m_text
+      value: CLOSE
+      objectReference: {fileID: 0}
     - target: {fileID: 4587248352935143333, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2564,8 +2568,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 354.005, y: -34.5}
-  m_SizeDelta: {x: 226.01, y: 69}
+  m_AnchoredPosition: {x: 343.505, y: -34.5}
+  m_SizeDelta: {x: 205.01, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &274010657
 MonoBehaviour:
@@ -3174,8 +3178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1172.785, y: -34.5}
-  m_SizeDelta: {x: 105.51, y: 69}
+  m_AnchoredPosition: {x: 1055.53, y: -34.5}
+  m_SizeDelta: {x: 99, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325408011
 MonoBehaviour:
@@ -5923,7 +5927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 294.01, y: -28.5}
+  m_AnchoredPosition: {x: 240.01, y: -28.5}
   m_SizeDelta: {x: 45.01, y: 48.3278}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &549686776
@@ -6120,7 +6124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 418.02002, y: -28.5}
+  m_AnchoredPosition: {x: 325.02002, y: -28.5}
   m_SizeDelta: {x: 45.01, y: 48.3278}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &553796454
@@ -7501,7 +7505,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quality of life is high: +4 <sprite name="Pop"> '
+  m_text: 'Quality of life is high: +4 <sprite name="Population"> '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eb4b868c35c41c0428a0b1f3d111cf52, type: 2}
   m_sharedMaterial: {fileID: 8021991795392894148, guid: eb4b868c35c41c0428a0b1f3d111cf52, type: 2}
@@ -9759,7 +9763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 211.01, y: -28.5}
+  m_AnchoredPosition: {x: 190.01, y: -28.5}
   m_SizeDelta: {x: 150.01, y: 48.3278}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1139561672
@@ -15052,7 +15056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4587248352935143333, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 180.01
+      value: 90.01
       objectReference: {fileID: 0}
     - target: {fileID: 4587248352935143333, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
       propertyPath: m_SizeDelta.y
@@ -15060,7 +15064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4587248352935143333, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 105.005
+      value: 104
       objectReference: {fileID: 0}
     - target: {fileID: 4587248352935143333, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15676,8 +15680,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 863.52, y: -34.5}
-  m_SizeDelta: {x: 433.02002, y: 69}
+  m_AnchoredPosition: {x: 796.02, y: -34.5}
+  m_SizeDelta: {x: 340.02002, y: 69}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1866147723
 MonoBehaviour:
@@ -15953,7 +15957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90.51, y: -28.5}
+  m_AnchoredPosition: {x: 84, y: -28.5}
   m_SizeDelta: {x: 22.51, y: 48.3278}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1880577509
@@ -16685,6 +16689,10 @@ PrefabInstance:
       propertyPath: mLocalizeTarget
       value: 
       objectReference: {fileID: 1361883257}
+    - target: {fileID: 4491119273490345359, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
+      propertyPath: m_text
+      value: CONTINUE
+      objectReference: {fileID: 0}
     - target: {fileID: 4587248352935143333, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -16881,9 +16889,7 @@ PrefabInstance:
       objectReference: {fileID: 2098989140}
     - target: {fileID: 4491119273490345359, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
       propertyPath: m_text
-      value: 'CLOSE
-
-'
+      value: NEXT DAY
       objectReference: {fileID: 0}
     - target: {fileID: 4587248352935143333, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
       propertyPath: m_AnchorMax.y
@@ -18053,6 +18059,10 @@ PrefabInstance:
       propertyPath: mLocalizeTarget
       value: 
       objectReference: {fileID: 1328012699}
+    - target: {fileID: 4491119273490345359, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
+      propertyPath: m_text
+      value: MAIN MENU
+      objectReference: {fileID: 0}
     - target: {fileID: 4587248352935143333, guid: 62d4d5a440467aa4c88a122fbb117746, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

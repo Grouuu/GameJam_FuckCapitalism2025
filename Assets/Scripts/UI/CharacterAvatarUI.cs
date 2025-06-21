@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class CharacterAvatarUI : MonoBehaviour
 {
+	public static readonly string FOLDER_SPRITES = "AvatarSprites/";
+
 	public Image avatarSprite;
 	public Localize avatarNameLocalize;
 
@@ -11,7 +13,7 @@ public class CharacterAvatarUI : MonoBehaviour
 
 	public void SetAvatarSprite (string fileName)
 	{
-		Sprite sprite = Resources.Load<Sprite>($"AvatarSprites/{fileName}");
+		Sprite sprite = Resources.Load<Sprite>($"{UIManager.PATH_SPRITES}{FOLDER_SPRITES}{fileName}");
 
 		if (sprite == null)
 		{

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+	public static readonly string PATH_SPRITES = "Sprites/";
+
 	public GameObject prefabResourceIcon;
 	public ResourceValueUI[] resourceValuesUI;
 

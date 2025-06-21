@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ResourceIconUI : MonoBehaviour
 {
+	public static readonly string FOLDER_SPRITES = "VarsSprites/";
+
 	public Image iconSprite;
 	public TextMeshProUGUI valueText;
 	public TextMeshProUGUI tooltipText;
@@ -21,7 +23,7 @@ public class ResourceIconUI : MonoBehaviour
 
 	public void SetIcon (string fileName)
 	{
-		Sprite sprite = Resources.Load<Sprite>($"VarsSprites/{fileName}");
+		Sprite sprite = Resources.Load<Sprite>($"{UIManager.PATH_SPRITES}{FOLDER_SPRITES}{fileName}");
 
 		if (sprite == null)
 		{
