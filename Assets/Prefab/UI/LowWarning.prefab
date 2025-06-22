@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 3278477833761352566}
   - component: {fileID: 2156013184151851427}
   m_Layer: 5
-  m_Name: Warning
+  m_Name: LowWarning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
