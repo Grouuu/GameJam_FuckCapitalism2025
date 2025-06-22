@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182955748}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
@@ -6303,7 +6303,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1881711181, guid: b7603fe4f7c2b764da2f1b46016fe894, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c5b7419da4cd1944295e6079453ed676, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
