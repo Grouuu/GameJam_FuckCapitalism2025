@@ -11,6 +11,7 @@ public class PersistentManager : MonoBehaviour
     public async Awaitable InitPersistentData ()
 	{
         await InitSaveData();
+        InitSounds();
     }
 
 	private void Awake ()
@@ -46,6 +47,15 @@ public class PersistentManager : MonoBehaviour
 
             saveManager.UpdateGameVersion();
         }
+    }
+
+    private void InitSounds ()
+	{
+        if (saveManager.HasKey(SaveItemKey.MusicVolume))
+            soundManager.SetMusicVolume(saveManager.GetSaveData<float>(SaveItemKey.MusicVolume));
+
+        if (saveManager.HasKey(SaveItemKey.MusicMute))
+            soundManager.SetMusicMute(saveManager.GetSaveData<bool>(SaveItemKey.MusicMute));
     }
 
 }

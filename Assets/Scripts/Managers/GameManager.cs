@@ -86,8 +86,6 @@ public class GameManager : MonoBehaviour
 
 	private async void InitGame ()
 	{
-		InitSounds();
-
 		await InitDatabase();
 		InitVars();
 		InitCharacters();
@@ -101,6 +99,8 @@ public class GameManager : MonoBehaviour
 		SaveGeneratedData();
 		ApplySave();
 
+		InitSounds();
+
 		StartGame();
 	}
 
@@ -112,12 +112,6 @@ public class GameManager : MonoBehaviour
 	private async Awaitable InitDatabase ()
 	{
 		await databaseManager.LoadDatabase();
-	}
-
-	private void InitSounds ()
-	{
-		soundManager.RestartMusic();
-		uiManager.optionsPanel.soundSlider.value = soundManager.GetMusicVolume();
 	}
 
 	private void InitVars ()
@@ -172,21 +166,29 @@ public class GameManager : MonoBehaviour
 		sceneEffectsManager.ApplySave();
 	}
 
+	private void InitSounds ()
+	{
+		uiManager.optionsPanel.volumeControls.UpdateComponent();
+		soundManager.RestartMusic();
+	}
+
 	private async void StartGame ()
 	{
+		// play intro
 		sceneEffectsManager.ResumeSceneEffects();
-
 		await sceneEffectsManager.PlaySceneEffect(SceneEffectName.IntroResilienceShip);
 
+		// flag run as started
 		saveManager.AddToSaveData(SaveItemKey.RunStarted, true);
-
 		await saveManager.SaveData();
 
+		// resume game state
 		GameState startState = saveManager.GetSaveData<GameState>(SaveItemKey.State);
 
 		if (startState == GameState.None)
 			startState = initialState;
 
+		// start the game
 		gameStateManager.SetState(startState);
 	}
 

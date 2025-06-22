@@ -7,8 +7,7 @@ public class MainMenuUI : MonoBehaviour
 	public Button continueButton;
 	public Button newGameButton;
 	public Button exitButton;
-	public Button muteButton;
-	public Slider soundSlider;
+	public VolumeControlsUI volumeControls;
 
 	private SoundManager _soundManager => PersistentManager.Instance.soundManager;
 	private SaveManager _saveManager => PersistentManager.Instance.saveManager;
@@ -38,43 +37,6 @@ public class MainMenuUI : MonoBehaviour
 		Application.Quit();
 	}
 
-	/**
-	 * Linked in the editor
-	 */
-	public void OnMuteClick ()
-	{
-		_soundManager.SetMusicMute(!PersistentManager.Instance.soundManager.GetMusicMute());
-
-		_saveManager.AddToSaveData(SaveItemKey.MusicMute, PersistentManager.Instance.soundManager.GetMusicMute());
-		_ = _saveManager.SaveData();
-	}
-
-	/**
-	 * Linked in the editor
-	 */
-	public void OnVolumeChange ()
-	{
-		_soundManager.SetMusicVolume(soundSlider.value);
-	}
-
-	/**
-	 * Linked in the editor
-	 */
-	public void OnVolumeChangeEnd ()
-	{
-		_saveManager.AddToSaveData(SaveItemKey.MusicVolume, _soundManager.GetMusicVolume());
-		_ = _saveManager.SaveData();
-	}
-
-	/**
-	 * Linked in the editor
-	 */
-	public void OnVolumeRelease ()
-	{
-		_saveManager.AddToSaveData(SaveItemKey.MusicVolume, _soundManager.GetMusicVolume());
-		_ = _saveManager.SaveData();
-	}
-
 	private void Start ()
 	{
 		Init();
@@ -90,14 +52,7 @@ public class MainMenuUI : MonoBehaviour
 
 	private void InitSound ()
 	{
-		if (_saveManager.HasKey(SaveItemKey.MusicVolume))
-			_soundManager.SetMusicVolume(_saveManager.GetSaveData<float>(SaveItemKey.MusicVolume));
-
-		if (_saveManager.HasKey(SaveItemKey.MusicMute))
-			_soundManager.SetMusicMute(_saveManager.GetSaveData<bool>(SaveItemKey.MusicMute));
-
-		soundSlider.value = _soundManager.GetMusicVolume();
-
+		volumeControls.UpdateComponent();
 		_soundManager.RestartMusic();
 	}
 
