@@ -378,6 +378,9 @@ public class VarsManager : MonoBehaviour
 				bool isLow = varData.lowThreshold.IsValueOK(varData.currentValue);
 				GameManager.Instance.uiManager.ShowResourceLowWarning(varData.varId, isLow);
 			}
+
+			bool isMaxed = varData.currentValue >= varData.maxValue;
+			GameManager.Instance.uiManager.ShowResourceMaxWarning(varData.varId, isMaxed);
 		}
 	}
 

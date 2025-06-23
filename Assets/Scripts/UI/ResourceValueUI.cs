@@ -11,6 +11,7 @@ public class ResourceValueUI
 	public SegmentedProgressBarUI segmentedBar;
 	public TooltipUI tooltip;
 	public WarningVarUI lowWarning;
+	public WarningVarUI maxWarning;
 	public bool showMax;
 
 	public void Update ()
@@ -44,10 +45,16 @@ public class ResourceValueUI
 		}
 	}
 
-	public void ShowWarning (bool isShow)
+	public void ShowLowWarning (bool isShow)
 	{
 		if (lowWarning != null)
 			lowWarning.gameObject.SetActive(isShow);
+	}
+
+	public void ShowMaxWarning (bool isShow)
+	{
+		if (maxWarning != null)
+			maxWarning.gameObject.SetActive(isShow);
 	}
 
 }

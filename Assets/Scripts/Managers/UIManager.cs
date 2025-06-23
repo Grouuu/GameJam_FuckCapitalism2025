@@ -119,7 +119,12 @@ public class UIManager : MonoBehaviour
 
 	public void ShowResourceLowWarning (GameVarId varId, bool isLow)
 	{
-		GetUIResourceComponent(varId)?.ShowWarning(isLow);
+		GetUIResourceComponent(varId)?.ShowLowWarning(isLow);
+	}
+
+	public void ShowResourceMaxWarning (GameVarId varId, bool isMax)
+	{
+		GetUIResourceComponent(varId)?.ShowMaxWarning(isMax);
 	}
 
 	private void OnEnable ()
