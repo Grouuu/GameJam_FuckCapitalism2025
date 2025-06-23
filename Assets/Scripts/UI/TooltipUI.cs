@@ -22,11 +22,14 @@ public class TooltipUI : MonoBehaviour
 	{
 		VarData varData = GameManager.Instance.varsManager.GetVarData(varId);
 
-		varNameLocalize.SetTerm($"{LocCat.VarsNames}/{varData.name}");
-		varValuesParamsLocalize.SetParameterValue(LocParam.TooltipCurrent, $"{varData.currentValue}");
-		varValuesParamsLocalize.SetParameterValue(LocParam.TooltipMax, $"{varData.maxValue}");
+		if (varData != null)
+		{
+			varNameLocalize.SetTerm($"{LocCat.VarsNames}/{varData.name}");
+			varValuesParamsLocalize.SetParameterValue(LocParam.TooltipCurrent, $"{varData.currentValue}");
+			varValuesParamsLocalize.SetParameterValue(LocParam.TooltipMax, $"{varData.maxValue}");
 
-		varValuesText.gameObject.SetActive(showValues);
+			varValuesText.gameObject.SetActive(showValues);
+		}
 	}
 
 }
