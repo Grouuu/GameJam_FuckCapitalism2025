@@ -19,10 +19,12 @@ public static class LocCat
 	public static string EndingsDescriptions = "EndingsDescriptions";
 }
 
-public static class LocValue
+public static class LocParam
 {
 	public static string DailyFoodValue = "VALUE";
 	public static string DailyQoLValue = "VALUE";
+	public static string TooltipCurrent = "CURRENT";
+	public static string TooltipMax = "MAX";
 }
 
 public static class LocalizationUtils

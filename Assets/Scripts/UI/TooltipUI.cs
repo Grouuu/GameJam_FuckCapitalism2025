@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class TooltipUI : MonoBehaviour
 {
-	public TextMeshProUGUI text;
-	public Localize localize;
+	public TextMeshProUGUI varNameText;
+	public Localize varNameLocalize;
+	public TextMeshProUGUI varValuesText;
+	public LocalizationParamsManager varValuesParamsLocalize;
+	public bool showValues = true;
 
 	[HideInInspector] public GameVarId varId;
 
@@ -17,7 +20,13 @@ public class TooltipUI : MonoBehaviour
 
 	private void UpdateText ()
 	{
-		localize.SetTerm($"{LocCat.VarsNames}/{GameManager.Instance.varsManager.GetVarData(varId).name}");
+		VarData varData = GameManager.Instance.varsManager.GetVarData(varId);
+
+		varNameLocalize.SetTerm($"{LocCat.VarsNames}/{varData.name}");
+		varValuesParamsLocalize.SetParameterValue(LocParam.TooltipCurrent, $"{varData.currentValue}");
+		varValuesParamsLocalize.SetParameterValue(LocParam.TooltipMax, $"{varData.maxValue}");
+
+		varValuesText.gameObject.SetActive(showValues);
 	}
 
 }

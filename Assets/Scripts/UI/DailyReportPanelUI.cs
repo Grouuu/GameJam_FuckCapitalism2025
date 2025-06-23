@@ -42,10 +42,10 @@ public class DailyReportPanelUI : MonoBehaviour
 		dayCountUI.text = $"{panelContent.dayValue}";
 
 		foodLocalize.SetTerm($"{LocCat.UI}/{panelContent.foodKey}");
-		foodLocalizeParams.SetParameterValue(LocValue.DailyFoodValue, $"{panelContent.foodValue}");
+		foodLocalizeParams.SetParameterValue(LocParam.DailyFoodValue, $"{panelContent.foodValue}");
 
 		qolLocalize.SetTerm($"{LocCat.UI}/{panelContent.qolKey}");
-		qolLocalizeParams.SetParameterValue(LocValue.DailyQoLValue, $"{panelContent.qolValue}");
+		qolLocalizeParams.SetParameterValue(LocParam.DailyQoLValue, $"{panelContent.qolValue}");
 
 		AddResourceValueDiff();
 		AddProduction(panelContent.production);
