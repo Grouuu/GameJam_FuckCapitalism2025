@@ -45,20 +45,20 @@ public class SaveManager : MonoBehaviour
 
 	[HideInInspector] public List<SaveItem> saveData { get; private set; }
 
+	public string savePath => Path.Combine(Application.persistentDataPath, WINDOWS_SAVE_KEY);
+
 	private static string VERSION = "0.12";
 #pragma warning disable CS0414
 	private static string WEB_SAVE_KEY = "HOPE_save";
 #pragma warning restore CS0414
 	private static string WINDOWS_SAVE_KEY = "hopeIsHere.json";
 
-	private string _savePath;
 	private bool _saveLoaded = false;
 	private bool _saveInProgress = false;
 	private bool _savePending = false;
 
 	public void Init ()
 	{
-		_savePath = Path.Combine(Application.persistentDataPath, WINDOWS_SAVE_KEY);
 		saveData = new();
 	}
 
@@ -124,15 +124,15 @@ public class SaveManager : MonoBehaviour
 			else
 				Debug.Log($"No save file found.");
 #else
-			if (File.Exists(_savePath))
+			if (File.Exists(savePath))
 			{
-				string jsonData = await File.ReadAllTextAsync(_savePath);
+				string jsonData = await File.ReadAllTextAsync(savePath);
 				saveData = JsonConvert.DeserializeObject<List<SaveItem>>(jsonData);
 
 				_saveLoaded = true;
 
 				if (debug)
-					Debug.Log($"Game loaded successfully from {_savePath}");
+					Debug.Log($"Game loaded successfully from {savePath}");
 			}
 			else
 				Debug.Log($"No save file found.");
@@ -169,10 +169,10 @@ public class SaveManager : MonoBehaviour
 			if (debug)
 				Debug.Log($"Game saved successfully");
 #else
-			await File.WriteAllTextAsync(_savePath, jsonData);
+			await File.WriteAllTextAsync(savePath, jsonData);
 
 			if (debug)
-				Debug.Log($"Game saved successfully at {_savePath}");
+				Debug.Log($"Game saved successfully at {savePath}");
 #endif
 		}
 		catch (Exception e)
@@ -218,9 +218,9 @@ public class SaveManager : MonoBehaviour
 			if (debug)
 				Debug.Log($"Save file deleted successfully");
 #else
-			if (File.Exists(_savePath))
+			if (File.Exists(savePath))
 			{
-				File.Delete(_savePath);
+				File.Delete(savePath);
 
 				if (debug)
 					Debug.Log($"Save file deleted successfully");
@@ -243,7 +243,7 @@ public class SaveManager : MonoBehaviour
 #if UNITY_WEBGL && !UNITY_EDITOR
 		return !string.IsNullOrEmpty(PlayerPrefs.GetString(WEB_SAVE_KEY));
 #else
-		return File.Exists(_savePath);
+		return File.Exists(savePath);
 #endif
 	}
 
