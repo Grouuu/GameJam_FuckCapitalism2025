@@ -73,8 +73,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - NEXT DAY
-      - JOUR SUIVANT
+      - NEXT CYCLE
+      - CYCLE SUIVANT
       Flags: 0000
       Languages_Touch: []
     - Term: UI/UI_BT_NO
@@ -196,8 +196,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - DAY
-      - JOUR
+      - CYCLE
+      - CYCLE
       Flags: 0000
       Languages_Touch: []
     - Term: UI/UI_VAR_TRUST_TITLE
@@ -308,8 +308,8 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Day
-      - Jour
+      - Cycle
+      - Cycle
       Flags: 0000
       Languages_Touch: []
     - Term: CharactersNames/Tweak
@@ -604,7 +604,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Structural support for other modules
+      - 
       - 
       Flags: 0000
       Languages_Touch: []
@@ -612,7 +612,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Autonomous module hosting inhabitants, including health and wellfare facilities.
+      - Population,100
       - 
       Flags: 0000
       Languages_Touch: []
@@ -620,7 +620,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Harvest food and store it.
+      - Food,200
       - 
       Flags: 0000
       Languages_Touch: []
@@ -628,7 +628,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Increase enery produced and stored.
+      - Power,20
       - 
       Flags: 0000
       Languages_Touch: []
@@ -636,7 +636,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Boosts the defenses of the station and increase weapon storage
+      - Weapons,100,StationHP,50
       - 
       Flags: 0000
       Languages_Touch: []
@@ -644,7 +644,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Produce science.
+      - Science,10
       - 
       Flags: 0000
       Languages_Touch: []
@@ -652,8 +652,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Parks, sport fields, theaters, bars and restaurants to improve quality of
-        life and appeal.
+      - QoL,30
       - 
       Flags: 0000
       Languages_Touch: []
@@ -661,7 +660,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Allows to manufacture and store weapons.
+      - Fleet,5,Weapons,300
       - 
       Flags: 0000
       Languages_Touch: []
@@ -669,7 +668,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Improve storage resources and trade.
+      - Food,100,Scraps,400,Weapons,50
       - 
       Flags: 0000
       Languages_Touch: []
@@ -677,7 +676,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Repair and strenghten the station.
+      - StationHP,20
       - 
       Flags: 0000
       Languages_Touch: []
@@ -685,7 +684,7 @@ MonoBehaviour:
       TermType: 0
       Description: 
       Languages:
-      - Increase the amount of scraps produced.
+      - Scraps,100
       - 
       Flags: 0000
       Languages_Touch: []
@@ -6013,7 +6012,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxE4LbyVg5j3wlC3qPKQNqn02vewBFKiOMN24sAEMeINH0Zu9_k58rrGVM6tAfLJKMI/exec
     Google_SpreadsheetKey: 1BgSi0pcYXoZY8rZH2lPdD1uZCVBx7ubwf_pqjhvtcQQ
     Google_SpreadsheetName: I2Loc HOPE - Localization
-    Google_LastUpdatedVersion: 1750697545399
+    Google_LastUpdatedVersion: 1750788887134
     Google_Password: gv1685nn&:f58761&32dsf,az:!
     GoogleUpdateFrequency: 1
     GoogleInEditorCheckFrequency: 1
