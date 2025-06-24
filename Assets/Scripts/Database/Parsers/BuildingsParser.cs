@@ -7,10 +7,6 @@ public class BuildingsDatabaseData
     public string ID { get; set; }
     public string NAME { get; set; }
     public string DISPLAY_NAME { get; set; }
-    public string DESCRIPTION { get; set; }
-    public int CONSTRUCTION_TIME { get; set; }
-    public int BUILD_LIMIT { get; set; }
-    public string[] COST { get; set; }
     public string[] RESULT_VARS { get; set; }
     public string[] RESULT_RESOURCES { get; set; }
 	public string[] RESULT_EVENT_DAY { get; set; }
@@ -51,9 +47,6 @@ public class BuildingsParser : DatabaseParser
 
 		buildingData.id = jsonData.ID;
 		buildingData.name = jsonData.NAME;
-		buildingData.constructionTime = jsonData.CONSTRUCTION_TIME;
-		buildingData.buildLimit = jsonData.BUILD_LIMIT;
-		buildingData.costs = ParsingUtils.ParseResultVarChanges(jsonData.COST);
 		buildingData.result = ParsingUtils.ParseResultData(
 			jsonData.RESULT_VARS,
 			jsonData.RESULT_RESOURCES,
