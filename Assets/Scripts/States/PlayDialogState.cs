@@ -85,12 +85,16 @@ public class PlayDialogState : StateCommand
 
 		dialogData.GenerateResultValue();
 
+		GameManager.Instance.debugManager.dialogChoice.AddDialogResourcesInfluence(dialogData);
+
 		DialogPanelUIData panelData = FormatDialogPanelRequestTexts(characterData, dialogData);
 		GameManager.Instance.uiManager.ShowDialogPanel(panelData, () => OnYes(characterData, dialogData), () => OnNo(characterData, dialogData));
 	}
 
 	private async void OnYes (CharacterData characterData, DialogData dialogData)
 	{
+		GameManager.Instance.debugManager.dialogChoice.RemoveDialogResourcesInfluence();
+
 		ApplyResult(dialogData.yesResult);
 
 		await SaveAnswer();
@@ -102,6 +106,8 @@ public class PlayDialogState : StateCommand
 
 	private async void OnNo (CharacterData characterData, DialogData dialogData)
 	{
+		GameManager.Instance.debugManager.dialogChoice.RemoveDialogResourcesInfluence();
+
 		ApplyResult(dialogData.noResult);
 
 		await SaveAnswer();

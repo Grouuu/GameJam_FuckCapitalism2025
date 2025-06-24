@@ -4,6 +4,7 @@ using UnityEngine;
 public class Managers
 {
 	public GameManager gameManager;
+	public DebugManager debugManager;
 	public SaveManager saveManager;
 	public SoundManager soundManager;
 	public I2Manager localizationManager;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 	public int minPopulationGrowth;
 	public int maxPopulationGrowth;
 
+	public DebugManager debugManager => _managers.debugManager;
 	public SaveManager saveManager => _managers.saveManager;
 	public SoundManager soundManager => _managers.soundManager;
 	public I2Manager localizationManager => _managers.localizationManager;
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
 		return new()
 		{
 			gameManager = this,
+			debugManager = GetComponent<DebugManager>(),
 			saveManager = PersistentManager.Instance.saveManager,
 			soundManager = PersistentManager.Instance.soundManager,
 			localizationManager = PersistentManager.Instance.localizationManager,

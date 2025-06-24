@@ -1,30 +1,21 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class DebugManager : MonoBehaviour
 {
-	[SerializeField] private InputActionAsset _inputAction;
+	public DialogChoiceDebug dialogChoice;
 
-	//private InputAction _deleteGameLocalData;
+	public void OnYesHoverIn () => dialogChoice.OnHoverIn(true);
+	public void OnYesHoverOut () => dialogChoice.OnHoverOut(true);
+	public void OnNoHoverIn () => dialogChoice.OnHoverIn(false);
+	public void OnNoHoverOut () => dialogChoice.OnHoverOut(false);
 
-	private void OnEnable ()
+	private void Start ()
 	{
-		//_deleteGameLocalData = _inputAction.FindAction("Debug/DeleteGameLocalData");
-		//_deleteGameLocalData.performed += DeleteGameLocalData;
-	}
+		dialogChoice.Setup();
 
-	private void OnDisable ()
-	{
-		//_deleteGameLocalData.performed -= DeleteGameLocalData;
+#if !UNITY_EDITOR
+		dialogChoice.enabled = false;
+#endif
 	}
-
-	//private void DeleteGameLocalData (InputAction.CallbackContext context)
-	//{
-	//	if (Application.isFocused)
-	//	{
-	//		Debug.LogWarning("Destroyed local data");
-	//		PersistentManager.Instance.saveManager.DeleteSave();
-	//	}
-	//}
 
 }
