@@ -167,10 +167,10 @@ public static class ParsingUtils
 	{
 		string[] varsChanges = { };
 
-		if (changeVars.Length > 0 && !string.IsNullOrEmpty(changeVars[0]))
+		if (changeVars != null && changeVars.Length > 0 && !string.IsNullOrEmpty(changeVars[0]))
 			varsChanges = varsChanges.Concat(changeVars).ToArray();
 
-		if (changeResources.Length > 0 && !string.IsNullOrEmpty(changeResources[0]))
+		if (changeResources != null && changeResources.Length > 0 && !string.IsNullOrEmpty(changeResources[0]))
 			varsChanges = varsChanges.Concat(changeResources).ToArray();
 
 		ResultData result = new();
