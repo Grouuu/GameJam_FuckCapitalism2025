@@ -2543,6 +2543,187 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Mara_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Let\u2019s be real, I\u2019m losing trust in you. Please divert energy to
+        the control room so I can make a deep audit of your actions."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Tweak_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hope, you\u2019re falling apart. I need scraps for emergency repairs."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Tweak_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hope, listen to me. We\u2019ll perform emergency repairs, and need extra
+        power for that."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Tweak_03
+      TermType: 0
+      Description: 
+      Languages:
+      - "I have assembled a group of volunteers for emergency repairs. We know it\u2019s
+        risky, but we don\u2019t want to lose you."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Tweak_03_Alt
+      TermType: 0
+      Description: 
+      Languages:
+      - "I have assembled a group of volunteers for emergency repairs. We know it\u2019s
+        risky, but we don\u2019t want to lose you."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_PowerCore_01
+      TermType: 0
+      Description: 
+      Languages:
+      - '[EMERGENCY ENERGY SAVING PROTOCOL]
+
+
+        Limiting all life support systems
+        to minimal viable settings to save up energy is recommended.
+
+
+        Waiting
+        for approval.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_PowerCore_02
+      TermType: 0
+      Description: 
+      Languages:
+      - '[EMERGENCY ENERGY PRODUCTION PROTOCOL]
+
+
+        Overcharge all energy generators
+        to restore energy levels to normal.
+
+
+        WARNING: risk of structural
+        damages.
+
+
+        Waiting for approval.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_PowerCore_03
+      TermType: 0
+      Description: 
+      Languages:
+      - '[EMERGENCY ENERGY CAPACITORS NEEDED]
+
+
+        Decommissioning missiles
+        and retrofitting them as emergency power sources is advised.
+
+
+        Waiting
+        for approval.'
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Cook_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "This place is grim. Look at those faces, everyone is depressed. That\u2019s
+        not the life we signed for. Let\u2019s throw a party, we need it."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Cook_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ahoy! Can I get some extra power to blast some music for everyone in the
+        station?\n\nLet\u2019s bring some life here!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Chantara_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Camarade, there has been an incident on a station in Sol, people are starving
+        and need urgent relocation.\n\nCan I bring food with me? Maybe I\u2019ll
+        convince some people to join us, who knows\u2026"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Chantara_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Camarade. Some \u201Cworkers\u201D are on the run and need assistance against
+        Celestis. Can I attempt a rescue mission, then hide them here for a while?\n\nSome
+        resistance is expected, nothing I can\u2019t handle."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_RanSun_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "We\u2019re low on construction materials, Dude.\n\nMaybe we could overcharge
+        the recycler?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_RanSun_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Dude, we\u2019re like super low on scraps. I don\u2019t see a quick way
+        to get some, aside from recycling some of your hull\u2019s plating.\n\nWhat
+        do we do?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Captain_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "The sensors have identified a juicy target. We\u2019re low on resources,
+        they\u2019re rich as fuck. Let\u2019s take some.\n\nDesperate times, desperate
+        measures, am I right?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Bugz_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Machine, I don\u2019t like it, but we\u2019re low on food. Can I get some
+        extra energy for the grow lights? I guarantee a bigger yield."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsRequests/Prio_3_Bugz_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Machine. Food storage is low, even my babies feel that everyone is afraid.\n\nWe
+        should tell Cook that my babies will take some time to grow, so he needs
+        to ration everyone.\n\nWe can live out of soup. We\u2019ve done it before."
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: DialogsYes/Tweak_Welcome
       TermType: 0
       Description: 
@@ -3837,6 +4018,143 @@ MonoBehaviour:
       Description: 
       Languages:
       - The messages repeats.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Mara_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "That will take me days\u2026\n\nBut it\u2019s needed."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Tweak_01
+      TermType: 0
+      Description: 
+      Languages:
+      - We can do it!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Tweak_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Thank you.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Tweak_03
+      TermType: 0
+      Description: 
+      Languages:
+      - We did it, everyone is safe.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Tweak_03_Alt
+      TermType: 0
+      Description: 
+      Languages:
+      - We did it, but there was an accident. Some crewmates need immediate evacuation
+        for emergency treatment.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_PowerCore_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Emergency protocol engaged
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_PowerCore_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Emergency protocol engaged
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_PowerCore_03
+      TermType: 0
+      Description: 
+      Languages:
+      - Emergency protocol engaged
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Cook_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "That\u2019s the spirit."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Cook_02
+      TermType: 0
+      Description: 
+      Languages:
+      - That should boost them up? Here we go for the best punk mixtape of this quadrant!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Chantara_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Thanks, from the bottom of my heart.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Chantara_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "You have a good heart. I promise I\u2019ll be back unscathed."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_RanSun_01
+      TermType: 0
+      Description: 
+      Languages:
+      - So how does this thing work?
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_RanSun_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Thanks Dude!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Captain_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Calling all pirates on board of the resilience, we have a target!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Bugz_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Sunshine\u2019s coming, my babieeees!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsYes/Prio_3_Bugz_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "Cook won\u2019t like this, but it\u2019s hard times that make sturdy plants."
       - 
       Flags: 0000
       Languages_Touch: []
@@ -5160,6 +5478,142 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Mara_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "You don\u2019t understand the gravity of the situation, don\u2019t you?"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Tweak_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "Hope, don\u2019t go to waste, please."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Tweak_02
+      TermType: 0
+      Description: 
+      Languages:
+      - "You\u2019re literally falling apart!!!"
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Tweak_03
+      TermType: 0
+      Description: 
+      Languages:
+      - I understand you want to protect us, but we want to protect you as well.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Tweak_03_Alt
+      TermType: 0
+      Description: 
+      Languages:
+      - I understand you want to protect us, but we want to protect you as well.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_PowerCore_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Proposal dismissed
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_PowerCore_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Proposal dismissed
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_PowerCore_03
+      TermType: 0
+      Description: 
+      Languages:
+      - Proposal dismissed
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Cook_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "We didn\u2019t choose this life to be miserable."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Cook_02
+      TermType: 0
+      Description: 
+      Languages:
+      - Not punk.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Chantara_01
+      TermType: 0
+      Description: 
+      Languages:
+      - "That\u2019s not the right thing to do, Camarade."
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Chantara_02
+      TermType: 0
+      Description: 
+      Languages:
+      - I could have done it.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_RanSun_01
+      TermType: 0
+      Description: 
+      Languages:
+      - I had no idea of how to do it safely anyway.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_RanSun_02
+      TermType: 0
+      Description: 
+      Languages:
+      - No problem!
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Captain_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Not cool to let the rich be rich.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Bugz_01
+      TermType: 0
+      Description: 
+      Languages:
+      - Mmmhh, how surprising.
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: DialogsNo/Prio_3_Bugz_02
+      TermType: 0
+      Description: 
+      Languages:
+      - I hope you have a plan, Machine.
+      - 
+      Flags: 0000
+      Languages_Touch: []
     - Term: EventsTitles/Tuto_01
       TermType: 0
       Description: 
@@ -6012,7 +6466,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbxE4LbyVg5j3wlC3qPKQNqn02vewBFKiOMN24sAEMeINH0Zu9_k58rrGVM6tAfLJKMI/exec
     Google_SpreadsheetKey: 1BgSi0pcYXoZY8rZH2lPdD1uZCVBx7ubwf_pqjhvtcQQ
     Google_SpreadsheetName: I2Loc HOPE - Localization
-    Google_LastUpdatedVersion: 1750788887134
+    Google_LastUpdatedVersion: 1751063141385
     Google_Password: gv1685nn&:f58761&32dsf,az:!
     GoogleUpdateFrequency: 1
     GoogleInEditorCheckFrequency: 1
