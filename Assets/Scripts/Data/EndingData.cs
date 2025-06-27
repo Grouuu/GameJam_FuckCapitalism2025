@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 
 public class EndingData
 {
@@ -22,12 +22,12 @@ public class EndingData
         return false;
     }
 
-    public Task UpdateEnterSceneEffects ()
+    public UniTask UpdateEnterSceneEffects ()
     {
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(enterSceneEffets);
     }
 
-    public Task UpdateExitSceneEffects ()
+    public UniTask UpdateExitSceneEffects ()
     {
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(exitSceneEffets);
     }

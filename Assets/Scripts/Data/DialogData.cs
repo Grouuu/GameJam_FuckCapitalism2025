@@ -1,7 +1,4 @@
-
-
-using System.Threading.Tasks;
-using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 public class DialogResultData : ResultData
 {
@@ -71,32 +68,32 @@ public class DialogData
         noResult.UpdateResult();
     }
 
-    public Task UpdateEnterSceneEffects ()
+    public UniTask UpdateEnterSceneEffects ()
 	{
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(enterSceneEffets);
 	}
 
-    public Task UpdateExitSceneEffects ()
+    public UniTask UpdateExitSceneEffects ()
     {
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(exitSceneEffets);
     }
 
-    public Task UpdateYesEnterSceneEffects ()
+    public UniTask UpdateYesEnterSceneEffects ()
     {
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(yesEnterSceneEffets);
     }
 
-    public Task UpdateYesExitSceneEffects ()
+    public UniTask UpdateYesExitSceneEffects ()
     {
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(yesExitSceneEffets);
     }
 
-    public Task UpdateNoEnterSceneEffects ()
+    public UniTask UpdateNoEnterSceneEffects ()
     {
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(noEnterSceneEffets);
     }
 
-    public Task UpdateNoExitSceneEffects ()
+    public UniTask UpdateNoExitSceneEffects ()
     {
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(noExitSceneEffets);
     }

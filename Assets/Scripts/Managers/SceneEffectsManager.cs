@@ -1,6 +1,6 @@
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public static class SceneEffectName
@@ -12,14 +12,14 @@ public class SceneEffect : MonoBehaviour
 {
 	public virtual string effectName => null;
 
-	public virtual async Task Play (bool isResumed = false)
+	public virtual async UniTask Play (bool isResumed = false)
 	{
-		await Task.CompletedTask;
+		await UniTask.CompletedTask;
 	}
 
-	public virtual async Task Stop ()
+	public virtual async UniTask Stop ()
 	{
-		await Task.CompletedTask;
+		await UniTask.CompletedTask;
 	}
 }
 
@@ -57,9 +57,9 @@ public class SceneEffectsManager : MonoBehaviour
 		}
 	}
 
-	public async Task UpdateSceneEffects (EditSceneEffect sceneEffects)
+	public async UniTask UpdateSceneEffects (EditSceneEffect sceneEffects)
 	{
-		List<Task> tasks = new();
+		List<UniTask> tasks = new();
 
 		foreach (string sceneEffectName in sceneEffects.playSceneEffects)
 			tasks.Add(PlaySceneEffect(sceneEffectName));
@@ -67,10 +67,10 @@ public class SceneEffectsManager : MonoBehaviour
 		foreach (string sceneEffectName in sceneEffects.stopSceneEffects)
 			tasks.Add(StopSceneEffect(sceneEffectName));
 
-		await Task.WhenAll(tasks.ToArray());
+		await UniTask.WhenAll(tasks.ToArray());
 	}
 
-	public async Task PlayStartDayEffects ()
+	public async UniTask PlayStartDayEffects ()
 	{
 		SceneEffectData[] effectsData = _sceneEffectsData.Where(entry => entry.timing == -1 && entry.playRequirements.IsOK() && !entry.isRunning).ToArray();
 
@@ -78,7 +78,7 @@ public class SceneEffectsManager : MonoBehaviour
 			await PlaySceneEffect(effectData.name);
 	}
 
-	public async Task PlaySceneEffect (string sceneEffectName)
+	public async UniTask PlaySceneEffect (string sceneEffectName)
 	{
 		SceneEffect sceneEffect = GetSceneEffectByName(sceneEffectName);
 		SceneEffectData sceneEffectData = GetSceneEffectDataByName(sceneEffectName);
@@ -103,7 +103,7 @@ public class SceneEffectsManager : MonoBehaviour
 			await StopSceneEffect(sceneEffectName);
 	}
 
-	public async Task StopSceneEffect (string sceneEffectName)
+	public async UniTask StopSceneEffect (string sceneEffectName)
 	{
 		SceneEffect sceneEffect = GetSceneEffectByName(sceneEffectName);
 		SceneEffectData sceneEffectData = GetSceneEffectDataByName(sceneEffectName);

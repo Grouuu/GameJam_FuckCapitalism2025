@@ -1,5 +1,4 @@
-using System.Threading.Tasks;
-using UnityEngine;
+using Cysharp.Threading.Tasks;
 
 public class EventData
 {
@@ -51,12 +50,12 @@ public class EventData
         result.UpdateResult();
     }
 
-    public Task UpdateEnterSceneEffects ()
+    public UniTask UpdateEnterSceneEffects ()
     {
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(enterSceneEffets);
     }
 
-    public Task UpdateExitSceneEffects ()
+    public UniTask UpdateExitSceneEffects ()
     {
         return GameManager.Instance.sceneEffectsManager.UpdateSceneEffects(exitSceneEffets);
     }

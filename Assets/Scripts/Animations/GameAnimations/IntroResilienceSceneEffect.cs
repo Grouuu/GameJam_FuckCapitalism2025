@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Splines;
 using static UnityEngine.Splines.SplineAnimate;
@@ -16,7 +16,7 @@ public class IntroResilienceSceneEffect : SceneEffect
 
 	public override string effectName => SceneEffectName.IntroResilienceShip;
 
-	public override async Task Play (bool isResumed)
+	public override async UniTask Play (bool isResumed)
 	{
 		// do not resume it automatically
 		if (isResumed)
@@ -27,7 +27,7 @@ public class IntroResilienceSceneEffect : SceneEffect
 		if (playIntro)
 		{
 			PlayIntro();
-			await Task.Delay(Mathf.RoundToInt(delayIntro * 1000));
+			await UniTask.Delay(Mathf.RoundToInt(delayIntro * 1000));
 		}
 		else
 		{

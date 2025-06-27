@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class PlayDialogState : StateCommand
@@ -134,7 +134,7 @@ public class PlayDialogState : StateCommand
 
 	private async void EndDialog (DialogData dialogData, bool isYes)
 	{
-		List<Task> tasks = new();
+		List<UniTask> tasks = new();
 
 		tasks.Add(dialogData.UpdateExitSceneEffects());
 
@@ -143,7 +143,7 @@ public class PlayDialogState : StateCommand
 		else
 			tasks.Add(dialogData.UpdateNoExitSceneEffects());
 
-		await Task.WhenAll(tasks.ToArray());
+		await UniTask.WhenAll(tasks.ToArray());
 
 		if (GameManager.Instance.endingsManager.CheckLose() != null)
 		{

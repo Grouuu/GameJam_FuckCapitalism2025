@@ -47,7 +47,7 @@ public class SaveManager : MonoBehaviour
 
 	public string savePath => Path.Combine(Application.persistentDataPath, WINDOWS_SAVE_KEY);
 
-	private static string VERSION = "0.12";
+	private static string VERSION = "0.13";
 #pragma warning disable CS0414
 	private static string WEB_SAVE_KEY = "HOPE_save";
 #pragma warning restore CS0414
