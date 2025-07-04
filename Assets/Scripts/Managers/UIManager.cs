@@ -5,7 +5,8 @@ public class UIManager : MonoBehaviour
 {
 	public static readonly string PATH_SPRITES = "Sprites/";
 
-	public GameObject prefabResourceIcon;
+	public ResourceIconUI prefabResourceIcon;
+	public ResourceValueSeparatorUI prefabResourceSeparator;
 	public ResourceValueUI[] resourceValuesUI;
 
 	public DialogPanelUI dialogPanel => GetComponent<DialogPanelUI>();
@@ -98,13 +99,18 @@ public class UIManager : MonoBehaviour
 	public void AddResourceValue (VarData varData, int diff, Transform parent, Color color)
 	{
 		// TODO use pool
-		GameObject item = Instantiate(prefabResourceIcon, parent);
-		ResourceIconUI resource = item.GetComponent<ResourceIconUI>();
+		ResourceIconUI resource = Instantiate(prefabResourceIcon, parent);
 
 		resource.SetColor(color);
 		resource.SetIcon(varData.iconFileName);
 		resource.SetValue(diff);
 		resource.SetTooltipName(varData.name);
+	}
+
+	public void AddResourceSeparator (Transform parent)
+	{
+		// TODO use pool
+		Instantiate(prefabResourceSeparator, parent);
 	}
 
 	public void RemoveResourceValues (Transform parent)
@@ -114,6 +120,13 @@ public class UIManager : MonoBehaviour
 		foreach (ResourceIconUI resource in resources)
 		{
 			Destroy(resource.gameObject);
+		}
+
+		ResourceValueSeparatorUI[] separators = parent.GetComponentsInChildren<ResourceValueSeparatorUI>();
+
+		foreach (ResourceValueSeparatorUI separator in separators)
+		{
+			Destroy(separator.gameObject);
 		}
 	}
 

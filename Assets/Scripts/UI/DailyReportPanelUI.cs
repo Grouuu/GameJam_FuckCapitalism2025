@@ -95,6 +95,8 @@ public class DailyReportPanelUI : MonoBehaviour
 	{
 		Dictionary<GameVarId, int> startDayValues = GameManager.Instance.varsManager.GetStartDayResourcesValue();
 		VarData[] endDayValues = GameManager.Instance.varsManager.GetResourcesData();
+		Dictionary<VarData, int> varDataPositiveDelta = new();
+		Dictionary<VarData, int> varDataNegativeDelta = new();
 
 		foreach (VarData resourceData in endDayValues)
 		{
@@ -103,9 +105,20 @@ public class DailyReportPanelUI : MonoBehaviour
 			if (startDayValues.TryGetValue(resourceData.varId, out int oldValue))
 				diff = resourceData.currentValue - oldValue;
 
-			if (diff != 0)
-				GameManager.Instance.uiManager.AddResourceValue(resourceData, diff, resourcesParent, Color.white);
+			if (diff < 0)
+				varDataNegativeDelta.Add(resourceData, diff);
+			else if (diff > 0)
+				varDataPositiveDelta.Add(resourceData, diff);
 		}
+
+		foreach ((VarData resourceData, int diff) in varDataPositiveDelta)
+			GameManager.Instance.uiManager.AddResourceValue(resourceData, diff, resourcesParent, Color.white);
+
+		if (varDataPositiveDelta.Count > 0 && varDataNegativeDelta.Count > 0)
+			GameManager.Instance.uiManager.AddResourceSeparator(resourcesParent);
+
+		foreach ((VarData resourceData, int diff) in varDataNegativeDelta)
+			GameManager.Instance.uiManager.AddResourceValue(resourceData, diff, resourcesParent, Color.white);
 	}
 
 	private void AddProduction ((GameVarId, int)[] production)
