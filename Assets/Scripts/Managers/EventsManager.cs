@@ -42,12 +42,11 @@ public class EventsManager : MonoBehaviour
 		if (selectedEvent != null)
 			return selectedEvent;
 
-		selectedEvent = PickRandomEvent(ignoredEvents, isRandomEventPlayed);
+		// no random event on day 0
+		if (GameManager.Instance.varsManager.GetVarValue(GameVarId.Day) != 0)
+			selectedEvent = PickRandomEvent(ignoredEvents, isRandomEventPlayed);
 
-		if (selectedEvent != null)
-			return selectedEvent;
-
-		return null;
+		return selectedEvent;
 	}
 
 	public void SetEventUsed (string eventName, bool isUsed)
