@@ -29,13 +29,13 @@ public class DialogChoiceDebug
 		foreach (ResultVarChange change in dialogData.yesResult.varChanges)
 		{
 			VarData varData = GameManager.Instance.varsManager.GetVarData(change.varId);
-			GameManager.Instance.uiManager.AddResourceValue(varData, change.currentValue, yesDebugContainer, Color.white);
+			GameManager.Instance.uiManager.AddResourceValue(varData, change.currentValue, yesDebugContainer, Color.white, Color.black);
 		}
 
 		foreach (ResultVarChange change in dialogData.noResult.varChanges)
 		{
 			VarData varData = GameManager.Instance.varsManager.GetVarData(change.varId);
-			GameManager.Instance.uiManager.AddResourceValue(varData, change.currentValue, noDebugContainer, Color.white);
+			GameManager.Instance.uiManager.AddResourceValue(varData, change.currentValue, noDebugContainer, Color.white, Color.black);
 		}
 	}
 

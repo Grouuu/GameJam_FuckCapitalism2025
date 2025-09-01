@@ -406,6 +406,7 @@ MonoBehaviour:
   valueText: {fileID: 4059248835925613908}
   tooltipText: {fileID: 7579585222319596164}
   tooltipLocalize: {fileID: 2662098970897943210}
+  tooltipBackground: {fileID: 1916672436541226272}
 --- !u!114 &5954543173407652731
 MonoBehaviour:
   m_ObjectHideFlags: 0

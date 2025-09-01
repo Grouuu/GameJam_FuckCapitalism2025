@@ -112,13 +112,13 @@ public class DailyReportPanelUI : MonoBehaviour
 		}
 
 		foreach ((VarData resourceData, int diff) in varDataPositiveDelta)
-			GameManager.Instance.uiManager.AddResourceValue(resourceData, diff, resourcesParent, Color.white);
+			GameManager.Instance.uiManager.AddResourceValue(resourceData, diff, resourcesParent, Color.white, Color.black);
 
 		if (varDataPositiveDelta.Count > 0 && varDataNegativeDelta.Count > 0)
 			GameManager.Instance.uiManager.AddResourceSeparator(resourcesParent);
 
 		foreach ((VarData resourceData, int diff) in varDataNegativeDelta)
-			GameManager.Instance.uiManager.AddResourceValue(resourceData, diff, resourcesParent, Color.white);
+			GameManager.Instance.uiManager.AddResourceValue(resourceData, diff, resourcesParent, Color.white, Color.black);
 	}
 
 	private void AddProduction ((GameVarId, int)[] production)
@@ -126,7 +126,7 @@ public class DailyReportPanelUI : MonoBehaviour
 		foreach ((GameVarId varId, int value) in production)
 		{
 			VarData varData = GameManager.Instance.varsManager.GetVarData(varId);
-			GameManager.Instance.uiManager.AddResourceValue(varData, value, productionParent, Color.white);
+			GameManager.Instance.uiManager.AddResourceValue(varData, value, productionParent, Color.white, Color.black);
 		}
 	}
 

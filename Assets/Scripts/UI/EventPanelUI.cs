@@ -103,7 +103,7 @@ public class EventPanelUI : MonoBehaviour
 			VarData varData = GameManager.Instance.varsManager.GetVarData(change.varId);
 
 			if (varData != null && varData.varId != GameVarId.None && varData.type == GameVarType.UIVar)
-				GameManager.Instance.uiManager.AddResourceValue(varData, change.currentValue, resourcesParent, Color.black);
+				GameManager.Instance.uiManager.AddResourceValue(varData, change.currentValue, resourcesParent, Color.black, Color.white);
 		}
 	}
 }

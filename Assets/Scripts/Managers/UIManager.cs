@@ -96,12 +96,12 @@ public class UIManager : MonoBehaviour
 		dialogPanel.Hide();
 	}
 
-	public void AddResourceValue (VarData varData, int diff, Transform parent, Color color)
+	public void AddResourceValue (VarData varData, int diff, Transform parent, Color color, Color secondColor)
 	{
 		// TODO use pool
 		ResourceIconUI resource = Instantiate(prefabResourceIcon, parent);
 
-		resource.SetColor(color);
+		resource.SetColor(color, color, secondColor, color);
 		resource.SetIcon(varData.iconFileName);
 		resource.SetValue(diff);
 		resource.SetTooltipName(varData.name);

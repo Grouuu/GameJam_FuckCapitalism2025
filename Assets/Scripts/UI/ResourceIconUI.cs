@@ -11,14 +11,17 @@ public class ResourceIconUI : MonoBehaviour
 	public TextMeshProUGUI valueText;
 	public TextMeshProUGUI tooltipText;
 	public Localize tooltipLocalize;
+	public Image tooltipBackground;
 
 	private Sprite _sprite;
 
-	public void SetColor(Color color)
+	public void SetColor(Color iconColor, Color iconTextColor, Color tooltipTextColor, Color tooltipBackgroundColor)
 	{
-		iconSprite.color = color;
-		valueText.color = color;
-		tooltipText.color = color;
+		iconSprite.color = iconColor;
+		valueText.color = iconTextColor;
+		tooltipText.color = iconColor;
+		tooltipText.color = tooltipTextColor;
+		tooltipBackground.color = tooltipBackgroundColor;
 	}
 
 	public void SetIcon (string fileName)
