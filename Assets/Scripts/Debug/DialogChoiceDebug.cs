@@ -14,6 +14,13 @@ public class DialogChoiceDebug
 		noDebugContainer.gameObject.SetActive(false);
 	}
 
+	public void Clear ()
+	{
+		SetVisibility(false, true);
+		SetVisibility(false, false);
+		RemoveDialogResourcesInfluence();
+	}
+
 	public void OnHoverIn (bool isYes)
 	{
 		SetVisibility(true, isYes);
@@ -45,7 +52,7 @@ public class DialogChoiceDebug
 		GameManager.Instance.uiManager.RemoveResourceValues(noDebugContainer);
 	}
 
-	private void SetVisibility (bool isShow, bool isYes)
+	public void SetVisibility (bool isShow, bool isYes)
 	{
 		if (!enabled)
 			return;

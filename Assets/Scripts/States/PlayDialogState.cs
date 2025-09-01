@@ -85,6 +85,7 @@ public class PlayDialogState : StateCommand
 
 		dialogData.GenerateResultValue();
 
+		GameManager.Instance.debugManager.dialogChoice.Clear();
 		GameManager.Instance.debugManager.dialogChoice.AddDialogResourcesInfluence(dialogData);
 
 		DialogPanelUIData panelData = FormatDialogPanelRequestTexts(characterData, dialogData);
