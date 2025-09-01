@@ -48,6 +48,8 @@ public class CharactersManager : MonoBehaviour
 
 	public (CharacterData, DialogData) PickDialog (string[] ignoredCharacters)
 	{
+		int currentDay = GameManager.Instance.varsManager.GetVarValue(GameVarId.Day);
+
 		// all characters not played today with available dialogs
 		CharacterData[] availableCharacters = _characters
 			.Where(characterData => characterData.isAvailable())
@@ -84,14 +86,18 @@ public class CharactersManager : MonoBehaviour
 
 				dialogsByPriority[dialog.priority].Add((character, dialog));
 
-				foreach (GameVarId varId in character.relatedGameVars)
+				if (currentDay != 0)
 				{
-					bool isResourceLow = GameManager.Instance.varsManager.IsVarLow(varId);
-
-					if (isResourceLow && dialog.priority == 3)
+					// record dialogs about low ressources
+					foreach (GameVarId varId in character.relatedGameVars)
 					{
-						lowResourcesDialogs.Add((character, dialog));
-						break;
+						bool isResourceLow = GameManager.Instance.varsManager.IsVarLow(varId);
+
+						if (isResourceLow && dialog.priority == 3)
+						{
+							lowResourcesDialogs.Add((character, dialog));
+							break;
+						}
 					}
 				}
 			}
