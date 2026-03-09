@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362f5917db3e1864f9c6257e3883ff10, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  DebugManagerSettings: {fileID: 11400000, guid: ee0cb269cd5be9c47b2e9acd103e3f88, type: 2}
+  DatabaseManagerSettings: {fileID: 11400000, guid: e86818c307d7e984ba0e2ce2a744af56, type: 2}
+  UIManagerSettings: {fileID: 11400000, guid: e818824ef66fc4b4cb9fcfcde04df85a, type: 2}
+  GameStateManagerSettings: {fileID: 11400000, guid: 846e0b27078646e42a3d8c07a51541ea, type: 2}
+  VarsManagerSettings: {fileID: 11400000, guid: c23f48c0aba1ad44a9084bdc1cabba1d, type: 2}
+  CharactersManagerSettings: {fileID: 11400000, guid: d29054d038a681a4b9a2c9dbfcf3d6c6, type: 2}
+  EventsManagerSettings: {fileID: 11400000, guid: 11649664c7b3ccd4e874ae89358f3808, type: 2}
+  EndingsManagerSettings: {fileID: 11400000, guid: c16ecc716c0838f498bf98154b21dc1c, type: 2}
+  ProductionManagerSettings: {fileID: 11400000, guid: b4014fdeb6536424ba5662b1f0009a0e, type: 2}
+  BuildingsManagerSettings: {fileID: 11400000, guid: 3bc8369d03e5f5d49b94efb04d12f720, type: 2}
+  SceneEffectsManagerSettings: {fileID: 11400000, guid: b3cf1225c3c5d93489805ce330ff9119, type: 2}

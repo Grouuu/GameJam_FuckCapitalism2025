@@ -1,4 +1,7 @@
 using Cysharp.Threading.Tasks;
+using Grouuu.Constants;
+using Grouuu.PersistentManagers;
+using Grouuu.Utils;
 using UnityEngine;
 using UnityEngine.Splines;
 using static UnityEngine.Splines.SplineAnimate;
@@ -14,7 +17,7 @@ public class IntroResilienceSceneEffect : SceneEffect
 	public EasingMode loopEase;
 	public int loopSpeed;
 
-	public override string effectName => SceneEffectName.IntroResilienceShip;
+	public override string EffectName => SceneEffectName.IntroResilienceShip;
 
 	public override async UniTask Play (bool isResumed)
 	{

@@ -1,10 +1,14 @@
+using Grouuu;
+using Grouuu.Data;
+using Grouuu.Managers;
+using Grouuu.Utils;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(VarsManager))]
+[CustomEditor(typeof(GameController))]
 public class VarsManagerEditor : Editor
 {
-	private VarsManager targetComponent;
+	//private GameController targetComponent;
 
 	public override void OnInspectorGUI ()
 	{
@@ -22,7 +26,7 @@ public class VarsManagerEditor : Editor
 		if (serializedObject.hasModifiedProperties || serializedObject.UpdateIfRequiredOrScript())
 			Repaint();
 
-		VarData[] varsData = targetComponent.GetAllVars();
+		VarData[] varsData = GameController.GameManagers.VarsManager.GetAllVars();
 
 		foreach (VarData varData in varsData)
 		{
@@ -33,13 +37,12 @@ public class VarsManagerEditor : Editor
 
 			// set the change to the current game value
 			if (EditorGUI.EndChangeCheck())
-				targetComponent.SetValueToVar(varData.varId, newValue, true);
+				GameController.GameManagers.VarsManager.SetValueToVar(varData.varId, newValue, true);
 		}
 	}
 
-	private void OnEnable ()
-	{
-		targetComponent = (VarsManager) target;
-	}
-
+	//private void OnEnable ()
+	//{
+	//	targetComponent = (GameController) target;
+	//}
 }

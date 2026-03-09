@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using Grouuu.PersistentManagers;
 
 [CustomEditor(typeof(I2Manager))]
 public class I2ManagerEditor : Editor
